@@ -1,0 +1,619 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Developer’s Guide &mdash; GMT Software And Controls documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="GMT Software And Controls documentation" href="index.html"/>
+        <link rel="up" title="User Manuals" href="UserManuals.html"/>
+        <link rel="next" title="Contribute" href="Contribute.html"/>
+        <link rel="prev" title="Getting Started" href="GettingStarted.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> GMT Software And Controls
+          
+
+          
+            
+            <img src="_static/logo.jpg" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="simple">
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ReleaseNotes.html">Release Notes</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="UserManuals.html">User Manuals</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="GettingStarted.html">Getting Started</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Developer&#8217;s Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#invoking-dcss">Invoking DCSS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hardware-development-kit-hdk-example">Hardware Development Kit (HDK) example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-dcss-interactively">Using DCSS interactively</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#a-simple-program">A Simple Program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#another-simple-example">Another Simple Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#motion-control-example">Motion Control Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#asynchronous-motion-control-example">Asynchronous Motion Control Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#finding-out-more">Finding Out More</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Contribute.html">Contribute</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">GMT Software And Controls</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="UserManuals.html">User Manuals</a> &raquo;</li>
+      
+    <li>Developer&#8217;s Guide</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/DevGuide.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="developer-s-guide">
+<span id="devguide"></span><h1>Developer&#8217;s Guide<a class="headerlink" href="#developer-s-guide" title="Permalink to this headline">¶</a></h1>
+<p>DCSS is the Device Control System Startup. It is a python interpreter
+extended with C++ bindings to the IO Framework library.</p>
+<div class="section" id="invoking-dcss">
+<h2>Invoking DCSS<a class="headerlink" href="#invoking-dcss" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>dcss <span class="o">[</span>file<span class="o">]</span>
+</pre></div>
+</div>
+<p><strong>dcss</strong> takes an optional json file with the description of the IO fieldbuses.
+If no file is provided, <strong>dcss</strong> will automatically scan the first ethercat master it encounters.</p>
+<p>A sample definition file for the hardware development kit can be found
+<a class="reference external" href="https://github.com/mdcb-gmt/gmtx/blob/refactoring/gmt_iofwk/examples/hdk/hdk.json">here</a>.</p>
+</div>
+<div class="section" id="hardware-development-kit-hdk-example">
+<h2>Hardware Development Kit (HDK) example<a class="headerlink" href="#hardware-development-kit-hdk-example" title="Permalink to this headline">¶</a></h2>
+<p><strong>dcss</strong> provides a number of globally scoped variable for convenience.
+<em>fb&lt;n&gt;</em> is a handle to the n-th fieldbus. <em>fb</em> is a handle to the fieldbus.
+Typically there will be only one fieldbus attached to your system, hence allows
+you to use the <em>fb</em> shortcut.</p>
+<p>Obtaining information about the hdk fieldbus:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fb</span>
+<span class="go">&lt;gmt.ecx.ecxx.IghFieldbus object at 0x7f6551449830&gt;</span>
+</pre></div>
+</div>
+<p>IghFieldbus have an EtherCAT master:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fb</span><span class="o">.</span><span class="n">master</span>
+<span class="go">&lt;gmt.ecx.ecxx.EcatMaster object at 0x7f6551449fa0&gt;</span>
+</pre></div>
+</div>
+<p>Obtaining information about the hdk fieldbus nodes:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="p">([(</span><span class="n">x</span><span class="o">.</span><span class="n">uri</span><span class="p">,</span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">fb</span><span class="o">.</span><span class="n">nodes</span><span class="p">])</span>
+<span class="go">[(&#39;bh_ek1100_00&#39;, &lt;class &#39;gmt.ecx.ecxx.EcatSlave&#39;&gt;),</span>
+<span class="go"> (&#39;bh_el1809_01&#39;, &lt;class &#39;gmt.ecx.ecxx.IO_EL1809_00100000&#39;&gt;),</span>
+<span class="go"> (&#39;bh_el2809_02&#39;, &lt;class &#39;gmt.ecx.ecxx.IO_EL2809&#39;&gt;),</span>
+<span class="go"> (&#39;bh_el3002_03&#39;, &lt;class &#39;gmt.ecx.ecxx.IO_EL3002_00140000&#39;&gt;),</span>
+<span class="go"> (&#39;bh_el3202_04&#39;, &lt;class &#39;gmt.ecx.ecxx.IO_EL3202_0011000a&#39;&gt;),</span>
+<span class="go"> (&#39;bh_el4032_05&#39;, &lt;class &#39;gmt.ecx.ecxx.IO_EL4032_00130000&#39;&gt;),</span>
+<span class="go"> (&#39;bh_el7041_06&#39;, &lt;class &#39;gmt.ecx.ecxx.IO_EL7041_00170000&#39;&gt;),</span>
+<span class="go"> (&#39;bh_ek1110_07&#39;, &lt;class &#39;gmt.ecx.ecxx.EcatSlave&#39;&gt;)]</span>
+</pre></div>
+</div>
+<p>Fieldbuses provides their nodes as locally scoped variable for convenience.
+Those are named after the nodes&#8217; URI. Hence the following handles on HDK:
+fb.bh_el1809_01,
+fb.bh_el2809_02,
+fb.bh_el3002_03,
+fb.bh_el3202_04,
+fb.bh_el4032_05,
+fb.bh_el7041_06</p>
+<p>For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fb</span><span class="o">.</span><span class="n">bh_el7041_06</span>
+<span class="go">&lt;gmt.ecx.ecxx.IO_EL7041_00170000 object at 0x7f6551449b40&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-dcss-interactively">
+<h2>Using DCSS interactively<a class="headerlink" href="#using-dcss-interactively" title="Permalink to this headline">¶</a></h2>
+<p>All the Component in the IO framework have a report() method.
+The output is in json, readily consummable for scripting. A
+pretty print report method ppr() is provided to help interactivity:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="p">([(</span><span class="n">k</span><span class="p">,</span><span class="n">v</span><span class="p">[</span><span class="s1">&#39;definition&#39;</span><span class="p">][</span><span class="s1">&#39;desc&#39;</span><span class="p">])</span> \
+<span class="go">           for k,v in fb.bh_el7041_06.report()[&#39;pdos&#39;].iteritems()])</span>
+
+<span class="go">[(&#39;1A03601003&#39;, &#39;STM Status: Status__Warning&#39;),</span>
+<span class="go"> (&#39;1A01600005&#39;, &#39;ENC Status: Status__Counter overflow&#39;),</span>
+<span class="go"> (&#39;1A01600004&#39;, &#39;ENC Status: Status__Counter underflow&#39;),</span>
+<span class="go"> (&#39;1A01600003&#39;, &#39;ENC Status: Status__Set counter done&#39;),</span>
+<span class="go"> (&#39;1A01600002&#39;, &#39;ENC Status: Status__Latch extern valid&#39;),</span>
+<span class="go"> (&#39;1A01600001&#39;, &#39;ENC Status: Status__Latch C valid&#39;),</span>
+<span class="go"> (&#39;1A0360100D&#39;, &#39;STM Status: Status__Digital input 2&#39;),</span>
+<span class="go"> (&#39;1A0360100E&#39;, &#39;STM Status: Status__Sync error&#39;),</span>
+<span class="go"> (&#39;1A0360100C&#39;, &#39;STM Status: Status__Digital input 1&#39;),</span>
+<span class="go"> (&#39;1A01600009&#39;, &#39;ENC Status: Status__Status of input A&#39;),</span>
+<span class="go"> (&#39;1A01600008&#39;, &#39;ENC Status: Status__Extrapolation stall&#39;),</span>
+<span class="go"> (&#39;1A06602011&#39;, &#39;POS Status: Actual position&#39;),</span>
+<span class="go"> (&#39;1606702021&#39;, &#39;POS Control: Velocity&#39;),</span>
+<span class="go"> (&#39;1606702022&#39;, &#39;POS Control: Start type&#39;),</span>
+<span class="go"> (&#39;1606702023&#39;, &#39;POS Control: Acceleration&#39;),</span>
+<span class="go"> (&#39;1606702024&#39;, &#39;POS Control: Deceleration&#39;),</span>
+<span class="go"> (&#39;1A03601010&#39;, &#39;STM Status: Status__TxPDO Toggle&#39;),</span>
+<span class="go"> (&#39;1606702002&#39;, &#39;POS Control: Control__Emergency stop&#39;),</span>
+<span class="go"> (&#39;1A06602004&#39;, &#39;POS Status: Status__Error&#39;),</span>
+<span class="go"> (&#39;1606702001&#39;, &#39;POS Control: Control__Execute&#39;),</span>
+<span class="go"> (&#39;1A06602021&#39;, &#39;POS Status: Actual velocity&#39;),</span>
+<span class="go"> (&#39;1601700011&#39;, &#39;ENC Control: Set counter value&#39;),</span>
+<span class="go"> (&#39;1A06602003&#39;, &#39;POS Status: Status__Warning&#39;),</span>
+<span class="go"> (&#39;1602701003&#39;, &#39;STM Control: Control__Reduce torque&#39;),</span>
+<span class="go"> (&#39;1602701002&#39;, &#39;STM Control: Control__Reset&#39;),</span>
+<span class="go"> (&#39;1602701001&#39;, &#39;STM Control: Control__Enable&#39;),</span>
+<span class="go"> (&#39;1A06602001&#39;, &#39;POS Status: Status__Busy&#39;),</span>
+<span class="go"> (&#39;1A06602005&#39;, &#39;POS Status: Status__Calibrated&#39;),</span>
+<span class="go"> (&#39;1A06602022&#39;, &#39;POS Status: Actual drive time&#39;),</span>
+<span class="go"> (&#39;1A06602007&#39;, &#39;POS Status: Status__Decelerate&#39;),</span>
+<span class="go"> (&#39;1A06602002&#39;, &#39;POS Status: Status__In-Target&#39;),</span>
+<span class="go"> (&#39;1A01600010&#39;, &#39;ENC Status: Status__TxPDO Toggle&#39;),</span>
+<span class="go"> (&#39;1A0160000E&#39;, &#39;ENC Status: Status__Sync error&#39;),</span>
+<span class="go"> (&#39;1A0160000D&#39;, &#39;ENC Status: Status__Status of extern latch&#39;),</span>
+<span class="go"> (&#39;1A06602006&#39;, &#39;POS Status: Status__Accelerate&#39;),</span>
+<span class="go"> (&#39;1A0160000B&#39;, &#39;ENC Status: Status__Status of input C&#39;),</span>
+<span class="go"> (&#39;1A0160000A&#39;, &#39;ENC Status: Status__Status of input B&#39;),</span>
+<span class="go"> (&#39;1A01600011&#39;, &#39;ENC Status: Counter value&#39;),</span>
+<span class="go"> (&#39;1A03601006&#39;, &#39;STM Status: Status__Moving negative&#39;),</span>
+<span class="go"> (&#39;1A03601007&#39;, &#39;STM Status: Status__Torque reduced&#39;),</span>
+<span class="go"> (&#39;1A03601004&#39;, &#39;STM Status: Status__Error&#39;),</span>
+<span class="go"> (&#39;1A03601005&#39;, &#39;STM Status: Status__Moving positive&#39;),</span>
+<span class="go"> (&#39;1A03601002&#39;, &#39;STM Status: Status__Ready&#39;),</span>
+<span class="go"> (&#39;1A01600012&#39;, &#39;ENC Status: Latch value&#39;),</span>
+<span class="go"> (&#39;1A03601001&#39;, &#39;STM Status: Status__Ready to enable&#39;),</span>
+<span class="go"> (&#39;1601700003&#39;, &#39;ENC Control: Control__Set counter&#39;),</span>
+<span class="go"> (&#39;1601700002&#39;, &#39;ENC Control: Control__Enable latch extern on positive edge&#39;),</span>
+<span class="go"> (&#39;1601700001&#39;, &#39;ENC Control: Control__Enable latch C&#39;),</span>
+<span class="go"> (&#39;1606702011&#39;, &#39;POS Control: Target position&#39;),</span>
+<span class="go"> (&#39;1601700004&#39;, &#39;ENC Control: Control__Enable latch extern on negative edge&#39;)]</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fb</span><span class="o">.</span><span class="n">bh_el1809_01</span><span class="o">.</span><span class="n">ppr</span><span class="p">()</span>
+<span class="go">{&#39;class&#39;: &#39;IO_EL1809&#39;,</span>
+<span class="go"> &#39;desc&#39;: &#39;auto-scanned&#39;,</span>
+<span class="go"> &#39;inp_sz&#39;: 2L,</span>
+<span class="go"> &#39;mapped&#39;: True,</span>
+<span class="go"> &#39;modef&#39;: {&#39;dtype&#39;: &#39;bh_el1809&#39;,</span>
+<span class="go">           &#39;file_name&#39;: &#39;bh_el1809_00100000&#39;,</span>
+<span class="go">           &#39;inp_sz&#39;: 2L,</span>
+<span class="go">           &#39;out_sz&#39;: 0L,</span>
+<span class="go">           &#39;product_code&#39;: 118566994L,</span>
+<span class="go">           &#39;revision_number&#39;: 1048576L,</span>
+<span class="go">           &#39;vendor_id&#39;: 2L},</span>
+<span class="go"> &#39;mst_id&#39;: 0L,</span>
+<span class="go"> &#39;out_sz&#39;: 0L,</span>
+<span class="go"> &#39;pdos&#39;: {&#39;1A00600001&#39;: {&#39;bit_position&#39;: 0L,</span>
+<span class="go">                         &#39;definition&#39;: {&#39;bit_length&#39;: 1L,</span>
+<span class="go">                                        &#39;desc&#39;: &#39;Channel 1: Input&#39;,</span>
+<span class="go">                                        &#39;dir&#39;: 2L,</span>
+<span class="go">                                        &#39;index&#39;: 24576L,</span>
+<span class="go">                                        &#39;pdo&#39;: 6656L,</span>
+<span class="go">                                        &#39;subindex&#39;: 1L,</span>
+<span class="go">                                        &#39;typ&#39;: &#39;BOOL&#39;},</span>
+<span class="go">                         &#39;offset&#39;: 0L,</span>
+<span class="go">                         &#39;value&#39;: False},</span>
+<span class="go">          &#39;1A01601001&#39;: {&#39;bit_position&#39;: 1L,</span>
+<span class="go">                         &#39;definition&#39;: {&#39;bit_length&#39;: 1L,</span>
+<span class="go">                                        &#39;desc&#39;: &#39;Channel 2: Input&#39;,</span>
+<span class="go">                                        &#39;dir&#39;: 2L,</span>
+<span class="go">                                        &#39;index&#39;: 24592L,</span>
+<span class="go">                                        &#39;pdo&#39;: 6657L,</span>
+<span class="go">                                        &#39;subindex&#39;: 1L,</span>
+<span class="go">                                        &#39;typ&#39;: &#39;BOOL&#39;},</span>
+<span class="go">                         &#39;offset&#39;: 0L,</span>
+<span class="go">                         &#39;value&#39;: False},</span>
+<span class="go">          &#39;1A02602001&#39;: {&#39;bit_position&#39;: 2L,</span>
+<span class="go">                         &#39;definition&#39;: {&#39;bit_length&#39;: 1L,</span>
+<span class="go">                                        &#39;desc&#39;: &#39;Channel 3: Input&#39;,</span>
+<span class="go">                                          &#39;dir&#39;: 2L,</span>
+<span class="go">                                          &#39;index&#39;: 24608L,</span>
+<span class="go">                                          &#39;pdo&#39;: 6658L,</span>
+<span class="go">                                          &#39;subindex&#39;: 1L,</span>
+<span class="go">                                          &#39;typ&#39;: &#39;BOOL&#39;},</span>
+<span class="go">                           &#39;offset&#39;: 0L,</span>
+<span class="go">                           &#39;value&#39;: True},</span>
+<span class="go">          &#39;1A03603001&#39;: {&#39;bit_position&#39;: 3L,</span>
+<span class="go">                         &#39;definition&#39;: {&#39;bit_length&#39;: 1L,</span>
+<span class="go">                                        &#39;desc&#39;: &#39;Channel 4: Input&#39;,</span>
+<span class="go">                                        &#39;dir&#39;: 2L,</span>
+<span class="go">                                        &#39;index&#39;: 24624L,</span>
+<span class="go">                                        &#39;pdo&#39;: 6659L,</span>
+<span class="go">                                        &#39;subindex&#39;: 1L,</span>
+<span class="go">                                        &#39;typ&#39;: &#39;BOOL&#39;},</span>
+<span class="go">                         &#39;offset&#39;: 0L,</span>
+<span class="go">                         &#39;value&#39;: False},</span>
+<span class="go">          &#39;1A04604001&#39;: {&#39;bit_position&#39;: 4L,</span>
+<span class="go">                         &#39;definition&#39;: {&#39;bit_length&#39;: 1L,</span>
+<span class="go">                                        &#39;desc&#39;: &#39;Channel 5: Input&#39;,</span>
+<span class="go">                                        &#39;dir&#39;: 2L,</span>
+<span class="go">                                        &#39;index&#39;: 24640L,</span>
+<span class="go">                                        &#39;pdo&#39;: 6660L,</span>
+<span class="go">                                        &#39;subindex&#39;: 1L,</span>
+<span class="go">                                        &#39;typ&#39;: &#39;BOOL&#39;},</span>
+<span class="go">                         &#39;offset&#39;: 0L,</span>
+<span class="go">                         &#39;value&#39;: False},</span>
+<span class="go">          &#39;1A05605001&#39;: {&#39;bit_position&#39;: 5L,</span>
+<span class="go">                         &#39;definition&#39;: {&#39;bit_length&#39;: 1L,</span>
+<span class="go">                                        &#39;desc&#39;: &#39;Channel 6: Input&#39;,</span>
+<span class="go">                                        &#39;dir&#39;: 2L,</span>
+<span class="go">                                        &#39;index&#39;: 24656L,</span>
+<span class="go">                                        &#39;pdo&#39;: 6661L,</span>
+<span class="go">                                        &#39;subindex&#39;: 1L,</span>
+<span class="go">                                        &#39;typ&#39;: &#39;BOOL&#39;},</span>
+<span class="go">                         &#39;offset&#39;: 0L,</span>
+<span class="go">                         &#39;value&#39;: False},</span>
+<span class="go">          &#39;1A06606001&#39;: {&#39;bit_position&#39;: 6L,</span>
+<span class="go">                         &#39;definition&#39;: {&#39;bit_length&#39;: 1L,</span>
+<span class="go">                                        &#39;desc&#39;: &#39;Channel 7: Input&#39;,</span>
+<span class="go">                                        &#39;dir&#39;: 2L,</span>
+<span class="go">                                        &#39;index&#39;: 24672L,</span>
+<span class="go">                                        &#39;pdo&#39;: 6662L,</span>
+<span class="go">                                        &#39;subindex&#39;: 1L,</span>
+<span class="go">                                        &#39;typ&#39;: &#39;BOOL&#39;},</span>
+<span class="go">                         &#39;offset&#39;: 0L,</span>
+<span class="go">                         &#39;value&#39;: False},</span>
+<span class="go">          &#39;1A07607001&#39;: {&#39;bit_position&#39;: 7L,</span>
+<span class="go">                         &#39;definition&#39;: {&#39;bit_length&#39;: 1L,</span>
+<span class="go">                                        &#39;desc&#39;: &#39;Channel 8: Input&#39;,</span>
+<span class="go">                                        &#39;dir&#39;: 2L,</span>
+<span class="go">                                        &#39;index&#39;: 24688L,</span>
+<span class="go">                                        &#39;pdo&#39;: 6663L,</span>
+<span class="go">                                        &#39;subindex&#39;: 1L,</span>
+<span class="go">                                        &#39;typ&#39;: &#39;BOOL&#39;},</span>
+<span class="go">                         &#39;offset&#39;: 0L,</span>
+<span class="go">                         &#39;value&#39;: False},</span>
+<span class="go">          &#39;1A08608001&#39;: {&#39;bit_position&#39;: 0L,</span>
+<span class="go">                         &#39;definition&#39;: {&#39;bit_length&#39;: 1L,</span>
+<span class="go">                                        &#39;desc&#39;: &#39;Channel 9: Input&#39;,</span>
+<span class="go">                                        &#39;dir&#39;: 2L,</span>
+<span class="go">                                        &#39;index&#39;: 24704L,</span>
+<span class="go">                                        &#39;pdo&#39;: 6664L,</span>
+<span class="go">                                        &#39;subindex&#39;: 1L,</span>
+<span class="go">                                        &#39;typ&#39;: &#39;BOOL&#39;},</span>
+<span class="go">                         &#39;offset&#39;: 1L,</span>
+<span class="go">                         &#39;value&#39;: False},</span>
+<span class="go">          &#39;1A09609001&#39;: {&#39;bit_position&#39;: 1L,</span>
+<span class="go">                         &#39;definition&#39;: {&#39;bit_length&#39;: 1L,</span>
+<span class="go">                                        &#39;desc&#39;: &#39;Channel 10: Input&#39;,</span>
+<span class="go">                                        &#39;dir&#39;: 2L,</span>
+<span class="go">                                        &#39;index&#39;: 24720L,</span>
+<span class="go">                                        &#39;pdo&#39;: 6665L,</span>
+<span class="go">                                        &#39;subindex&#39;: 1L,</span>
+<span class="go">                                        &#39;typ&#39;: &#39;BOOL&#39;},</span>
+<span class="go">                         &#39;offset&#39;: 1L,</span>
+<span class="go">                         &#39;value&#39;: False},</span>
+<span class="go">          &#39;1A0A60A001&#39;: {&#39;bit_position&#39;: 2L,</span>
+<span class="go">                         &#39;definition&#39;: {&#39;bit_length&#39;: 1L,</span>
+<span class="go">                                        &#39;desc&#39;: &#39;Channel 11: Input&#39;,</span>
+<span class="go">                                        &#39;dir&#39;: 2L,</span>
+<span class="go">                                        &#39;index&#39;: 24736L,</span>
+<span class="go">                                        &#39;pdo&#39;: 6666L,</span>
+<span class="go">                                        &#39;subindex&#39;: 1L,</span>
+<span class="go">                                        &#39;typ&#39;: &#39;BOOL&#39;},</span>
+<span class="go">                         &#39;offset&#39;: 1L,</span>
+<span class="go">                         &#39;value&#39;: False},</span>
+<span class="go">          &#39;1A0B60B001&#39;: {&#39;bit_position&#39;: 3L,</span>
+<span class="go">                         &#39;definition&#39;: {&#39;bit_length&#39;: 1L,</span>
+<span class="go">                                        &#39;desc&#39;: &#39;Channel 12: Input&#39;,</span>
+<span class="go">                                        &#39;dir&#39;: 2L,</span>
+<span class="go">                                        &#39;index&#39;: 24752L,</span>
+<span class="go">                                        &#39;pdo&#39;: 6667L,</span>
+<span class="go">                                        &#39;subindex&#39;: 1L,</span>
+<span class="go">                                        &#39;typ&#39;: &#39;BOOL&#39;},</span>
+<span class="go">                         &#39;offset&#39;: 1L,</span>
+<span class="go">                         &#39;value&#39;: False},</span>
+<span class="go">          &#39;1A0C60C001&#39;: {&#39;bit_position&#39;: 4L,</span>
+<span class="go">                         &#39;definition&#39;: {&#39;bit_length&#39;: 1L,</span>
+<span class="go">                                        &#39;desc&#39;: &#39;Channel 13: Input&#39;,</span>
+<span class="go">                                        &#39;dir&#39;: 2L,</span>
+<span class="go">                                        &#39;index&#39;: 24768L,</span>
+<span class="go">                                        &#39;pdo&#39;: 6668L,</span>
+<span class="go">                                        &#39;subindex&#39;: 1L,</span>
+<span class="go">                                        &#39;typ&#39;: &#39;BOOL&#39;},</span>
+<span class="go">                         &#39;offset&#39;: 1L,</span>
+<span class="go">                         &#39;value&#39;: False},</span>
+<span class="go">          &#39;1A0D60D001&#39;: {&#39;bit_position&#39;: 5L,</span>
+<span class="go">                         &#39;definition&#39;: {&#39;bit_length&#39;: 1L,</span>
+<span class="go">                                        &#39;desc&#39;: &#39;Channel 14: Input&#39;,</span>
+<span class="go">                                        &#39;dir&#39;: 2L,</span>
+<span class="go">                                        &#39;index&#39;: 24784L,</span>
+<span class="go">                                        &#39;pdo&#39;: 6669L,</span>
+<span class="go">                                        &#39;subindex&#39;: 1L,</span>
+<span class="go">                                        &#39;typ&#39;: &#39;BOOL&#39;},</span>
+<span class="go">                         &#39;offset&#39;: 1L,</span>
+<span class="go">                         &#39;value&#39;: False},</span>
+<span class="go">          &#39;1A0E60E001&#39;: {&#39;bit_position&#39;: 6L,</span>
+<span class="go">                         &#39;definition&#39;: {&#39;bit_length&#39;: 1L,</span>
+<span class="go">                                        &#39;desc&#39;: &#39;Channel 15: Input&#39;,</span>
+<span class="go">                                        &#39;dir&#39;: 2L,</span>
+<span class="go">                                        &#39;index&#39;: 24800L,</span>
+<span class="go">                                        &#39;pdo&#39;: 6670L,</span>
+<span class="go">                                        &#39;subindex&#39;: 1L,</span>
+<span class="go">                                        &#39;typ&#39;: &#39;BOOL&#39;},</span>
+<span class="go">                         &#39;offset&#39;: 1L,</span>
+<span class="go">                         &#39;value&#39;: False},</span>
+<span class="go">          &#39;1A0F60F001&#39;: {&#39;bit_position&#39;: 7L,</span>
+<span class="go">                         &#39;definition&#39;: {&#39;bit_length&#39;: 1L,</span>
+<span class="go">                                        &#39;desc&#39;: &#39;Channel 16: Input&#39;,</span>
+<span class="go">                                        &#39;dir&#39;: 2L,</span>
+<span class="go">                                        &#39;index&#39;: 24816L,</span>
+<span class="go">                                        &#39;pdo&#39;: 6671L,</span>
+<span class="go">                                        &#39;subindex&#39;: 1L,</span>
+<span class="go">                                        &#39;typ&#39;: &#39;BOOL&#39;},</span>
+<span class="go">                         &#39;offset&#39;: 1L,</span>
+<span class="go">                         &#39;value&#39;: False}},</span>
+<span class="go">   &#39;slave_position&#39;: 1L,</span>
+<span class="go">   &#39;slave_pvt&#39;: {&#39;slave_config_state&#39;: {&#39;al_state&#39;: 8L,</span>
+<span class="go">                                        &#39;changes&#39;: {&#39;al_state&#39;: 0L,</span>
+<span class="go">                                                    &#39;online&#39;: 0L,</span>
+<span class="go">                                                    &#39;operational&#39;: 0L},</span>
+<span class="go">                                        &#39;online&#39;: 1L,</span>
+<span class="go">                                        &#39;operational&#39;: 1L}},</span>
+<span class="go">   &#39;syncunit_id&#39;: 0L,</span>
+<span class="go">   &#39;uri&#39;: &#39;bh_el1809_01&#39;}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="a-simple-program">
+<h2>A Simple Program<a class="headerlink" href="#a-simple-program" title="Permalink to this headline">¶</a></h2>
+<p>The following script illustrate a simple program that will toggle the digital ouput
+on the el2809 IO module. Look at the leds on the box for confirmation</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">time</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">do</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+<span class="go">       fb.bh_el2809_02.set_value(do % 0xf)</span>
+<span class="go">       do += 1</span>
+<span class="go">       time.sleep(0.1)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="another-simple-example">
+<h2>Another Simple Example<a class="headerlink" href="#another-simple-example" title="Permalink to this headline">¶</a></h2>
+<p>The following script will match the digital input signal on the digital output channel:
+Press the buttons on the HDK and check the state of the leds.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">time</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+<span class="go">       fb.bh_el2809_02.set_value(fb.bh_el1809_01.get_value())</span>
+<span class="go">       time.sleep(0.1)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="motion-control-example">
+<h2>Motion Control Example<a class="headerlink" href="#motion-control-example" title="Permalink to this headline">¶</a></h2>
+<p>The following script will init and move the HDK motor.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fb</span><span class="o">.</span><span class="n">bh_el7041_06</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+<span class="go">       fb.bh_el7041_06.move(3000,{&#39;velocity&#39;: 2000})</span>
+<span class="go">       print &#39;POS Status: Actual position&#39;, fb.bh_el7041_06.pdo_read(0x1A06602011)</span>
+<span class="go">       fb.bh_el7041_06.move(0,{&#39;velocity&#39;: 4000, &#39;relative&#39;: False})</span>
+<span class="go">       print &#39;POS Status: Actual position&#39;, fb.bh_el7041_06.pdo_read(0x1A06602011)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="asynchronous-motion-control-example">
+<h2>Asynchronous Motion Control Example<a class="headerlink" href="#asynchronous-motion-control-example" title="Permalink to this headline">¶</a></h2>
+<p>The following script will move the HDK motor and invoke a callback asyncronously</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">when_done</span><span class="p">(</span><span class="n">done</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+<span class="go">       &quot;&quot;&quot;called asynchronously while the motion progresses&quot;&quot;&quot;</span>
+<span class="go">       print done, status, node</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fb</span><span class="o">.</span><span class="n">bh_el7041_06</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">0</span><span class="p">,{},</span><span class="n">when_done</span><span class="p">)</span>
+<span class="go">0</span>
+
+<span class="go">&gt;&gt;&gt;</span>
+<span class="go">False, 0, &lt;gmt.ecx.ecxx.IO_EL7041_00170000 object at 0x7f3c3c7b3fa0&gt;</span>
+<span class="go">False, 0, &lt;gmt.ecx.ecxx.IO_EL7041_00170000 object at 0x7f3c3c7b3fa0&gt;</span>
+<span class="gp">...</span>
+<span class="go">False, 0, &lt;gmt.ecx.ecxx.IO_EL7041_00170000 object at 0x7f3c3c7b3fa0&gt;</span>
+<span class="go">True, 0, &lt;gmt.ecx.ecxx.IO_EL7041_00170000 object at 0x7f3c3c7b3fa0&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="finding-out-more">
+<h2>Finding Out More<a class="headerlink" href="#finding-out-more" title="Permalink to this headline">¶</a></h2>
+<p>The python interpreter comes with command completion enabled. You can find more
+about objects using introspection, and of course refer to the C++ definition
+for the reference implementation.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fb</span><span class="o">.</span><span class="n">bh_el7041_06</span><span class="o">.&lt;</span><span class="n">TAB</span><span class="o">&gt;</span>
+<span class="go">fb.bh_el7041_06.datum(</span>
+<span class="go">fb.bh_el7041_06.desc</span>
+<span class="go">fb.bh_el7041_06.syncunit_id</span>
+<span class="go">fb.bh_el7041_06.uri</span>
+<span class="go">fb.bh_el7041_06.estop(</span>
+<span class="go">fb.bh_el7041_06.init(</span>
+<span class="go">fb.bh_el7041_06.inp_sz</span>
+<span class="go">fb.bh_el7041_06.master</span>
+<span class="go">fb.bh_el7041_06.modef</span>
+<span class="go">fb.bh_el7041_06.move(</span>
+<span class="go">fb.bh_el7041_06.out_sz</span>
+<span class="go">fb.bh_el7041_06.pdo_dump(</span>
+<span class="go">fb.bh_el7041_06.pdo_read(</span>
+<span class="go">fb.bh_el7041_06.pdo_write(</span>
+<span class="go">fb.bh_el7041_06.pdp(</span>
+<span class="go">fb.bh_el7041_06.pds(</span>
+<span class="go">fb.bh_el7041_06.ppr(</span>
+<span class="go">fb.bh_el7041_06.report(</span>
+<span class="go">fb.bh_el7041_06.sdo_dump(</span>
+<span class="go">fb.bh_el7041_06.sdo_read(</span>
+<span class="go">fb.bh_el7041_06.sdo_write(</span>
+<span class="go">fb.bh_el7041_06.slave_position</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="#devguide"><span class="std std-ref">[back to top]</span></a></p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Contribute.html" class="btn btn-neutral float-right" title="Contribute" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="GettingStarted.html" class="btn btn-neutral" title="Getting Started" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, contributors.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
