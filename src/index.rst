@@ -9,21 +9,25 @@ Home
 Welcome to the GMT Software & Controls home page.
 
 .. note::
-   
+
    v1.0 is out!
 
 .. toctree::
    :maxdepth: 1
 
-   ReleaseNotes
+   install
 
 .. toctree::
    :maxdepth: 1
 
-   UserManuals
+   services
 
 .. toctree::
    :maxdepth: 1
 
-   Contribute
+   examples
 
+.. toctree::
+   :maxdepth: 1
+
+   dcs_dev_guide

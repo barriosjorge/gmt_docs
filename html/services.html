@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Using the services &mdash; GMT Software And Controls documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="GMT Software And Controls documentation" href="index.html" />
+    <link rel="next" title="Running the examples" href="examples.html" />
+    <link rel="prev" title="Installation and release configuration" href="install.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="examples.html" title="Running the examples"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="install.html" title="Installation and release configuration"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Home</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="using-the-services">
+<h1>Using the services<a class="headerlink" href="#using-the-services" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="start-services">
+<h2>start services<a class="headerlink" href="#start-services" title="Permalink to this headline">¶</a></h2>
+<p>MongoDB runs as a system service under systemd.</p>
+<dl class="docutils">
+<dt><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a></dt>
+<dd>sudo systemctl enable mongod
+sudo systemctl [status|start|restart|stop] mongod</dd>
+</dl>
+<p><a href="#id5"><span class="problematic" id="id6">``</span></a><a href="#id7"><span class="problematic" id="id8">`</span></a></p>
+<p>The other services can be started, stopped or checked independently as follows:</p>
+<dl class="docutils">
+<dt><a href="#id9"><span class="problematic" id="id10">``</span></a><a href="#id11"><span class="problematic" id="id12">`</span></a></dt>
+<dd>&gt; log_service start
+&gt; log_service status
+&gt; telemetry_service start
+&gt; telemetry_service status</dd>
+</dl>
+<p><a href="#id13"><span class="problematic" id="id14">``</span></a><a href="#id15"><span class="problematic" id="id16">`</span></a></p>
+</div>
+<div class="section" id="check-the-log-service">
+<h2>check the log service<a class="headerlink" href="#check-the-log-service" title="Permalink to this headline">¶</a></h2>
+<p>In order to check if the basic communication is working the following test can be performed.
+In one unix terminal run the log client as:</p>
+<p>&gt; log_client [topic]</p>
+<p>The log_client will show log messages on screen. A different color is used for each message type.
+By default the log client will subscribe to all log messages. If a topic is included in the command line it will filter the content of the messages and only the messages containing the topic will be shown.</p>
+<p>&gt; test_log [message]</p>
+<p>This simple test will send 4 messages (debug, info, warning, error) to the logging service with the text passed as a parameter.</p>
+<p>In order to see if messages are stored a log query can be performed as follows:</p>
+<p>&gt; log_query uri num</p>
+<p>For example, the following will show the last 10 messages (from newest to oldest) created by the log_test</p>
+<dl class="docutils">
+<dt><a href="#id17"><span class="problematic" id="id18">``</span></a><a href="#id19"><span class="problematic" id="id20">`</span></a></dt>
+<dd>log_query gmt://tools/log_adapter 10</dd>
+</dl>
+<p><a href="#id21"><span class="problematic" id="id22">``</span></a><a href="#id23"><span class="problematic" id="id24">`</span></a></p>
+<p>All queries have to be done on the exact uri of the component. More queries will be provided in future releases.</p>
+<p>It&#8217;s also possible to explore the log messages stored in the database using the &#8216;mongo&#8217; command line tool.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.jpg" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Using the services</a><ul>
+<li><a class="reference internal" href="#start-services">start services</a></li>
+<li><a class="reference internal" href="#check-the-log-service">check the log service</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="install.html"
+                        title="previous chapter">Installation and release configuration</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="examples.html"
+                        title="next chapter">Running the examples</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/services.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="examples.html" title="Running the examples"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="install.html" title="Installation and release configuration"
+             >previous</a> |</li>
+        <li><a href="index.html">Home</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, contributors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

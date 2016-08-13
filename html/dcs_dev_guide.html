@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Creating a Device Control System (DCS) &mdash; GMT Software And Controls documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="GMT Software And Controls documentation" href="index.html" />
+    <link rel="prev" title="Running the examples" href="examples.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="examples.html" title="Running the examples"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Home</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="creating-a-device-control-system-dcs">
+<h1>Creating a Device Control System (DCS)<a class="headerlink" href="#creating-a-device-control-system-dcs" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="edit-the-system-master-file">
+<h2>Edit the system master file<a class="headerlink" href="#edit-the-system-master-file" title="Permalink to this headline">¶</a></h2>
+<p>In order to add a Device Control System (DCS) first it&#8217;s necessary to add it to the master file:</p>
+<blockquote>
+<div>src/model/db/swc_sys.coffee</div></blockquote>
+<p>In the example provided we create hdk_cs (hardware developer kit control system) with the control package (hdk_ctrl_pkg) and two components inside: one controller and one adapter.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>hdk_cs:</dt>
+<dd><p class="first">wbs: &#8220;1.3.3.2&#8221;
+pbs: &#8220;3.1.2&#8221;
+elements:</p>
+<blockquote class="last">
+<div><dl class="docutils">
+<dt>hdk_ctrl_pkg:</dt>
+<dd><dl class="first last docutils">
+<dt>elements:</dt>
+<dd>hdk_controller: { instances: 1, c_factor: 1, r_factor: 1, procurement: &#8220;swc&#8221;, phase: &#8220;design&#8221;, resource: &#8220;labor&#8221;, assignee: &#8220;person1&#8221;, fte_perc: &#8220;100&#8221;, status: &#8220;NON_STARTED&#8221;,   activity_type: &#8220;activity&#8221;, release: [1], stage: &#8220;1&#8221; }
+hdk_hw_adapter:  { instances: 1, c_factor: 1, r_factor: 1, procurement: &#8220;swc&#8221;, phase: &#8220;design&#8221;, resource: &#8220;labor&#8221;, assignee: &#8220;person1&#8221;, fte_perc: &#8220;100&#8221;, status: &#8220;NON_STARTED&#8221;, activity_type: &#8220;activity&#8221;, release: [1], stage: &#8220;1&#8221; }</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="define-the-components-in-the-model">
+<h2>Define the components in the model<a class="headerlink" href="#define-the-components-in-the-model" title="Permalink to this headline">¶</a></h2>
+<p>In this case we&#8217;ll create the HDK_CS as an Instrument DCS:</p>
+<blockquote>
+<div>src/model/db/idcs/hdk_cs/hdk_cs.coffee
+src/model/db/idcs/hdk_cs/hdk_cs.rst
+src/model/db/idcs/hdk_cs/loader.coffee</div></blockquote>
+<p>NOTE: The src/model/db/idcs/loader.coffee shall include the hdk_cs/loader file.</p>
+</div>
+<div class="section" id="compile-the-model">
+<h2>Compile the model<a class="headerlink" href="#compile-the-model" title="Permalink to this headline">¶</a></h2>
+<p>From the ${GMT_ROOT} folder run</p>
+<blockquote>
+<div>&gt; make</div></blockquote>
+<p>This will compile the model files an check for some errors.</p>
+</div>
+<div class="section" id="load-the-model">
+<h2>Load the model<a class="headerlink" href="#load-the-model" title="Permalink to this headline">¶</a></h2>
+<p>Run the following command to start the command line</p>
+<blockquote>
+<div>${GMT_ROOT}/bin/gmt</div></blockquote>
+<p>The model is loaded into memory and the gmt model prompt is shown</p>
+<blockquote>
+<div>gmt(1.0): Loading models...
+gmt&gt;</div></blockquote>
+</div>
+<div class="section" id="generate-c-code">
+<h2>Generate C++ code<a class="headerlink" href="#generate-c-code" title="Permalink to this headline">¶</a></h2>
+<p>We can generate the C++ skeletons from the model as follows:</p>
+<blockquote>
+<div>gmt&gt; gmt.model.&lt;subsystem&gt;.gen_code()</div></blockquote>
+<dl class="docutils">
+<dt>or:</dt>
+<dd>gmt&gt; gmt.model.&lt;package&gt;.gen_code()</dd>
+</dl>
+<p>For example, as we only have one package defined in the hdk_cs we can use:</p>
+<blockquote>
+<div>gmt&gt; gmt.model.hdk_ctrL_pkg.gen_code()</div></blockquote>
+<p>These files are generated into src/runtime/src/idcs/hdk_cs/hdk_ctrl_pkg as defined in the model files.
+If a file already exist a warning is shown. In this case the existing file shall be renamed or removed.
+After the files are generated we still need to do a couple of things manually:</p>
+<p>The same controller can have many instances with different names and configurations.
+Copy the configuration file as instance configuration file into the config directory and use the same instance name than in the model files.</p>
+<blockquote>
+<div>&gt; cp hdk_controller_config.cson ${GMT_ROOT}/src/runtime/db/config/hdk_cs/controller.cson
+&gt; cp hdk_hw_adapter_config.cson ${GMT_ROOT}/src/runtime/db/config/hdk_cs/hw_adapter.cson</div></blockquote>
+<p>Note: configuration files shall be manually edited.</p>
+</div>
+<div class="section" id="make-and-run-the-generated-component">
+<h2>Make and run the generated component<a class="headerlink" href="#make-and-run-the-generated-component" title="Permalink to this headline">¶</a></h2>
+<p>The binaries are in the build/ folder using make</p>
+<blockquote>
+<div>&gt; make</div></blockquote>
+<p>and can be executed from there or installed in the bin directory.</p>
+<blockquote>
+<div>&gt; ./build/run_hdk_controller</div></blockquote>
+<p>This shall start the controller, sending some logs and wait for the setup.</p>
+<p>In C++ if the GMT_DEBUG is defined at compile time log messages and compiler debug info is included.
+If not defined DEBUG messages and debug info is not included in the executables.</p>
+</div>
+<div class="section" id="modify-the-generated-controller">
+<h2>Modify the generated controller<a class="headerlink" href="#modify-the-generated-controller" title="Permalink to this headline">¶</a></h2>
+<p>Follow the provided examples to modify and run your own controllers.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.jpg" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Creating a Device Control System (DCS)</a><ul>
+<li><a class="reference internal" href="#edit-the-system-master-file">Edit the system master file</a></li>
+<li><a class="reference internal" href="#define-the-components-in-the-model">Define the components in the model</a></li>
+<li><a class="reference internal" href="#compile-the-model">Compile the model</a></li>
+<li><a class="reference internal" href="#load-the-model">Load the model</a></li>
+<li><a class="reference internal" href="#generate-c-code">Generate C++ code</a></li>
+<li><a class="reference internal" href="#make-and-run-the-generated-component">Make and run the generated component</a></li>
+<li><a class="reference internal" href="#modify-the-generated-controller">Modify the generated controller</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="examples.html"
+                        title="previous chapter">Running the examples</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/dcs_dev_guide.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="examples.html" title="Running the examples"
+             >previous</a> |</li>
+        <li><a href="index.html">Home</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, contributors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>
