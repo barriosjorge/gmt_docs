@@ -15,6 +15,11 @@ Welcome to the GMT Software & Controls home page.
 .. toctree::
    :maxdepth: 1
 
+   getting-started
+
+.. toctree::
+   :maxdepth: 1
+
    install
 
 .. toctree::
@@ -31,3 +36,8 @@ Welcome to the GMT Software & Controls home page.
    :maxdepth: 1
 
    dcs_dev_guide
+
+.. toctree::
+   :maxdepth: 1
+
+   contribute

@@ -1,5 +1,5 @@
 --------------------------------------
-Installation and release configuration
+TO BE REVIEWED - Release configuration
 --------------------------------------
 
 Installation
