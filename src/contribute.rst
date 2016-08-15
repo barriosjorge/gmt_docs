@@ -7,9 +7,9 @@ Code
 ----
         
 1. Create a user account on github
-2. Contact GMTO staff to be be granted access to our repositories
-3. Fork
-4. Clone a local copy
+2. Contact GMTO staff to be be granted access to our private repositories
+3. Fork on github
+4. Clone a local copy for development
 
 .. code-block:: bash
 
@@ -19,12 +19,17 @@ Code
 Documentation
 -------------
 
-The documentation is build using Sphinx.
-Github uses the branch `gh-pages` to serves the documentation.
-Get the `python3-sphinx` package to build the documentation.
+The documentation is built using Sphinx.
+Github uses the branch `gh-pages` to serve the documentation pages.
+Install the `python3-sphinx` and `python3-sphinx_rtd_theme` packages to build the documentation using `dnf`.
+
+.. code-block:: bash
+
+   sudo dnf install -y python3-sphinx python3-sphinx_rtd_theme
+
 
 .. note::
-   Please submit changes to the gh-pages in two steps:
+   Please make sure to submit changes to the gh-pages in two steps:
 
    * First, commit your changes to `src`
    * Then, commit the generated pages from `make`
@@ -32,12 +37,18 @@ Get the `python3-sphinx` package to build the documentation.
 
 .. code-block:: bash
 
-   git checkout -b gh-pages
-   git pull origin gh-pages
+   git checkout -b gh-pages origin/gh-pages
 
+   # edit src/*
+   # make
+   # xdg-open html/index.html
+   # ... iterate
+
+   # ready for pull-request
    git commit src
-   make
-   git commit -a
+   git commit -a -m '- generated content'
+
+
 
  
 
