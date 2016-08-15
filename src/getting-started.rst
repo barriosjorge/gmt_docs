@@ -18,10 +18,11 @@ Installation
    * You must properly identify the drive when you insert it in your machine.
 
 OS X - with drive on ``disk2``
-   
- 
+
 .. code-block:: bash
    
+   diskutil list
+
    sudo diskutil unmountDisk /dev/disk2
    
    sudo dd bs=4m if=standalone.iso of=/dev/rdisk2
@@ -35,11 +36,11 @@ Linux - with drive on ``sdb``
    
    sudo dd bs=4M if=standalone.iso of=/dev/sdb
 
-3. Configure the BIOS on the industrial PC
+3. Configure the BIOS on the Industrial PC (IPC)
 
   3.1 Reboot the IPC
 
-  3.2 Enter BIOS setting using Del key
+  3.2 Enter the BIOS settings using the <Del> key
 
   3.3 In boot option, enable boot from USB
 
@@ -76,7 +77,7 @@ Basic mongodb check:
 
 .. code-block:: bash
    
-   systemctl statul -l mongod
+   systemctl status -l mongod
 
        
 
