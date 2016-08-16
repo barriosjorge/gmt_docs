@@ -19,36 +19,40 @@ Code
 Documentation
 -------------
 
-The documentation is built using Sphinx.
-Github uses the branch `gh-pages` to serve the documentation pages.
-Install the `python3-sphinx` and `python3-sphinx_rtd_theme` packages to build the documentation using `dnf`.
+The documentation is built using `Sphinx <http://www.sphinx-doc.org/en/stable/#>`_ and
+`reStructuredText <http://www.sphinx-doc.org/en/stable/rest.html>`_ files.
+Github uses the branch `gh-pages` to serve the documentation.
+Install the dependencies needed to build the documentation and checkout the branch:
 
 .. code-block:: bash
 
    sudo dnf install -y python3-sphinx python3-sphinx_rtd_theme
+   git checkout -b gh-pages origin/gh-pages
 
-
-.. note::
-   Please make sure to submit changes to the gh-pages in two steps:
-
-   * First, commit your changes to `src`
-   * Then, commit the generated pages from `make`
-
+You can review your changes after running `make` on your local copy and iterate:
 
 .. code-block:: bash
 
-   git checkout -b gh-pages origin/gh-pages
+   vi src/*.rst
+   make
+   xdg-open html/index.html
 
-   # edit src/*
-   # make
-   # xdg-open html/index.html
-   # ... iterate
+.. note::
+   **To submit changes, proceed in two steps:**
 
-   # ready for pull-request
+   * First, commit your changes to `src`
+   * Then, commit the generated files in `html`
+
+
+.. code-block:: bash
+   
    git commit src
-   git commit -a -m '- generated content'
+   git commit html -m '- generated content'
+
+   git push origin gh-pages
 
 
 
+:ref:`[back to top] <contribute>`
  
 

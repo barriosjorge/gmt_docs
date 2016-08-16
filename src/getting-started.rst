@@ -1,4 +1,4 @@
-.. _GettingStarted:
+.. _getting-started:
 
 Installation
 ============
@@ -54,19 +54,22 @@ Linux - with drive on ``sdb``
 
   4.1 Insert USB drive in the IPC
 
-  4.2 At the prompt, select the 'install' option
+  4.2 Power on the IPC
 
-  4.3 Wait until the installation complete
+  4.3 At the prompt, select the 'install' option
+
+  4.4 Wait until the installation completes
 
 The system will eventually reboot itself.
 Remove the USB drive or select the 'local' option.
-The system is ready
+The real-time kernel will be preselected by default in the 'GRUB' menu.
+Boot, the system is ready.
 
 5. Sanity check
 
 Log into the system as root or gmto.
 
-Basic ethercat check:
+Basic Ethercat check:
 
 .. code-block:: bash
    
@@ -81,7 +84,7 @@ Basic mongodb check:
 
        
 
-:ref:`[back to top] <GettingStarted>`
+:ref:`[back to top] <getting-started>`
 
 
 
