@@ -1,19 +1,6 @@
 --------------------------------------
-TO BE REVIEWED - Release configuration
+Release configuration (TBR)
 --------------------------------------
-
-Installation
-------------
- download RPMs, etc
-
-Release configuration
-----------------------
-
- The RPM distribution does not require these environments. In fact, GMT_ROOT should not be defined
- (or set to '') to use the RPM system distribution.
-
- Once installed some customization is required depending on the machine running.
- Edit and source the bash profile file `etc/gmt_env_vars`.
 
 Services configuration
 ----------------------
@@ -26,7 +13,7 @@ Services configuration
  - one local connection to the database server
 
  Also, each service as an internal rate to perform periodic checks or other tasks.
- The following files need to be customized for you application in `${GMT_ROOT}/var/lib/gmt/cson/runtime/db/config/obs_srv/log_sys/log_service.cson`
+ The following files need to be customized for you application in `/var/lib/gmt/cson/runtime/db/config/obs_srv/log_sys/log_service.cson`
 
  ```
  server_1:
@@ -41,7 +28,7 @@ Services configuration
 
  Note: The pub_url value shall be the same used in the GMT_LOG_URL environment var.
  This variable is only required for the C++ components in
- `${GMT_ROOT}/var/lib/gmt/cson/runtime/db/config/obs_srv/telemetry_sys/telemetry_service.cson`
+ `/var/lib/gmt/cson/runtime/db/config/obs_srv/telemetry_sys/telemetry_service.cson`
 
  ```
  server_1:
@@ -58,7 +45,7 @@ Databases and logs
 
  The Data Archive uses mongoDB as backend data base. Each service keeps and independent database.
 
- Each service daemon stores out and error messages on `$GMT_ROOT/var/log`
+ Each service daemon stores out and error messages on `/var/log`
  Please check these files if services failed to start or an error is shown while checking their status
 
 Firewall and network ports

@@ -15,12 +15,12 @@ Welcome to the GMT Software & Controls home page.
 .. toctree::
    :maxdepth: 1
 
-   getting-started
+   installation
 
 .. toctree::
    :maxdepth: 1
 
-   install
+   configuration
 
 .. toctree::
    :maxdepth: 1

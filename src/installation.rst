@@ -1,4 +1,4 @@
-.. _getting-started:
+.. _installation:
 
 Installation
 ============
@@ -84,7 +84,7 @@ Basic mongodb check:
 
        
 
-:ref:`[back to top] <getting-started>`
+:ref:`[back to top] <installation>`
 
 
 
