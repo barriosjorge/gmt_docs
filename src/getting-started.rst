@@ -7,7 +7,7 @@ Installation
 
 .. code-block:: bash
 
-   curl -O http://52.52.46.32/srv/gmt/iso/standalone.iso
+   > curl -O http://52.52.46.32/srv/gmt/iso/standalone.iso
 
 2. Create a bootable USB drive
 
@@ -21,20 +21,20 @@ OS X - with drive on ``disk2``
 
 .. code-block:: bash
    
-   diskutil list
+   > diskutil list
 
-   sudo diskutil unmountDisk /dev/disk2
-   
-   sudo dd bs=4m if=standalone.iso of=/dev/rdisk2
+   > sudo diskutil unmountDisk /dev/disk2
+
+   > sudo dd bs=4m if=standalone.iso of=/dev/rdisk2
 
 Linux - with drive on ``sdb``
    
  
 .. code-block:: bash
    
-   sudo umount /dev/sdb*
+   > sudo umount /dev/sdb*
    
-   sudo dd bs=4M if=standalone.iso of=/dev/sdb
+   > sudo dd bs=4M if=standalone.iso of=/dev/sdb
 
 3. Configure the BIOS on the Industrial PC (IPC)
 
@@ -73,14 +73,14 @@ Basic Ethercat check:
 
 .. code-block:: bash
    
-   ethercat master
-   ethercat slaves
+   > ethercat master
+   > ethercat slaves
 
 Basic mongodb check:
 
 .. code-block:: bash
    
-   systemctl status -l mongod
+   > systemctl status -l mongod
 
        
 
