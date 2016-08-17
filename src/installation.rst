@@ -42,8 +42,14 @@ Linux - with drive on ``sdb``
 
   3.2 Enter the BIOS settings using the <Del> key
 
-  3.3 In boot option, enable boot from USB
+  3.3 In the Boot menu, set Option #1 to USB stick
 
+  .. image:: _static/hdk-bios-usb.png
+     :align: center
+     :scale: 70 %
+     :alt: BIOS boot configuration
+  
+ 
 
 4. Install the distribution
 
