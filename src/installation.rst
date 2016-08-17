@@ -58,7 +58,13 @@ Linux - with drive on ``sdb``
 
   4.3 At the prompt, select the 'install' option
 
-  4.4 Wait until the installation completes
+  4.4 Press the <Tab> key. In the append entries, set the following:
+  
+  * **gmt.tz** sets the system timezone (provided by /usr/share/zoneinfo)
+
+  * **gmt.ecat** sets the interface used by EtherCAT, keep the provided default.
+
+  4.5 Wait until the installation completes
 
 The system will eventually reboot itself.
 Remove the USB drive or select the 'local' option.
