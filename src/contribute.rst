@@ -13,7 +13,7 @@ Code
 
 .. code-block:: bash
 
-   > man git 
+   $ man git 
 
 
 Documentation
@@ -26,16 +26,16 @@ Install the dependencies needed to build the documentation and checkout the bran
 
 .. code-block:: bash
 
-   > sudo dnf install -y python3-sphinx python3-sphinx_rtd_theme
-   > git checkout -b gh-pages origin/gh-pages
+   $ sudo dnf install -y python3-sphinx python3-sphinx_rtd_theme
+   $ git checkout -b gh-pages origin/gh-pages
 
 You can review your changes after running `make` on your local copy and iterate:
 
 .. code-block:: bash
 
-   > vi src/*.rst
-   > make
-   > xdg-open html/index.html
+   $ vi src/*.rst
+   $ make
+   $ xdg-open html/index.html
 
 .. note::
    **To submit changes, proceed in two steps:**
@@ -46,10 +46,10 @@ You can review your changes after running `make` on your local copy and iterate:
 
 .. code-block:: bash
    
-   > git commit src
-   > git commit html -m '- generated content'
+   $ git commit src
+   $ git commit html -m '- generated content'
 
-   > git push origin gh-pages
+   $ git push origin gh-pages
 
 
 

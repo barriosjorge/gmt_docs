@@ -7,7 +7,7 @@ Installation
 
 .. code-block:: bash
 
-   > curl -O http://52.52.46.32/srv/gmt/iso/standalone.iso
+   $ curl -O http://52.52.46.32/srv/gmt/iso/standalone.iso
 
 2. Create a bootable USB drive
 
@@ -21,28 +21,26 @@ OS X - with drive on ``disk2``
 
 .. code-block:: bash
    
-   > diskutil list
+   $ diskutil list
 
-   > sudo diskutil unmountDisk /dev/disk2
+   $ sudo diskutil unmountDisk /dev/disk2
 
-   > sudo dd bs=4m if=standalone.iso of=/dev/rdisk2
+   $ sudo dd bs=4m if=standalone.iso of=/dev/rdisk2
 
 Linux - with drive on ``sdb``
    
  
 .. code-block:: bash
    
-   > sudo umount /dev/sdb*
+   $ sudo umount /dev/sdb*
    
-   > sudo dd bs=4M if=standalone.iso of=/dev/sdb
+   $ sudo dd bs=4M if=standalone.iso of=/dev/sdb
 
 3. Configure the BIOS on the Industrial PC (IPC)
 
-  3.1 Reboot the IPC
+Reboot the IPC and enter the BIOS settings using the <Del> key.
 
-  3.2 Enter the BIOS settings using the <Del> key
-
-  3.3 In the Boot menu, set Option #1 to USB stick
+In the Boot pane, set Option #1 to [USB stick]
 
   .. image:: _static/hdk-bios-usb.png
      :align: center
@@ -58,23 +56,19 @@ Linux - with drive on ``sdb``
 
 ..
 
-  4.1 Insert USB drive in the IPC
-
-  4.2 Power on the IPC
-
-  4.3 At the prompt, select the 'install' option
-
-  4.4 Press the <Tab> key. In the append entries, set the following:
+Insert USB drive in the IPC and power up the system.
+At the prompt, select the 'install' option.
+Press the <Tab> key. The following parameters are available:
   
   * **gmt.tz** sets the system timezone (provided by /usr/share/zoneinfo)
 
   * **gmt.ecat** sets the interface used by EtherCAT, keep the provided default.
 
-  4.5 Wait until the installation completes
+Wait until the installation completes
 
 The system will eventually reboot itself.
-Remove the USB drive or select the 'local' option.
-The real-time kernel will be preselected by default in the 'GRUB' menu.
+Remove the USB drive or select the *local* option.
+The real-time kernel will be preselected by default in the GRUB menu.
 Boot, the system is ready.
 
 5. Sanity check
@@ -85,14 +79,14 @@ Basic Ethercat check:
 
 .. code-block:: bash
    
-   > ethercat master
-   > ethercat slaves
+   $ ethercat master
+   $ ethercat slaves
 
 Basic mongodb check:
 
 .. code-block:: bash
    
-   > systemctl status -l mongod
+   $ systemctl status -l mongod
 
        
 
