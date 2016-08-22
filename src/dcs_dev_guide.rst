@@ -43,7 +43,7 @@ From the ${GMT_ROOT} folder run
 
 .. code-block:: bash
 
-    > make
+    $ make
 
 This will compile the model files an check for some errors.
 
@@ -93,8 +93,8 @@ Copy the configuration file as instance configuration file into the config direc
 
 .. code-block:: bash
 
-        > cp hdk_controller_config.cson ${GMT_ROOT}/src/runtime/db/config/hdk_cs/controller.cson
-        > cp hdk_hw_adapter_config.cson ${GMT_ROOT}/src/runtime/db/config/hdk_cs/hw_adapter.cson
+        $ cp hdk_controller_config.cson ${GMT_ROOT}/src/runtime/db/config/hdk_cs/controller.cson
+        $ cp hdk_hw_adapter_config.cson ${GMT_ROOT}/src/runtime/db/config/hdk_cs/hw_adapter.cson
 
 Note: configuration files shall be manually edited.
 
@@ -105,13 +105,13 @@ The binaries are in the build/ folder using make
 
 .. code-block:: bash
 
-       > make
+       $ make
 
 and can be executed from there or installed in the bin directory.
 
 .. code-block:: bash
 
-        > ./build/run_hdk_controller
+        $ ./build/run_hdk_controller
 
 This shall start the controller, sending some logs and wait for the setup.
 

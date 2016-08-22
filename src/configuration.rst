@@ -1,78 +1,118 @@
---------------------------------------
-Release configuration (TBR)
---------------------------------------
+----------------------------------------------
+Developer Info and Release Configuration (TBR)
+----------------------------------------------
 
-Services configuration
+.. note::
+
+  If the installation is done via the USB drive, one can bypass the manual setup
+  and configuration on this page.  
+
+Before establishing the services, there is a small amount of basic
+configuration.  If the installation is done via the kickstart USB drive, basic
+services and network configurations would have already been established and one
+can move on to the next page.  However, if the release is installed manually or
+locally by an user downloading from *GitHub*, this page will show the steps 
+for service configuration.
+
+
+The service that provides networking is the *communication service*.  To
+communicate, components send message packets to a network of conduits, i.e.
+ports, where the messages follow the *tcp/udp* protocol.  For this to work, each
+component has a unique URI identifier address, while each communication port,
+has an URL.  A component may have multiple ports that serve different purposes,
+described below.
+
+In addition to providing a communication service, two other services, logging
+and telemetry, are essential for controlling hardware and software.  The logging
+service uses *mongoDB* as the backend database, with each service having its
+own, independent, database.
+
+Services Configuration
 ----------------------
 
- Currently we use only one unique server per service. Each server is a distributed component with the following ports:
+Currently we use only one unique server per service. Each server is a distributed component with the following ports:
 
- - one port to receive data (logs, monitored values, etc) from external distributed components
- - one port to publish data to subscribers
- - one port to receive queries and send answers from/to clients
- - one local connection to the database server
+- one port to receive data (logs, monitored values, etc) from external distributed components
+- one port to publish data to subscribers
+- one port to receive queries and send answers from/to clients
+- one local connection to the database server
 
- Also, each service as an internal rate to perform periodic checks or other tasks.
- The following files need to be customized for you application in `/var/lib/gmt/cson/runtime/db/config/obs_srv/log_sys/log_service.cson`
+Also, each service has an internal schedule to perform periodic checks or other tasks at
+certain rates.  The following files need to be customized for you application in:
 
- ```
- server_1:
-     name      : 'LogServer_1'
-     rate      : 600000                                   # periodic loop rate to perform checks, stats, etc.
-     url       : 'tcp://127.0.0.1:9998'                   # to receive log messages from components
-     pub_url   : 'tcp://127.0.0.1:9995'                   # to publish logs to subscribers
-     query_url : 'tcp://127.0.0.1:9994'                   # to receive querys from clients
-     db_url    : 'mongodb://127.0.0.1:27017/gmt_test_logs_1' # db to store log messages
+   `${GMT_ROOT}/var/lib/gmt/cson/runtime/db/config/obs_srv/log_sys/log_service.cson`
 
- ```
+::
 
- Note: The pub_url value shall be the same used in the GMT_LOG_URL environment var.
- This variable is only required for the C++ components in
- `/var/lib/gmt/cson/runtime/db/config/obs_srv/telemetry_sys/telemetry_service.cson`
+  server_1:
+      name      : 'LogServer_1'
+      rate      : 600000                                   # periodic loop rate to perform checks, stats, etc.
+      url       : 'tcp://127.0.0.1:9998'                   # to receive log messages from components
+      pub_url   : 'tcp://127.0.0.1:9995'                   # to publish logs to subscribers
+      query_url : 'tcp://127.0.0.1:9994'                   # to receive querys from clients
+      db_url    : 'mongodb://127.0.0.1:27017/gmt_test_logs_1' # db to store log messages
 
- ```
- server_1:
-     name          : 'TelemetryServer_1'
-     rate          : 600000                                           # periodic loop rate to perform checks, stats, etc.
-     url           : 'tcp://127.0.0.1:9997'                        # to receive monitored values from components
-     pub_url       : 'tcp://127.0.0.1:9993'                        # to publish monitors to subscribers
-     query_url     : 'tcp://127.0.0.1:9992'                        # to receive queries from clients
-     db_url        : 'mongodb://127.0.0.1:27017/gmt_test_telemetry_1' # db to store monitors
- ```
 
-Databases and logs
+Note: The *pub_url* value shall be the same used in the GMT_LOG_URL environment var.
+This variable is only required for the C++ components in:
+
+  `${GMT_ROOT}/var/lib/gmt/cson/runtime/db/config/obs_srv/telemetry_sys/telemetry_service.cson`
+
+:: 
+
+  server_1:
+      name      : 'TelemetryServer_1'
+      rate      : 600000                                   # periodic loop rate to perform checks, stats, etc.
+      url       : 'tcp://127.0.0.1:9997'                   # to receive monitored values from components
+      pub_url   : 'tcp://127.0.0.1:9993'                   # to publish monitors to subscribers
+      query_url : 'tcp://127.0.0.1:9992'                   # to receive queries from clients
+      db_url    : 'mongodb://127.0.0.1:27017/gmt_test_telemetry_1' # db to store monitors
+
+
+Databases and Logs
 ------------------
 
- The Data Archive uses mongoDB as backend data base. Each service keeps and independent database.
+The Data Archive uses *mongoDB* as backend data base. Each service keeps and
+independent database.
 
- Each service daemon stores out and error messages on `/var/log`
- Please check these files if services failed to start or an error is shown while checking their status
+Each service daemon stores output and error messages on `${GMT_ROOT}/var/log`.  Please
+check these files if services failed to start or an error is shown while
+checking their status
 
-Firewall and network ports
+
+Firewall and Network Ports
 ---------------------------
 
- The GMT software is networked system. The following instructions assume that the used ports are open for tcp/udp communications.
- With root/admin permissions it's possible to disable the whole firewall or specific ports can be open like this:
+The GMT software is networked system. The following instructions assume that the
+used ports are open for tcp/udp communications.  With root/admin permissions
+it's possible to disable the whole firewall or specific ports can be open like
+this:
 
-     sudo firewall-cmd --add-port=$PORT/tcp --permanent --zone=public
-     sudo firewall-cmd --add-port=$PORT/udp --permanent --zone=public
+::
+
+  $ sudo firewall-cmd --add-port=$PORT/tcp --permanent --zone=public
+  $ sudo firewall-cmd --add-port=$PORT/udp --permanent --zone=public
 
 URIs and URLs
 -------------
 
- GMT Components use an unique URI in the following scheme
+GMT Components use an unique URI in the following scheme
 
-    gmt://subsystem/component:port
+  *Usage:* ``gmt://subsystem/component:port``
 
- The port number is used to send the component setup (rates, ports, etc).
- Example:
+The port number is used to send the component setup (rates, ports, etc).
+Example:
 
-     gmt://examples/basic_controller:8001
+::
 
- GMT Ports have an url using the nanomsg scheme
+  gmt://examples/basic_controller:8001
 
-    transport://host:net_port
+GMT Ports have an url using the *nanomsg* scheme:
 
- Example:
+  *Usage:* ``transport://host:net_port``
 
-     tcp://127.0.0.1:9001
+Example:
+
+::
+
+  tcp://127.0.0.1:9001

@@ -1,6 +1,6 @@
-----------------
+----------------------
 Running Examples (TBR)
-----------------
+----------------------
 
 Run Example Components
 ------------------------------------------------------------
@@ -14,8 +14,8 @@ Each component performs a simple operation on input and sends the result to outp
 The components can be connected with each other if they receive a setup of ports. For example we can connect them this way:
 
 ::
-                        
-                       a1                  b1
+
+                        a1                  b1
         a2            +---+               +---+
       +---+           |   |<--------------|   |
       |   |<----------| + |               +---+
@@ -38,9 +38,15 @@ At the beginning the ports of each component are not setup. Any component can re
 
   *Usage:*  ``setup_component  subsystem_name  component_name``
 
-This will look into `${GMT_ROOT}/var/lib/gmt/cson/runtime/db/config/<subsystem_name>/<component_name>.cson` for the port setup.
+This will look into:
 
-For example, component_A1 has the following configuration in `${GMT_ROOT}/var/lib/gmt/cson/runtime/db/config/examples/component_A1.cson`
+  `${GMT_ROOT}/var/lib/gmt/cson/runtime/db/config/<subsystem_name>/<component_name>.cson`
+
+for the port setup.
+
+For example, *component_A1* has the following configuration in:
+
+  `${GMT_ROOT}/var/lib/gmt/cson/runtime/db/config/examples/component_A1.cson`
 
 ::
 
@@ -58,11 +64,11 @@ To connect the example components as described in the previous section the follo
 
 .. code-block:: bash
 
-  > setup_component examples component_B1
-  > setup_component examples component_B2
-  > setup_component examples component_B3
-  > setup_component examples component_A1
-  > setup_component examples component_A2
+  $ setup_component examples component_B1
+  $ setup_component examples component_B2
+  $ setup_component examples component_B3
+  $ setup_component examples component_A1
+  $ setup_component examples component_A2
 
 Run Example Controller
 ----------------------
@@ -91,8 +97,8 @@ The configuration for this controller is:
 
 .. code-block:: bash
 
-  > run_basic_controller &
-  > setup_component examples basic_controller
+  $ run_basic_controller &
+  $ setup_component examples basic_controller
 
 
 Check Monitored Values
@@ -116,7 +122,7 @@ For example, the following command will start sending 'temperature' data points 
 
 .. code-block:: bash
 
-  > monitor_component examples basic_controller
+  $ monitor_component examples basic_controller
 
 To check the monitored values a telemetry_client can be started in another unix terminal:
 
@@ -132,7 +138,7 @@ For example, the following will list the last 12 temperature values (from newest
 
 .. code-block:: bash
 
-  > telemetry_query examples.basic_controller.temperature 12
+  $ telemetry_query examples.basic_controller.temperature 12
 
 All telemetry queries have to be done on specific monitors.
 
@@ -148,7 +154,7 @@ For example:
 
 .. code-block:: bash
 
-  > send_value examples basic_controller temperature_setpoint 23.3 float
+  $ send_value examples basic_controller temperature_setpoint 23.3 float
 
 
 This will send a temperature setpoint of 23.3 to the controller which should react to this change.
@@ -164,8 +170,8 @@ This will start and setup the example ethercat adapter:
 
 .. code-block:: bash
 
-  > run_ethercat_example &
-  > setup_component examples ethercat_example
+  $ run_ethercat_example &
+  $ setup_component examples ethercat_example
 
 To send the ethercat configuration to and EtherCAT Hw Adapter use the following command:
 
@@ -175,7 +181,7 @@ For example, the following command:
 
 .. code-block:: bash
 
-  > ethercat_config examples ethercat_example ethercat_config
+  $ ethercat_config examples ethercat_example ethercat_config
 
 will send the bus configuration defined in:
 
@@ -197,7 +203,7 @@ HDK Controller With Ethercat Adapter
 
 .. code-block:: bash
 
-  > run_hdk_controller &
-  > setup_component hdk_cs hw_adapter
-  > ethercat_config hdk_cs hw_adapter
-  > setup_component hdk_cs controller
+  $ run_hdk_controller &
+  $ setup_component hdk_cs hw_adapter
+  $ ethercat_config hdk_cs hw_adapter
+  $ setup_component hdk_cs controller

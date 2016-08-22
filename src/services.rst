@@ -1,30 +1,28 @@
-------------------
+------------------------
 Using the Services (TBR)
-------------------
+------------------------
 
-Start Services
---------------
+Starting and Stopping Services
+------------------------------
 
 MongoDB runs as a system service under *systemd*.
 
 .. code-block:: bash
 
-  > sudo systemctl enable mongod
-  > sudo systemctl [status|start|restart|stop] mongod
+  $ sudo systemctl [enable|disable] mongod
+  $ sudo systemctl [status|start|restart|stop] mongod
 
 
 The other services can be started, stopped or checked independently as follows:
 
 .. code-block:: bash
 
-  > log_service start
-  > log_service status
-  > telemetry_service start
-  > telemetry_service status
+  $ log_service [start|stop|status]
+  $ telemetry_service [start|stop|status]
 
 
-Check the Log Service
----------------------
+Checking the Log Service
+------------------------
 
 In order to check if the basic communication is working the following test can be performed.
 In one unix terminal run the log client as:
@@ -46,7 +44,7 @@ For example, the following will show the last 10 messages (from newest to oldest
 
 .. code-block:: bash
 
-  > log_query gmt://tools/log_adapter 10
+  $ log_query gmt://tools/log_adapter 10
 
 All queries have to be done on the exact uri of the component. More queries will be provided in future releases.
 
