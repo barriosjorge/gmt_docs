@@ -162,3 +162,78 @@ Common Services
   storing the data in the telemetry database for further analysis or to relay
   the streams of data for presentation in the user interface.
 
+
+*Alarm Service*
+
+  The alarm system, along with the system supervisor and the Interlock & Safety
+  System (ISS), provide functions to assess and manage the overall health of the
+  system. Alarm events are triggered when an alarm condition is detected by a
+  Component (e.g., Controller or Supervisor). Alarm events are time-stamped and
+  include information on the component that has triggered the alarm.
+
+  The alarm system associates (using metadata) a set of actions with every alarm
+  event that has to be monitored manually or executed automatically. These
+  actions can include a reference to a workflow or sequence if one has been
+  defined.
+
+  Alarm conditions are part of the specification of a component:
+
+
+  .. code-block:: coffeescript
+
+    # Alarm Event Specification
+
+    EnumType "AlarmSeverity",
+        desc: "Defines the severity level of the AlarmEvent"
+        literals:
+            ALARM_A: ""
+
+    StructType "AlarmEvent",
+        extends: []
+        abstract: false
+        desc: "Time stamped Alarm Event"
+        elements:
+            id:
+                type: "string"
+                desc: "Alarm ID. Allows associating the alarm with the Alarm description"
+            value:
+                type: "string"
+                desc: "Text message with additional information related to the alarm event occurrence"
+            timestamp: type:
+                type: "TimeStamp"
+                desc: "Trigger time of the alarm event"
+            severity:
+                type: "AlarmSeverity", desc: “Level of severity of the alarm event”
+            source:
+                type: “string”
+                desc: “URI of the component that has detect the alarm condition”
+
+
+  When a fault condition occurs in a component, it is the responsibility of that
+  component to either handle the fault or to transmit alarms up the supervisory
+  chain until they reach a component that can address the problem, or else
+  eventually up to the operations staff.
+
+  The Alarm System provides the following capabilities:
+
+    * Notification of alarm events from any component in the system
+
+    * Analysis of the stream of alarms to identify system health conditions
+
+    * Filtering of alarms
+
+    * Storage of alarm events
+
+    * Visualization of the status of all the alarms in the system
+
+    * Correlation via timestamp with any other event in the system
+
+    * Logging operator acknowledgment.
+
+  In addition to the handling of alarm events, the alarm server provides
+  features that allow managing of load balancing and fault tolerance. The alarm
+  system operation, as with any other component, can be monitored by the
+  telemetry system by specifying monitoring features in its interface (e.g., the
+  number of components connected, the number of active alarms, state of the
+  server, instant alarm throughput).
+

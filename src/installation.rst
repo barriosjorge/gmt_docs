@@ -4,8 +4,8 @@ USB Drive Installation
 ======================
 
 The GMT Software and Controls Release can be installed using a kickstart USB
-Drive, following the procedures below, or manually via GitHub.  The USB drive
-option performs the following in an automated way:
+Drive, following the procedures below.  The USB drive option performs the
+following in an automated way:
 
     * Populates all binary and system files
     * Installs all library dependencies
@@ -14,6 +14,13 @@ option performs the following in an automated way:
 
 The commands below are issued assuming that the user is using the Linux shell
 environment.
+
+.. warning::
+
+  * This installation only applies to Beckhoff Industrial PC.
+
+  * The USB installation will wipe the entire content of your CFast card!
+
 
 Procedures
 ----------
@@ -72,9 +79,6 @@ Procedures
 
 4. Install the distribution
 
-  .. warning::
-    * The installation will wipe the entire content of your CFast card!
-
   4.1 At the prompt, select the 'install' option.
 
   4.2 Press the <Tab> key. The following parameters are available:
@@ -86,9 +90,11 @@ Procedures
 
   4.3 Wait until the installation completes.  The system will eventually reboot itself.
 
-  4.4 Remove the USB drive or select the *local* option. The real-time kernel will be preselected by default in the boot manager (GRUB) menu.
+  4.4 Remove the USB drive or select the *local* option.
+  
+  4.5 Select the real-time kernel (which is default) in the boot manager (GRUB) menu.
 
-  4.5 Boot, the system is ready.
+The system is ready.
 
 
 Sanity Check
