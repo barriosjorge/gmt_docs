@@ -1,0 +1,435 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction &mdash; GMT Software And Controls documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="GMT Software And Controls documentation" href="index.html"/>
+        <link rel="next" title="USB Drive Installation" href="installation.html"/>
+        <link rel="prev" title="Home" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> GMT Software And Controls
+          
+
+          
+            
+            <img src="_static/logo.jpg" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#service-architecture">Service Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#common-services">Common Services</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">USB Drive Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Developer Info and Release Configuration (TBR)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="services.html">Using the Services (TBR)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Running Examples (TBR)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="dcs_dev_guide.html">Creating a Device Control System (TBR)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">Contribute</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">GMT Software And Controls</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/introduction.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<span id="home"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>The GMT software and controls system is highly distributed: the control
+components are deployed in computers distributed across different locations of
+the observatory and connected by networking infrastructure. This scheme makes it
+possible to optimize digital and analog signal paths, thermal conditioning, and
+maintenance accessibility.</p>
+<p>A set of <em>common services</em> provides the basic infrastructure that enables the
+<em>telescope control system</em> (TCS) and <em>observatory operations</em> (OOP) components
+to communicate and collaborate in order to perform high-level control and
+monitoring. Additionally, some of these services have components that allow
+self-monitoring of their own operation.  The set of common services available to
+subsystems and components being controlled include:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Engineering User Interface</li>
+<li>Networking infrastructure</li>
+<li>Configuration</li>
+<li>Command Execution</li>
+<li>On-Line Documentation</li>
+<li>System Supervision</li>
+<li>Logging</li>
+<li>Telemetry</li>
+<li>Alarm</li>
+</ul>
+</div></blockquote>
+<div class="section" id="service-architecture">
+<h2>Service Architecture<a class="headerlink" href="#service-architecture" title="Permalink to this headline">¶</a></h2>
+<p>The implementation of the common services follows a distributed architecture (see
+following figure) in which (1) distributed components (right-hand-side, blue
+blocks) access the service bus via <em>service adapters</em> API when an event is
+generated (e.g. alarm detected).  (2)  The &#8220;payload&#8221; (e.g. alarm event,
+telemetry sample) is transported from adapter to supervisor through the <em>service
+bus</em>. (3) <em>Service supervisors</em> coordinate services, and process the service
+payload when received.  (4) The service payload is stored and/or forwarded to
+components that subscribe to the service.  (5)  Operators can filter or
+cross-correlate any persistent data stream for further analysis.  Briefly,
+some of the highlighted items and terminologies are:</p>
+<a class="reference internal image-reference" href="_images/common-services-architecture.png"><img alt="Common Services Architecture" class="align-center" src="_images/common-services-architecture.png" style="width: 933.8px; height: 551.5999999999999px;" /></a>
+<p><em>Service Adapters</em></p>
+<blockquote>
+<div><p>Service adapters enable every distributed component in the system to access
+infrastructure common services.  They serve as the low level interface between
+hardware and software components and observatory services.  Service adapters
+help to:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Isolate distributed components from service implementation.  This
+helps to manage obsolescence in hardware and software.</li>
+<li>Focus application developers on developing applications (e.g. control,
+data processing).  Application developers should not need to solve
+infrastructure problems that are common to all subsystems.</li>
+<li>Standardize base implmentation. A base component (in an object oriented
+sense) implementation provides a template for all service adapters
+to bootstrap from.</li>
+<li>Simplify interaction and deployment.  Software components need to only
+know about the service native API, and not how the service or
+distributed communication are implemented.  They hide details like
+how to manage connection, service threads, marshaling and de-marshaling
+of events and data streams, time stamps, middleware configuration,
+optimal communication pattern, how to register component services
+in runtime database.</li>
+</ul>
+</div></blockquote>
+<p>Communication between adapters and supervisors may
+follow different communication patterns (e.g., publish/subscribe, push/pull,
+request/reply).  Section XXX (Core Component Framework) describes the
+different communication patterns that are available.</p>
+</div></blockquote>
+<p><em>Service Supervisors</em></p>
+<blockquote>
+<div><p>Service supervisors coordinate and maintain the health status of the services.
+Some services may require several servers running in a cluster, or may connect
+to a high performance file system for persistent high throughput events or
+data streams. The service supervisor provides the following capabilities:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Archiving of the data and event streams coming from service adapters</li>
+<li>Implementation of optimal communication pattern</li>
+<li>Archiving of the service configuration data</li>
+<li>Service analytics and reporting</li>
+<li>Monitoring the health of the service adapters (the System Supervisor is
+responsible for monitoring the health of the different Service Supervisors)</li>
+<li>Publish/subscribe access to the data and event streams</li>
+<li>Load balancing</li>
+<li>Fault tolerance</li>
+<li>Scaling due to bandwidth or growing storage demands (e.g., new systems
+added to the observatory)</li>
+<li>Visualization of service data</li>
+<li>Cross filtering of multidimensional datasets.</li>
+</ul>
+<p>The implementation of the service supervisors is not monolithic. Depending
+on the prevailing communication patterns, it is possible to implement
+different ways to distribute the process workload (e.g., broker, fan-out).
+This allows the efficient use of computing resources and elastic adaptation
+to the load.</p>
+</div></blockquote>
+</div></blockquote>
+<p><em>Service Bus</em></p>
+<blockquote>
+<div>A dedicated service bus connects Service Adapters and Service Supervisors.
+Each service bus provides a logical network connection that addresses the
+specific throughput, bandwidth and latency requirements of the service.
+Section xxx provides a description of the GMT networking infrastructure.</div></blockquote>
+</div>
+<div class="section" id="common-services">
+<h2>Common Services<a class="headerlink" href="#common-services" title="Permalink to this headline">¶</a></h2>
+<p><em>Telemetry Service</em></p>
+<blockquote>
+<div><p>The telemetry service provides the ability to observe any data transmitted by
+hardware or software subsystem available for monitoring. Telemetry data
+usually consist of a continuous flow of scalar values at a certain rate. The
+Telemetry Service allows one to select the quantities to monitor, and to start
+or to stop collecting data.</p>
+<p>The telemetry adapter provides an interface that allows:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Retrieval of quantities to be monitored in a given Subsystem or Component</li>
+<li>Start/stop sampling and collecting of monitoring data</li>
+<li>Specifying the rate at which the data are sampled.</li>
+</ul>
+</div></blockquote>
+<p>Two categories of measurement data can be sampled:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Continuous: quantities that are continuous in values. For instance, a
+temperature sensor.</li>
+<li>Discrete: quantities that are discrete in values. For instance, the state
+of a switch (ON, OFF), the position of a window within a range of three
+possible positions (CLOSED, HALF-OPEN, OPEN), etc. When monitoring
+discrete quantities, only the changes of value are sampled.</li>
+</ul>
+</div></blockquote>
+<p>The telemetry service is implemented, like other infrastructure services, as a
+distributed system.  The telemetry adapters allow any component of the system,
+usually running in Device Control Computers, to send any telemetry data to the
+telemetry supervisor through a common API.  Depending on the required
+bandwidth the adapter may provide different transport strategies (e.g., a
+circular buffer held in memory or Solid State Disk that is flushed
+periodically) and fault tolerance capabilities (e.g., routing the outgoing
+data to an alternative supervisor). The telemetry supervisor takes care of
+storing the data in the telemetry database for further analysis or to relay
+the streams of data for presentation in the user interface.</p>
+</div></blockquote>
+<p><em>Alarm Service</em></p>
+<blockquote>
+<div><p>The alarm system, along with the system supervisor and the Interlock &amp; Safety
+System (ISS), provide functions to assess and manage the overall health of the
+system. Alarm events are triggered when an alarm condition is detected by a
+Component (e.g., Controller or Supervisor). Alarm events are time-stamped and
+include information on the component that has triggered the alarm.</p>
+<p>The alarm system associates (using metadata) a set of actions with every alarm
+event that has to be monitored manually or executed automatically. These
+actions can include a reference to a workflow or sequence if one has been
+defined.</p>
+<p>Alarm conditions are part of the specification of a component:</p>
+<div class="highlight-coffeescript"><div class="highlight"><pre><span></span># Alarm Event Specification
+
+EnumType &quot;AlarmSeverity&quot;,
+    desc: &quot;Defines the severity level of the AlarmEvent&quot;
+    literals:
+        ALARM_A: &quot;&quot;
+
+StructType &quot;AlarmEvent&quot;,
+    extends: []
+    abstract: false
+    desc: &quot;Time stamped Alarm Event&quot;
+    elements:
+        id:
+            type: &quot;string&quot;
+            desc: &quot;Alarm ID. Allows associating the alarm with the Alarm description&quot;
+        value:
+            type: &quot;string&quot;
+            desc: &quot;Text message with additional information related to the alarm event occurrence&quot;
+        timestamp: type:
+            type: &quot;TimeStamp&quot;
+            desc: &quot;Trigger time of the alarm event&quot;
+        severity:
+            type: &quot;AlarmSeverity&quot;, desc: “Level of severity of the alarm event”
+        source:
+            type: “string”
+            desc: “URI of the component that has detect the alarm condition”
+</pre></div>
+</div>
+<p>When a fault condition occurs in a component, it is the responsibility of that
+component to either handle the fault or to transmit alarms up the supervisory
+chain until they reach a component that can address the problem, or else
+eventually up to the operations staff.</p>
+<p>The Alarm System provides the following capabilities:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Notification of alarm events from any component in the system</li>
+<li>Analysis of the stream of alarms to identify system health conditions</li>
+<li>Filtering of alarms</li>
+<li>Storage of alarm events</li>
+<li>Visualization of the status of all the alarms in the system</li>
+<li>Correlation via timestamp with any other event in the system</li>
+<li>Logging operator acknowledgment.</li>
+</ul>
+</div></blockquote>
+<p>In addition to the handling of alarm events, the alarm server provides
+features that allow managing of load balancing and fault tolerance. The alarm
+system operation, as with any other component, can be monitored by the
+telemetry system by specifying monitoring features in its interface (e.g., the
+number of components connected, the number of active alarms, state of the
+server, instant alarm throughput).</p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="installation.html" class="btn btn-neutral float-right" title="USB Drive Installation" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Home" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, contributors.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
