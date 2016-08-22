@@ -1,96 +1,115 @@
 .. _installation:
 
-Installation
-============
+USB Drive Installation
+======================
+
+The GMT Software and Controls Release can be installed using a kickstart USB
+Drive, following the procedures below, or manually via GitHub.  The USB drive
+option performs the following in an automated way:
+
+    * Populates all binary and system files
+    * Installs all library dependencies
+    * Configures environmental variables
+    * Configures and starts services
+
+The commands below are issued assuming that the user is using the Linux shell
+environment.
+
+Procedures
+----------
 
 1. Retreive the release iso image
 
-.. code-block:: bash
+  .. code-block:: bash
+  
+    $ curl -O http://52.52.46.32/srv/gmt/iso/standalone.iso
 
-   $ curl -O http://52.52.46.32/srv/gmt/iso/standalone.iso
 
 2. Create a bootable USB drive
 
-.. note::
-   * The drive needs a minimum 3GB capacity.
-.. warning::
-   * The iso will wipe the entire content of your USB drive!
-   * You must properly identify the drive when you insert it in your machine.
+  .. note::
+    * The drive needs a minimum 3GB capacity.
 
-OS X - with drive on ``disk2``
+  .. warning::
+    * The iso will wipe the entire content of your USB drive!
+    * You must properly identify the drive when you insert it in your machine.
 
-.. code-block:: bash
-   
-   $ diskutil list
+  OS X - with drive on ``disk2``
 
-   $ sudo diskutil unmountDisk /dev/disk2
+  .. code-block:: bash
 
-   $ sudo dd bs=4m if=standalone.iso of=/dev/rdisk2
+    $ diskutil list
 
-Linux - with drive on ``sdb``
-   
- 
-.. code-block:: bash
-   
-   $ sudo umount /dev/sdb*
-   
-   $ sudo dd bs=4M if=standalone.iso of=/dev/sdb
+    $ sudo diskutil unmountDisk /dev/disk2
+
+    $ sudo dd bs=4m if=standalone.iso of=/dev/rdisk2
+
+  Linux - with drive on ``sdb``
+
+  .. code-block:: bash
+
+    $ sudo umount /dev/sdb*
+
+    $ sudo dd bs=4M if=standalone.iso of=/dev/sdb
+
 
 3. Configure the BIOS on the Industrial PC (IPC)
 
-Reboot the IPC and enter the BIOS settings using the <Del> key.
+  3.1  Turn on the IPC using the power switch and enter the BIOS settings using the <Del> key.
 
-In the Boot pane, set Option #1 to [USB stick]
+  3.2  In the Boot pane, set Option #1 to [USB stick].
 
-  .. image:: _static/hdk-bios-usb.png
-     :align: center
-     :scale: 70 %
-     :alt: BIOS boot configuration
-  
- 
+    .. image:: _static/hdk-bios-usb.png
+      :align: center
+      :scale: 70 %
+      :alt: BIOS boot configuration
+
+
+  3.3 Insert USB drive into the IPC.
+
+  3.4 Select 'Save & Exit' to exit the BIOS setup which reboots the system.
+
 
 4. Install the distribution
 
-.. warning::
-   * The installation will wipe the entire content of your CFast card!
+  .. warning::
+    * The installation will wipe the entire content of your CFast card!
 
-..
+  4.1 At the prompt, select the 'install' option.
 
-Insert USB drive in the IPC and power up the system.
-At the prompt, select the 'install' option.
-Press the <Tab> key. The following parameters are available:
-  
-  * **gmt.tz** sets the system timezone (provided by /usr/share/zoneinfo)
+  4.2 Press the <Tab> key. The following parameters are available:
 
-  * **gmt.ecat** sets the interface used by EtherCAT, keep the provided default.
+    * **gmt.tz** sets the system timezone (provided by /usr/share/zoneinfo).
 
-Wait until the installation completes
+    * **gmt.ecat** sets the interface used by EtherCAT, keep the provided default.
 
-The system will eventually reboot itself.
-Remove the USB drive or select the *local* option.
-The real-time kernel will be preselected by default in the GRUB menu.
-Boot, the system is ready.
 
-5. Sanity check
+  4.3 Wait until the installation completes.  The system will eventually reboot itself.
 
-Log into the system as root or gmto.
+  4.4 Remove the USB drive or select the *local* option. The real-time kernel will be preselected by default in the boot manager (GRUB) menu.
 
-Basic Ethercat check:
+  4.5 Boot, the system is ready.
 
-.. code-block:: bash
-   
-   $ ethercat master
-   $ ethercat slaves
 
-Basic mongodb check:
+Sanity Check
+------------
 
-.. code-block:: bash
-   
-   $ systemctl status -l mongod
+1.  Log into the system as *root* or *gmto*.
 
-       
+2.  Basic Ethercat check
+
+  .. code-block:: bash
+
+    $ ethercat master
+    $ ethercat slaves
+
+
+3.  Basic mongodb check
+
+  .. code-block:: bash
+
+    $ systemctl status -l mongod
+
 
 :ref:`[back to top] <installation>`
-
-
 
