@@ -176,7 +176,28 @@ Common Services
   actions can include a reference to a workflow or sequence if one has been
   defined.
 
+  The following alarm service block diagram shows how distributed components and
+  supervisors access the Alarm Adapter interface to notify an alarm event.  (1)
+  The component detects an alarm event and invokes the send_alarm method
+  inherited from the BaseComponent or BaseSupervisor classes. (2) The service
+  adapter sends the alarm event to the supervisor using a push socket. The
+  Service supervisor applies the business process rules associated with the
+  alarm event if they are defined. (3) The Service supervisor publishes the
+  event to the subscribed components using a pub socket.
+
+  .. image:: _static/alarm-service-block-diagram.png
+    :align: center
+    :scale: 70%
+    :alt: Alarm Service Block Diagram
+
+
   Alarm conditions are part of the specification of a component:
+
+  ..
+      Test this out in the future to include external code:
+
+      .. literalinclude :: <path/to/file>
+        :language: <file_language>
 
 
   .. code-block:: coffeescript
@@ -237,3 +258,86 @@ Common Services
   number of components connected, the number of active alarms, state of the
   server, instant alarm throughput).
 
+
+*Logging Service*
+
+  Logging records the history of events, whether normal or abnormal, surrounding
+  GMT operations, such as whether an user has logged on to the GMT, or an
+  observation has just been completed. Logging events are intended for view and
+  access on a console, and stored in a persistent database.
+
+  The following illustrates a log event specification:
+
+  .. code-block:: coffeescript
+
+    # Logging Event Specification
+
+    EnumType "LogLevel",
+
+        desc: "The log methods expect a log level, which can be used to filter
+              log messages when they are retrieved. Levels follow OSGi Log Service
+              Specification."
+
+        literals:
+            LOG_DEBUG:   "Used for problem determination and may be irrelevant to anyone but
+                         the Component developer."
+            LOG_ERROR:   "Indicates the component may not be functional. Action should be
+                         taken to correct this situation."
+            LOG_INFO:    "May be the result of any change in the component and does not
+                         indicate problem."
+            LOG_WARNING: "Indicates a component is still functioning but may experience
+                         problems in the future because a warning condition"
+
+        StructType "LogEvent",
+            extends: []
+            abstract: false
+            desc: "Time stamped Log event"
+            elements:
+                value:
+                    type: "string"
+                    desc: "Text message with additional information related to the alarm event occurrence"
+                timestamp:
+                    type: "TimeStamp"
+                    desc: "Time of the creation of the log message"
+                level:
+                    type: "LogLevel"
+                    desc: “Level of the log event"
+                source:
+                    type: "string"
+                    desc: "URI of the component that has issue the log message"
+
+
+*Configuration Service*
+
+  The properties / behaviors of all controlled Subsystems and Components are
+  stored as sets of static properties or metadata in a Configuration Database.
+  Operators or subsystem specialists need to change these properties, so it is
+  not convenient to have them hardcoded. Instead, configuration service manages
+  and modifies the behavior of the subsystems and components. Configurations can
+  be changed as a whole, depending on the operation mode (e.g., different values
+  on limits may be used for testing and calibration than during nominal
+  operation). These properties are loaded during startup, but may be changed
+  individually during the execution of the system (e.g., using a new look-up
+  table to apply error mapping correction in a motion control system).
+  
+  The GMT SWC is composed of a large number of Subsystems and several thousand
+  Component instances. Some of Components are identical, such as the 6
+  positioners of the seven M2 segments. The behavior of the Controller of each
+  positioner is the same and is implemented as a class, which is a
+  specialization of BaseController. However, the configuration properties of
+  each segment position Controller are different for each instance. As a result,
+  the configuration service has to be able to manage efficiently a large number
+  of configuration properties. As a general rule, there will be at least a
+  default configuration for each component instance. It would be possible to
+  create new configuration snapshots on-the-fly once a property is changed
+  interactively.
+
+  Each Subsystem is required to implement a Configuration Adapter, which is a
+  specialization of the BaseConfigurationAdapter. The Configuration Adaptor
+  interfaces with the Configuration Service to receive new configuration requests
+  and implements the configuration strategy sequence. The change in configuration
+  Properties of a Component depends on the state of the component, and not all the
+  Properties can be changed in any state. For example, servo gain cannot be
+  changed when a Controller is performing a motion in normal operation mode or the
+  readout gain of a detector cannot be changed in the middle of a readout
+  operation.
