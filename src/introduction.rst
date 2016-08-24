@@ -149,8 +149,10 @@ the observatory common services.
   ad-hoc widgets designed to optimize the main high-level operator workflows.
   The figure below shows and example of a scalar view widget.
 
-  ..
-    Widget Figure here
+  .. image:: _static/engineering-scalar-widget-example.png
+    :align: center
+    :scale: 70%
+    :alt: Engineering Scalar Widget Example
 
   The engineering user interface components provide the following capabilities:
 
@@ -269,6 +271,12 @@ the observatory common services.
   the BaseComponent or BaseSupervisor classes. (2) A service adapter sends the
   *health* event to the supervisor using a push socket. (3) The service
   supervisor forwards the event to the subscribed components using a pub socket.
+
+  The above System Supervisor design is inspired by Erlang/OTP* which is one of
+  the most reliable systems. It is designed to recover easily from fault
+  conditions. The emphasis in Erlang is not so much to reduce the risk of
+  failure, but to consider fault conditions as part of the nominal scenario so
+  as to be able to recover from faults quickly and efficiently.
 
   The System Supervisor provides the following capabilities:
 
