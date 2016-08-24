@@ -177,12 +177,16 @@ the observatory common services.
   system functionality, and the flexibility often required during testing and
   commissioning phases. CLI also provides a way to operate subsystems in early
   stages of development, when the UI is still being developed and does not provide
-  all the functionality. The SWCS command line interface requirement is given by
-  SWC-6864, Engineering Mode: Include an engineering mode that allows low-level
-  control of components and subsystems.
+  all the functionality. 
 
-  ..
-    Show command line Figure 10-61
+  The figure below shows an example of command-line completion (first line) and
+  component introscpection (fourth line).
+
+  .. image:: _static/command-line-service.png
+    :align: center
+    :scale: 70%
+    :alt: Command-line Service
+
 
   The Command Line Interface components provide the following capabilities:
 
@@ -211,6 +215,7 @@ the observatory common services.
   network so subsystems experts can diagnose a fault condition. For safety
   reasons, CLI sessions in the operation network should only be granted specific
   authorization levels.
+
 
 
 *On-Line Documentation Service*
@@ -253,8 +258,17 @@ the observatory common services.
   focal stations that are considered active or standby or the hardware installed
   on the telescope, FSM vs. ASM, are being monitored).
 
-  ..
-    Show System Supervisor diagram Figure 10-62
+  .. image:: _static/system-supervision-block-diagram.png
+    :align: center
+    :scale: 70%
+    :alt: System Supervisor Service Block Diagram
+
+
+  The Figure above shows the System Supervision diagram.  (1) A component
+  creates a *health* event and invokes the *health_check* method inherited from
+  the BaseComponent or BaseSupervisor classes. (2) A service adapter sends the
+  *health* event to the supervisor using a push socket. (3) The service
+  supervisor forwards the event to the subscribed components using a pub socket.
 
   The System Supervisor provides the following capabilities:
 
@@ -494,6 +508,21 @@ the observatory common services.
                 source:
                     type: "string"
                     desc: "URI of the component that has issue the log message"
+
+  The figure below illustrates the Logging Service and the interactions between
+  the components involved in the creation and propagation of log events. (1) A
+  Component creates a log message and invokes the *log* method inherited from
+  the BaseComponet or BaseSupervisor classes.  (2)  The Service Adapters forward
+  the log events to the log supervisor using push/pull sockets. Usually a single
+  Log Adapter is deployed for all the components of a Subsystem that are
+  collocated in the same computer. Although the interfaces are different this
+  arrangement is similar to the design other services. (3) The Service
+  Supervisor forwards the event to the subscribed components using a pub socket.
+
+  .. image:: _static/log-service-block-diagram.png
+    :align: center
+    :scale: 70%
+    :alt: Logging Service Block Diagram
 
 
 *Networking Infrastructure Service*
