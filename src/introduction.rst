@@ -17,14 +17,14 @@ self-monitoring of their own operation.  The set of common services available to
 subsystems and components being controlled include:
 
   * Engineering User Interface 
-  * Networking infrastructure
-  * Configuration
   * Command Execution
   * On-Line Documentation
   * System Supervision
-  * Logging
   * Telemetry
   * Alarm
+  * Logging
+  * Networking infrastructure
+  * Configuration
 
 Service Architecture
 --------------------
@@ -46,6 +46,7 @@ some of the highlighted items and terminologies are:
   :alt: Common Services Architecture
 
 *Service Adapters*
+..................
 
   Service adapters enable every distributed component in the system to access
   infrastructure common services.  They serve as the low level interface between
@@ -77,6 +78,7 @@ some of the highlighted items and terminologies are:
   different communication patterns that are available. 
 
 *Service Supervisors*
+.....................
 
   Service supervisors coordinate and maintain the health status of the services.
   Some services may require several servers running in a cluster, or may connect
@@ -115,6 +117,7 @@ some of the highlighted items and terminologies are:
 
 
 *Service Bus*
+.............
 
   A dedicated service bus connects Service Adapters and Service Supervisors.
   Each service bus provides a logical network connection that addresses the
@@ -125,7 +128,191 @@ some of the highlighted items and terminologies are:
 Common Services
 ---------------
 
+This section goes elaborates on the architecture, design, and specifications of
+the observatory common services.
+
+*Engineering User Interface Service*
+.....................................
+
+  Engineering user interfaces provide a low level detailed graphical interface
+  to the GMT system. This interface is not optimized for scientific operations,
+  and is used in collaboration with the Command Line Interface (CLI) service
+  during the development, testing, integration, and commissioning phases of the
+  GMT subsystems.
+
+  Like all of the GMT user interfaces, the main components are Panels and
+  Widgets. Widgets are grouped into Panels that are assigned to the GMT
+  operation display units. Engineering user interfaces are in most cases
+  generated according to UI specification files. The engineering Panels are
+  built using the standard Widgets provided by the UI framework (e.g., 2D plot,
+  scalar). In contrast, the Operation User Interface System includes additional
+  ad-hoc widgets designed to optimize the main high-level operator workflows.
+  The figure below shows and example of a scalar view widget.
+
+  ..
+    Widget Figure here
+
+  The engineering user interface components provide the following capabilities:
+
+     * Display of all the information relevant to a Subsystem or Component
+    
+     * Default Panel generation using engineering layouts
+
+     * Subsystem view (e.g., alarms, logs, monitors, commands, properties)
+
+     * Component view
+
+     * System navigation (e.g., system tree widget)
+
+     * Profile management
+
+     * Integration with the Operations User Interface
+
+
+*Command Execution Service*
+...........................
+
+  The Command Line Interface (CLI) complements the graphic user interfaces used
+  for both engineering and operations. It provides low-level access to all the
+  system functionality, and the flexibility often required during testing and
+  commissioning phases. CLI also provides a way to operate subsystems in early
+  stages of development, when the UI is still being developed and does not provide
+  all the functionality. The SWCS command line interface requirement is given by
+  SWC-6864, Engineering Mode: Include an engineering mode that allows low-level
+  control of components and subsystems.
+
+  ..
+    Show command line Figure 10-61
+
+  The Command Line Interface components provide the following capabilities:
+
+    * Access to the public interface of any distributed component
+
+    * Advanced debugging and troubleshooting
+
+    * Command completion and introspection enables interactive discovery of the
+      system functionality at runtime
+
+    * Support for development and test automation
+
+    * Interactive shell command (gmt command)
+
+    * Access to on-line documentation, introspection and model and metamodel semantics.
+
+    * Scripting
+
+    * Batch processing (gds “gmt development system” command)
+
+    * Alias definition to minimize typing long command names and reducing typing errors.
+
+  The Command Line Interface can be executed in any of the operation consoles on
+  the observatory control network. Given the distributed nature of the project
+  it may often be useful to grant access to the CLI tool from the operation
+  network so subsystems experts can diagnose a fault condition. For safety
+  reasons, CLI sessions in the operation network should only be granted specific
+  authorization levels.
+
+
+*On-Line Documentation Service*
+...............................
+
+  **To Be Added**
+
+*System Supervisor Service*
+............................
+
+  Health and quality monitoring is central to ensuring that all the hardware,
+  devices, components, and so on down the line are working properly and safely.
+  As such, means of monitoring are provided inside many hardware and their
+  devices at all levels via controller supervisors (which are defined as part of
+  the SWCS architecture).
+
+  The GMT has a large number of distributed Subsystems and Components that are
+  deployed in different computers or embedded units to implement telescope
+  control functions. Each Subsystem is required to deploy a Supervisor to
+  coordinate, monitor, and manage, the health status of its respective software
+  and hardware Components. In order to guarantee reliability it is important to
+  monitor and manage the overall health of these Subsystems and Components. The
+  System Supervisor is thus in charge of the overall health of the system by
+  watching over the hierarchy. It ensures that the system as a whole can handle
+  fault tolerance, service availability, and failure detection, thus ensuring
+  the overall robustness.
+ 
+  The implementation of supervisory functions in a dedicated subsystem allows
+  the rest of the components to focus on their primary operational functions. It
+  allows the separation of responsibilities, thus enabling the supervisory
+  strategies to evolve independently from their subsystems. For example, it is
+  possible to implement a new supervisory strategy without the need to modify
+  the application subsystems. This strategy also simplifies the implementation
+  of the Supervisory Service, as it only has to focus on monitoring and managing
+  the health of the system. A mix of watchdog, heartbeat, and ping, mechanisms
+  usually accomplishes this.
+ 
+  The System Supervisor accesses the database to load runtime system
+  configurations appropriate to a given operation mode (e.g., only the health of
+  focal stations that are considered active or standby or the hardware installed
+  on the telescope, FSM vs. ASM, are being monitored).
+
+  ..
+    Show System Supervisor diagram Figure 10-62
+
+  The System Supervisor provides the following capabilities:
+
+    * Coordinates the GMT automatic start-up and shutdown procedures
+
+    * Starts and shuts down the subsystem hardware
+
+    * Re-starts any SWC subsystem that crashes
+
+    * Re-starts any SWC subsystem when requested by a user
+
+    * Ensures that all the subsystems required by a given operation mode are in
+      nominal operation state (e.g., ping/watchdog)
+
+    * Enables users to query the health of all subsystems at various
+      granularities. Querying may be performed via user interfaces at high levels,
+      and direct command line interfaces at low levels. The query system will
+      allow users to learn about devices, commands, and meaning of the parameters
+      and outputs, on-line and interactively.
+
+    * Manages optimal information flow to inform human supervisors. This
+      involves processing and filtering of information.
+
+    * Provides effective and efficient visualization displays that adequately
+      capture the overall health of the observatory, telescope, instruments, and
+      weather environment.
+
+    * Reports host information: Operating system resources usage, version of
+      operating system and installed software, version of every software module,
+      validation vs. specified configuration.
+
+    * Enables automated localization and alert of problems and devices that do
+      not operate within nominal ranges, or environmental conditions that endanger
+      the safety of the telescope or observatory.
+
+    * Reports information about the processes running in the system: start time,
+      status, etc.
+
+    * Administers the system deployment model
+
+    * Redeploys a service or process in an alternative computer if the one
+      assigned becomes unresponsive.
+
+    * Implements secondary fault tolerance and load balancing. (The system
+      supervisor, analyses the load of the different services and may deploy
+      additional resources to address additional demands)
+
+    * Detects health of the underlying communication infrastructure
+
+    * Implements an Observatory Wide rule system to match global rule conditions
+      and trigger associated actions.
+
+    * Acts as a Supervisor of supervisors. Each subsystem is required to deploy
+      a Subsystem supervisor.
+
+
 *Telemetry Service*
+...................
 
   The telemetry service provides the ability to observe any data transmitted by
   hardware or software subsystem available for monitoring. Telemetry data
@@ -164,6 +351,7 @@ Common Services
 
 
 *Alarm Service*
+...............
 
   The alarm system, along with the system supervisor and the Interlock & Safety
   System (ISS), provide functions to assess and manage the overall health of the
@@ -171,10 +359,29 @@ Common Services
   Component (e.g., Controller or Supervisor). Alarm events are time-stamped and
   include information on the component that has triggered the alarm.
 
-  The alarm system associates (using metadata) a set of actions with every alarm
-  event that has to be monitored manually or executed automatically. These
-  actions can include a reference to a workflow or sequence if one has been
-  defined.
+  The Alarm System provides the following capabilities:
+
+    * Notification of alarm events from any component in the system
+
+    * Analysis of the stream of alarms to identify system health conditions
+
+    * Filtering of alarms
+
+    * Storage of alarm events
+
+    * Visualization of the status of all the alarms in the system
+
+    * Correlation via timestamp with any other event in the system
+
+    * Logging operator acknowledgment.
+
+  In addition to the handling of alarm events, the alarm server provides
+  features that allow managing of load balancing and fault tolerance. The alarm
+  system operation, as with any other component, can be monitored by the
+  telemetry system by specifying monitoring features in its interface (e.g., the
+  number of components connected, the number of active alarms, state of the
+  server, instant alarm throughput).
+
 
   The following alarm service block diagram shows how distributed components and
   supervisors access the Alarm Adapter interface to notify an alarm event.  (1)
@@ -190,8 +397,16 @@ Common Services
     :scale: 70%
     :alt: Alarm Service Block Diagram
 
+  When a fault condition occurs in a component, it is the responsibility of that
+  component to either handle the fault or to transmit alarms up the supervisory
+  chain until they reach a component that can address the problem, or else
+  eventually up to the operations staff.
 
-  Alarm conditions are part of the specification of a component:
+  The alarm system associates (using metadata) a set of actions with every alarm
+  event that has to be monitored manually or executed automatically. These
+  actions can include a reference to a workflow or sequence if one has been
+  defined.  Alarm conditions are part of the specification of a component, shown
+  in the following:
 
   ..
       Test this out in the future to include external code:
@@ -230,36 +445,10 @@ Common Services
                 desc: “URI of the component that has detect the alarm condition”
 
 
-  When a fault condition occurs in a component, it is the responsibility of that
-  component to either handle the fault or to transmit alarms up the supervisory
-  chain until they reach a component that can address the problem, or else
-  eventually up to the operations staff.
-
-  The Alarm System provides the following capabilities:
-
-    * Notification of alarm events from any component in the system
-
-    * Analysis of the stream of alarms to identify system health conditions
-
-    * Filtering of alarms
-
-    * Storage of alarm events
-
-    * Visualization of the status of all the alarms in the system
-
-    * Correlation via timestamp with any other event in the system
-
-    * Logging operator acknowledgment.
-
-  In addition to the handling of alarm events, the alarm server provides
-  features that allow managing of load balancing and fault tolerance. The alarm
-  system operation, as with any other component, can be monitored by the
-  telemetry system by specifying monitoring features in its interface (e.g., the
-  number of components connected, the number of active alarms, state of the
-  server, instant alarm throughput).
 
 
 *Logging Service*
+.................
 
   Logging records the history of events, whether normal or abnormal, surrounding
   GMT operations, such as whether an user has logged on to the GMT, or an
@@ -307,7 +496,22 @@ Common Services
                     desc: "URI of the component that has issue the log message"
 
 
+*Networking Infrastructure Service*
+...................................
+
+  A combination of multi-fiber trunks and breakout cables provides galvanic
+  isolation between the different equipment installed in the electronics room and
+  the telescope enclosure. The network layout is based on a switching fabric
+  layout common in High Performance Computing applications.
+
+  Logical networks (e.g., in the current baseline design, Infiniband) are used
+  to implement the low latency communication between components involved in the
+  “Fast-Control” AO loops, while 10/40 GbE is used to transport and store AO
+  telemetry data streams independently of control data).
+
+
 *Configuration Service*
+.......................
 
   The properties / behaviors of all controlled Subsystems and Components are
   stored as sets of static properties or metadata in a Configuration Database.
@@ -321,16 +525,15 @@ Common Services
   table to apply error mapping correction in a motion control system).
   
   The GMT SWC is composed of a large number of Subsystems and several thousand
-  Component instances. Some of Components are identical, such as the 6
-  positioners of the seven M2 segments. The behavior of the Controller of each
-  positioner is the same and is implemented as a class, which is a
-  specialization of BaseController. However, the configuration properties of
-  each segment position Controller are different for each instance. As a result,
-  the configuration service has to be able to manage efficiently a large number
-  of configuration properties. As a general rule, there will be at least a
-  default configuration for each component instance. It would be possible to
-  create new configuration snapshots on-the-fly once a property is changed
-  interactively.
+  Component instances. Some Components are identical, such as the 6 positioners
+  of the seven M2 segments. The behavior of the Controller of each positioner is
+  the same and is implemented as a class, which is a specialization of
+  BaseController. However, the configuration properties of each segment position
+  Controller are different for each instance. As a result, the configuration
+  service has to be able to manage efficiently a large number of configuration
+  properties. As a general rule, there will be at least a default configuration
+  for each component instance. It would be possible to create new configuration
+  snapshots on-the-fly once a property is changed interactively.
 
   Each Subsystem is required to implement a Configuration Adapter, which is a
   specialization of the BaseConfigurationAdapter. The Configuration Adaptor

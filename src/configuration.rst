@@ -15,8 +15,7 @@ locally by an user downloading from *GitHub*, this page will show the steps
 for service configuration.
 
 
-The service that provides networking is the *communication service*.  To
-communicate, components send message packets to a network of conduits, i.e.
+To communicate, components send message packets to a network of conduits, i.e.
 ports, where the messages follow the *tcp/udp* protocol.  For this to work, each
 component has a unique URI identifier address, while each communication port,
 has an URL.  A component may have multiple ports that serve different purposes,
