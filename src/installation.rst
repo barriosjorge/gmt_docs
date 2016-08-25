@@ -1,70 +1,71 @@
 .. _installation:
 
-USB Drive Installation
-======================
+Installation
+============
 
-The GMT Software and Controls Release can be installed using a kickstart USB
-Drive, following the procedures below.  The USB drive option performs the
-following in an automated way:
+The release is provided as a custom Linux distribution that includes:
 
-    * Populates all binary and system files
-    * Installs all library dependencies
-    * Configures environmental variables
-    * Configures and starts services
+  * Core operating system (based on Fedora 23)
+  * GMT software packages
+  * Third-party and development packages required for runtime and development
 
-The commands below are issued assuming that the user is using the Linux shell
-environment.
+The kickstart installation automates the process of adapting the release to your system, effectively
+providing a turn-key brand new system.
 
-.. warning::
+.. ``Note:`` Follow `these instructions <link>`_ for limited support on OS-X.
 
-  * This installation only applies to Beckhoff Industrial PC.
+Procedure
+---------
 
-  * The USB installation will wipe the entire content of your CFast card!
+1. Create a bootable USB stick
 
+  1.1 Download the iso image and checksum
 
-Procedures
-----------
+    .. code-block:: bash
+    
+      $ curl -O http://52.52.46.32/srv/gmt/iso/standalone.iso
+      $ curl -O http://52.52.46.32/srv/gmt/iso/standalone.sha512
 
-1. Retreive the release iso image
-
-  .. code-block:: bash
-  
-    $ curl -O http://52.52.46.32/srv/gmt/iso/standalone.iso
-
-
-2. Create a bootable USB drive
-
-  .. note::
-    * The drive needs a minimum 3GB capacity.
+  1.2 Verify and burn the iso image
 
   .. warning::
-    * The iso will wipe the entire content of your USB drive!
-    * You must properly identify the drive when you insert it in your machine.
+    * The drive needs a minimum 3GB capacity
+    * Properly identify your drive's ``device``
+    * The entire drive will be erased!
 
-  OS X - with drive on ``disk2``
+ 
+  OSX - with a drive on ``/dev/disk2``
 
   .. code-block:: bash
+
+    $ shasum -a 512 -c standalone.sha512 
+    standalone.iso: OK
 
     $ diskutil list
-
     $ sudo diskutil unmountDisk /dev/disk2
-
     $ sudo dd bs=4m if=standalone.iso of=/dev/rdisk2
 
-  Linux - with drive on ``sdb``
+
+
+  Linux - with drive on ``/dev/sdb``
 
   .. code-block:: bash
 
-    $ sudo umount /dev/sdb*
+    $ sha512sum -c standalone.sha512 
+    standalone.iso: OK
 
+    $ sudo umount /dev/sdb*
     $ sudo dd bs=4M if=standalone.iso of=/dev/sdb
 
+2. Configure your BIOS to boot from USB 
 
-3. Configure the BIOS on the Industrial PC (IPC)
+This step is vendor specific. On the Beckhoff Industrial PC (IPC) provided with the Hardware Development Kit (HDK):
 
-  3.1  Turn on the IPC using the power switch and enter the BIOS settings using the <Del> key.
+  2.1  Insert the USB drive into the IPC and power up the system
 
-  3.2  In the Boot pane, set Option #1 to [USB stick].
+  2.1  Enter the BIOS settings by pressing the <Del> key.
+
+  2.2  In the Boot panel, set Option #1 to [USB stick].
 
     .. image:: _static/hdk-bios-usb.png
       :align: center
@@ -72,37 +73,36 @@ Procedures
       :alt: BIOS boot configuration
 
 
-  3.3 Insert USB drive into the IPC.
-
-  3.4 Select 'Save & Exit' to exit the BIOS setup which reboots the system.
+  2.3 Select 'Save & Exit'; the system will reboot
 
 
-4. Install the distribution
+3. Factory Reset Installation
 
-  4.1 At the prompt, select the 'install' option.
+  3.1 Once the system is back up, select the 'install' option
 
-  4.2 Press the <Tab> key. The following parameters are available:
+  .. warning::
+    * Your system drive will be reformated and erased!
 
-    * **gmt.tz** sets the system timezone (provided by /usr/share/zoneinfo).
+  3.2 Press the <Tab> key. The following options are available:
 
-    * **gmt.ecat** sets the interface used by EtherCAT, keep the provided default.
+    * **gmt.tz** sets the system timezone (provided by /usr/share/zoneinfo)
+
+    * **gmt.ecat** sets the interface used by EtherCAT, keep the provided default for HDK
 
 
-  4.3 Wait until the installation completes.  The system will eventually reboot itself.
+  3.3 Wait until the installation completes.  The system will eventually reboot itself.
 
-  4.4 Remove the USB drive or select the *local* option.
+  3.4 Remove the USB drive or select the 'local' option
   
-  4.5 Select the real-time kernel (which is default) in the boot manager (GRUB) menu.
+  3.5 Boot the (default) real-time kernel
 
-The system is ready.
+  Your system is ready.
 
 
 Sanity Check
 ------------
 
-1.  Log into the system as *root* or *gmto*.
-
-2.  Basic Ethercat check
+*  Basic Ethercat check
 
   .. code-block:: bash
 
@@ -110,7 +110,7 @@ Sanity Check
     $ ethercat slaves
 
 
-3.  Basic mongodb check
+*  Basic MongoDB check
 
   .. code-block:: bash
 
