@@ -14,7 +14,17 @@ Home
 .. toctree::
    :maxdepth: 1
 
-   introduction
+   swcs_introduction
+
+.. toctree::
+   :maxdepth: 1
+
+   overall_architecture
+
+.. toctree::
+   :maxdepth: 1
+
+   observatory_services
 
 .. toctree::
    :maxdepth: 1

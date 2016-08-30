@@ -1,7 +1,7 @@
-.. _Home:
+.. _Observatory_Services:
 
-Introduction
-============
+Observatory Services
+====================
 
 The GMT software and controls system is highly distributed: the control
 components are deployed in computers distributed across different locations of
@@ -72,10 +72,19 @@ some of the highlighted items and terminologies are:
        optimal communication pattern, how to register component services
        in runtime database.
 
-  Communication between adapters and supervisors may
-  follow different communication patterns (e.g., publish/subscribe, push/pull,
-  request/reply).  Section XXX (Core Component Framework) describes the
-  different communication patterns that are available. 
+
+  Base classes in the Core Component Framework wrap these low-level interfaces
+  in a simplified high-level application-programming interface (API), reducing
+  the overhead necessary to integrate a software component into the GMT system.
+  When a component is deployed and its service adapters setup and bootstrapped,
+  all the component service features become available system-wide. Service
+  adapters can be shared between components depending on the performance
+  requirements.
+
+  Communication between adapters and supervisors may follow different
+  communication patterns (e.g., publish/subscribe, push/pull, request/reply).
+  Section XXX (Core Component Framework) describes the different communication
+  patterns that are available. 
 
 *Service Supervisors*
 .....................
@@ -182,11 +191,11 @@ the observatory common services.
   all the functionality. 
 
   The figure below shows an example of command-line completion (first line) and
-  component introscpection (fourth line).
+  component introspection (fourth line).
 
   .. image:: _static/command-line-service.png
     :align: center
-    :scale: 70%
+    :scale: 85%
     :alt: Command-line Service
 
 
@@ -272,7 +281,8 @@ the observatory common services.
   *health* event to the supervisor using a push socket. (3) The service
   supervisor forwards the event to the subscribed components using a pub socket.
 
-  The above System Supervisor design is inspired by Erlang/OTP* which is one of
+  The above System Supervisor design is inspired by `Erlang/OTP
+  <http://en.wikipedia.org/wiki/Erlang_(programming_language)>`_ which is one of
   the most reliable systems. It is designed to recover easily from fault
   conditions. The emphasis in Erlang is not so much to reduce the risk of
   failure, but to consider fault conditions as part of the nominal scenario so

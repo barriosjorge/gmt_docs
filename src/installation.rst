@@ -9,8 +9,8 @@ The release is provided as a custom Linux distribution that includes:
   * GMT software packages
   * Third-party and development packages required for runtime and development
 
-The kickstart installation automates the process of adapting the release to your system, effectively
-providing a turn-key brand new system.
+The kickstart installation automates the process of adapting the release to your
+system, effectively providing a turn-key brand new system.
 
 .. ``Note:`` Follow `these instructions <link>`_ for limited support on OS-X.
 
@@ -22,7 +22,7 @@ Procedure
   1.1 Download the iso image and checksum
 
     .. code-block:: bash
-    
+
       $ curl -O http://52.52.46.32/srv/gmt/iso/standalone.iso
       $ curl -O http://52.52.46.32/srv/gmt/iso/standalone.sha512
 
@@ -33,7 +33,7 @@ Procedure
     * Properly identify your drive's ``device``
     * The entire drive will be erased!
 
- 
+
   OSX - with a drive on ``/dev/disk2``
 
   .. code-block:: bash
@@ -44,7 +44,6 @@ Procedure
     $ diskutil list
     $ sudo diskutil unmountDisk /dev/disk2
     $ sudo dd bs=4m if=standalone.iso of=/dev/rdisk2
-
 
 
   Linux - with drive on ``/dev/sdb``
@@ -59,7 +58,8 @@ Procedure
 
 2. Configure your BIOS to boot from USB 
 
-This step is vendor specific. On the Beckhoff Industrial PC (IPC) provided with the Hardware Development Kit (HDK):
+  This step is vendor specific. On the Beckhoff Industrial PC (IPC) provided
+  with the Hardware Development Kit (HDK):
 
   2.1  Insert the USB drive into the IPC and power up the system
 
