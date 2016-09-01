@@ -1,169 +1,251 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Running the examples &mdash; GMT Software And Controls documentation</title>
-    
-    <link rel="stylesheet" href="_static/default.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Running Examples (TBR) &mdash; GMT Software And Controls documentation</title>
+  
+
+  
+  
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="top" title="GMT Software And Controls documentation" href="index.html" />
-    <link rel="next" title="Creating a Device Control System (DCS)" href="dcs_dev_guide.html" />
-    <link rel="prev" title="Using the services" href="services.html" /> 
-  </head>
-  <body>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="dcs_dev_guide.html" title="Creating a Device Control System (DCS)"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="services.html" title="Using the services"
-             accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Home</a> &raquo;</li> 
-      </ul>
-    </div>  
+  
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body">
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="GMT Software And Controls documentation" href="index.html"/>
+        <link rel="next" title="Creating a Device Control System (TBR)" href="dcs_dev_guide.html"/>
+        <link rel="prev" title="Using the Services (TBR)" href="services.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> GMT Software And Controls
+          
+
+          
             
-  <div class="section" id="running-the-examples">
-<h1>Running the examples<a class="headerlink" href="#running-the-examples" title="Permalink to this headline">¶</a></h1>
+            <img src="_static/logo.jpg" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Developer Info and Release Configuration (TBR)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="services.html">Using the Services (TBR)</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Running Examples (TBR)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#run-example-components">Run Example Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setup-component-ports">Setup Component Ports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#run-example-controller">Run Example Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#check-monitored-values">Check Monitored Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#send-a-command-to-controller">Send a Command to Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ethercat-example">Ethercat Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hdk-controller-with-ethercat-adapter">HDK Controller With Ethercat Adapter</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="dcs_dev_guide.html">Creating a Device Control System (TBR)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">Contribute</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">GMT Software And Controls</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Running Examples (TBR)</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/examples.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="running-examples-tbr">
+<h1>Running Examples (TBR)<a class="headerlink" href="#running-examples-tbr" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="run-example-components">
-<h2>run example components<a class="headerlink" href="#run-example-components" title="Permalink to this headline">¶</a></h2>
-<p>This will start the set of c++ components from <cite>src/runtime/src/obs_fwk/core_fwk/c++/examples/example_components</cite>.
-This components will send some messages to the log service and they can be received by a log client.
-Each components performs a simple operation on inputs and sends the result to outputs.
+<h2>Run Example Components<a class="headerlink" href="#run-example-components" title="Permalink to this headline">¶</a></h2>
+<p>This example will start a set of c++ components from:</p>
+<blockquote>
+<div><em>src/runtime/src/obs_fwk/core_fwk/c++/examples/example_components</em></div></blockquote>
+<p>The components will send some messages to the log service and they can be received by a log client.
+Each component performs a simple operation on input and sends the result to outputs.
 The components can be connected with each other if they receive a setup of ports. For example we can connect them this way:</p>
-<dl class="docutils">
-<dt><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a></dt>
-<dd><blockquote class="first">
-<div><blockquote>
-<div><blockquote>
-<div>a1                  b1</div></blockquote>
-<p>a2            &#8212;&#8211;               &#8212;&#8211;</p>
-</div></blockquote>
-<p>&#8212;&#8211;           |   <a href="#id89"><span class="problematic" id="id90">|&lt;&#8212;&#8212;&#8212;&#8212;&#8211;|</span></a>   |
-|   <a href="#id91"><span class="problematic" id="id92">|&lt;&#8212;&#8212;&#8212;-|</span></a> + |               &#8212;&#8211;</p>
-</div></blockquote>
-<dl class="last docutils">
-<dt>&lt;&#8211;| + |           |   <a href="#id93"><span class="problematic" id="id94">|&lt;&#8212;&#8212;-|</span></a></dt>
-<dd><div class="first line-block">
-<div class="line"><a href="#id95"><span class="problematic" id="id96">|&lt;&#8212;&#8211;|</span></a>    &#8212;&#8211;        |        b2</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>                     a1                  b1
+     a2            +---+               +---+
+   +---+           |   |&lt;--------------|   |
+   |   |&lt;----------| + |               +---+
+&lt;--| + |           |   |&lt;-------+
+   |   |&lt;-----+    +---+        |        b2
+   +---+      |                 |      +---+
+              |                 +------|   |
+              |                        +---+
+              |
+              |                          b3
+              |                        +---+
+              +------------------------|   |
+                                       +---+
+</pre></div>
 </div>
-<dl class="last docutils">
-<dt>&#8212;&#8211;      |                 |      &#8212;&#8211;</dt>
-<dd><div class="first line-block">
-<div class="line">&#8212;&#8212;-|   |</div>
-<div class="line-block">
-<div class="line">&#8212;&#8211;</div>
-<div class="line"><br /></div>
-<div class="line-block">
-<div class="line">b3</div>
-</div>
-<div class="line">&#8212;&#8211;</div>
-</div>
-</div>
-<dl class="last docutils">
-<dt><a href="#id97"><span class="problematic" id="id98">|&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;|</span></a>   |</dt>
-<dd></dd>
-</dl>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd>
-</dl>
-<p><a href="#id5"><span class="problematic" id="id6">``</span></a><a href="#id7"><span class="problematic" id="id8">`</span></a></p>
 </div>
 <div class="section" id="setup-component-ports">
-<h2>setup component ports<a class="headerlink" href="#setup-component-ports" title="Permalink to this headline">¶</a></h2>
+<h2>Setup Component Ports<a class="headerlink" href="#setup-component-ports" title="Permalink to this headline">¶</a></h2>
 <p>At the beginning the ports of each component are not setup. Any component can receive their port setup as follows:</p>
-<p>&gt; setup_component subsystem component</p>
-<p>This will look into <cite>${GMT_ROOT}/var/lib/gmt/cson/runtime/db/config/&lt;subsystem_name&gt;/&lt;component_name&gt;.cson</cite> for the port setup.</p>
-<p>For example, component_A1 has the following configuration in <cite>${GMT_ROOT}/var/lib/gmt/cson/runtime/db/config/examples/component_A1.cson</cite></p>
-<dl class="docutils">
-<dt><a href="#id9"><span class="problematic" id="id10">``</span></a><a href="#id11"><span class="problematic" id="id12">`</span></a></dt>
-<dd><dl class="first last docutils">
-<dt>component_setup:</dt>
-<dd><p class="first">name     : &#8216;examples/component_A1&#8217;
-port     : 8004
-host     : &#8216;127.0.0.1&#8217;
-rate     : &#8216;1000000&#8217;
-inputs   : [ [ &#8220;x2&#8221;, &#8220;pull&#8221;, &#8220;<a class="reference external" href="tcp://127.0.0.1:9001">tcp://127.0.0.1:9001</a>&#8221;, &#8220;async&#8221;, 1]</p>
 <blockquote>
-<div>[ &#8220;x3&#8221;, &#8220;pull&#8221;, &#8220;<a class="reference external" href="tcp://127.0.0.1:9002">tcp://127.0.0.1:9002</a>&#8221;, &#8220;async&#8221;, 1] ]</div></blockquote>
-<p class="last">outputs  : [ [ &#8220;x1&#8221;, &#8220;push&#8221;, &#8220;<a class="reference external" href="tcp://127.0.0.1:9004">tcp://127.0.0.1:9004</a>&#8221;, &#8220;async&#8221;, 1] ]</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<p><a href="#id13"><span class="problematic" id="id14">``</span></a><a href="#id15"><span class="problematic" id="id16">`</span></a></p>
+<div><em>Usage:</em>  <tt class="docutils literal"><span class="pre">setup_component</span>&nbsp; <span class="pre">subsystem_name</span>&nbsp; <span class="pre">component_name</span></tt></div></blockquote>
+<p>This will look into:</p>
+<blockquote>
+<div><cite>${GMT_ROOT}/var/lib/gmt/cson/runtime/db/config/&lt;subsystem_name&gt;/&lt;component_name&gt;.cson</cite></div></blockquote>
+<p>for the port setup.</p>
+<p>For example, <em>component_A1</em> has the following configuration in:</p>
+<blockquote>
+<div><cite>${GMT_ROOT}/var/lib/gmt/cson/runtime/db/config/examples/component_A1.cson</cite></div></blockquote>
+<div class="highlight-python"><div class="highlight"><pre><span></span>component_setup:
+      name     : &#39;examples/component_A1&#39;
+      port     : 8004
+      host     : &#39;127.0.0.1&#39;
+      rate     : &#39;1000000&#39;
+      inputs   : [ [ &quot;x2&quot;, &quot;pull&quot;, &quot;tcp://127.0.0.1:9001&quot;, &quot;async&quot;, 1]
+                   [ &quot;x3&quot;, &quot;pull&quot;, &quot;tcp://127.0.0.1:9002&quot;, &quot;async&quot;, 1] ]
+      outputs  : [ [ &quot;x1&quot;, &quot;push&quot;, &quot;tcp://127.0.0.1:9004&quot;, &quot;async&quot;, 1] ]
+</pre></div>
+</div>
 <p>To connect the example components as described in the previous section the following commands can be used:</p>
-<dl class="docutils">
-<dt><a href="#id17"><span class="problematic" id="id18">``</span></a><a href="#id19"><span class="problematic" id="id20">`</span></a></dt>
-<dd>setup_component examples component_B1
-setup_component examples component_B2
-setup_component examples component_B3
-setup_component examples component_A1
-setup_component examples component_A2</dd>
-</dl>
-<p><a href="#id21"><span class="problematic" id="id22">``</span></a><a href="#id23"><span class="problematic" id="id24">`</span></a></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ setup_component examples component_B1
+$ setup_component examples component_B2
+$ setup_component examples component_B3
+$ setup_component examples component_A1
+$ setup_component examples component_A2
+</pre></div>
+</div>
 </div>
 <div class="section" id="run-example-controller">
-<h2>run example controller<a class="headerlink" href="#run-example-controller" title="Permalink to this headline">¶</a></h2>
-<p>A basic controller with a temperature state variable is provided at <cite>src/runtime/src/obs_fwk/ctrl_fwk/c++/examples/basic_controller</cite></p>
-<p>The configuration for this controller is <cite>${GMT_ROOT}/var/lib/gmt/cson/runtime/db/config/examples/basic_controller.cson</cite></p>
-<dl class="docutils">
-<dt><a href="#id25"><span class="problematic" id="id26">``</span></a><a href="#id27"><span class="problematic" id="id28">`</span></a></dt>
-<dd><dl class="first last docutils">
-<dt>component_setup:</dt>
-<dd>name     : &#8216;examples/basic_controller&#8217;
-port     : 8001
-host     : &#8216;127.0.0.1&#8217;
-rate     : &#8216;1000000&#8217;
-inputs   : [ [ &#8216;temperature_setpoint&#8217;, &#8216;pull&#8217;, &#8216;<a class="reference external" href="tcp://127.0.0.1:9001">tcp://127.0.0.1:9001</a>&#8216;, &#8216;async&#8217;, 1] ]
-outputs  : [ [ &#8216;temperature_monitor&#8217;,  &#8216;push&#8217;, &#8216;<a class="reference external" href="tcp://127.0.0.1:9011">tcp://127.0.0.1:9011</a>&#8216;, &#8216;async&#8217;, 1000] ]</dd>
-<dt>state_vars:</dt>
-<dd>temperature: { type: &#8216;float&#8217;, init: 23.4, min: 2.0, max: 26.1, url: &#8216;<a class="reference external" href="tcp://127.0.0.1:9011">tcp://127.0.0.1:9011</a>&#8216; }</dd>
-</dl>
-</dd>
-</dl>
-<p><a href="#id29"><span class="problematic" id="id30">``</span></a><a href="#id31"><span class="problematic" id="id32">`</span></a></p>
-<dl class="docutils">
-<dt><a href="#id33"><span class="problematic" id="id34">``</span></a><a href="#id35"><span class="problematic" id="id36">`</span></a></dt>
-<dd>run_basic_controller &amp;
-setup_component examples basic_controller</dd>
-</dl>
-<p><a href="#id37"><span class="problematic" id="id38">``</span></a><a href="#id39"><span class="problematic" id="id40">`</span></a></p>
+<h2>Run Example Controller<a class="headerlink" href="#run-example-controller" title="Permalink to this headline">¶</a></h2>
+<p>A basic controller with a temperature state variable is provided at:</p>
+<blockquote>
+<div><cite>src/runtime/src/obs_fwk/ctrl_fwk/c++/examples/basic_controller</cite></div></blockquote>
+<p>The configuration for this controller is:</p>
+<blockquote>
+<div><cite>${GMT_ROOT}/var/lib/gmt/cson/runtime/db/config/examples/basic_controller.cson</cite></div></blockquote>
+<div class="highlight-python"><div class="highlight"><pre><span></span>component_setup:
+    name     : &#39;examples/basic_controller&#39;
+    port     : 8001
+    host     : &#39;127.0.0.1&#39;
+    rate     : &#39;1000000&#39;
+    inputs   : [ [ &#39;temperature_setpoint&#39;, &#39;pull&#39;, &#39;tcp://127.0.0.1:9001&#39;, &#39;async&#39;, 1] ]
+    outputs  : [ [ &#39;temperature_monitor&#39;,  &#39;push&#39;, &#39;tcp://127.0.0.1:9011&#39;, &#39;async&#39;, 1000] ]
+state_vars:
+    temperature: { type: &#39;float&#39;, init: 23.4, min: 2.0, max: 26.1, url: &#39;tcp://127.0.0.1:9011&#39; }
+</pre></div>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ run_basic_controller <span class="p">&amp;</span>
+$ setup_component examples basic_controller
+</pre></div>
+</div>
 </div>
 <div class="section" id="check-monitored-values">
-<h2>check monitored values<a class="headerlink" href="#check-monitored-values" title="Permalink to this headline">¶</a></h2>
+<h2>Check Monitored Values<a class="headerlink" href="#check-monitored-values" title="Permalink to this headline">¶</a></h2>
 <p>Telemetry is a distributed service than can be started independently on each component as:</p>
-<p>&gt; monitor_component subsystem component_name</p>
+<blockquote>
+<div><em>Usage:</em>  <tt class="docutils literal"><span class="pre">monitor_component</span>&nbsp; <span class="pre">subsystem_name</span>&nbsp; <span class="pre">component_name</span></tt></div></blockquote>
 <p>This command will start the telemetry adapters for this component and they will send monitored values to the server.
 The telemetry service will:</p>
 <ul class="simple">
@@ -173,144 +255,145 @@ The telemetry service will:</p>
 </ul>
 <p>Note that monitors are the values of the state variables defined in the controller (state_var section).</p>
 <p>For example, the following command will start sending &#8216;temperature&#8217; data points to the telemetry service.</p>
-<dl class="docutils">
-<dt><a href="#id41"><span class="problematic" id="id42">``</span></a><a href="#id43"><span class="problematic" id="id44">`</span></a></dt>
-<dd>monitor_component examples basic_controller</dd>
-</dl>
-<p><a href="#id45"><span class="problematic" id="id46">``</span></a><a href="#id47"><span class="problematic" id="id48">`</span></a></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ monitor_component examples basic_controller
+</pre></div>
+</div>
 <p>To check the monitored values a telemetry_client can be started in another unix terminal:</p>
-<p>&gt; telemetry_client [topic]</p>
+<blockquote>
+<div><em>Usage:</em>  <tt class="docutils literal"><span class="pre">telemetry_client</span> <span class="pre">[topic]</span></tt></div></blockquote>
 <p>A query can also be sent to the telemetry service like this:</p>
-<p>&gt; telemetry_query monitor_name num</p>
+<blockquote>
+<div><em>Usage:</em>  <tt class="docutils literal"><span class="pre">telemetry_query</span>&nbsp; <span class="pre">monitor_name</span>&nbsp; <span class="pre">num</span></tt></div></blockquote>
 <p>For example, the following will list the last 12 temperature values (from newest to oldest) from this controller:</p>
-<dl class="docutils">
-<dt><a href="#id49"><span class="problematic" id="id50">``</span></a><a href="#id51"><span class="problematic" id="id52">`</span></a></dt>
-<dd>telemetry_query examples.basic_controller.temperature 12</dd>
-</dl>
-<p><a href="#id53"><span class="problematic" id="id54">``</span></a><a href="#id55"><span class="problematic" id="id56">`</span></a></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ telemetry_query examples.basic_controller.temperature 12
+</pre></div>
+</div>
 <p>All telemetry queries have to be done on specific monitors.</p>
 </div>
 <div class="section" id="send-a-command-to-controller">
-<h2>send a command to controller<a class="headerlink" href="#send-a-command-to-controller" title="Permalink to this headline">¶</a></h2>
+<h2>Send a Command to Controller<a class="headerlink" href="#send-a-command-to-controller" title="Permalink to this headline">¶</a></h2>
 <p>Some numeric values can be sent directly to ports of any controller like this:</p>
-<p>&gt; send_value subsystem controller port_name value { int | float }</p>
+<blockquote>
+<div><em>Usage:</em>  <tt class="docutils literal"><span class="pre">send_value</span> <span class="pre">subsystem</span>&nbsp; <span class="pre">controller</span>&nbsp; <span class="pre">port_name</span> <span class="pre">value</span> <span class="pre">{</span> <span class="pre">int</span> <span class="pre">|</span> <span class="pre">float</span> <span class="pre">}</span></tt></div></blockquote>
 <p>For example:</p>
-<dl class="docutils">
-<dt><a href="#id57"><span class="problematic" id="id58">``</span></a><a href="#id59"><span class="problematic" id="id60">`</span></a></dt>
-<dd>send_value examples basic_controller temperature_setpoint 23.3 float</dd>
-</dl>
-<p><a href="#id61"><span class="problematic" id="id62">``</span></a><a href="#id63"><span class="problematic" id="id64">`</span></a></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ send_value examples basic_controller temperature_setpoint 23.3 float
+</pre></div>
+</div>
 <p>This will send a temperature setpoint of 23.3 to the controller which should react to this change.
 State var values shall change on the telemetry client.
 When the temperature values are out the the defined range the log client should show the corresponding warning messages.</p>
 </div>
 <div class="section" id="ethercat-example">
-<h2>Ethercat example<a class="headerlink" href="#ethercat-example" title="Permalink to this headline">¶</a></h2>
+<h2>Ethercat Example<a class="headerlink" href="#ethercat-example" title="Permalink to this headline">¶</a></h2>
 <p>Keep the log_client and the telemetry_client open in different terminals.</p>
 <p>This will start and setup the example ethercat adapter:</p>
-<dl class="docutils">
-<dt><a href="#id65"><span class="problematic" id="id66">``</span></a><a href="#id67"><span class="problematic" id="id68">`</span></a></dt>
-<dd>run_ethercat_example &amp;
-setup_component examples ethercat_example</dd>
-</dl>
-<p><a href="#id69"><span class="problematic" id="id70">``</span></a><a href="#id71"><span class="problematic" id="id72">`</span></a></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ run_ethercat_example <span class="p">&amp;</span>
+$ setup_component examples ethercat_example
+</pre></div>
+</div>
 <p>To send the ethercat configuration to and EtherCAT Hw Adapter use the following command:</p>
-<p>&gt; ethercat_config subsystem ethercat_adapter configuration</p>
-<p>For example, the following command will send the bus configuration defined in
-<cite>${GMT_ROOT}/var/lib/gmt/cson/runtime/db/config/examples/ethercat_config.cson</cite> bus config
-to the &#8216;ecat_config&#8217; port of the adapter:</p>
-<dl class="docutils">
-<dt><a href="#id73"><span class="problematic" id="id74">``</span></a><a href="#id75"><span class="problematic" id="id76">`</span></a></dt>
-<dd>ethercat_config examples ethercat_example ethercat_config</dd>
-</dl>
-<p><a href="#id77"><span class="problematic" id="id78">``</span></a><a href="#id79"><span class="problematic" id="id80">`</span></a></p>
-<p>Notes:
-- All EtherCAT adapters need an &#8216;ecat_config&#8217; port in the their setup
-- Default EtherCAT objects defined at <cite>${GMT_ROOT}/var/lib/gmt/cson/runtime/db/config/ethercat/ethercat_example.cson</cite>
-- Ethercat config is still not included and generated from the model</p>
+<blockquote>
+<div><em>Usage:</em>  <tt class="docutils literal"><span class="pre">ethercat_config</span>&nbsp; <span class="pre">subsystem_name</span>&nbsp; <span class="pre">ethercat_adapter</span>&nbsp; <span class="pre">configuration</span></tt></div></blockquote>
+<p>For example, the following command:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ ethercat_config examples ethercat_example ethercat_config
+</pre></div>
 </div>
-<div class="section" id="hdk-controller-with-ethercat-adapter">
-<h2>HDK controller with ethercat adapter<a class="headerlink" href="#hdk-controller-with-ethercat-adapter" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt><a href="#id81"><span class="problematic" id="id82">``</span></a><a href="#id83"><span class="problematic" id="id84">`</span></a></dt>
-<dd>run_hdk_controller &amp;
-setup_component hdk_cs hw_adapter
-ethercat_config hdk_cs hw_adapter
-setup_component hdk_cs controller</dd>
-</dl>
-<p><a href="#id85"><span class="problematic" id="id86">``</span></a><a href="#id87"><span class="problematic" id="id88">`</span></a></p>
-</div>
-</div>
-
-
-          </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-            <p class="logo"><a href="index.html">
-              <img class="logo" src="_static/logo.jpg" alt="Logo"/>
-            </a></p>
-  <h3><a href="index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Running the examples</a><ul>
-<li><a class="reference internal" href="#run-example-components">run example components</a></li>
-<li><a class="reference internal" href="#setup-component-ports">setup component ports</a></li>
-<li><a class="reference internal" href="#run-example-controller">run example controller</a></li>
-<li><a class="reference internal" href="#check-monitored-values">check monitored values</a></li>
-<li><a class="reference internal" href="#send-a-command-to-controller">send a command to controller</a></li>
-<li><a class="reference internal" href="#ethercat-example">Ethercat example</a></li>
-<li><a class="reference internal" href="#hdk-controller-with-ethercat-adapter">HDK controller with ethercat adapter</a></li>
-</ul>
+<p>will send the bus configuration defined in:</p>
+<blockquote>
+<div><cite>${GMT_ROOT}/var/lib/gmt/cson/runtime/db/config/examples/ethercat_config.cson</cite> bus config</div></blockquote>
+<p>to the &#8216;ecat_config&#8217; port of the adapter.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last">
+<li><p class="first">All EtherCAT adapters need an &#8216;ecat_config&#8217; port in the their setup</p>
+</li>
+<li><p class="first">Default EtherCAT objects defined at:</p>
+<blockquote>
+<div><p><cite>${GMT_ROOT}/var/lib/gmt/cson/runtime/db/config/ethercat/ethercat_example.cson</cite></p>
+</div></blockquote>
+</li>
+<li><p class="first">Ethercat config is still not included and generated from the model</p>
 </li>
 </ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="services.html"
-                        title="previous chapter">Using the services</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="dcs_dev_guide.html"
-                        title="next chapter">Creating a Device Control System (DCS)</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/examples.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+</div>
+<div class="section" id="hdk-controller-with-ethercat-adapter">
+<h2>HDK Controller With Ethercat Adapter<a class="headerlink" href="#hdk-controller-with-ethercat-adapter" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ run_hdk_controller <span class="p">&amp;</span>
+$ setup_component hdk_cs hw_adapter
+$ ethercat_config hdk_cs hw_adapter
+$ setup_component hdk_cs controller
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="dcs_dev_guide.html" class="btn btn-neutral float-right" title="Creating a Device Control System (TBR)" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="services.html" class="btn btn-neutral" title="Using the Services (TBR)" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, contributors.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="dcs_dev_guide.html" title="Creating a Device Control System (DCS)"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="services.html" title="Using the services"
-             >previous</a> |</li>
-        <li><a href="index.html">Home</a> &raquo;</li> 
-      </ul>
-    </div>
-    <div class="footer">
-        &copy; Copyright 2015, contributors.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
-    </div>
-  </body>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0-rc1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
 </html>
