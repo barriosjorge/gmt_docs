@@ -97,8 +97,8 @@ the SWCS follows a set of guidelines:
   * Facilitate collaboration with the parties involved in the development of the
     different subsystems.
 
-The principles and guidelines require in practice that all the software and
-hardware, together and individually, possess the following qualities by adhering
-to proven industry practices[3]: correctness, robustness, extensibility,
-reusability, compatibility, efficiency, portability, ease of use, verifiability,
-integrity, and reparability.
+The principles and guidelines imply that all the software and hardware, together
+and individually, possess the following qualities that are standard industry
+practices[3]: correctness, robustness, extensibility, reusability,
+compatibility, efficiency, portability, ease of use, verifiability, integrity,
+and reparability.
