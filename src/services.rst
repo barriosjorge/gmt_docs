@@ -118,7 +118,7 @@ the following should be shown in terminal_1:
 Multiple log clients can be started at the same time in different terminals and with different subscription topics.
 Each client subscribes to the log service independently.
 
-Another test that can be done is to send a more log messages using this command:
+We can send more log messages using this command:
 
     *Usage:*  ``test_logs [number of messages] [thread_1 rate in ns] [thread_2 rate in ns]``
 
@@ -152,13 +152,13 @@ This will produce 5 x 2 threads x 4 types + 2 additional = 42 messages. The rate
     [ERR] 2016-09-01T23:11:17.167Z [thread_2] error message num = 1
     etc...
 
-Much faster rates and number of messages can be used:
+Much faster rates and a large number of messages can be used:
 
 .. code-block:: bash
 
     $ test_logs 50000 1000 2000
 
-This is a c++ application. In case messages are not shown please verify the following environment variables:
+In case messages are not shown please verify the following environment variables:
 
 .. code-block:: bash
 
@@ -168,7 +168,7 @@ This is a c++ application. In case messages are not shown please verify the foll
 Starting example components
 ---------------------------
 
-Another quick test to check the log service is to start some example components in terminal_2:
+The main use of the log service is inside the GMT components. To check the log service with the basic example components we can start them in terminal_2:
 
 .. code-block:: bash
 
@@ -200,7 +200,7 @@ and then in terminal_1 we can see:
     [INF] 2016-09-01T23:34:02.158Z [gmt://examples/component_B1:8001] x1 = 3
     [INF] 2016-09-01T23:34:02.158Z [gmt://examples/component_B2:8002] x1 = 3
 
-Messages are produced periodically while the components are running. To kill the components just use CTRL-C.
+Messages are produced periodically while the components are running. To kill the components just use CTRL-C in terminal_2.
 If you have the process in background like this:
 
 .. code-block:: bash
@@ -220,7 +220,7 @@ then the components will keep running and using the network ports so, if you run
     ERROR: unable to connect Port <examples/component_A2:setup> (tcp://0.0.0.0:8005) : Address already in use
 
 This means that the example components are already running and using the networks addresses.
-To avoid this you need to kill the run_example_component process:
+To avoid this you need to kill the run_example_components process before to start a new one:
 
 .. code-block:: bash
 
@@ -245,7 +245,18 @@ For example, the following will show the last 10 messages (from newest to oldest
 .. code-block:: bash
 
     $ log_query gmt://examples/basic_component:8000 10
+    starting log query at tcp://127.0.0.1:9994
+    [INF] 2016-09-01T23:44:40.936Z [gmt://examples/basic_component:8000] hello, component world
+    [INF] 2016-09-01T23:44:39.936Z [gmt://examples/basic_component:8000] hello, component world
+    [INF] 2016-09-01T23:44:38.936Z [gmt://examples/basic_component:8000] hello, component world
+    [INF] 2016-09-01T23:44:37.936Z [gmt://examples/basic_component:8000] hello, component world
+    [INF] 2016-09-01T23:44:36.936Z [gmt://examples/basic_component:8000] hello, component world
+    [INF] 2016-09-01T23:44:35.934Z [gmt://examples/basic_component:8000] hello, component world
+    [INF] 2016-09-01T23:44:34.934Z [gmt://examples/basic_component:8000] hello, component world
+    [INF] 2016-09-01T23:44:34.853Z [gmt://examples/basic_component:8000] hello, component world
+    [INF] 2016-09-01T23:44:33.934Z [gmt://examples/basic_component:8000] hello, component world
+    [INF] 2016-09-01T23:44:33.853Z [gmt://examples/basic_component:8000] hello, component world
 
-All queries have to be done on the exact URI of the component that produces the messages. More queries will be provided in future releases.
+All queries have to be done on the exact **URI** of the component that produces the messages. More queries will be provided in future releases.
 
-It's also possible to explore the log messages stored in the database or manage the databases using the 'mongo' command line tool. Please check the mongoDB documentation in this case.
+It's also possible to explore the log messages stored in the database or manage the databases using the *mongo* command line tool. Please check the mongoDB documentation in this case.
