@@ -107,11 +107,11 @@ some of the highlighted items and terminologies are:
 
     * Cross filtering of multidimensional datasets.
 
-    The implementation of the service supervisors is not monolithic. Depending
-    on the prevailing communication patterns, it is possible to implement
-    different ways to distribute the process workload (e.g., broker, fan-out).
-    This allows the efficient use of computing resources and elastic adaptation
-    to the load. 
+  The implementation of the service supervisors is not monolithic. Depending
+  on the prevailing communication patterns, it is possible to implement
+  different ways to distribute the process workload (e.g., broker, fan-out).
+  This allows the efficient use of computing resources and elastic adaptation
+  to the load. 
 
 
 *Service Bus*
