@@ -9,10 +9,11 @@ architectural components of the SWCS and to group them into uniform categories
 of: subsystems, packages and components, following the criteria of internal
 affinity, rate of change propagation and interface size.
 
-.. image:: _static/swcs-organization.png
-  :align: center
-  :scale: 70%
-  :alt: SWCS Organization
+.. _swcs-organization:
+
+.. figure:: _static/swcs-organization.png
+
+   SWCS Organization
 
 The above figure illustrates the organization hierarchy using the Unified
 Modeling Language (UML) diagram.  System, Domain, Subsystem and Packages are

@@ -3,15 +3,18 @@
 Overall Architecture
 ====================
 
-A system as multifaceted and complex as the GMT has many characteristics to
-specify and design, e.g. the system organization, operations, physical and
-behavioral properties, the control hierarchy, communication and interaction of
-the subcomponents under control, use by human operators, etc..  This means that
-there are many ways to describe how a system works, all of which come together
-to form a complete and coherent picture of the overall system, and further
-refined into technical and operational requirements.  The software architecture
-captures decisions that best meet those requirements, while optimizing over
-parameters in performance, reliability, maintainability, and cost.
+A system as multifaceted and complex as the GMT has many areas that require
+specifying and designing, from the conceptual to operational level, e.g.: the
+system organization, physical and behavioral properties of the systems and
+subsystems, their control hierarchy, communication and interaction of the
+subcomponents under control, runtime operations, use by human operators, etc..
+This means that there are many ways to describe how a system works, all of which
+come together to form a complete and coherent picture of the overall system.
+All the areas further filter down and are refined into technical and operational
+requirements that become the basis around which to design software to meet.  The
+software architecture captures decisions that best meet those requirements,
+while optimizing over parameters to meet the :ref:`key-principles`, in
+particular, performance, reliability, maintainability, and cost.
 
 The discussion below gives a cross-sectional view of the overall SWCS
 architecture, from the standpoint of the SWCS organization, the global SWCS

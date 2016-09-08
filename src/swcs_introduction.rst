@@ -69,6 +69,7 @@ several important factors that the SWCS considers:
     telescope, close the wavefront control loops, and maintain image quality.
 
 
+.. _key-principles:
 
 General Principles and Guidelines
 ---------------------------------

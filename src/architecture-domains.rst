@@ -1,6 +1,8 @@
 
-Domains
--------
+.. _control-domains:
+
+Domains of Control
+------------------
 
 The top-level breakdown of the SWCS is based on a clear separation of concerns
 between four high level domains: the Telescope Control System (TCS), Observatory
@@ -11,10 +13,9 @@ allows different components to evolve independently through the life of the
 project, to address new scalability needs (e.g., new hardware subsystems require
 higher performance telemetry), or to address different optimization strategies.
 
-.. image:: _static/application-layer.png
-  :align: center
-  :scale: 70%
-  :alt: Application Layer
+.. figure:: _static/application-layer.png
+
+   Application Layer: Domains of Control
 
 In brief, the four domains and some underlying considerations are:
 
@@ -56,14 +57,14 @@ In brief, the four domains and some underlying considerations are:
     remains flexible and, at the same time, that efficiently supports the
     operational workflows without constraining the introduction of new ones.
 
-  * Observatory Services - The OSRV groups the subsystems that provide common
-    infrastructure service components. Each observatory services subsystem
-    (engineering user interface, logging, telemetry, configuration, etc.)
-    addresses a specific structural function. Structural functions are systemic
-    in nature and they provide interfaces for any component in the system (e.g.,
-    fault management, telemetry). The OSRV components allow developers to focus
-    in writing application specific code without worrying about low-level
-    infrastructure implementation details.
+  * :ref:`Observatory-Services` - The OSRV groups the subsystems that provide
+    common infrastructure service components. Each observatory services
+    subsystem (engineering user interface, logging, telemetry, configuration,
+    etc.) addresses a specific structural function. Structural functions are
+    systemic in nature and they provide interfaces for any component in the
+    system (e.g., fault management, telemetry). The OSRV components allow
+    developers to focus in writing application specific code without worrying
+    about low-level infrastructure implementation details.
 
   * Instrument Control System -- The ICS groups the subsystems.... [TBC]
 
