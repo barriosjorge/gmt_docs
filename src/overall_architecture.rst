@@ -16,9 +16,9 @@ software architecture captures decisions that best meet those requirements,
 while optimizing over parameters to meet the :ref:`key-principles`, in
 particular, performance, reliability, maintainability, and cost.
 
-The discussion below gives a cross-sectional view of the overall SWCS
-architecture, from the standpoint of the SWCS organization, the global SWCS
-domains, software development layers, software deployment layers, control
+The discussion below gives a summary of the overall SWCS architecture from
+different angles, i.g. from the standpoint of the SWCS organization, the global
+SWCS domains, software development layers, software deployment layers, control
 hierarchy, system health and supervision, software frameworks, and the subsystem
 modules.  More detailed discussions are provided in the appropriate links.
 

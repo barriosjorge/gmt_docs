@@ -67,9 +67,10 @@ Each Subsystem Supervisor implements the following functions when applicable:
 
   * Subsystem IO health
 
-The Figure below shows the conceptual view of the supervisory hierarchy.
+The Figure below shows the conceptual view of the :ref:`supervisory-hierarchy`.
 
-.. image:: _static/supervisory-hierarchy.png
-  :align: center
-  :scale: 70%
-  :alt: Supervisory Hierarchy
+.. _supervisory-hierarchy:
+
+.. figure:: _static/supervisory-hierarchy.png
+
+   Supervisory Hierarchy

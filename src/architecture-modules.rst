@@ -6,11 +6,11 @@ modules. As illustrated in the bottom row of the :ref:`swcs-organization`
 figure, each subsystem is then made up of components organized into packages
 according to their affinity or relationships. The SWC reference architecture16
 defines a guide for organizing subsystem components into a set of canonical
-packages.  Examples of packages and their components are shown in Table 10-3.
-Which packages exist in which subsystem depends on the specific functionality
-(e.g., some subsystems do not require special calibration components, or do not
-interface with hardware devices). Table 10-3 describes this pattern, split in
-two categories:
+packages.  Examples of packages and their components are shown in Tables on
+:ref:`control-packages` and :ref:`core-components`.  Which packages exist in
+which subsystem depends on the specific functionality (e.g., some subsystems do
+not require special calibration components, or do not interface with hardware
+devices). The tables below describe this pattern, split in two categories:
 
   * :ref:`Control Packages <control-packages>` – These packages are included in subsystems that involve
     the control of optomechanical hardware Devices.
@@ -22,6 +22,28 @@ two categories:
     often overlooked despite the fact that they may take a significant amount of
     development effort, especially in the case of complex adaptive optics
     control subsystems.
+
+.. include:: table-control_packages.rst
+
+.. include:: table-operation_support_packages.rst
+
+.. _m1-cs-excerpt:
+
+.. figure:: _static/m1-control-system-excerpt.png
+
+   M1 Control Ssytem Package and Components Excerpt
+
+The Figure above shows an example of the component organization for the M1 Control
+System. The structure of all the SWCS Subsystems has been analyzed and developed
+following this pattern. As described above and later in Section 10.3.5.2, domain
+engineering helps to identify sets of common components that are the elementary
+building blocks of the SWCS subsystems.  The figure on :ref:`core-components`
+below shows those core component classes.  Each component is defined by a set of
+:ref:`component-features` whose definitions are detailed in Section 10.3.5.5 on
+Core Framework. In fact, all SWCS modules, including subsystems, packages, and
+components are fully specified by a text file containing their features, as
+shown in Table 10-4. Section 10.5.2.3 explains the formal specification process
+in more detail.
 
 .. _core-components:
 
@@ -79,79 +101,3 @@ approach provides several benefits:
 
    Component Features
 
-
-.. _control-packages:
-
-+--------------------------------------------------------------------------------------------+
-| CONTROL PACKAGES                                                                           |
-+--------------------+--------------------------------------------------+--------------------+
-| Package Name       |  Description                                     | Typical Components |
-+====================+==================================================+====================+
-| | Device Control   | | Contains software Components that implement    | | Supervisor,      |
-| | Package          | | the supervisory and control functions of a     | | Controller       |
-| |                  | | Device Control Subsystem (e.g. Mount Control   | |                  |
-| |                  | | System Control Package).                       | |                  |
-+--------------------+--------------------------------------------------+--------------------+
-| | Data Acquisition | | Contains software Components that implement    | | Supervisor,      |
-| | Package          | | the supervisory and data acquisition functions | | Controller,      |
-| |                  | | of a Detector Control Subsystem (e.g., AGWS    | | Pipeline,        |
-| |                  | | Slope Processor Package). Only Subsystems that | |                  |
-| |                  | | include a Wavefront Sensor (WFS),              | |                  |
-| |                  | | acquisition/guide camera or a science detector | |                  |
-| |                  | | need to provide a Data Acquisition Package.    | |                  |
-+--------------------+--------------------------------------------------+--------------------+
-| | Hardware         | | Contains hardware Components in which to       | | Device Control   |
-| | Package          | | deploy the Device Control or Data Acquisition  | | Computer,        |
-| |                  | | Package software Components and the hardware   | | I/O Module       |
-| |                  | | to interface with the electromechanical        | |                  |
-| |                  | | Devices.                                       | |                  |
-+--------------------+--------------------------------------------------+--------------------+
-
-.. _operation-support-packages:
-
-+--------------------------------------------------------------------------------------------+
-| OPERATION SUPPORT PACKAGES                                                                 |
-+--------------------+--------------------------------------------------+--------------------+
-| Package Name       |  Description                                     | Typical Components |
-+====================+==================================================+====================+
-| | Sequencing       | | Contains sequence Components necessary for the | | Sequence         |
-| | Package          | | operation of the Subsystem                     | |                  |
-+--------------------+--------------------------------------------------+--------------------+
-| | Diagnosis        | | Contains software Components necessary to      | | Supervisor,      |
-| | Package          | | implement diagnosis functions when required.   | | Controller,      |
-| |                  | | This may involve the development of special    | | Pipeline,        |
-| |                  | | control or operation modes.                    | | Sequence         |
-+--------------------+--------------------------------------------------+--------------------+
-| | Calibration      | | Contains software Components necessary for     | | Supervisor,      |
-| | Package          | | the calibration and characterization of        | | Controller,      |
-| |                  | | hardware Devices.  This may include the        | | Pipeline,        |
-| |                  | | development of special control or operation    | | Sequence         |
-| |                  | | modes.                                         | |                  |
-+--------------------+--------------------------------------------------+--------------------+
-| | Data Processing  | | Contains software Components necessary for     | | Supervisor,      |
-| | Package          | | the calibration and processing of science      | | Pipeline,        |
-| |                  | | and wavefront sensor detectors.                | |                  |
-+--------------------+--------------------------------------------------+--------------------+
-| | Visualization    | | Contains software Components that provide      | | Panel,           |
-| | Package          | | custom visualizations necessary for the        | | Widget           |
-| |                  | | efficient operation of a given Subsystem (e.g. | |                  |
-| |                  | | M1 global status Panel).  Note that default    | |                  |
-| |                  | | engineering Panels are available as part of    | |                  |
-| |                  | | the Engineering UI service.                    | |                  |
-+--------------------+--------------------------------------------------+--------------------+
-| | Safety           | | Contains hardware/software Components that     | | Supervisor,      |
-| | Package          | | implement Subsystem specific safety functions. | | Controller,      |
-| |                  | | These Components often interface with the ISS  | |                  |
-| |                  | | but are independent (e.g. M1 safety            | |                  |
-| |                  | | controller).                                   | |                  |
-+--------------------+--------------------------------------------------+--------------------+
-| | Operation        | | Contains Components that allow the automation  | | Workflow         |
-| | Workflows        | | of high-level operation workflows relative to  | |                  |
-| | Package          | | the subsystems (e.g. unit test workflow, or    | |                  |
-| |                  | | calibration workflow in case that several      | |                  |
-| |                  | | sequences and human operations are involved).  | |                  |
-+--------------------+--------------------------------------------------+--------------------+
-| | Management       | | Contains Components that capture the           | | Plan,            |
-| | Package          | | development backlog and the Assembly           | | Workflow         |
-| |                  | | Integration and Testing plans.                 | |                  |
-+--------------------+--------------------------------------------------+--------------------+
