@@ -12,8 +12,8 @@ which subsystem depends on the specific functionality (e.g., some subsystems do
 not require special calibration components, or do not interface with hardware
 devices). The tables below describe this pattern, split in two categories:
 
-  * :ref:`Control Packages <control-packages>` – These packages are included in subsystems that involve
-    the control of optomechanical hardware Devices.
+  * :ref:`Control Packages <control-packages>` – These packages are included in
+    subsystems that involve the control of optomechanical hardware Devices.
 
   * :ref:`Operation Support Packages <operation-support-packages>` – These
     Packages include software components necessary to support health monitoring,
