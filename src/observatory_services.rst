@@ -166,7 +166,7 @@ the observatory common services.
   The engineering user interface components provide the following capabilities:
 
      * Display of all the information relevant to a Subsystem or Component
-    
+
      * Default Panel generation using engineering layouts
 
      * Subsystem view (e.g., alarms, logs, monitors, commands, properties)
@@ -440,42 +440,7 @@ the observatory common services.
   defined.  Alarm conditions are part of the specification of a component, shown
   in the following:
 
-  ..
-      Test this out in the future to include external code:
-
-      .. literalinclude :: <path/to/file>
-        :language: <file_language>
-
-
-  .. code-block:: coffeescript
-
-    # Alarm Event Specification
-
-    EnumType "AlarmSeverity",
-        desc: "Defines the severity level of the AlarmEvent"
-        literals:
-            ALARM_A: ""
-
-    StructType "AlarmEvent",
-        extends: []
-        abstract: false
-        desc: "Time stamped Alarm Event"
-        elements:
-            id:
-                type: "string"
-                desc: "Alarm ID. Allows associating the alarm with the Alarm description"
-            value:
-                type: "string"
-                desc: "Text message with additional information related to the alarm event occurrence"
-            timestamp: type:
-                type: "TimeStamp"
-                desc: "Trigger time of the alarm event"
-            severity:
-                type: "AlarmSeverity", desc: “Level of severity of the alarm event”
-            source:
-                type: “string”
-                desc: “URI of the component that has detect the alarm condition”
-
+  .. include:: specification-alarm_service.rst.inc
 
 
 
@@ -489,43 +454,7 @@ the observatory common services.
 
   The following illustrates a log event specification:
 
-  .. code-block:: coffeescript
-
-    # Logging Event Specification
-
-    EnumType "LogLevel",
-
-        desc: "The log methods expect a log level, which can be used to filter
-              log messages when they are retrieved. Levels follow OSGi Log Service
-              Specification."
-
-        literals:
-            LOG_DEBUG:   "Used for problem determination and may be irrelevant to anyone but
-                         the Component developer."
-            LOG_ERROR:   "Indicates the component may not be functional. Action should be
-                         taken to correct this situation."
-            LOG_INFO:    "May be the result of any change in the component and does not
-                         indicate problem."
-            LOG_WARNING: "Indicates a component is still functioning but may experience
-                         problems in the future because a warning condition"
-
-        StructType "LogEvent",
-            extends: []
-            abstract: false
-            desc: "Time stamped Log event"
-            elements:
-                value:
-                    type: "string"
-                    desc: "Text message with additional information related to the alarm event occurrence"
-                timestamp:
-                    type: "TimeStamp"
-                    desc: "Time of the creation of the log message"
-                level:
-                    type: "LogLevel"
-                    desc: “Level of the log event"
-                source:
-                    type: "string"
-                    desc: "URI of the component that has issue the log message"
+  .. include:: specification-logging_service.rst.inc
 
   The figure below illustrates the Logging Service and the interactions between
   the components involved in the creation and propagation of log events. (1) A
@@ -591,3 +520,4 @@ the observatory common services.
   changed when a Controller is performing a motion in normal operation mode or the
   readout gain of a detector cannot be changed in the middle of a readout
   operation.
+

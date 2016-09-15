@@ -1,4 +1,5 @@
 
+.. _BaseLinearAxisController:
 
 .. code-block:: coffeescript
 

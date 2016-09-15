@@ -104,6 +104,4 @@ several benefits:
     the same design process. Sections 10.3.5.9 and Section 10.3.5.7 describe
     them respectively.
 
-.. _BaseLinearAxisController:
-
-.. include:: BaseLinearAxisController.rst
+.. include:: BaseLinearAxisController.rst.inc
