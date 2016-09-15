@@ -1,19 +1,17 @@
 
-.. _control-domains:
-
 Domains of Control
 ------------------
 
-A very common view of the software architecture is from the standpoint of the
-major domains of software control.  Here the top-level breakdown is based on a
-clear separation of concerns between four high level domains: the Telescope
-Control System (TCS), Observatory Operations System (OPS), Observatory Services
-(OSRV), and Instrument Control System (ICS), as shown in the figure below. The
-components within each domain are partitioned in a way to facilitate modular
-software design.  Modularity allows different components to evolve independently
-through the life of the project, to address new scalability needs (e.g., new
-hardware subsystems require higher performance telemetry), or to address
-different optimization strategies.
+One aspect of the software architecture is from the standpoint that mirrors the
+functional decomposition of the observatory.  In this view, there are four major
+domains of software control, based on a clear separation of concerns: the
+:ref:`tcs_introduction` (TCS), Observatory Operations System (OPS),
+:ref:`observatory_services` (OSRV), and Instrument Control System (ICS), as
+shown in the figure below. The components within each domain are partitioned in
+a way to facilitate modular software design.  Modularity allows different
+components to evolve independently through the life of the project, to address
+new scalability needs (e.g., new hardware subsystems require higher performance
+telemetry), or to address different optimization strategies.
 
 .. figure:: _static/application-layer.png
 
@@ -21,7 +19,7 @@ different optimization strategies.
 
 In brief, the four domains and some underlying considerations are:
 
-  * Telescope Control System – The TCS domain comprises subsystems that are in
+  * :ref:`tcs_introduction` – The TCS domain comprises subsystems that are in
     charge of controlling the telescope optomechanical devices. The hierarchy of
     the TCS architecture follows a functional decomposition or breakdown that
     closely mirrors the physical organization of the telescope hardware
@@ -35,13 +33,12 @@ In brief, the four domains and some underlying considerations are:
     life of the project, the core optomechanical design will remain unchanged.
 
     Most of the software subsystems of the TCS can be designed to share a common
-    architecture, which is presented in `Device Control Framework <http://
-    Section 10.3.5.5>`_.  Doing so facilitates reuse of common designs among
-    subsystems, communication among groups due to having common “vocabularies”
-    and concepts, development of a common body of experience, and a more
-    efficient operation and maintenance due to the commonalities shared between
-    subsystems. It also facilitates the creation of common development tools and
-    process artifacts.
+    architecture, which is presented in :ref:`device_control_framework`.  Doing
+    so facilitates reuse of common designs among subsystems, communication among
+    groups due to having common “vocabularies” and concepts, development of a
+    common body of experience, and a more efficient operation and maintenance
+    due to the commonalities shared between subsystems. It also facilitates the
+    creation of common development tools and process artifacts.
 
   * Observatory Operations -- The OPS groups the software subsystems that provide
     the capabilities to support efficient operations and workflows of the
@@ -59,7 +56,7 @@ In brief, the four domains and some underlying considerations are:
     remains flexible and, at the same time, that efficiently supports the
     operational workflows without constraining the introduction of new ones.
 
-  * :ref:`Observatory-Services` -- The OSRV groups the subsystems that provide
+  * :ref:`observatory_services` -- The OSRV groups the subsystems that provide
     common infrastructure service components. Each observatory services
     subsystem (engineering user interface, logging, telemetry, configuration,
     etc.) addresses a specific structural function. Structural functions are

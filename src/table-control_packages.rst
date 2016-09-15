@@ -1,5 +1,4 @@
 
-.. _control-packages:
 
 .. table:: Control Packages
 

@@ -24,7 +24,17 @@ Home
 .. toctree::
    :maxdepth: 1
 
+   tcs_introduction
+
+.. toctree::
+   :maxdepth: 1
+
    observatory_services
+
+.. toctree::
+   :maxdepth: 1
+
+   component_frameworks
 
 .. toctree::
    :maxdepth: 1

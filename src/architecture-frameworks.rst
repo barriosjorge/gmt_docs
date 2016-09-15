@@ -1,8 +1,7 @@
 
-.. _component-frameworks:
 
-Component Frameworks
---------------------
+Frameworks
+----------
 
 The hardware and software components required for operations derive from a
 process of domain engineering.  This result in a set of categories around which
@@ -11,12 +10,13 @@ Pipeline) and common components.  The domain engineering process shows that many
 subsystems share common architecture and many components share similar
 solutions.
 
-Component Frameworks provide a collection of reusable building blocks that solve
-recurrent problems in different domains (e.g., control systems, distributed
-services, data processing, hardware interfaces) and that allow developing
-observatory applications. At the same time, they provide an isolation mechanism
-from the underlying layers. The use of these component frameworks is key for
-constructing a cost effective system and provides the following benefits:
+:ref:`component_frameworks` provide a collection of reusable building blocks
+that solve recurrent problems in different domains (e.g., control systems,
+distributed services, data processing, hardware interfaces) and that allow
+developing observatory applications. At the same time, they provide an isolation
+mechanism from the underlying layers. The use of these component frameworks is
+key for constructing a cost effective system and provides the following
+benefits:
 
   * Improved external reuse – Component frameworks implement wrappers for
     external software Packages. Wrappers help to reduce the dependency between

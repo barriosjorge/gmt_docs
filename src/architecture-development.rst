@@ -1,10 +1,11 @@
 
+
 Development
 -----------
 
 From a development standpoint, the software architecture has the following
 hierarchy (see Figure below on :ref:`layered-software-architecture`).  The
-application layer (:ref:`control-domains`) residing at the top contains services
+application layer (:ref:`architecture-control_domains`) residing at the top contains services
 and tools that run the observatory (via services and operations), telescope
 control system (TCS), and the instrument control system (ICS).  Below the
 application layer are frameworks, packages, and the operating system on which
@@ -45,7 +46,7 @@ them from normal libraries:
     but cannot change its code.
 
 The *Domain of SWCS Control* forms the Application Layer, and is discussed in
-:ref:`control-domains`, while the :ref:`component-frameworks` form the Domain
+:ref:`architecture-control_domains`, while the :ref:`architecture-frameworks` form the Domain
 Specific Layer.
 
 

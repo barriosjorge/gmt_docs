@@ -1,4 +1,4 @@
-.. _Observatory-Services:
+.. _observatory_services:
 
 Observatory Services
 ====================

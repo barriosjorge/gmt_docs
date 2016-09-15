@@ -1,5 +1,4 @@
 
-
 Organization
 ------------
 
@@ -15,13 +14,13 @@ functionality, timing requirements, and interface size.
 
    SWCS Organization
 
-The above figure illustrates the final organization hierarchy using the Unified
-Modeling Language (UML) diagram after the process.  System, Domain, Subsystem
-and Packages are aggregations that make up the hierarchy of the GMT software and
-control Components, meaning that a system contains multiple domains, a domain
-contains multiple subsystems, and so forth. The Classifier class provides basic
-naming and description attributes. The ConfigurationItem class extends Product
-Breakdown Element (PBE) and Work Breakdown Element (WBE) classes to enable
-mapping of the SWCS structure to the GMT project Product Breakdown Structure and
-Work Breakdown Structure.
+The above figure illustrates how the SWCS organization hierarchy fits into the
+project organization using the Unified Modeling Language (UML) diagram after the
+process.  System, Domain, Subsystem and Packages are aggregations that make up
+the hierarchy of the GMT SWCS, such that a system contains multiple domains, a
+domain contains multiple subsystems, and so forth.  The Classifier class
+provides basic naming and description attributes. The ConfigurationItem class
+extends Product Breakdown Element (PBE) and Work Breakdown Element (WBE) classes
+to enable mapping of the SWCS structure to the GMT project Product Breakdown
+Structure and Work Breakdown Structure.
 
