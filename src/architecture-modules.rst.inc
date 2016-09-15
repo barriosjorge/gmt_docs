@@ -1,4 +1,5 @@
 
+.. _architecture-modules:
 
 Modules: Subsystem, Packages, Components
 ----------------------------------------
@@ -27,13 +28,9 @@ categories:
     control subsystems.
 
 
-.. _table-control_packages:
+.. include:: table-control_packages.rst.inc
 
-.. include:: table-control_packages.rst
-
-.. _operation-support-packages:
-
-.. include:: table-operation_support_packages.rst
+.. include:: table-operation_support_packages.rst.inc
 
 .. figure:: _static/m1-control-system-excerpt.png
 

@@ -3,30 +3,16 @@
 Frameworks
 ==========
 
-.. _core_framework:
+.. include:: framework-core.rst.inc
 
-.. include:: framework-core.rst
+.. include:: framework-device_control.rst.inc
 
-.. _device_control_framework:
+.. include:: framework-persistence.rst.inc
 
-.. include:: framework-device_control.rst
+.. include:: framework-data_processing.rst.inc
 
-.. _persistence_framework:
+.. include:: framework-time_distribution.rst.inc
 
-.. include:: framework-persistence.rst
+.. include:: framework-user_interface.rst.inc
 
-.. _data_processing_framework:
-
-.. include:: framework-data_processing.rst
-
-.. _time_distribution_framework:
-
-.. include:: framework-time_distribution.rst
-
-.. _user_interface_framework:
-
-.. include:: framework-user_interface.rst
-
-.. _IO_framework:
-
-.. include:: framework-IO.rst
+.. include:: framework-IO.rst.inc

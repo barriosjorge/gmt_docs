@@ -23,36 +23,21 @@ control hierarchy, system health and supervision, software frameworks, and the
 subsystem modules.  More detailed discussions are provided in the appropriate
 links.
 
-.. _architecture-organization:
 
-.. include:: architecture-organization.rst
+.. include:: architecture-organization.rst.inc
 
-.. _architecture-control_domains:
+.. include:: architecture-domains.rst.inc
 
-.. include:: architecture-domains.rst
+.. include:: architecture-development.rst.inc
 
-.. _architecture-development:
+.. include:: architecture-deployment.rst.inc
 
-.. include:: architecture-development.rst
+.. include:: architecture-controls.rst.inc
 
-.. _architecture-deployment:
+.. include:: architecture-health_supervision.rst.inc
 
-.. include:: architecture-deployment.rst
+.. include:: architecture-frameworks.rst.inc
 
-.. _architecture-controls:
-
-.. include:: architecture-controls.rst
-
-.. _architecture-health_supervision:
-
-.. include:: architecture-health_supervision.rst
-
-.. _architecture-frameworks:
-
-.. include:: architecture-frameworks.rst
-
-.. _architecture-modules:
-
-.. include:: architecture-modules.rst
+.. include:: architecture-modules.rst.inc
 
 

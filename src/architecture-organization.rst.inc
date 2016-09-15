@@ -1,4 +1,6 @@
 
+.. _architecture-organization:
+
 Organization
 ------------
 

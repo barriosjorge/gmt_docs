@@ -1,4 +1,5 @@
 
+.. _architecture-development:
 
 Development
 -----------

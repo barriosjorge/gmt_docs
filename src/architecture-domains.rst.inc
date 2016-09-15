@@ -1,4 +1,6 @@
 
+.. _architecture-control_domains:
+
 Domains of Control
 ------------------
 

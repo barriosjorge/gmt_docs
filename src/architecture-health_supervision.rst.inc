@@ -1,4 +1,5 @@
 
+.. _architecture-health_supervision:
 
 Health and Supervision
 ----------------------
