@@ -36,17 +36,18 @@ categories:
 
    M1 Control System Package and Components Excerpt
 
-The Figure above shows an example of the component organization for the M1 Control
-System. The structure of all the SWCS Subsystems has been analyzed and developed
-following this pattern. As described above and later in Section 10.3.5.2, domain
-engineering helps to identify sets of common components that are the elementary
-building blocks of the SWCS subsystems.  The figure on :ref:`figure-core_components`
-below shows those core component classes.  Each component is defined by a set of
-:ref:`figure-component_features` whose definitions are detailed in Section 10.3.5.5 on
-Core Framework. In fact, all SWCS modules, including subsystems, packages, and
-components are fully specified by a text file containing their features, as
-shown in Table 10-4. Section 10.5.2.3 explains the formal specification process
-in more detail.
+The Figure above shows an example of the component organization for the M1
+Control System. The structure of all the SWCS Subsystems has been analyzed and
+developed following this pattern. As described above and later in Section
+10.3.5.2, domain engineering helps to identify sets of common components that
+are the elementary building blocks of the SWCS subsystems.  The figure on
+:ref:`figure-core_components` below shows those core component classes.  Each
+component is defined by a set of :ref:`figure-component_features` whose
+definitions are detailed in :ref:`core_framework`.  In fact, all SWCS modules,
+including subsystems, packages, and components are fully specified by a text
+file containing their features, as shown in the example of
+:ref:`BaseLinearAxisController <BaseLinearAxisController>`. Section 10.5.2.3
+explains the formal specification process in more detail.
 
 .. _figure-core_components:
 

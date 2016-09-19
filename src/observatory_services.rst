@@ -512,7 +512,7 @@ the observatory common services.
   snapshots on-the-fly once a property is changed interactively.
 
   Each Subsystem is required to implement a Configuration Adapter, which is a
-  specialization of the BaseConfigurationAdapter. The Configuration Adaptor
+  specialization of the *BaseConfigurationAdapter*. The Configuration Adaptor
   interfaces with the Configuration Service to receive new configuration requests
   and implements the configuration strategy sequence. The change in configuration
   Properties of a Component depends on the state of the component, and not all the

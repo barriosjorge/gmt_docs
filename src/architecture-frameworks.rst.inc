@@ -42,7 +42,7 @@ benefits:
 Ideally it should not be necessary to develop any domain independent framework,
 as they address problems that are common to a large family of applications;
 examples of those are middleware libraries, database management systems, etc.
-The Component Framework includes the following elements:  Core Framework, Device
-Control Framework, Data Processing Framework, Time Distribution Framework, User
-Interface Framework, and I/O Framework.
+The Component :ref:`component_frameworks` includes the following elements:  Core
+Framework, Device Control Framework, Data Processing Framework, Time
+Distribution Framework, User Interface Framework, and I/O Framework.
 

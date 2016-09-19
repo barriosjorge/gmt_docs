@@ -71,3 +71,13 @@ requirements governing the TCS design and operations. Details of the pointing
 kernel are presented in Section 0. Section 10.3.2.5 describes the architecture
 of the GMT Wavefront Control System (WFCS), and the specific designs of the GMT
 Natural and AO observing modes.
+
+.. include:: tcs-subsystems.rst.inc
+
+.. include:: tcs-degrees_of_freedom.rst.inc
+
+.. include:: tcs-requirements.rst.inc
+
+.. include:: tcs-pointing_kernel.rst.inc
+
+.. include:: tcs-wavefront_control.rst.inc
