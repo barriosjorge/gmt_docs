@@ -11,7 +11,7 @@ accuracy, tracking modes, continuous scan, pointing offsets, acquisition and
 reacquisition and, finally, special requirements on the active optics, with
 details to follow below.
 
-*Blind pointing* relies entirely on the mechanical positional accuracy of the
+**Blind pointing** relies entirely on the mechanical positional accuracy of the
 telescope encoder systems on the telescope axes and lookup tables to slew the
 telescope to the desired sky [α, δ] or mount [Az, El] coordinates. Blind
 pointing occurs in open loop (active optics and adaptive optics), and is used to
@@ -33,12 +33,12 @@ natural seeing. To meet the requirements for fine pointing, it is necessary to
 correct for the physical offsets and differential flexure between the science
 instrument and the telescope via the pointing model.
 
-*Telescope tracking* keeps a celestial coordinate position fixed in the field of
-view, by rotating the telescope elevation, azimuth, and GIR axes. Tracking uses
-look-up tables that account for mount errors and relative flexure between the
-telescope structure and the instrument.
+**Telescope tracking** keeps a celestial coordinate position fixed in the field
+of view, by rotating the telescope elevation, azimuth, and GIR axes. Tracking
+uses look-up tables that account for mount errors and relative flexure between
+the telescope structure and the instrument.
 
-*Fine guiding* operates in closed loop, using the positions of guide stars on
+**Fine guiding** operates in closed loop, using the positions of guide stars on
 the AGWS or On-Instrument Wavefront Sensor (OIWFS) to make slight adjustments to
 maintain much more accurate telescope positions, removing the effects of wind
 buffeting, mechanical errors, time-dependent flexures, or other perturbations.
@@ -52,7 +52,7 @@ is used for scanning or for solar system targets where the AGWS and the OIWS
 track at the sidereal rate while the telescope mount guides on the science
 target to maintain its position fixed in the science detector reference frame.
 
-*Drift scanning* is an observing technique to obtain imaging or spectroscopy
+**Drift scanning** is an observing technique to obtain imaging or spectroscopy
 data over an area of the sky by allowing the telescope pointing to drift at a
 constant rate relative to the sky motion. During scanning, depending on the
 science goal, the science detectors may be synchronized and read out
@@ -63,12 +63,12 @@ stars may move outside the guider field during integration, the pointing kernel
 is responsible for finding and reacquiring guide stars somewhere in the field
 seamlessly and automatically.
 
-*Pointing offsets* are used during observing to reposition the science detector
-relative to the pointing origin of the telescope. Offsetting is used for many
-purposes, such as to obtain sky observations, to position objects onto a slit or
-aperture, to create mosaic observations, etc.
+**Pointing offsets** are used during observing to reposition the science
+detector relative to the pointing origin of the telescope. Offsetting is used
+for many purposes, such as to obtain sky observations, to position objects onto
+a slit or aperture, to create mosaic observations, etc.
 
-The telescope pointing kernel, in cooperation with the WFCS system, performs
+The **telescope pointing kernel**, in cooperation with the WFCS system, performs
 telescope pointing, tracking, acquisition, and guiding. There are requirements
 for the different observing modes (natural seeing, LTAO, NGSAO).  In the event
 that the active optics system is disabled, the pointing kernel is required to
