@@ -18,8 +18,8 @@ seeing (using fast tip-tilt M2) or AO (using ASMs). Details of telescope
 collimation and phasing for the different observing modes (natural seeing,
 NGSAO, GLAO, LTAO) are discussed in Section 10.3.2.5.
 
-Telescope tracking, pointing, and guiding, follow the schematics shown in Figure
-10-15, Figure 10-16, and Figure 10-17, respectively, and summarized below:
+Telescope tracking, pointing, and guiding, follow the schematics shown in the
+three Figures that follow, and summarized here:
 
   * *Sky Tracking* -
     When the telescope operator initiates telescope sky tracking
@@ -51,7 +51,7 @@ Telescope tracking, pointing, and guiding, follow the schematics shown in Figure
   * *Pointing* -
     Like with telescope tracking, the act of pointing the mount utilizes only
     mount encoder information.  As shown in the :ref:`Figure
-    below<figure-sky_pointing>`, to point to a new location in the sky, the user
+    below<figure-mount_pointing>`, to point to a new location in the sky, the user
     provides a coordinate [α, δ] or [Az, El] to the TCS.  The pointing kernel
     translates the input coordinate into mount [Az, El] demands.  Upon receiving
     the demands, the MCS servo loop repositions the mount.  If the telescope is
@@ -61,15 +61,15 @@ Telescope tracking, pointing, and guiding, follow the schematics shown in Figure
     demanded location.  Details of the telescope pointing sequence are provided
     in the AO OCDD.  
 
-  .. _figure-sky_pointing:
+  .. _figure-mount_pointing:
 
-  .. figure:: _static/tcs-sky_pointing.png
+  .. figure:: _static/tcs-mount_pointing.png
 
-     Sky Pointing Workflow
+     Telescope Mount Pointing Workflow
 
   * *Autoguiding* -
     The process of autoguiding is shown schematically in the :ref:`Figure
-    below<tcs-autoguiding>`; details of the sequences involved in setting up
+    below<figure-autoguiding>`; details of the sequences involved in setting up
     autoguiding are provided in the OCDD. Like with telescope tracking, the
     pointing kernel is responsible for producing trajectories based on a given
     [α, δ] coordinate and instrument orientation. The responsibility for

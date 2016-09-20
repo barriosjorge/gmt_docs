@@ -96,3 +96,5 @@ briefly described:
 .. include:: tcs-workflow.rst.inc
 
 .. include:: tcs-coordinate_transformation.rst.inc
+
+.. include:: tcs-virtual_telescope.rst.inc

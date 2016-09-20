@@ -1,5 +1,5 @@
 
-.. _tcs-wavefront-control:
+.. _tcs-wavefront_control:
 
 Wavefront Control
 -----------------
