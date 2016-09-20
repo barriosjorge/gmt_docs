@@ -5,7 +5,7 @@ Pointing Kernel
 ---------------
 
 The telescope pointing kernel (Figure :ref:`below
-<figure_tel-pointing-kernel>`) is the subsystem that performs essential services
+<figure-tel_pointing_kernel>`) is the subsystem that performs essential services
 to point the telescope to a desired sky location, to track the sky rotation, and
 to provide fine guiding on a target. The outputs of the pointing kernel are
 mechanical encoder values that are used to command repositioning of the mount
@@ -37,7 +37,7 @@ The pointing kernel:
 
 These features will be available in all natural seeing and AO observing modes.
 
-.. _figure_tel-pointing-kernel:
+.. _figure-tel_pointing_kernel:
 
 .. figure:: _static/tcs-pointing-kernel.png
 

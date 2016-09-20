@@ -99,27 +99,29 @@ described below.
 
 *Transformation of Celestial System to Mount Encoder Positions*
 
-  The :ref:`Figure below<figure-pointing_flow>` shows the steps taken to convert
-  celestial coordinates [α, δ] into instrumental direction [Az, El] and rotator
-  angles that the mount servo system needs to position the telescope. There are
-  two flow directions, distinguished by how often the information needs to
-  update: downward (slow, ≳20 Hz) and upward (fast, ≫20 Hz). The downward
-  direction (upper half of Figure) first transforms target celestial coordinates
-  into a corresponding line-of- sight [Az, El] coordinate, correcting for terms
-  that are independent of the telescope mount.  Those terms include: aberrations
-  (annual and diurnal), light deflection, precession/nutation, Earth’s rotation,
-  motion around the sun, parallax, and refraction.
+  The :ref:`TCS/MCS Pointing Flow Figure (below)<figure-pointing_flow>` shows
+  the steps taken to convert celestial coordinates [α, δ] into instrumental
+  direction [Az, El] and rotator angles that the mount servo system needs to
+  position the telescope. There are two flow directions, distinguished by how
+  often the information needs to update: downward (slow, ≳20 Hz) and upward
+  (fast, ≫20 Hz). The downward direction (upper half of Figure) first transforms
+  target celestial coordinates into a corresponding line-of- sight [Az, El]
+  coordinate, correcting for terms that are independent of the telescope mount.
+  Those terms include: aberrations (annual and diurnal), light deflection,
+  precession/nutation, Earth’s rotation, motion around the sun, parallax, and
+  refraction.
 
   Next, additional errors factor in via pointing models (blue box, and see
-  Figure 10-20), such as mount non-perpendicularity and tube flexure. A pointing
-  model consists of a set of coefficients that accounts for non-perpendicularity
-  of the telescope axes, imperfections in alignment, flexure, or other
-  mechanical imperfections. Lastly, to position the target coordinate at the
-  user desired locationon the science detector (i.e., a slit or image pixel), it
-  is necessary to offset the pointing origin to that location, which involves
-  adjusting the rotator angle and position offset relative to the optical
-  telescope axis. The above transformations result in the actual demand, angle
-  [Az, El] for aiming the telescope mount.
+  :ref:`Virtual Telescope Figure (below)<figure-virtual_telescope>`), such as
+  mount non-perpendicularity and tube flexure. A pointing model consists of a
+  set of coefficients that accounts for non-perpendicularity of the telescope
+  axes, imperfections in alignment, flexure, or other mechanical imperfections.
+  Lastly, to position the target coordinate at the user desired locationon the
+  science detector (i.e., a slit or image pixel), it is necessary to offset the
+  pointing origin to that location, which involves adjusting the rotator angle
+  and position offset relative to the optical telescope axis. The above
+  transformations result in the actual demand, angle [Az, El] for aiming the
+  telescope mount.
 
   In contrast, upward transformations (lower half of Figure) take place at much
   higher frequencies (≫20 Hz), the purpose of which is to react to fast
@@ -141,4 +143,60 @@ described below.
   coordinates [α, δ]) into mount encoder demands delivered to the MCS servo
   systems (in small box).  Arrows indicate the different pointing coordinates
   that users may specify and where they enter the flow.  Details of the pointing
-  model, blue box, are elaborated in Figure 10‑20.
+  model, blue box, are elaborated in :ref:`the Figure
+  below<figure-virtual_telescope>`.
+
+*Virtual Telescopes and the Telescope Pointing Model*
+
+  The concept and use of a Virtual Telescope was introduced earlier, as one of
+  the three main components that make up :ref:`the Telescope Pointing
+  Kernel<figure-tel_pointing_kernel>`.  To review, the purpose of the virtual
+  telescope is to make all the necessary coordinate transformations and
+  mechanical correction so the telescope can point accurately to a command
+  position in a manner transparent to users.  The transformation flows are given
+  in :ref:`the Pointing Flow Figure (above)<figure-pointing_flow>` and :ref:`the
+  Virtual Telescope Figure (below)<figure-virtual_telescope>`.  The positional
+  astronomy transformations from celestial coordinates into observed direction
+  is well-established and will use SLALIB20.  Mechanical errors, misalignments,
+  and flexure mapping/corrections will be implemented using TCSpk21 and
+  diagnosed using TPpoint Software.
+
+  Virtual telescopes with different focal positions can exist at the same time,
+  which enables fast dithering, fast re-positioning to transfer a target image
+  from one instrument to another and the ability to hold a sky target fixed at a
+  specified position and orientation on an instrument even as the rotator turns.
+  The virtual telescope generates mechanical demands (Az, El, rotator angle) to
+  the mount encoders to reposition the telescope.  Finally, the virtual
+  telescope allows for easy updates to the pointing model without having to
+  modify the source code for the pointing kernel.
+
+  Each focal station that has an instrument, including all wavefront sensors,
+  engineering cameras, and science instruments, will have at least one virtual
+  telescope and a pointing model. It is not unusual for an instrument to have
+  multiple virtual telescopes depending on the purpose, such as for generating
+  rotator and mount demands separately while the telescope is slewing.
+
+  The pointing model in the virtual telescope accounts for mechanical or
+  structural imperfections, such as telescope flexure, mount axis
+  non-perpendicularity, encoder errors, instrument misalignment, encoder errors,
+  etc. Its position in the flow of coordinate transformations is shown as blue
+  boxes in :ref:`the Figure above (Pointing Flow)<figure-pointing_flow>`  and
+  :ref:`Figure below (Virtual Telescope)<figure-virtual_telescope>`. The output
+  of the virtual telescope, after accounting for the pointing model, is a
+  trajectory for mount and rotator encoder demands which is delivered to the
+  mount and rotator control servo.  Figure 10-22 shows the pointing data flow in
+  natural seeing observing mode
+
+  .. _figure-virtual_telescope:
+
+  .. figure:: _static/tcs-virtual-telescope.png
+     :align: center
+
+     Virtual Telescope and Pointing Model
+
+  The above Figure shows the "Virtual Telescope" and transformation terms that
+  make up the pointing model; figure taken from Wallace20. The telescope
+  pointing model (blue box) typically consists of 10-20 correction terms, here
+  summarized into 7-terms: IA (roll), IB (pitch), VD (vertical deflection), CA
+  (optical telescope axis/pitch non-perpendicularity), NP (roll/pitch
+  non-perpendicularity), AW and AN (roll axis misalignments).
