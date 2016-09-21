@@ -47,6 +47,8 @@ intended usage of each individual framework.
 
 .. include:: framework-domain_engineering.rst.inc
 
+.. include:: framework-code_generation.rst.inc
+
 .. include:: framework-core.rst.inc
 
 .. include:: framework-device_control.rst.inc
