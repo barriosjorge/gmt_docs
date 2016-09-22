@@ -15,6 +15,8 @@ components to evolve independently through the life of the project, to address
 new scalability needs (e.g., new hardware subsystems require higher performance
 telemetry), or to address different optimization strategies.
 
+.. _figure-domains_of_control:
+
 .. figure:: _static/application-layer.png
 
    Application Layer: Domains of Control

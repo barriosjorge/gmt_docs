@@ -40,10 +40,13 @@ components that subscribe to the service.  (5)  Operators can filter or
 cross-correlate any persistent data stream for further analysis.  Briefly,
 some of the highlighted items and terminologies are:
 
+.. _section-service_adapters:
+
 .. image:: _static/common-services-architecture.png
   :align: center
   :scale: 70%
   :alt: Common Services Architecture
+
 
 *Service Adapters*
 ..................
