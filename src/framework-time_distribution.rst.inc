@@ -4,7 +4,6 @@
 Time Distribution Framework
 ---------------------------
 
-
 The Precision Time Protocol is a method by which a cluster of computers,
 communicating over a Local Area Network, can keep their local clock synchronized
 to a better time source, commonly referred to as a Master Clock.

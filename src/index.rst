@@ -39,6 +39,11 @@ Home
 .. toctree::
    :maxdepth: 1
 
+   platform
+
+.. toctree::
+   :maxdepth: 1
+
    installation
 
 .. toctree::
