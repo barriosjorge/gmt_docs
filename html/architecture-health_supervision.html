@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Search &mdash; GMT Software And Controls documentation</title>
+  <title>Health and Supervision &mdash; GMT Software And Controls documentation</title>
   
 
   
@@ -70,7 +70,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -149,8 +149,12 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li></li>
+    <li>Health and Supervision</li>
       <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/architecture-health_supervision.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
   </ul>
@@ -159,19 +163,68 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search
-      functionality.
-    </p>
-  </div>
-  </noscript>
+  <div class="section" id="health-and-supervision">
+<h1>Health and Supervision<a class="headerlink" href="#health-and-supervision" title="Permalink to this headline">¶</a></h1>
+<p>Reliability is one of the key design drivers for the SWCS. Several principles
+have been used in the reference architecture to address this:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Fault detection and management is implemented as close as possible to the
+source.</li>
+<li>When a component does not have enough information to take a corrective
+action then its supervisor is notified.</li>
+<li>Every subsystem, not only Device Control Subsystems, has to include a
+supervisor that takes care of life-cycle and fault management of the
+Subsystem.</li>
+<li>A general system supervisor takes care of the overall life-cycle and health
+status of the system.</li>
+<li>Supervisors can implement alternative strategies when possible, to improve
+the fault tolerance of the system. For example, maintaining the wavefront
+error will require switching to degraded modes when some sensor becomes
+unavailable or when a communication glitch occurs.</li>
+<li>All Components have to specify formally their fault cases by means of alarm
+event conditions.</li>
+<li>All alarm events are sent to the alarm service so operators can be notified
+and events can be logged for further analysis.</li>
+<li>Although the ISS is ultimately responsible for personal and equipment
+safety, software and control Components should attempt to prevent the
+occurrence of fault conditions.</li>
+<li>The ISS is always interrogated about the status of the interlocks relative
+to any given Subsystem or Component.</li>
+<li>All the components are required to sample relevant state variables using the
+telemetry service. Telemetry data are sent to the telemetry service so they
+can be monitored and correlated with other state variables of the system.
+Telemetry data are essential to diagnose any faulty behavior so the system
+can be improved.</li>
+<li>The Logging Service allows the logging of significant event occurrences
+during the nominal operation of the system. Analyzing transcription logs
+helps understanding the behavior of the system and to detect any
+malfunction.</li>
+</ul>
+</div></blockquote>
+<p>Each Subsystem Supervisor implements the following functions when applicable:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Subsystem integrity (e.g., collision avoidance)</li>
+<li>Subsystem component configuration (e.g., components are configured in the
+right sequence and with the right configuration properties, look-up-tables,
+etc.)</li>
+<li>Subsystem robustness (e.g., behavior in presence of non-nominal conditions,
+fault management and tolerance)</li>
+<li>Subsystem life-cycle (e.g., startup and shutdown)</li>
+<li>Subsystem embedded diagnosis</li>
+<li>Subsystem modal transition for subsystems that have different modes of
+operation</li>
+<li>Subsystem IO health</li>
+</ul>
+</div></blockquote>
+<p>The Figure below shows the conceptual view of the <a class="reference internal" href="overall_architecture.html#figure-supervisory-hierarchy"><em>Supervisory Hierarchy</em></a>.</p>
+<div class="figure" id="figure-supervisory-hierarchy">
+<img alt="_images/supervisory-hierarchy.png" src="_images/supervisory-hierarchy.png" />
+<p class="caption">Supervisory Hierarchy</p>
+</div>
+</div>
 
-  
-  <div id="search-results">
-  
-  </div>
 
            </div>
           </div>
@@ -213,7 +266,6 @@
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="_static/searchtools.js"></script>
 
   
 
@@ -229,14 +281,7 @@
           SphinxRtdTheme.StickyNav.enable();
       });
   </script>
-  
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script type="text/javascript" id="searchindexloader"></script>
    
-
 
 </body>
 </html>

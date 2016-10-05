@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Using the Services (TBR) &mdash; GMT Software And Controls documentation</title>
+  <title>Using the Services &mdash; GMT Software And Controls documentation</title>
   
 
   
@@ -33,8 +33,8 @@
 
   
     <link rel="top" title="GMT Software And Controls documentation" href="index.html"/>
-        <link rel="next" title="Running Examples (TBR)" href="examples.html"/>
-        <link rel="prev" title="Developer Info and Release Configuration (TBR)" href="configuration.html"/> 
+        <link rel="next" title="Running Examples" href="examples.html"/>
+        <link rel="prev" title="Developer Info and Release Configuration" href="configuration.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -87,16 +87,31 @@
             
             
                 <ul>
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="swcs_introduction.html">Introduction</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overall_architecture.html">Overall Architecture</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tcs_introduction.html">Telescope Control System</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="observatory_services.html">Observatory Services</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="component_frameworks.html">Frameworks</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="platform.html">Platform</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html">Developer Info and Release Configuration (TBR)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Developer Info and Release Configuration</a></li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="">Using the Services (TBR)</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Using the Services</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#starting-and-stopping-services">Starting and Stopping Services</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#checking-the-log-service">Checking the Log Service</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#starting-example-components">Starting example components</a></li>
@@ -105,7 +120,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="examples.html">Running Examples (TBR)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Running Examples</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="dcs_dev_guide.html">Creating a Device Control System (TBR)</a></li>
@@ -142,7 +157,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>Using the Services (TBR)</li>
+    <li>Using the Services</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -156,8 +171,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="using-the-services-tbr">
-<h1>Using the Services (TBR)<a class="headerlink" href="#using-the-services-tbr" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="using-the-services">
+<h1>Using the Services<a class="headerlink" href="#using-the-services" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="starting-and-stopping-services">
 <h2>Starting and Stopping Services<a class="headerlink" href="#starting-and-stopping-services" title="Permalink to this headline">¶</a></h2>
 <p>The mongoDB daemon runs as a system service under <em>systemd</em>.</p>
@@ -173,7 +188,7 @@ $ telemetry_service <span class="o">[</span>start<span class="p">|</span>stop<sp
 </div>
 <div class="section" id="checking-the-log-service">
 <h2>Checking the Log Service<a class="headerlink" href="#checking-the-log-service" title="Permalink to this headline">¶</a></h2>
-<p>In order to check if the basic communication is working the following test can be performed.</p>
+<p>In order to check if the simple communication is working the following test can be performed.</p>
 <p>Open 2 unix terminals. We will call them terminal_1 and terminal_2.</p>
 <p>In terminal_1 verify that the log_service is running:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ log_service status
@@ -208,10 +223,10 @@ If the parameter <em>message</em> is not used the four messages will be empty.</
 <p>After this command the log_client in terminal_1 should show something like this:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ log_client
 log client subscribed at port tcp://127.0.0.1:9995
-<span class="o">[</span>DBG<span class="o">]</span> 1970-01-01T00:24:32.769Z <span class="o">[</span>gmt://tools/log_adapter<span class="o">]</span> this a log service <span class="nb">test</span>
-<span class="o">[</span>INF<span class="o">]</span> 1970-01-01T00:24:32.769Z <span class="o">[</span>gmt://tools/log_adapter<span class="o">]</span> this a log service <span class="nb">test</span>
-<span class="o">[</span>WRN<span class="o">]</span> 1970-01-01T00:24:32.769Z <span class="o">[</span>gmt://tools/log_adapter<span class="o">]</span> this a log service <span class="nb">test</span>
-<span class="o">[</span>ERR<span class="o">]</span> 1970-01-01T00:24:32.769Z <span class="o">[</span>gmt://tools/log_adapter<span class="o">]</span> this a log service <span class="nb">test</span>
+<span class="o">[</span>DBG<span class="o">]</span> 2016-01-01T00:24:32.769Z <span class="o">[</span>gmt://tools/log_adapter<span class="o">]</span> this a log service <span class="nb">test</span>
+<span class="o">[</span>INF<span class="o">]</span> 2016-01-01T00:24:32.769Z <span class="o">[</span>gmt://tools/log_adapter<span class="o">]</span> this a log service <span class="nb">test</span>
+<span class="o">[</span>WRN<span class="o">]</span> 2016-01-01T00:24:32.769Z <span class="o">[</span>gmt://tools/log_adapter<span class="o">]</span> this a log service <span class="nb">test</span>
+<span class="o">[</span>ERR<span class="o">]</span> 2016-01-01T00:24:32.769Z <span class="o">[</span>gmt://tools/log_adapter<span class="o">]</span> this a log service <span class="nb">test</span>
 </pre></div>
 </div>
 <p>each message type using a different color. If messages are not shown please report the error.
@@ -234,15 +249,15 @@ subscription topic: instrument
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ log_client instrument
 log client subscribed at port tcp://127.0.0.1:9995
 subscription topic: instrument
-<span class="o">[</span>DBG<span class="o">]</span> 1970-01-01T00:24:32.770Z <span class="o">[</span>gmt://tools/log_adapter<span class="o">]</span> this a log message from the instrument
-<span class="o">[</span>INF<span class="o">]</span> 1970-01-01T00:24:32.770Z <span class="o">[</span>gmt://tools/log_adapter<span class="o">]</span> this a log message from the instrument
-<span class="o">[</span>WRN<span class="o">]</span> 1970-01-01T00:24:32.770Z <span class="o">[</span>gmt://tools/log_adapter<span class="o">]</span> this a log message from the instrument
-<span class="o">[</span>ERR<span class="o">]</span> 1970-01-01T00:24:32.770Z <span class="o">[</span>gmt://tools/log_adapter<span class="o">]</span> this a log message from the instrument
+<span class="o">[</span>DBG<span class="o">]</span> 2016-01-01T00:24:32.770Z <span class="o">[</span>gmt://tools/log_adapter<span class="o">]</span> this a log message from the instrument
+<span class="o">[</span>INF<span class="o">]</span> 2016-01-01T00:24:32.770Z <span class="o">[</span>gmt://tools/log_adapter<span class="o">]</span> this a log message from the instrument
+<span class="o">[</span>WRN<span class="o">]</span> 2016-01-01T00:24:32.770Z <span class="o">[</span>gmt://tools/log_adapter<span class="o">]</span> this a log message from the instrument
+<span class="o">[</span>ERR<span class="o">]</span> 2016-01-01T00:24:32.770Z <span class="o">[</span>gmt://tools/log_adapter<span class="o">]</span> this a log message from the instrument
 </pre></div>
 </div>
 <p>Multiple log clients can be started at the same time in different terminals and with different subscription topics.
 Each client subscribes to the log service independently.</p>
-<p>Another test that can be done is to send a more log messages using this command:</p>
+<p>We can send more log messages using this command:</p>
 <blockquote>
 <div><em>Usage:</em>  <tt class="docutils literal"><span class="pre">test_logs</span> <span class="pre">[number</span> <span class="pre">of</span> <span class="pre">messages]</span> <span class="pre">[thread_1</span> <span class="pre">rate</span> <span class="pre">in</span> <span class="pre">ns]</span> <span class="pre">[thread_2</span> <span class="pre">rate</span> <span class="pre">in</span> <span class="pre">ns]</span></tt></div></blockquote>
 <p>This test uses two threads to send independent log messages and each thread has a different rate.
@@ -258,22 +273,22 @@ log client subscribed at port tcp://127.0.0.1:9995
 <p>This will produce 5 x 2 threads x 4 types + 2 additional = 42 messages. The rates are 1 second and 2 seconds.</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ log_client
 log client subscribed at port tcp://127.0.0.1:9995
-<span class="o">[</span>DBG<span class="o">]</span> 2016-09-01T23:11:16.167Z <span class="o">[</span>thread_1 <span class="o">(</span>src/runtime/src/obs_fwk/core_fwk/c++/tests/test_logs/test_logs.cpp:17<span class="o">)]</span> debug message <span class="nv">num</span> <span class="o">=</span> 1
+<span class="o">[</span>DBG<span class="o">]</span> 2016-09-01T23:11:16.167Z <span class="o">[</span>thread_1<span class="o">]</span> debug message <span class="nv">num</span> <span class="o">=</span> 1
 <span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:11:16.167Z <span class="o">[</span>thread_1<span class="o">]</span> info message <span class="nv">num</span> <span class="o">=</span> 1
 <span class="o">[</span>WRN<span class="o">]</span> 2016-09-01T23:11:16.167Z <span class="o">[</span>thread_1<span class="o">]</span> warning message <span class="nv">num</span> <span class="o">=</span> 1
 <span class="o">[</span>ERR<span class="o">]</span> 2016-09-01T23:11:16.167Z <span class="o">[</span>thread_1<span class="o">]</span> error message <span class="nv">num</span> <span class="o">=</span> 1
-<span class="o">[</span>DBG<span class="o">]</span> 2016-09-01T23:11:17.167Z <span class="o">[</span>thread_2 <span class="o">(</span>src/runtime/src/obs_fwk/core_fwk/c++/tests/test_logs/test_logs.cpp:31<span class="o">)]</span> debug message <span class="nv">num</span> <span class="o">=</span> 1
+<span class="o">[</span>DBG<span class="o">]</span> 2016-09-01T23:11:17.167Z <span class="o">[</span>thread_2<span class="o">]</span> debug message <span class="nv">num</span> <span class="o">=</span> 1
 <span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:11:17.167Z <span class="o">[</span>thread_2<span class="o">]</span> info message <span class="nv">num</span> <span class="o">=</span> 1
 <span class="o">[</span>WRN<span class="o">]</span> 2016-09-01T23:11:17.167Z <span class="o">[</span>thread_2<span class="o">]</span> warning message <span class="nv">num</span> <span class="o">=</span> 1
 <span class="o">[</span>ERR<span class="o">]</span> 2016-09-01T23:11:17.167Z <span class="o">[</span>thread_2<span class="o">]</span> error message <span class="nv">num</span> <span class="o">=</span> 1
 etc...
 </pre></div>
 </div>
-<p>Much faster rates and number of messages can be used:</p>
+<p>Much faster rates and a large number of messages can be used:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ test_logs <span class="m">50000</span> <span class="m">1000</span> 2000
 </pre></div>
 </div>
-<p>This is a c++ application. In case messages are not shown please verify the following environment variables:</p>
+<p>In case messages are not shown please verify the following environment variables:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">GMT_LOG_POLICY</span><span class="o">=</span>1
 <span class="nb">export</span> <span class="nv">GMT_LOG_URL</span><span class="o">=</span>tcp://127.0.0.1:9998
 </pre></div>
@@ -281,7 +296,7 @@ etc...
 </div>
 <div class="section" id="starting-example-components">
 <h2>Starting example components<a class="headerlink" href="#starting-example-components" title="Permalink to this headline">¶</a></h2>
-<p>Another quick test to check the log service is to start some example components in terminal_2:</p>
+<p>The main use of the log service is inside the GMT components. To check the log service with the simple example components we can start them in terminal_2:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ run_example_components
 </pre></div>
 </div>
@@ -289,43 +304,43 @@ etc...
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ log_client
 log client subscribed at port tcp://127.0.0.1:9995
 <span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:00.157Z <span class="o">[</span>gmt://examples/my_app:7000<span class="o">]</span> app step <span class="nv">num</span> <span class="o">=</span> 0
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:00.158Z <span class="o">[</span>gmt://examples/component_A2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 3
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:00.158Z <span class="o">[</span>gmt://examples/component_A1:8004<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 3
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:00.158Z <span class="o">[</span>gmt://examples/component_B3:8003<span class="o">]</span> <span class="nv">x1</span> <span class="o">=</span> 1
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:00.158Z <span class="o">[</span>gmt://examples/component_B1:8001<span class="o">]</span> <span class="nv">x1</span> <span class="o">=</span> 1
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:00.158Z <span class="o">[</span>gmt://examples/component_B2:8002<span class="o">]</span> <span class="nv">x1</span> <span class="o">=</span> 1
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:00.158Z <span class="o">[</span>gmt://examples/basic_component:8000<span class="o">]</span> hello, component world
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:01.158Z <span class="o">[</span>gmt://examples/component_A2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 3
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:01.158Z <span class="o">[</span>gmt://examples/component_A1:8004<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 3
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:01.158Z <span class="o">[</span>gmt://examples/component_B3:8003<span class="o">]</span> <span class="nv">x1</span> <span class="o">=</span> 2
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:01.158Z <span class="o">[</span>gmt://examples/component_B1:8001<span class="o">]</span> <span class="nv">x1</span> <span class="o">=</span> 2
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:01.158Z <span class="o">[</span>gmt://examples/component_B2:8002<span class="o">]</span> <span class="nv">x1</span> <span class="o">=</span> 2
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:01.158Z <span class="o">[</span>gmt://examples/basic_component:8000<span class="o">]</span> hello, component world
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:00.158Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 3
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:00.158Z <span class="o">[</span>gmt://examples/component_sum1:8004<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 3
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:00.158Z <span class="o">[</span>gmt://examples/component_inc3:8003<span class="o">]</span> <span class="nv">x1</span> <span class="o">=</span> 1
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:00.158Z <span class="o">[</span>gmt://examples/component_inc1:8001<span class="o">]</span> <span class="nv">x1</span> <span class="o">=</span> 1
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:00.158Z <span class="o">[</span>gmt://examples/component_inc2:8002<span class="o">]</span> <span class="nv">x1</span> <span class="o">=</span> 1
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:00.158Z <span class="o">[</span>gmt://examples/simple_component:8000<span class="o">]</span> hello, component world
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:01.158Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 3
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:01.158Z <span class="o">[</span>gmt://examples/component_sum1:8004<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 3
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:01.158Z <span class="o">[</span>gmt://examples/component_inc3:8003<span class="o">]</span> <span class="nv">x1</span> <span class="o">=</span> 2
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:01.158Z <span class="o">[</span>gmt://examples/component_inc1:8001<span class="o">]</span> <span class="nv">x1</span> <span class="o">=</span> 2
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:01.158Z <span class="o">[</span>gmt://examples/component_inc2:8002<span class="o">]</span> <span class="nv">x1</span> <span class="o">=</span> 2
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:01.158Z <span class="o">[</span>gmt://examples/simple_component:8000<span class="o">]</span> hello, component world
 <span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:02.157Z <span class="o">[</span>gmt://examples/my_app:7000<span class="o">]</span> app step <span class="nv">num</span> <span class="o">=</span> 1
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:02.158Z <span class="o">[</span>gmt://examples/component_A2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 3
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:02.158Z <span class="o">[</span>gmt://examples/component_A1:8004<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 3
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:02.158Z <span class="o">[</span>gmt://examples/component_B3:8003<span class="o">]</span> <span class="nv">x1</span> <span class="o">=</span> 3
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:02.158Z <span class="o">[</span>gmt://examples/component_B1:8001<span class="o">]</span> <span class="nv">x1</span> <span class="o">=</span> 3
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:02.158Z <span class="o">[</span>gmt://examples/component_B2:8002<span class="o">]</span> <span class="nv">x1</span> <span class="o">=</span> 3
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:02.158Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 3
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:02.158Z <span class="o">[</span>gmt://examples/component_sum1:8004<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 3
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:02.158Z <span class="o">[</span>gmt://examples/component_inc3:8003<span class="o">]</span> <span class="nv">x1</span> <span class="o">=</span> 3
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:02.158Z <span class="o">[</span>gmt://examples/component_inc1:8001<span class="o">]</span> <span class="nv">x1</span> <span class="o">=</span> 3
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:02.158Z <span class="o">[</span>gmt://examples/component_inc2:8002<span class="o">]</span> <span class="nv">x1</span> <span class="o">=</span> 3
 </pre></div>
 </div>
-<p>Messages are produced periodically while the components are running. To kill the components just use CTRL-C.
+<p>Messages are produced periodically while the components are running. To kill the components just use CTRL-C in terminal_2.
 If you have the process in background like this:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ run_example_components <span class="p">&amp;</span>
 </pre></div>
 </div>
 <p>then the components will keep running and using the network ports so, if you run again the same command, some errors will be shown:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>ERROR: unable to connect Port &lt;examples/my_app:setup&gt; <span class="o">(</span>tcp://0.0.0.0:7000<span class="o">)</span> : Address already in use
-ERROR: unable to connect Port &lt;examples/basic_component:setup&gt; <span class="o">(</span>tcp://0.0.0.0:8000<span class="o">)</span> : Address already in use
-ERROR: unable to connect Port &lt;examples/component_B1:setup&gt; <span class="o">(</span>tcp://0.0.0.0:8001<span class="o">)</span> : Address already in use
-ERROR: unable to connect Port &lt;examples/component_B2:setup&gt; <span class="o">(</span>tcp://0.0.0.0:8002<span class="o">)</span> : Address already in use
-ERROR: unable to connect Port &lt;examples/component_B3:setup&gt; <span class="o">(</span>tcp://0.0.0.0:8003<span class="o">)</span> : Address already in use
-ERROR: unable to connect Port &lt;examples/component_A1:setup&gt; <span class="o">(</span>tcp://0.0.0.0:8004<span class="o">)</span> : Address already in use
-ERROR: unable to connect Port &lt;examples/component_A2:setup&gt; <span class="o">(</span>tcp://0.0.0.0:8005<span class="o">)</span> : Address already in use
+ERROR: unable to connect Port &lt;examples/simple_component:setup&gt; <span class="o">(</span>tcp://0.0.0.0:8000<span class="o">)</span> : Address already in use
+ERROR: unable to connect Port &lt;examples/component_inc1:setup&gt; <span class="o">(</span>tcp://0.0.0.0:8001<span class="o">)</span> : Address already in use
+ERROR: unable to connect Port &lt;examples/component_inc2:setup&gt; <span class="o">(</span>tcp://0.0.0.0:8002<span class="o">)</span> : Address already in use
+ERROR: unable to connect Port &lt;examples/component_inc3:setup&gt; <span class="o">(</span>tcp://0.0.0.0:8003<span class="o">)</span> : Address already in use
+ERROR: unable to connect Port &lt;examples/component_sum1:setup&gt; <span class="o">(</span>tcp://0.0.0.0:8004<span class="o">)</span> : Address already in use
+ERROR: unable to connect Port &lt;examples/component_sum2:setup&gt; <span class="o">(</span>tcp://0.0.0.0:8005<span class="o">)</span> : Address already in use
 </pre></div>
 </div>
 <p>This means that the example components are already running and using the networks addresses.
-To avoid this you need to kill the run_example_component process:</p>
+To avoid this you need to kill the run_example_components process before to start a new one:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ ps -fea <span class="p">|</span> grep run_example_components
 user     <span class="m">15209</span> <span class="m">31894</span>  <span class="m">0</span> 19:40 pts/0    00:00:00 run_example_components
 user     <span class="m">15365</span> <span class="m">31894</span>  <span class="m">0</span> 19:43 pts/0    00:00:00 grep --color<span class="o">=</span>auto run_example_components
@@ -341,12 +356,23 @@ $ <span class="nb">kill</span> -9 15209
 <p>The log service stores all received messages in a local database. In order to query this database the log service shall be started and then in any terminal we can use:</p>
 <blockquote>
 <div><em>Usage:</em>  <tt class="docutils literal"><span class="pre">log_query</span> <span class="pre">uri</span> <span class="pre">num</span></tt></div></blockquote>
-<p>For example, the following will show the last 10 messages (from newest to oldest) created by the basic_component in the previous section:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ log_query gmt://examples/basic_component:8000 10
+<p>For example, the following will show the last 10 messages (from newest to oldest) created by the simple_component in the previous section:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ log_query gmt://examples/simple_component:8000 10
+starting log query at tcp://127.0.0.1:9994
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:44:40.936Z <span class="o">[</span>gmt://examples/simple_component:8000<span class="o">]</span> hello, component world
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:44:39.936Z <span class="o">[</span>gmt://examples/simple_component:8000<span class="o">]</span> hello, component world
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:44:38.936Z <span class="o">[</span>gmt://examples/simple_component:8000<span class="o">]</span> hello, component world
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:44:37.936Z <span class="o">[</span>gmt://examples/simple_component:8000<span class="o">]</span> hello, component world
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:44:36.936Z <span class="o">[</span>gmt://examples/simple_component:8000<span class="o">]</span> hello, component world
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:44:35.934Z <span class="o">[</span>gmt://examples/simple_component:8000<span class="o">]</span> hello, component world
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:44:34.934Z <span class="o">[</span>gmt://examples/simple_component:8000<span class="o">]</span> hello, component world
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:44:34.853Z <span class="o">[</span>gmt://examples/simple_component:8000<span class="o">]</span> hello, component world
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:44:33.934Z <span class="o">[</span>gmt://examples/simple_component:8000<span class="o">]</span> hello, component world
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:44:33.853Z <span class="o">[</span>gmt://examples/simple_component:8000<span class="o">]</span> hello, component world
 </pre></div>
 </div>
-<p>All queries have to be done on the exact URI of the component that produces the messages. More queries will be provided in future releases.</p>
-<p>It&#8217;s also possible to explore the log messages stored in the database or manage the databases using the &#8216;mongo&#8217; command line tool. Please check the mongoDB documentation in this case.</p>
+<p>All queries have to be done on the exact <strong>URI</strong> of the component that produces the messages. More queries will be provided in future releases.</p>
+<p>It&#8217;s also possible to explore the log messages stored in the database or manage the databases using the <em>mongo</em> command line tool. Please check the mongoDB documentation in this case.</p>
 </div>
 </div>
 
@@ -357,10 +383,10 @@ $ <span class="nb">kill</span> -9 15209
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="examples.html" class="btn btn-neutral float-right" title="Running Examples (TBR)" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="examples.html" class="btn btn-neutral float-right" title="Running Examples" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="configuration.html" class="btn btn-neutral" title="Developer Info and Release Configuration (TBR)" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="configuration.html" class="btn btn-neutral" title="Developer Info and Release Configuration" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

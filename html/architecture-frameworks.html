@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Search &mdash; GMT Software And Controls documentation</title>
+  <title>Frameworks &mdash; GMT Software And Controls documentation</title>
   
 
   
@@ -70,7 +70,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -149,8 +149,12 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li></li>
+    <li>Frameworks</li>
       <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/architecture-frameworks.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
   </ul>
@@ -159,19 +163,47 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search
-      functionality.
-    </p>
-  </div>
-  </noscript>
+  <div class="section" id="frameworks">
+<h1>Frameworks<a class="headerlink" href="#frameworks" title="Permalink to this headline">¶</a></h1>
+<p>The hardware and software components required for operations derive from a
+process of domain engineering.  This result in a set of categories around which
+to design a framework that implements architectural patterns (e.g., Controller,
+Pipeline) and common components.  The domain engineering process shows that many
+subsystems share common architecture and many components share similar
+solutions.</p>
+<p><a class="reference internal" href="component_frameworks.html#component-frameworks"><em>Frameworks</em></a> provide a collection of reusable building blocks
+that solve recurrent problems in different domains (e.g., control systems,
+distributed services, data processing, hardware interfaces) and that allow
+developing observatory applications. At the same time, they provide an isolation
+mechanism from the underlying layers. The use of these component frameworks is
+key for constructing a cost effective system and provides the following
+benefits:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Improved external reuse – Component frameworks implement wrappers for
+external software Packages. Wrappers help to reduce the dependency between
+Subsystems and external software, minimizing the propagation of changes
+though interfaces.</li>
+<li>Improved internal reuse – Component frameworks are articulated around a set
+of recurrent design patterns18 (e.g., Controller, Pipeline, Panel, Workflow,
+Sequence, Wrapper). A set of base classes implements these design patterns
+by means of composition/delegation or specialization.</li>
+<li>Improved consistency of designs and compliance with standards.</li>
+<li>Improved robustness – Components that are reused in multiple scenarios and
+different</li>
+<li>Subsystems are tested in more diverse conditions.</li>
+<li>Reduced maintenance cost – Knowing about fewer types of Components is
+required.</li>
+</ul>
+</div></blockquote>
+<p>Ideally it should not be necessary to develop any domain independent framework,
+as they address problems that are common to a large family of applications;
+examples of those are middleware libraries, database management systems, etc.
+The Component Framework includes the following elements:  Core Framework, Device
+Control Framework, Data Processing Framework, Time Distribution Framework, User
+Interface Framework, and I/O Framework.</p>
+</div>
 
-  
-  <div id="search-results">
-  
-  </div>
 
            </div>
           </div>
@@ -213,7 +245,6 @@
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="_static/searchtools.js"></script>
 
   
 
@@ -229,14 +260,7 @@
           SphinxRtdTheme.StickyNav.enable();
       });
   </script>
-  
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script type="text/javascript" id="searchindexloader"></script>
    
-
 
 </body>
 </html>

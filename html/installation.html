@@ -33,8 +33,8 @@
 
   
     <link rel="top" title="GMT Software And Controls documentation" href="index.html"/>
-        <link rel="next" title="Developer Info and Release Configuration (TBR)" href="configuration.html"/>
-        <link rel="prev" title="Introduction" href="introduction.html"/> 
+        <link rel="next" title="Developer Info and Release Configuration" href="configuration.html"/>
+        <link rel="prev" title="Platform" href="platform.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -87,7 +87,22 @@
             
             
                 <ul>
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="swcs_introduction.html">Introduction</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overall_architecture.html">Overall Architecture</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tcs_introduction.html">Telescope Control System</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="observatory_services.html">Observatory Services</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="component_frameworks.html">Frameworks</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="platform.html">Platform</a></li>
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="">Installation</a><ul>
@@ -97,13 +112,13 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html">Developer Info and Release Configuration (TBR)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Developer Info and Release Configuration</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="services.html">Using the Services (TBR)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="services.html">Using the Services</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="examples.html">Running Examples (TBR)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Running Examples</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="dcs_dev_guide.html">Creating a Device Control System (TBR)</a></li>
@@ -164,8 +179,8 @@
 <li>Third-party and development packages required for runtime and development</li>
 </ul>
 </div></blockquote>
-<p>The kickstart installation automates the process of adapting the release to your system, effectively
-providing a turn-key brand new system.</p>
+<p>The kickstart installation automates the process of adapting the release to your
+system, effectively providing a turn-key brand new system.</p>
 <div class="section" id="procedure">
 <h2>Procedure<a class="headerlink" href="#procedure" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
@@ -209,9 +224,10 @@ $ sudo dd <span class="nv">bs</span><span class="o">=</span>4M <span class="k">i
 <ol class="arabic simple" start="2">
 <li>Configure your BIOS to boot from USB</li>
 </ol>
-<p>This step is vendor specific. On the Beckhoff Industrial PC (IPC) provided with the Hardware Development Kit (HDK):</p>
 <blockquote>
-<div><p>2.1  Insert the USB drive into the IPC and power up the system</p>
+<div><p>This step is vendor specific. On the Beckhoff Industrial PC (IPC) provided
+with the Hardware Development Kit (HDK):</p>
+<p>2.1  Insert the USB drive into the IPC and power up the system</p>
 <p>2.1  Enter the BIOS settings by pressing the &lt;Del&gt; key.</p>
 <p>2.2  In the Boot panel, set Option #1 to [USB stick].</p>
 <blockquote>
@@ -273,10 +289,10 @@ $ ethercat slaves
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="configuration.html" class="btn btn-neutral float-right" title="Developer Info and Release Configuration (TBR)" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="configuration.html" class="btn btn-neutral float-right" title="Developer Info and Release Configuration" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="introduction.html" class="btn btn-neutral" title="Introduction" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="platform.html" class="btn btn-neutral" title="Platform" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

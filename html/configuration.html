@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Developer Info and Release Configuration (TBR) &mdash; GMT Software And Controls documentation</title>
+  <title>Developer Info and Release Configuration &mdash; GMT Software And Controls documentation</title>
   
 
   
@@ -33,7 +33,7 @@
 
   
     <link rel="top" title="GMT Software And Controls documentation" href="index.html"/>
-        <link rel="next" title="Using the Services (TBR)" href="services.html"/>
+        <link rel="next" title="Using the Services" href="services.html"/>
         <link rel="prev" title="Installation" href="installation.html"/> 
 
   
@@ -87,25 +87,41 @@
             
             
                 <ul>
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="swcs_introduction.html">Introduction</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overall_architecture.html">Overall Architecture</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tcs_introduction.html">Telescope Control System</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="observatory_services.html">Observatory Services</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="component_frameworks.html">Frameworks</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="platform.html">Platform</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="">Developer Info and Release Configuration (TBR)</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Developer Info and Release Configuration</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#services-configuration">Services Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#databases-and-logs">Databases and Logs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#firewall-and-network-ports">Firewall and Network Ports</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#uris-and-urls">URIs and URLs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#environment-vars">Environment vars</a></li>
 </ul>
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="services.html">Using the Services (TBR)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="services.html">Using the Services</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="examples.html">Running Examples (TBR)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Running Examples</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="dcs_dev_guide.html">Creating a Device Control System (TBR)</a></li>
@@ -142,7 +158,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>Developer Info and Release Configuration (TBR)</li>
+    <li>Developer Info and Release Configuration</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -156,8 +172,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="developer-info-and-release-configuration-tbr">
-<h1>Developer Info and Release Configuration (TBR)<a class="headerlink" href="#developer-info-and-release-configuration-tbr" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="developer-info-and-release-configuration">
+<h1>Developer Info and Release Configuration<a class="headerlink" href="#developer-info-and-release-configuration" title="Permalink to this headline">¶</a></h1>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">If the installation is done via the USB drive, one can bypass the manual setup
@@ -251,6 +267,12 @@ Example:</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="environment-vars">
+<h2>Environment vars<a class="headerlink" href="#environment-vars" title="Permalink to this headline">¶</a></h2>
+<p>Some UNIX environment variables are required and they should be automatically applied. See this file:</p>
+<blockquote>
+<div><cite>${GMT_ROOT}/etc/gmt_env_vars</cite></div></blockquote>
+</div>
 </div>
 
 
@@ -260,7 +282,7 @@ Example:</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="services.html" class="btn btn-neutral float-right" title="Using the Services (TBR)" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="services.html" class="btn btn-neutral float-right" title="Using the Services" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="installation.html" class="btn btn-neutral" title="Installation" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>

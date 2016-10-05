@@ -33,7 +33,7 @@
 
   
     <link rel="top" title="GMT Software And Controls documentation" href="index.html"/>
-        <link rel="next" title="Observatory Services" href="observatory_services.html"/>
+        <link rel="next" title="Telescope Control System" href="tcs_introduction.html"/>
         <link rel="prev" title="Introduction" href="swcs_introduction.html"/> 
 
   
@@ -90,32 +90,41 @@
 <li class="toctree-l1"><a class="reference internal" href="swcs_introduction.html">Introduction</a></li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Overall Architecture</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Overall Architecture</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#organization">Organization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#domains">Domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#domains-of-control">Domains of Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#development">Development</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#deployment">Deployment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#controls">Controls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#controls-hierarchy">Controls Hierarchy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#health-and-supervision">Health and Supervision</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#frameworks">Frameworks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#modules">Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modules-subsystem-packages-components">Modules: Subsystem, Packages, Components</a></li>
 </ul>
 </li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tcs_introduction.html">Telescope Control System</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="observatory_services.html">Observatory Services</a></li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="component_frameworks.html">Frameworks</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="platform.html">Platform</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html">Developer Info and Release Configuration (TBR)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Developer Info and Release Configuration</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="services.html">Using the Services (TBR)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="services.html">Using the Services</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="examples.html">Running Examples (TBR)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Running Examples</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="dcs_dev_guide.html">Creating a Device Control System (TBR)</a></li>
@@ -144,7 +153,7 @@
         <div class="rst-content">
           
 
- 
+
 
 
 
@@ -168,53 +177,66 @@
             
   <div class="section" id="overall-architecture">
 <span id="id1"></span><h1>Overall Architecture<a class="headerlink" href="#overall-architecture" title="Permalink to this headline">¶</a></h1>
-<p>A system as multifaceted and complex as the GMT has many characteristics to
-specify and design, e.g. the system organization, operations, physical and
-behavioral properties, the control hierarchy, communication and interaction of
-the subcomponents under control, use by human operators, etc..  This means that
-there are many ways to describe how a system works, all of which come together
-to form a complete and coherent picture of the overall system, and further
-refined into technical and operational requirements.  The software architecture
-captures decisions that best meet those requirements, while optimizing over
-parameters in performance, reliability, maintainability, and cost.</p>
-<p>The discussion below gives a cross-sectional view of the overall SWCS
-architecture, from the standpoint of the SWCS organization, the global SWCS
-domains, software development layers, software deployment layers, control
-hierarchy, system health and supervision, software frameworks, and the subsystem
-modules.  More detailed discussions are provided in the appropriate links.</p>
+<p>A system as complex as the GMT has many parts and behaviors that require
+control.  The overall architecture of the GMT Software and Controls System
+(SWCS) has to capture various properties and behaviors of the observatory as a
+whole: the system organization, physical and behavioral properties of the
+systems and subsystems, their control hierarchy, communication and interaction
+of the subcomponents under control, runtime operations, how to use by human
+operators.  Those various aspects together provide a coherent yet still
+schematic narrative of the overall system.  They filter down and are refined
+into technical and operational requirements that become the basis around which
+detailed designs of the control software may begin.  The software architecture
+is a process that captures decisions to best meet the requirements at the system
+level, while optimizing over parameters to meet the <a class="reference internal" href="swcs_introduction.html#key-principles"><em>General Principles and Guidelines</em></a>, in
+particular, performance, reliability, maintainability, and cost.  The discussion
+below gives a summary of the overall SWCS architecture from several different
+top-level perspectives, i.e. from the standpoint of the SWCS organization, the
+global SWCS domains, software development layers, software deployment layers,
+control hierarchy, system health and supervision, software frameworks, and the
+subsystem modules.  More detailed discussions are provided in the appropriate
+links.</p>
 <div class="section" id="organization">
-<h2>Organization<a class="headerlink" href="#organization" title="Permalink to this headline">¶</a></h2>
-<p>The first phase of the SWCS development starts with the domain engineering
-process (clause 7.3.1 of ISO12207) that allows one to identify the main
+<span id="architecture-organization"></span><h2>Organization<a class="headerlink" href="#organization" title="Permalink to this headline">¶</a></h2>
+<p>The first phase in the SWCS development starts with the process of domain
+engineering (clause 7.3.1 of ISO12207) which allows one to identify the main
 architectural components of the SWCS and to group them into uniform categories
-of: subsystems, packages and components, following the criteria of internal
-affinity, rate of change propagation and interface size.</p>
-<a class="reference internal image-reference" href="_images/swcs-organization.png"><img alt="SWCS Organization" class="align-center" src="_images/swcs-organization.png" style="width: 672.6999999999999px; height: 246.39999999999998px;" /></a>
-<p>The above figure illustrates the organization hierarchy using the Unified
-Modeling Language (UML) diagram.  System, Domain, Subsystem and Packages are
-aggregations that make up the hierarchy of the GMT software and control
-Components, meaning that a system contains multiple domains, a domain contains
-multiple subsystems, and so forth. The Classifier class provides basic naming
-and description attributes. The Configuration Item class extends Product
-Breakdown Element (PBE) and Work Breakdown Element (WBE) classes to enable
-mapping of the SWCS structure to the GMT project Product Breakdown Structure and
-Work Breakdown Structure.</p>
+of: subsystems, packages and components, following the criteria of cohesive
+functionality, timing requirements, and interface size.</p>
+<div class="figure" id="swcs-organization">
+<img alt="_images/swcs-organization.png" src="_images/swcs-organization.png" />
+<p class="caption">SWCS Organization</p>
 </div>
-<div class="section" id="domains">
-<h2>Domains<a class="headerlink" href="#domains" title="Permalink to this headline">¶</a></h2>
-<p>The top-level breakdown of the SWCS is based on a clear separation of concerns
-between four high level domains: the Telescope Control System (TCS), Observatory
-Operations System (OPS), Observatory Services (OSRV), and Instrument Control
-System (ICS), as shown in the figure below. The components within each domain
-are partitioned in a way to facilitate modular software design. Modularity
-allows different components to evolve independently through the life of the
-project, to address new scalability needs (e.g., new hardware subsystems require
-higher performance telemetry), or to address different optimization strategies.</p>
-<a class="reference internal image-reference" href="_images/application-layer.png"><img alt="Application Layer" class="align-center" src="_images/application-layer.png" style="width: 897.4px; height: 303.79999999999995px;" /></a>
+<p>The above figure illustrates how the SWCS organization hierarchy fits into the
+project organization using the Unified Modeling Language (UML) diagram after the
+process.  System, Domain, Subsystem and Packages are aggregations that make up
+the hierarchy of the GMT SWCS, such that a system contains multiple domains, a
+domain contains multiple subsystems, and so forth.  The Classifier class
+provides basic naming and description attributes. The <em>ConfigurationItem</em> class
+extends Product Breakdown Element (PBE) and Work Breakdown Element (WBE) classes
+to enable mapping of the SWCS structure to the GMT project Product Breakdown
+Structure and Work Breakdown Structure.</p>
+</div>
+<div class="section" id="domains-of-control">
+<span id="architecture-control-domains"></span><h2>Domains of Control<a class="headerlink" href="#domains-of-control" title="Permalink to this headline">¶</a></h2>
+<p>One aspect of the software architecture is from the standpoint that mirrors the
+functional decomposition of the observatory.  In this view, there are four major
+domains of software control, based on a clear separation of concerns: the
+<a class="reference internal" href="tcs_introduction.html#tcs-introduction"><em>Telescope Control System</em></a> (TCS), Observatory Operations System (OPS),
+<a class="reference internal" href="observatory_services.html#observatory-services"><em>Observatory Services</em></a> (OSRV), and Instrument Control System (ICS), as
+shown in the figure below. The components within each domain are partitioned in
+a way to facilitate modular software design.  Modularity allows different
+components to evolve independently through the life of the project, to address
+new scalability needs (e.g., new hardware subsystems require higher performance
+telemetry), or to address different optimization strategies.</p>
+<div class="figure" id="figure-domains-of-control">
+<img alt="_images/application-layer.png" src="_images/application-layer.png" />
+<p class="caption">Application Layer: Domains of Control</p>
+</div>
 <p>In brief, the four domains and some underlying considerations are:</p>
 <blockquote>
 <div><ul>
-<li><p class="first">Telescope Control System – The TCS domain comprises subsystems that are in
+<li><p class="first"><a class="reference internal" href="tcs_introduction.html#tcs-introduction"><em>Telescope Control System</em></a> – The TCS domain comprises subsystems that are in
 charge of controlling the telescope optomechanical devices. The hierarchy of
 the TCS architecture follows a functional decomposition or breakdown that
 closely mirrors the physical organization of the telescope hardware
@@ -227,14 +249,14 @@ structure is that it is likely to be very stable once the project is
 baselined. While new hardware will be developed and integrated during the
 life of the project, the core optomechanical design will remain unchanged.</p>
 <p>Most of the software subsystems of the TCS can be designed to share a common
-architecture, which is presented in <a class="reference external" href="http://Section10.3.5.5">Device Control Framework</a>.  Doing so facilitates reuse of common designs among
-subsystems, communication among groups due to having common “vocabularies”
-and concepts, development of a common body of experience, and a more
-efficient operation and maintenance due to the commonalities shared between
-subsystems. It also facilitates the creation of common development tools and
-process artifacts.</p>
+architecture, which is presented in <a class="reference internal" href="component_frameworks.html#device-control-framework"><em>Device Control Framework</em></a>.  Doing
+so facilitates reuse of common designs among subsystems, communication among
+groups due to having common “vocabularies” and concepts, development of a
+common body of experience, and a more efficient operation and maintenance
+due to the commonalities shared between subsystems. It also facilitates the
+creation of common development tools and process artifacts.</p>
 </li>
-<li><p class="first">Observatory Operations - The OPS groups the software subsystems that provide
+<li><p class="first">Observatory Operations &#8211; The OPS groups the software subsystems that provide
 the capabilities to support efficient operations and workflows of the
 observatory.  This domain architecture follows a functional decomposition
 based on the core observatory operation workflows. As such the structure of
@@ -249,92 +271,625 @@ where productivity can be improved. The goal is to develop a system that
 remains flexible and, at the same time, that efficiently supports the
 operational workflows without constraining the introduction of new ones.</p>
 </li>
-<li><p class="first">Observatory Services - The OSRV groups the subsystems that provide common
-infrastructure service components. Each observatory services subsystem
-(engineering user interface, logging, telemetry, configuration, etc.)
-addresses a specific structural function. Structural functions are systemic
-in nature and they provide interfaces for any component in the system (e.g.,
-fault management, telemetry). The OSRV components allow developers to focus
-in writing application specific code without worrying about low-level
-infrastructure implementation details.</p>
+<li><p class="first"><a class="reference internal" href="observatory_services.html#observatory-services"><em>Observatory Services</em></a> &#8211; The OSRV groups the subsystems that provide
+common infrastructure service components. Each observatory services
+subsystem (engineering user interface, logging, telemetry, configuration,
+etc.) addresses a specific structural function. Structural functions are
+systemic in nature and they provide interfaces for any component in the
+system (e.g., fault management, telemetry). The OSRV components allow
+developers to focus in writing application specific code without worrying
+about low-level infrastructure implementation details.</p>
 </li>
-<li><p class="first">Instrument Control System &#8211; The ICS groups the subsystems.... [TBC]</p>
+<li><p class="first">Instrument Control System &#8211; The ICS groups the software and hardware
+subsystems in charge of controlling instruments for science observations.
+In general, the ICS follows the same architectural design as other device
+control subsystems.</p>
 </li>
 </ul>
 </div></blockquote>
 </div>
 <div class="section" id="development">
-<h2>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h2>
+<span id="architecture-development"></span><h2>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h2>
 <p>From a development standpoint, the software architecture has the following
-hierarchy.  The application layer residing at the top contains services and
-tools that run the observatory (via services and operations), telescope control
-system (TCS), and the instrument control system (ICS).  Below the application
-layer are frameworks, packages, and the operating system on which the
-applications depend or build.</p>
-<a class="reference internal image-reference" href="_images/layered-architecture.png"><img alt="Software Layered Architecture" class="align-center" src="_images/layered-architecture.png" style="width: 905.0999999999999px; height: 516.6px;" /></a>
+hierarchy (see Figure below on <a class="reference internal" href="#layered-software-architecture"><em>Layered Software Architecture</em></a>).  The
+application layer (<a class="reference internal" href="#architecture-control-domains"><em>Domains of Control</em></a>) residing at the top contains services
+and tools that run the observatory (via services and operations), telescope
+control system (TCS), and the instrument control system (ICS).  Below the
+application layer are frameworks, packages, and the operating system on which
+the applications depend or build.  A layered development architecture addresses
+the problem of Package development, dependencies and platform evolution. In this
+arrangement, layers of software are built up from low-level service software,
+like operating systems and network stacks, to high-level applications (see
+Figure below). Intermediate layers provide domain independent and dependent
+frameworks that help contain changes of platform or APIs.  Circular dependencies
+are not allowed as the system is built bottom-up.</p>
+<div class="figure" id="layered-software-architecture">
+<img alt="_images/layered-architecture.png" src="_images/layered-architecture.png" />
+<p class="caption">Layered Software Architecture</p>
+</div>
+<p>A software framework is an abstraction in which software providing generic
+functionality can be selectively changed by additional user-written code, thus
+providing application-specific software. A software framework is a universal,
+reusable software platform to develop applications, products and solutions.
+Software frameworks include support programs, compilers, code libraries, tool
+sets, and APIs. Frameworks contain key distinguishing features that separate
+them from normal libraries:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Inversion of control – In a framework, unlike libraries or normal user
+applications, the overall program’s flow of control is not dictated by the
+caller, but by the framework.</li>
+<li>Default behavior – A framework has default behavior. This default behavior
+must be some useful behavior and not a series of no-ops.</li>
+<li>Extensibility – A framework can be extended by the user usually by selective
+overriding or specialized by user code to provide specific functionality.</li>
+<li>Non-modifiable framework code – The framework code, in general, should not
+be modified, except regarding extensibility. Users can extend the framework,
+but cannot change its code.</li>
+</ul>
+</div></blockquote>
+<p>The <em>Domain of SWCS Control</em> forms the Application Layer, and is discussed in
+<a class="reference internal" href="#architecture-control-domains"><em>Domains of Control</em></a>, while the <a class="reference internal" href="#architecture-frameworks"><em>Frameworks</em></a> form the Domain
+Specific Layer.</p>
 </div>
 <div class="section" id="deployment">
-<h2>Deployment<a class="headerlink" href="#deployment" title="Permalink to this headline">¶</a></h2>
+<span id="architecture-deployment"></span><h2>Deployment<a class="headerlink" href="#deployment" title="Permalink to this headline">¶</a></h2>
+<p>The SWCS software Components are deployed in a distributed set of computers
+connected by the control network.  The deployment architecture follows a layered
+approach (See <a class="reference internal" href="#deployment-architecture-figure"><em>Deployment Architecture</em></a> Figure below):</p>
+<blockquote>
+<div><ul class="simple">
+<li>The Device Layer is the system under control. It includes the optomechanical
+devices of the telescope.</li>
+<li>The Fieldbus Layer enables the interface between the control subsystem and
+the subsystem under control. Section 10.4.2 describes how EtherCAT and other
+standard buses are used to implement this interface.</li>
+<li>The Supervisory and Control Layer implements the control of the different
+subsystems as explained above. The controllers are deployed in the GMT
+standard hardware platform. All of them are connected to the control
+network.  The internal architecture of the control subsystems is presented
+in Section 10.3.2. This layer also includes the Wavefront Control and
+Pointing Kernel subsystems that implement the system behavior of the
+telescope. Section 10.4.1 describes the computing platform options used for
+the deployment of device control subsystems.</li>
+<li>The Observatory Layer includes the software components that implement
+observatory operations and services. These components are deployed in
+standard server class computers that support a cloud-like infrastructure
+(e.g., OpenStack*). The optimal deployment of these subsystems will depend
+on the detailed Observatory Operation Plans. The platform may be distributed
+in different geographic locations or even partially deployed in cloud-like
+infrastructure. This is an area where it is wise to allow flexibility in
+deployment schemes because the technological infrastructure is likely to
+evolve before the final deployment of the system.</li>
+</ul>
+</div></blockquote>
+<div class="figure" id="deployment-architecture-figure">
+<img alt="_images/deployment-architecture.png" src="_images/deployment-architecture.png" />
+<p class="caption">Deployment Architecture</p>
 </div>
-<div class="section" id="controls">
-<h2>Controls<a class="headerlink" href="#controls" title="Permalink to this headline">¶</a></h2>
+<p>There are two types of interfaces, shown red in the above Figure:</p>
+<blockquote>
+<div><ul class="simple">
+<li>The Supervisory Interface mediates control of the subsystems and the rest of
+the SWCS. This includes interfaces with the Common Services, Observatory
+Operation Components and high-level TCS software subsystems.</li>
+<li>The Field Interface mediates the control subsystem and the system under
+control. This interface is defined in terms of industry protocols when
+adequate.</li>
+</ul>
+</div></blockquote>
+<p>The following Figure provides a schematic view of the TCS hardware components
+deployment and their physical location.</p>
+<div class="figure">
+<img alt="_images/tcs-deployment-schematic.png" src="_images/tcs-deployment-schematic.png" />
+<p class="caption">TCS Deployment Schematic</p>
+</div>
+<p>In the above Figure: (1) Motors and encoders are connected to drives and I/O
+terminals, (2) Cameras are connected to data acquisition computers with fiber
+links (e.g. HS Camera Link, GbE or PCIe transceivers), (3) I/O terminals are
+interconnected with the EtherCAT fieldbus; the connection between the fieldbus
+and the control computers is also fiber optics, (4) The service bus network
+connects device control computers, WFCS computers, servers and workstations.
+Multi-fiber cable trunks are used to connect the electronics room and the
+telescope enclosure through cable wraps, (5) Device control computers execute
+motion control and data acquisition processes, (6) WFCS and pointing software
+computers, (7) Control room workstations allow users to operate and monitor the
+system.</p>
+</div>
+<div class="section" id="controls-hierarchy">
+<span id="architecture-controls"></span><h2>Controls Hierarchy<a class="headerlink" href="#controls-hierarchy" title="Permalink to this headline">¶</a></h2>
 <p>An example of the control hierarchy addressed by the SWC software modeling
-process is shown in Table 10-4. At the top level, the Sequencer subsystem
-orchestrates the operational workflow of high-level processes, such as telescope
-pointing and acquisition. At intermediate levels, control and operational logic
-dictate how to carry out the commanded operations. At the lowest levels, control
-demands are sent to devices that produce telescope axis motion. The purpose of
-the SWC software modeling process is to enable physical control that accurately
-captures the operating principles of the observatory.</p>
+process is shown in the <a class="reference internal" href="#control-hierarchy"><em>Figure on Control Hierarchy</em></a>.
+At the top level, the Sequencer subsystem orchestrates the operational workflow
+of high-level processes, such as telescope pointing and acquisition. At
+intermediate levels, control and operational logic dictate how to carry out the
+commanded operations.  At the lowest levels, control demands are sent to devices
+that produce telescope axis motion. The purpose of the SWC software modeling
+process is to enable physical control that accurately captures the operating
+principles of the observatory.</p>
+<div class="figure" id="control-hierarchy">
+<img alt="_images/control-hierarchy.png" src="_images/control-hierarchy.png" />
+<p class="caption">Conceptual Control Hierarchy</p>
+</div>
+<p>The GMT Instruments Controls Subsystem follows the same architectural design as
+other device control subsystems. Typically an Instrument Software and Controls
+Subsystem will include most of the packages described <a class="reference internal" href="#table-control-packages"><em>for control</em></a> and will be developed following the standards and
+guidelines described in the SWCS Handbook.  The operation of ICS, TCS and AO
+subsystems will be coordinated by the GMT Sequencer in order execute automated
+observation or calibration operations.  The ICS data pipeline packages are
+integrated in the GMT Data Processing System so quick look and data products
+management is operated in a uniform way across the observatory. Analogously
+instrument specific user interface panels and observing tools are integrated in
+the Observatory Operations System to ensure consistent and seamless
+implementation of observatory workflows.</p>
 </div>
 <div class="section" id="health-and-supervision">
-<h2>Health and Supervision<a class="headerlink" href="#health-and-supervision" title="Permalink to this headline">¶</a></h2>
+<span id="architecture-health-supervision"></span><h2>Health and Supervision<a class="headerlink" href="#health-and-supervision" title="Permalink to this headline">¶</a></h2>
+<p>Reliability is one of the key design drivers for the SWCS. Several principles
+have been used in the reference architecture to address this:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Fault detection and management is implemented as close as possible to the
+source.</li>
+<li>When a component does not have enough information to take a corrective
+action then its supervisor is notified.</li>
+<li>Every subsystem, not only Device Control Subsystems, has to include a
+supervisor that takes care of life-cycle and fault management of the
+Subsystem.</li>
+<li>A general system supervisor takes care of the overall life-cycle and health
+status of the system.</li>
+<li>Supervisors can implement alternative strategies when possible, to improve
+the fault tolerance of the system. For example, maintaining the wavefront
+error will require switching to degraded modes when some sensor becomes
+unavailable or when a communication glitch occurs.</li>
+<li>All Components have to specify formally their fault cases by means of alarm
+event conditions.</li>
+<li>All alarm events are sent to the alarm service so operators can be notified
+and events can be logged for further analysis.</li>
+<li>Although the ISS is ultimately responsible for personal and equipment
+safety, software and control Components should attempt to prevent the
+occurrence of fault conditions.</li>
+<li>The ISS is always interrogated about the status of the interlocks relative
+to any given Subsystem or Component.</li>
+<li>All the components are required to sample relevant state variables using the
+telemetry service. Telemetry data are sent to the telemetry service so they
+can be monitored and correlated with other state variables of the system.
+Telemetry data are essential to diagnose any faulty behavior so the system
+can be improved.</li>
+<li>The Logging Service allows the logging of significant event occurrences
+during the nominal operation of the system. Analyzing transcription logs
+helps understanding the behavior of the system and to detect any
+malfunction.</li>
+</ul>
+</div></blockquote>
+<p>Each Subsystem Supervisor implements the following functions when applicable:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Subsystem integrity (e.g., collision avoidance)</li>
+<li>Subsystem component configuration (e.g., components are configured in the
+right sequence and with the right configuration properties, look-up-tables,
+etc.)</li>
+<li>Subsystem robustness (e.g., behavior in presence of non-nominal conditions,
+fault management and tolerance)</li>
+<li>Subsystem life-cycle (e.g., startup and shutdown)</li>
+<li>Subsystem embedded diagnosis</li>
+<li>Subsystem modal transition for subsystems that have different modes of
+operation</li>
+<li>Subsystem IO health</li>
+</ul>
+</div></blockquote>
+<p>The Figure below shows the conceptual view of the <a class="reference internal" href="#figure-supervisory-hierarchy"><em>Supervisory Hierarchy</em></a>.</p>
+<div class="figure" id="figure-supervisory-hierarchy">
+<img alt="_images/supervisory-hierarchy.png" src="_images/supervisory-hierarchy.png" />
+<p class="caption">Supervisory Hierarchy</p>
+</div>
 </div>
 <div class="section" id="frameworks">
-<h2>Frameworks<a class="headerlink" href="#frameworks" title="Permalink to this headline">¶</a></h2>
+<span id="architecture-frameworks"></span><h2>Frameworks<a class="headerlink" href="#frameworks" title="Permalink to this headline">¶</a></h2>
 <p>The hardware and software components required for operations derive from a
 process of domain engineering.  This result in a set of categories around which
 to design a framework that implements architectural patterns (e.g., Controller,
 Pipeline) and common components.  The domain engineering process shows that many
 subsystems share common architecture and many components share similar
-solutions.  The Component Framework includes the following elements:  Core
+solutions.</p>
+<p><a class="reference internal" href="component_frameworks.html#component-frameworks"><em>Frameworks</em></a> provide a collection of reusable building blocks
+that solve recurrent problems in different domains (e.g., control systems,
+distributed services, data processing, hardware interfaces) and that allow
+developing observatory applications. At the same time, they provide an isolation
+mechanism from the underlying layers. The use of these component frameworks is
+key for constructing a cost effective system and provides the following
+benefits:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Improved external reuse – Component frameworks implement wrappers for
+external software Packages. Wrappers help to reduce the dependency between
+Subsystems and external software, minimizing the propagation of changes
+though interfaces.</li>
+<li>Improved internal reuse – Component frameworks are articulated around a set
+of recurrent design patterns18 (e.g., Controller, Pipeline, Panel, Workflow,
+Sequence, Wrapper). A set of base classes implements these design patterns
+by means of composition/delegation or specialization.</li>
+<li>Improved consistency of designs and compliance with standards.</li>
+<li>Improved robustness – Components that are reused in multiple scenarios and
+different</li>
+<li>Subsystems are tested in more diverse conditions.</li>
+<li>Reduced maintenance cost – Knowing about fewer types of Components is
+required.</li>
+</ul>
+</div></blockquote>
+<p>Ideally it should not be necessary to develop any domain independent framework,
+as they address problems that are common to a large family of applications;
+examples of those are middleware libraries, database management systems, etc.
+The Component <a class="reference internal" href="component_frameworks.html#component-frameworks"><em>Frameworks</em></a> includes the following elements:  Core
 Framework, Device Control Framework, Data Processing Framework, Time
 Distribution Framework, User Interface Framework, and I/O Framework.</p>
 </div>
-<div class="section" id="modules">
-<h2>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="modules-subsystem-packages-components">
+<span id="architecture-modules"></span><h2>Modules: Subsystem, Packages, Components<a class="headerlink" href="#modules-subsystem-packages-components" title="Permalink to this headline">¶</a></h2>
 <p>The SWCS domains (TCS, OPS, OSRV) are each composed of software subsystem
-modules. As illustrated in the bottom row of Figure 10-3, each subsystem is then
-made up of components organized into packages according to their affinity or
-relationships. The SWC reference architecture16 defines a guide for organizing
-subsystem components into a set of canonical packages. Examples of packages and
-their components are shown in Table 10-3. Which packages exist in which
-subsystem depends on the specific functionality (e.g., some subsystems do not
-require special calibration components, or do not interface with hardware
-devices). Table 10-3 describes this pattern, split in two categories:</p>
+modules. As illustrated in the bottom row of the <a class="reference internal" href="#swcs-organization"><em>SWCS Organization</em></a>
+figure, each subsystem is then made up of components organized into packages
+according to their affinity or relationships. The SWC reference architecture16
+defines a guide for organizing subsystem components into a set of canonical
+packages.  Examples of packages and their components are shown in Tables on
+<a class="reference internal" href="#table-control-packages"><em>Control Packages</em></a> and <a class="reference internal" href="#figure-core-components"><em>Core Components</em></a>.  Which packages
+exist in which subsystem depends on the specific functionality (e.g., some
+subsystems do not require special calibration components, or do not interface
+with hardware devices). The tables below describe this pattern, split in two
+categories:</p>
 <blockquote>
 <div><ul class="simple">
-<li>Control Packages – These packages are included in subsystems that involve
-the control of optomechanical hardware Devices.</li>
-<li>Operation Support Packages – These Packages include software components
-necessary to support health monitoring, automation, and proper operation of
-a Subsystem. Diagnosis and calibration packages are emphasized early on in
-the design. This is an area that is often overlooked despite the fact that
-they may take a significant amount of development effort, especially in the
-case of complex adaptive optics control subsystems.</li>
+<li><a class="reference internal" href="#table-control-packages"><em>Control Packages</em></a> – These packages are included in
+subsystems that involve the control of optomechanical hardware Devices.</li>
+<li><a class="reference internal" href="#operation-support-packages"><em>Operation Support Packages</em></a> – These
+Packages include software components necessary to support health monitoring,
+automation, and proper operation of a Subsystem. Diagnosis and calibration
+packages are emphasized early on in the design. This is an area that is
+often overlooked despite the fact that they may take a significant amount of
+development effort, especially in the case of complex adaptive optics
+control subsystems.</li>
 </ul>
 </div></blockquote>
+<table border="1" class="docutils" id="table-control-packages">
+<caption>Control Packages</caption>
+<colgroup>
+<col width="22%" />
+<col width="56%" />
+<col width="22%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="3">CONTROL PACKAGES</th>
+</tr>
+<tr class="row-even"><th class="head">Package Name</th>
+<th class="head">Description</th>
+<th class="head">Typical Components</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">Device Control</div>
+<div class="line">Package</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Contains software Components that implement</div>
+<div class="line">the supervisory and control functions of a</div>
+<div class="line">Device Control Subsystem (e.g. Mount Control</div>
+<div class="line">System Control Package).</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Supervisor,</div>
+<div class="line">Controller</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">Data Acquisition</div>
+<div class="line">Package</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Contains software Components that implement</div>
+<div class="line">the supervisory and data acquisition functions</div>
+<div class="line">of a Detector Control Subsystem (e.g., AGWS</div>
+<div class="line">Slope Processor Package). Only Subsystems that</div>
+<div class="line">include a Wavefront Sensor (WFS),</div>
+<div class="line">acquisition/guide camera or a science detector</div>
+<div class="line">need to provide a Data Acquisition Package.</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Supervisor,</div>
+<div class="line">Controller,</div>
+<div class="line">Pipeline,</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">Hardware</div>
+<div class="line">Package</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Contains hardware Components in which to</div>
+<div class="line">deploy the Device Control or Data Acquisition</div>
+<div class="line">Package software Components and the hardware</div>
+<div class="line">to interface with the electromechanical</div>
+<div class="line">Devices.</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Device Control</div>
+<div class="line">Computer,</div>
+<div class="line">I/O Module</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils" id="operation-support-packages">
+<caption>Operation Support Packages</caption>
+<colgroup>
+<col width="22%" />
+<col width="56%" />
+<col width="22%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="3">OPERATION SUPPORT PACKAGES</th>
+</tr>
+<tr class="row-even"><th class="head">Package Name</th>
+<th class="head">Description</th>
+<th class="head">Typical Components</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">Sequencing</div>
+<div class="line">Package</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Contains sequence Components necessary for the</div>
+<div class="line">operation of the Subsystem</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Sequence</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">Diagnosis</div>
+<div class="line">Package</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Contains software Components necessary to</div>
+<div class="line">implement diagnosis functions when required.</div>
+<div class="line">This may involve the development of special</div>
+<div class="line">control or operation modes.</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Supervisor,</div>
+<div class="line">Controller,</div>
+<div class="line">Pipeline,</div>
+<div class="line">Sequence</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">Calibration</div>
+<div class="line">Package</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Contains software Components necessary for</div>
+<div class="line">the calibration and characterization of</div>
+<div class="line">hardware Devices.  This may include the</div>
+<div class="line">development of special control or operation</div>
+<div class="line">modes.</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Supervisor,</div>
+<div class="line">Controller,</div>
+<div class="line">Pipeline,</div>
+<div class="line">Sequence</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">Data Processing</div>
+<div class="line">Package</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Contains software Components necessary for</div>
+<div class="line">the calibration and processing of science</div>
+<div class="line">and wavefront sensor detectors.</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Supervisor,</div>
+<div class="line">Pipeline,</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">Visualization</div>
+<div class="line">Package</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Contains software Components that provide</div>
+<div class="line">custom visualizations necessary for the</div>
+<div class="line">efficient operation of a given Subsystem (e.g.</div>
+<div class="line">M1 global status Panel).  Note that default</div>
+<div class="line">engineering Panels are available as part of</div>
+<div class="line">the Engineering UI service.</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Panel,</div>
+<div class="line">Widget</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">Safety</div>
+<div class="line">Package</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Contains hardware/software Components that</div>
+<div class="line">implement Subsystem specific safety functions.</div>
+<div class="line">These Components often interface with the ISS</div>
+<div class="line">but are independent (e.g. M1 safety</div>
+<div class="line">controller).</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Supervisor,</div>
+<div class="line">Controller,</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">Operation</div>
+<div class="line">Workflows</div>
+<div class="line">Package</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Contains Components that allow the automation</div>
+<div class="line">of high-level operation workflows relative to</div>
+<div class="line">the subsystems (e.g. unit test workflow, or</div>
+<div class="line">calibration workflow in case that several</div>
+<div class="line">sequences and human operations are involved).</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Workflow</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">Management</div>
+<div class="line">Package</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Contains Components that capture the</div>
+<div class="line">development backlog and the Assembly</div>
+<div class="line">Integration and Testing plans.</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Plan,</div>
+<div class="line">Workflow</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="figure">
+<img alt="_images/m1-control-system-excerpt.png" src="_images/m1-control-system-excerpt.png" />
+<p class="caption">M1 Control System Package and Components Excerpt</p>
+</div>
+<p>The Figure above shows an example of the component organization for the M1
+Control System. The structure of all the SWCS Subsystems has been analyzed and
+developed following this pattern. As described above and later in Section
+10.3.5.2, domain engineering helps to identify sets of common components that
+are the elementary building blocks of the SWCS subsystems.  The figure on
+<a class="reference internal" href="#figure-core-components"><em>Core Components</em></a> below shows those core component classes.  Each
+component is defined by a set of <a class="reference internal" href="#figure-component-features"><em>Component Features</em></a> whose
+definitions are detailed in <a class="reference internal" href="component_frameworks.html#core-framework"><em>Core Framework</em></a>.  In fact, all SWCS modules,
+including subsystems, packages, and components are fully specified by a text
+file containing their features, as shown in the example of
+<a class="reference internal" href="#baselinearaxiscontroller"><em>BaseLinearAxisController</em></a>. Section 10.5.2.3
+explains the formal specification process in more detail.</p>
+<div class="figure" id="figure-core-components">
+<img alt="_images/core-components.png" src="_images/core-components.png" />
+<p class="caption">Core Components</p>
+</div>
+<div class="figure" id="figure-component-features">
+<img alt="_images/component-features.png" src="_images/component-features.png" />
+<p class="caption">Component Features</p>
+</div>
 <p>Each Component has been assigned to a class that defines its default behavior in
-the corresponding specification file. Table 10-4 shows an excerpt of the
-specification file that defines the interface and features of a
-BaseLinearAxisController (Section 10.3.5.5.3 provides an overview of common
-motion control Components). This specification is based on the IEC 61800-7-20117
-Standard. The standard is concrete, but at the same time is designed to cover a
-majority of the motion control use cases. The design process captures when a
-Component (e.g., agws_radial_stage_ctrl) fits this default behavior. This
-approach provides several benefits:</p>
+the corresponding specification file. <a class="reference internal" href="#baselinearaxiscontroller"><em>The following code-block excerpt</em></a> shows an example of the specification file that
+defines the interface and features of a BaseLinearAxisController (Section
+10.3.5.5.3 provides an overview of common motion control Components). This
+specification is based on the IEC 61800-7-20117 Standard. The standard is
+concrete, but at the same time is designed to cover a majority of the motion
+control use cases. The design process captures when a Component (e.g.,
+agws_radial_stage_ctrl) fits this default behavior. This approach provides
+several benefits:</p>
 <blockquote>
 <div><ul class="simple">
+<li>The specification of the component captures performance data, interfaces,
+etc., all of which are used directly in the final implementation.
+Furthermore, the specification closely dovetails a well-developed and
+industrial standard, which significantly reduces the effort needed to
+capture all the information.  This is in sync with the way industrial
+companies specify their subsystems.  This often allows one to implement the
+controller in a standard off-the-shelf smart drive, relieving the computing
+platform of the responsibility to perform all the real-time functionality.
+As the control loops run in dedicated standardized controllers, it is then
+feasible to implement a layer that integrates the controller with the rest
+of the observatory services using more productive high-level languages
+(Section 10.4.6).</li>
 <li>The mapping between specification and implementation is as direct as it
 gets, and greatly facilitates the traceability of requirements.</li>
 <li>The interfaces of similar Components share the same detailed specification
@@ -354,6 +909,47 @@ the same design process. Sections 10.3.5.9 and Section 10.3.5.7 describe
 them respectively.</li>
 </ul>
 </div></blockquote>
+<div class="highlight-coffeescript" id="baselinearaxiscontroller"><div class="highlight"><pre><span></span><span class="nv">properties:</span>
+    <span class="nv">max_torque:</span>
+        <span class="nv">desc: </span>    <span class="s">&quot;This property shall indicate the configured maximum permissible</span>
+<span class="s">                   torque in the motor. The value shall be given per thousand of rated</span>
+<span class="s">                   torque.&quot;</span>
+        <span class="nv">type: </span>    <span class="s">&quot;uint16&quot;</span>
+        <span class="nv">pattern: </span> <span class="s">&quot;pull&quot;</span>
+        <span class="nv">max_rate: </span><span class="mi">1</span>
+        <span class="nv">default: </span> <span class="mi">1000</span>
+
+    <span class="nv">motor_rated_torque:</span>
+        <span class="nv">desc: </span>    <span class="s">&quot;This property shall indicate the configured motor rated torque.</span>
+<span class="s">                   It is taken from the motors nameplate. All relative torque</span>
+<span class="s">                   data shall refer to this value. For linear motors, the object</span>
+<span class="s">                   name is not changed, but the motor rated force value shall be</span>
+<span class="s">                   entered as multiples of mN (milliNewton). The value shall be</span>
+<span class="s">                   given in mNm (milli Newton metre).&quot;</span>
+        <span class="nv">type: </span>    <span class="s">&quot;uint32&quot;</span>
+        <span class="nv">pattern: </span> <span class="s">&quot;pull&quot;</span>
+        <span class="nv">max_rate: </span><span class="mi">1</span>
+        <span class="nv">default: </span> <span class="mi">1000</span>
+
+    <span class="nv">motion_profile_type:</span>
+        <span class="nv">desc: </span>    <span class="s">&quot;This property shall indicate the configured type of motion profile</span>
+<span class="s">                   used to perform a profiled motion.</span>
+
+<span class="s">                     Value        | Definition</span>
+<span class="s">                     -------------|----------------------------------</span>
+<span class="s">                     -32768 to -1 | Manufacturer-specific</span>
+<span class="s">                     0            | Linear ramp (trapezoidal profile)</span>
+<span class="s">                     1            | Sin2 ramp</span>
+<span class="s">                     2            | Jerk-free ramp</span>
+<span class="s">                     3            | Jerk-limited ramp</span>
+<span class="s">                     4 to 32767   | Reserved&quot;</span>
+        <span class="nv">type: </span>    <span class="s">&quot;int16&quot;</span>
+        <span class="nv">pattern: </span> <span class="s">&quot;pull&quot;</span>
+        <span class="nv">max_rate: </span><span class="mi">1</span>
+        <span class="nv">default: </span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p><em>BaseLinearAxisController Specification File excerpt</em></p>
 </div>
 </div>
 
@@ -364,7 +960,7 @@ them respectively.</li>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="observatory_services.html" class="btn btn-neutral float-right" title="Observatory Services" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="tcs_introduction.html" class="btn btn-neutral float-right" title="Telescope Control System" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="swcs_introduction.html" class="btn btn-neutral" title="Introduction" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>

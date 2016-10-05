@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Search &mdash; GMT Software And Controls documentation</title>
+  <title>Development &mdash; GMT Software And Controls documentation</title>
   
 
   
@@ -70,7 +70,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -149,8 +149,12 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li></li>
+    <li>Development</li>
       <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/architecture-development.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
   </ul>
@@ -159,19 +163,51 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search
-      functionality.
-    </p>
-  </div>
-  </noscript>
+  <div class="section" id="development">
+<h1>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h1>
+<p>From a development standpoint, the software architecture has the following
+hierarchy (see Figure below on <a class="reference internal" href="overall_architecture.html#layered-software-architecture"><em>Layered Software Architecture</em></a>).  The
+application layer (<a class="reference internal" href="overall_architecture.html#architecture-control-domains"><em>Domains of Control</em></a>) residing at the top contains services
+and tools that run the observatory (via services and operations), telescope
+control system (TCS), and the instrument control system (ICS).  Below the
+application layer are frameworks, packages, and the operating system on which
+the applications depend or build.  A layered development architecture addresses
+the problem of Package development, dependencies and platform evolution. In this
+arrangement, layers of software are built up from low-level service software,
+like operating systems and network stacks, to high-level applications (see
+Figure below). Intermediate layers provide domain independent and dependent
+frameworks that help contain changes of platform or APIs.  Circular dependencies
+are not allowed as the system is built bottom-up.</p>
+<div class="figure" id="layered-software-architecture">
+<img alt="_images/layered-architecture.png" src="_images/layered-architecture.png" />
+<p class="caption">Layered Software Architecture</p>
+</div>
+<p>A software framework is an abstraction in which software providing generic
+functionality can be selectively changed by additional user-written code, thus
+providing application-specific software. A software framework is a universal,
+reusable software platform to develop applications, products and solutions.
+Software frameworks include support programs, compilers, code libraries, tool
+sets, and APIs. Frameworks contain key distinguishing features that separate
+them from normal libraries:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Inversion of control – In a framework, unlike libraries or normal user
+applications, the overall program’s flow of control is not dictated by the
+caller, but by the framework.</li>
+<li>Default behavior – A framework has default behavior. This default behavior
+must be some useful behavior and not a series of no-ops.</li>
+<li>Extensibility – A framework can be extended by the user usually by selective
+overriding or specialized by user code to provide specific functionality.</li>
+<li>Non-modifiable framework code – The framework code, in general, should not
+be modified, except regarding extensibility. Users can extend the framework,
+but cannot change its code.</li>
+</ul>
+</div></blockquote>
+<p>The <em>Domain of SWCS Control</em> forms the Application Layer, and is discussed in
+<a class="reference internal" href="overall_architecture.html#architecture-control-domains"><em>Domains of Control</em></a>, while the <a class="reference internal" href="overall_architecture.html#architecture-frameworks"><em>Frameworks</em></a> form the Domain
+Specific Layer.</p>
+</div>
 
-  
-  <div id="search-results">
-  
-  </div>
 
            </div>
           </div>
@@ -213,7 +249,6 @@
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="_static/searchtools.js"></script>
 
   
 
@@ -229,14 +264,7 @@
           SphinxRtdTheme.StickyNav.enable();
       });
   </script>
-  
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script type="text/javascript" id="searchindexloader"></script>
    
-
 
 </body>
 </html>

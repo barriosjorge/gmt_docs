@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Search &mdash; GMT Software And Controls documentation</title>
+  <title>Deployment &mdash; GMT Software And Controls documentation</title>
   
 
   
@@ -70,7 +70,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -149,8 +149,12 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li></li>
+    <li>Deployment</li>
       <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/architecture-deployment.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
   </ul>
@@ -159,19 +163,71 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search
-      functionality.
-    </p>
-  </div>
-  </noscript>
+  <div class="section" id="deployment">
+<h1>Deployment<a class="headerlink" href="#deployment" title="Permalink to this headline">¶</a></h1>
+<p>The SWCS software Components are deployed in a distributed set of computers
+connected by the control network.  The deployment architecture follows a layered
+approach (See <a class="reference internal" href="overall_architecture.html#deployment-architecture-figure"><em>Deployment Architecture</em></a> Figure below):</p>
+<blockquote>
+<div><ul class="simple">
+<li>The Device Layer is the system under control. It includes the optomechanical
+devices of the telescope.</li>
+<li>The Fieldbus Layer enables the interface between the control subsystem and
+the subsystem under control. Section 10.4.2 describes how EtherCAT and other
+standard buses are used to implement this interface.</li>
+<li>The Supervisory and Control Layer implements the control of the different
+subsystems as explained above. The controllers are deployed in the GMT
+standard hardware platform. All of them are connected to the control
+network.  The internal architecture of the control subsystems is presented
+in Section 10.3.2. This layer also includes the Wavefront Control and
+Pointing Kernel subsystems that implement the system behavior of the
+telescope. Section 10.4.1 describes the computing platform options used for
+the deployment of device control subsystems.</li>
+<li>The Observatory Layer includes the software components that implement
+observatory operations and services. These components are deployed in
+standard server class computers that support a cloud-like infrastructure
+(e.g., OpenStack*). The optimal deployment of these subsystems will depend
+on the detailed Observatory Operation Plans. The platform may be distributed
+in different geographic locations or even partially deployed in cloud-like
+infrastructure. This is an area where it is wise to allow flexibility in
+deployment schemes because the technological infrastructure is likely to
+evolve before the final deployment of the system.</li>
+</ul>
+</div></blockquote>
+<div class="figure" id="deployment-architecture-figure">
+<img alt="_images/deployment-architecture.png" src="_images/deployment-architecture.png" />
+<p class="caption">Deployment Architecture</p>
+</div>
+<p>There are two types of interfaces, shown red in the above Figure:</p>
+<blockquote>
+<div><ul class="simple">
+<li>The Supervisory Interface mediates control of the subsystems and the rest of
+the SWCS. This includes interfaces with the Common Services, Observatory
+Operation Components and high-level TCS software subsystems.</li>
+<li>The Field Interface mediates the control subsystem and the system under
+control. This interface is defined in terms of industry protocols when
+adequate.</li>
+</ul>
+</div></blockquote>
+<p>The following Figure provides a schematic view of the TCS hardware components
+deployment and their physical location.</p>
+<div class="figure">
+<img alt="_images/tcs-deployment-schematic.png" src="_images/tcs-deployment-schematic.png" />
+<p class="caption">TCS Deployment Schematic</p>
+</div>
+<p>In the above Figure: (1) Motors and encoders are connected to drives and I/O
+terminals, (2) Cameras are connected to data acquisition computers with fiber
+links (e.g. HS Camera Link, GbE or PCIe transceivers), (3) I/O terminals are
+interconnected with the EtherCAT fieldbus; the connection between the fieldbus
+and the control computers is also fiber optics, (4) The service bus network
+connects device control computers, WFCS computers, servers and workstations.
+Multi-fiber cable trunks are used to connect the electronics room and the
+telescope enclosure through cable wraps, (5) Device control computers execute
+motion control and data acquisition processes, (6) WFCS and pointing software
+computers, (7) Control room workstations allow users to operate and monitor the
+system.</p>
+</div>
 
-  
-  <div id="search-results">
-  
-  </div>
 
            </div>
           </div>
@@ -213,7 +269,6 @@
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="_static/searchtools.js"></script>
 
   
 
@@ -229,14 +284,7 @@
           SphinxRtdTheme.StickyNav.enable();
       });
   </script>
-  
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script type="text/javascript" id="searchindexloader"></script>
    
-
 
 </body>
 </html>

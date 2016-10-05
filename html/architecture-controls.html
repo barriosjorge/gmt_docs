@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Search &mdash; GMT Software And Controls documentation</title>
+  <title>Controls Hierarchy &mdash; GMT Software And Controls documentation</title>
   
 
   
@@ -70,7 +70,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -149,8 +149,12 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li></li>
+    <li>Controls Hierarchy</li>
       <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/architecture-controls.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
   </ul>
@@ -159,19 +163,34 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search
-      functionality.
-    </p>
-  </div>
-  </noscript>
+  <div class="section" id="controls-hierarchy">
+<h1>Controls Hierarchy<a class="headerlink" href="#controls-hierarchy" title="Permalink to this headline">¶</a></h1>
+<p>An example of the control hierarchy addressed by the SWC software modeling
+process is shown in the Figure on <a class="reference internal" href="overall_architecture.html#control-hierarchy"><em>Conceptual Control Hierarchy</em></a>. At the top level,
+the Sequencer subsystem orchestrates the operational workflow of high-level
+processes, such as telescope pointing and acquisition. At intermediate levels,
+control and operational logic dictate how to carry out the commanded operations.
+At the lowest levels, control demands are sent to devices that produce telescope
+axis motion. The purpose of the SWC software modeling process is to enable
+physical control that accurately captures the operating principles of the
+observatory.</p>
+<div class="figure" id="control-hierarchy">
+<img alt="_images/control-hierarchy.png" src="_images/control-hierarchy.png" />
+<p class="caption">Conceptual Control Hierarchy</p>
+</div>
+<p>The GMT Instruments Controls Subsystem follows the same architectural design as
+other device control subsystems. Typically an Instrument Software and Controls
+Subsystem will include most of the packages described in Table 10-3 and will be
+developed following the standards and guidelines described in the SWCS Handbook.
+The operation of ICS, TCS and AO subsystems will be coordinated by the GMT
+Sequencer in order execute automated observation or calibration operations.  The
+ICS data pipeline packages are integrated in the GMT Data Processing System so
+quick look and data products management is operated in a uniform way across the
+observatory. Analogously instrument specific user interface panels and observing
+tools are integrated in the Observatory Operations System to ensure consistent
+and seamless implementation of observatory workflows.</p>
+</div>
 
-  
-  <div id="search-results">
-  
-  </div>
 
            </div>
           </div>
@@ -213,7 +232,6 @@
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="_static/searchtools.js"></script>
 
   
 
@@ -229,14 +247,7 @@
           SphinxRtdTheme.StickyNav.enable();
       });
   </script>
-  
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script type="text/javascript" id="searchindexloader"></script>
    
-
 
 </body>
 </html>
