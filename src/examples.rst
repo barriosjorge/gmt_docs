@@ -40,13 +40,13 @@ The output port is the sum of the inputs ports:
 .. code-block:: bash
 
                     Sum
-                 ---------
+                 +--------+
                  |        |
               <--|x1    x2|<--        x1 = x2+x3
                  |        |
                  |      x3|<--
                  |        |
-                 ----------
+                 +--------+
 
 
 The class definition for this component is:
@@ -221,7 +221,9 @@ As the ports x2 and x3 are always:
 ::
                         sum2.x2 = 1   (see default constructor for Sum class components)
                         sum2.x3 = 2
+
 then
+
 ::
                         sum2.x1 = 3
 
@@ -341,9 +343,9 @@ Let's see an example using this adapter.
 This example provides an specific hardware adapter (that inherits from EtherCAT) and using in/out ports it connects to the external actuators and sensors.
 This specific example can be connected to the GMT Hardware Development Kit (HDK).
 
-Please, see this example source code at
+Please, see this example source code at:
 
-    `${GMT_ROOT}/src/runtime/src/obs_fwk/io_fwk/c++/examples/ethercat_example'
+  `${GMT_ROOT}/src/runtime/src/obs_fwk/io_fwk/c++/examples/ethercat_example`
 
 In order to run this example keep the log_client open in a different terminal. Then we can start the example as:
 
@@ -653,7 +655,7 @@ HDK Controller With Ethercat Adapter
 
 The HDK example contains and example with an EthercatAdapter and a simple Controller for the HDK.
 
-    `${GMT_ROOT}/src/runtime/src/obs_fwk/ctrl_fwk/c++/examples/hdk_controller'
+  `${GMT_ROOT}/src/runtime/src/obs_fwk/ctrl_fwk/c++/examples/hdk_controller`
 
 Use the following commands to start and setup these components:
 

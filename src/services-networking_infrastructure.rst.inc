@@ -1,6 +1,6 @@
 
 
-.. _services-networking_infrastructure.rst.inc
+.. _services-networking_infrastructure:
 
 *Networking Infrastructure Service*
 ...................................

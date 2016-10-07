@@ -1,5 +1,5 @@
 
-.. _services-system_supervisor.rst.inc
+.. _services-system_supervisor:
 
 *System Supervisor Service*
 ............................
