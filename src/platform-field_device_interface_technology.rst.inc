@@ -39,7 +39,8 @@ Standard: The standard field bus shall be EtherCAT.
 *EtherCAT*
 ..........
 
-  The GMT standard Ethernet fieldbus is EtherCAT61, which is used to connect field
+  The GMT standard Ethernet fieldbus is `EtherCAT
+  <http://ethercat.org/en/ethercat.html>`_, which is used to connect field
   devices to DCCs (both PCs and PLCs) through IOModules. In general, all the
   deployment cases can be grouped in:
 
@@ -69,15 +70,16 @@ Standard: The standard field bus shall be EtherCAT.
   communicate with the IOModules connected to the fieldbus.
 
   GMT has performed extensive testing connecting EtherCAT remote IOModules and
-  motion drives with real-time computers via fiber optics62. The tests, using
-  cycle times between 0.1 and 0.5 milliseconds (time to read inputs, process
-  them and write outputs from the real time computer), have shown a remarkable
-  stability. This solution makes it possible to locate the control computers in
-  the electronics room instead of the telescope structure. The consequences of
-  this arrangement are: less heat dissipation, space and mass required in the
-  telescope enclosure, major cost reduction, and easier maintenance. The Figure
-  below shows an example of how GMT will deploy the DCC, IOModules and field
-  devices for the case of the Acquisition and Guiding Wavefront Sensor System.
+  motion drives with real-time computers via fiber optics [Bec12c]_. The tests,
+  using cycle times between 0.1 and 0.5 milliseconds (time to read inputs,
+  process them and write outputs from the real time computer), have shown a
+  remarkable stability. This solution makes it possible to locate the control
+  computers in the electronics room instead of the telescope structure. The
+  consequences of this arrangement are: less heat dissipation, space and mass
+  required in the telescope enclosure, major cost reduction, and easier
+  maintenance. The Figure below shows an example of how GMT will deploy the DCC,
+  IOModules and field devices for the case of the Acquisition and Guiding
+  Wavefront Sensor System.
 
   .. figure:: _static/EtherCAT-AGWS.png
 
@@ -101,7 +103,7 @@ Standard: The standard field bus shall be EtherCAT.
   by GMT and will be provided to the subsystem teams, as requested, for
   integration and assembly of their electronics. Detailed specifications of the
   SEC with drawings and envelopes, as well as wiring standards for GMT are
-  specified in the document GMT Electronics Standards66.
+  specified in the document GMT Electronics Standards [Sawy13a]_.
 
 *Terminal Blocks*
 .................

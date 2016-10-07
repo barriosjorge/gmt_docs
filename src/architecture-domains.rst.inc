@@ -4,9 +4,9 @@
 Domains of Control
 ------------------
 
-One aspect of the software architecture is from the standpoint that mirrors the
-functional decomposition of the observatory.  In this view, there are four major
-domains of software control, based on a clear separation of concerns: the
+One perspective of the software architecture is based on the functional
+decomposition of the observatory.  In this view, there are four major domains of
+software control, based on a clear separation of concerns: the
 :ref:`tcs_introduction` (TCS), Observatory Operations System (OPS),
 :ref:`observatory_services` (OSRV), and Instrument Control System (ICS), as
 shown in the figure below. The components within each domain are partitioned in
@@ -38,11 +38,12 @@ In brief, the four domains and some underlying considerations are:
 
     Most of the software subsystems of the TCS can be designed to share a common
     architecture, which is presented in :ref:`device_control_framework`.  Doing
-    so facilitates reuse of common designs among subsystems, communication among
-    groups due to having common “vocabularies” and concepts, development of a
-    common body of experience, and a more efficient operation and maintenance
-    due to the commonalities shared between subsystems. It also facilitates the
-    creation of common development tools and process artifacts.
+    so facilitates the reuse of common designs among subsystems, communication
+    among groups due to having common "vocabularies" and concepts, development
+    of a common body of experience, and a more efficient operation and
+    maintenance due to the commonalities shared between subsystems. It also
+    facilitates the creation of common development tools and artifacts (files,
+    (meta)data, schedules, code skeleton, etc.) in the process.
 
   * Observatory Operations -- The OPS groups the software subsystems that provide
     the capabilities to support efficient operations and workflows of the
@@ -66,7 +67,7 @@ In brief, the four domains and some underlying considerations are:
     etc.) addresses a specific structural function. Structural functions are
     systemic in nature and they provide interfaces for any component in the
     system (e.g., fault management, telemetry). The OSRV components allow
-    developers to focus in writing application specific code without worrying
+    developers to focus on writing application specific code without worrying
     about low-level infrastructure implementation details.
 
   * Instrument Control System -- The ICS groups the software and hardware

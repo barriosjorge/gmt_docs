@@ -55,19 +55,21 @@ archive data.
   The main features of the relevant time protocols are summarized in the Table
   below:
 
-+-----------+---------------------+---------------+-------------------------------------------------------------+
-| Protocol  |  Sync. Accuracy     | Interconnect  |  Properties                                                 |
-+===========+=====================+===============+=============================================================+
-| NTP       |  ~ 2 ms             | LAN/WAN       |  Subject to network delays, affected by topology changes    |
-+-----------+---------------------+---------------+-------------------------------------------------------------+
-| Protocol  |  Sync. Accuracy     | Interconnect  |  Properties                                                 |
-+-----------+---------------------+---------------+-------------------------------------------------------------+
-| IRIG-B    |  1-10 us            | Coaxial       |  Needs dedicated hardware and software drivers              |
-+-----------+---------------------+---------------+-------------------------------------------------------------+
-| PTP       |  5-50 us (software) | LAN           |  Measure and compensate transmission delays                 |
-+           +---------------------+---------------+-------------------------------------------------------------+
-|           |  < 1 us (hardware)  |               |  Better accuracy using dedicated NICs and switches          |
-+-----------+---------------------+---------------+-------------------------------------------------------------+
+  .. table:: Time Protocols Comparison
+
+    +-----------+---------------------+---------------+-------------------------------------------------------------+
+    | Protocol  |  Sync. Accuracy     | Interconnect  |  Properties                                                 |
+    +===========+=====================+===============+=============================================================+
+    | NTP       |  ~ 2 ms             | LAN/WAN       |  Subject to network delays, affected by topology changes    |
+    +-----------+---------------------+---------------+-------------------------------------------------------------+
+    | Protocol  |  Sync. Accuracy     | Interconnect  |  Properties                                                 |
+    +-----------+---------------------+---------------+-------------------------------------------------------------+
+    | IRIG-B    |  1-10 us            | Coaxial       |  Needs dedicated hardware and software drivers              |
+    +-----------+---------------------+---------------+-------------------------------------------------------------+
+    | PTP       |  5-50 us (software) | LAN           |  Measure and compensate transmission delays                 |
+    +           +---------------------+---------------+-------------------------------------------------------------+
+    |           |  < 1 us (hardware)  |               |  Better accuracy using dedicated NICs and switches          |
+    +-----------+---------------------+---------------+-------------------------------------------------------------+
 
 *Precision Time Protocol*
 .........................
@@ -90,7 +92,7 @@ archive data.
   FSMLabs) software stacks are available for Linux, including network drivers
   with hardware timestamp (e.g., Blackfin on-chip Ethernet MAC driver, Intel
   Gigabit Ethernet Network Driver). Refer to the report IEEE- 1588 PTP
-  Evaluation67 for a detailed list and analysis on the software stacks for
+  Evaluation [Bec12d]_ for a detailed list and analysis on the software stacks for
   Linux.
 
 
@@ -134,14 +136,16 @@ archive data.
   A summary with all the measured quantities using a ptpd-2 implementation of
   the Linux PTP Software Stack is presented in the following Table:
 
-  +--------------------+--------------+
-  | Statistic          | Value        |
-  +====================+==============+
-  | Samples (pulses)   | > 1 million  |
-  | Mean offset        | 1.70 us      |
-  | Standard deviation | 2.48 us      |
-  | Min/Max amplitude  | 24 us        |
-  +--------------------+--------------+
+  .. table:: ptpd-2 Implementation Measured Accuracy
+
+    +--------------------+--------------+
+    | Statistic          | Value        |
+    +====================+==============+
+    | Samples (pulses)   | > 1 million  |
+    | Mean offset        | 1.70 us      |
+    | Standard deviation | 2.48 us      |
+    | Min/Max amplitude  | 24 us        |
+    +--------------------+--------------+
 
   The PTP network tested before was reconfigured to work over the common LAN,
   using now the same NIC for PTP synchronization and general networking. The
@@ -149,14 +153,16 @@ archive data.
   expected, the performance is slightly worse (about 60%) than using a dedicated
   LAN.
 
-  +--------------------+--------------+
-  | Statistic          | Value        |
-  +====================+==============+
-  | Samples (pulses)   | 278 k        |
-  | Mean offset        | 5.60 us      |
-  | Standard deviation | 4.21 us      |
-  | Min/Max amplitude  | 35.4 us      |
-  +--------------------+--------------+
+  .. table:: ptpd-2 Measured Accuracy over a Common LAN
+
+    +--------------------+--------------+
+    | Statistic          | Value        |
+    +====================+==============+
+    | Samples (pulses)   | 278 k        |
+    | Mean offset        | 5.60 us      |
+    | Standard deviation | 4.21 us      |
+    | Min/Max amplitude  | 35.4 us      |
+    +--------------------+--------------+
 
   For optimal performance with EtherCAT, a patched driver for the fieldbus
   enabled NIC was used. During the tests, some interactions between the PTP

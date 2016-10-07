@@ -78,8 +78,8 @@ Every major project of science has stringent budgetary constraints and the GMT
 is no exception. The right choice of a technology framework and processes may
 significantly impact the development of the SWCS in cost.
 
-Three general key principles: *reliability, maintainability*, and
-*cost-effectiveness*, underly all decisions and choices made on the
+Three general key principles: **reliability**, **maintainability**, and
+**cost-effectiveness**, underly all decisions and choices made on the
 architectural platform and process. To enforce these principles, the design of
 the SWCS follows a set of guidelines:
 
@@ -92,14 +92,43 @@ the SWCS follows a set of guidelines:
   * Validate technical platform and architecture through prototyping and
     incremental delivery.
 
-  * Integrate a model-based development approach[1] integrated with an Agile[2]
-    management process.
+  * Integrate a model-based development approach [Schm06]_ integrated with an
+    Agile [Beck10]_ management process.
 
   * Facilitate collaboration with the parties involved in the development of the
     different subsystems.
 
 The principles and guidelines imply that all the software and hardware, together
 and individually, possess finer qualities below that follow standard industry
-practices[3]: correctness, robustness, extensibility, reusability,
+practices [Meye00]_: correctness, robustness, extensibility, reusability,
 compatibility, efficiency, portability, ease of use, verifiability, integrity,
 and reparability.
+
+This documentation presents a system architecture design that identifies the
+elements of the SWCS and that meets the defined requirements.  First we discuss
+the :ref:`main architectural principles <Overall_Architecture>` that provide the
+rationale for the architectural design.  The SWCS is divided into subsystems and
+each subsystem is divided into :ref:`packages and components
+<architecture-modules>`. The most relevant packages and components are
+highlighted for each subsystem. A complete product definition with the detailed
+list of packages and components for each subsystem is documented in the SWCS
+Product Breakdown Structure [Filg13a]_.  The architecture enforces consistency
+and traceability between subsystem requirements and architecture design due to
+benefits of using formal specification files. The internal and external
+interfaces of each subsystem are identified and the most relevant ones are
+defined using the same formal method.  The section on
+:ref:`component_frameworks` also describes the design of a set of common
+frameworks that improve and capitalize on software reuse and maintainability of
+the system.  The section on :ref:`platform` presents the technological platform
+proposed for developing the SWCS and how the use of commercial and open source
+Off-The-Shelf components based on open standards provides a cost-effective
+solution that also significantly improves the maintainability of the system.
+The section on :ref:`process` provides an overview of the SWCS Agile development
+process and how the use of formal specification methods, based on Model-Based
+Development, helps to maintain consistency between subsystem specifications and
+their implementation, testing, and integration.
+
+In this documentation, the use of software-specific terminology is intentionally
+kept at a low level in the interest of a wider audience. Nevertheless,
+occasional remarks are necessary to specifically inform domain engineers or
+software architects about some of the more formal approaches.

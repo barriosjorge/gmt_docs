@@ -18,7 +18,7 @@ infrastructure software is likely to continue evolving, this selection can be
 revised in the future as fitting. Front–end software deployed in a browser uses
 WebSockets to communicate with the rest of the distributed components. The
 serialization/deserialization of transmitted data packages is accomplished using
-MessagePack68.
+`MessagePack <http://msgpack.org/>`_.
 
 GMT is developing several prototypes to validate the use of these technologies.
 These prototypes include the use of `NoSQL

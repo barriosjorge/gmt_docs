@@ -20,10 +20,10 @@ design that facilitates interface definition, development planning, and
 integration and commissioning activities. Often these subsystems will have an
 independent Factory Acceptance Test process prior to integration at the
 observatory. Each device control subsystem follows the reference architecture as
-described in Section 10.3.5.5, Device Control Framework. In addition, to the
-device control subsystems – mainly concerned by mechanical degrees of freedom –
-two subsystems provide high-level coordination and control functions: the
-Pointing Kernel and Wavefront Control System (WFCS).
+described in :ref:`device_control_framework`. In addition, to the device control
+subsystems – mainly concerned by mechanical degrees of freedom – two subsystems
+provide high-level coordination and control functions: the Pointing Kernel and
+Wavefront Control System (WFCS).
 
 The Wavefront Control System provides the high-level optical control of the
 telescope. The Pointing Kernel relates sky coordinates with mechanical and
@@ -64,13 +64,14 @@ following functionalities:
     transformations or anti-collision protection strategies when the system
     under control requires it.
 
-The sections below give an overview of the TCS. Section 10.3.2.1 provides a
-summary of the subsystems inside the TCS, followed by the degrees of freedom
-that the TCS controls in Section 10.3.2.2. Section 10.3.2.3 presents the
-requirements governing the TCS design and operations. Details of the pointing
-kernel are presented in Section 0. Section 10.3.2.5 describes the architecture
-of the GMT Wavefront Control System (WFCS), and the specific designs of the GMT
-Natural and AO observing modes.
+The sections below give an overview of the TCS. :ref:`TCS Subsystems
+<tcs-subsystems>` provides a summary of the subsystems inside the TCS, followed
+by the degrees of freedom that the TCS controls in
+:ref:`tcs-degrees_of_freedom`. The :ref:`tcs-requirements` section presents the
+requirements governing the TCS design and operations, followed by details of the
+:ref:`tcs-pointing_kernel`.  Lastly, the Section on :ref:`tcs-wavefront_control`
+(TBC...) briefly describes the architecture of the GMT Wavefront Control System
+(WFCS), and the specific designs of the GMT Natural and AO observing modes.
 
 .. include:: tcs-subsystems.rst.inc
 

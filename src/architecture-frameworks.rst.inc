@@ -25,9 +25,9 @@ benefits:
     though interfaces.
 
   * Improved internal reuse – Component frameworks are articulated around a set
-    of recurrent design patterns18 (e.g., Controller, Pipeline, Panel, Workflow,
-    Sequence, Wrapper). A set of base classes implements these design patterns
-    by means of composition/delegation or specialization.
+    of recurrent design patterns [Gamm94]_ (e.g., Controller, Pipeline, Panel,
+    Workflow, Sequence, Wrapper). A set of base classes implements these design
+    patterns by means of composition/delegation or specialization.
 
   * Improved consistency of designs and compliance with standards.
 
@@ -42,7 +42,8 @@ benefits:
 Ideally it should not be necessary to develop any domain independent framework,
 as they address problems that are common to a large family of applications;
 examples of those are middleware libraries, database management systems, etc.
-The Component :ref:`component_frameworks` includes the following elements:  Core
-Framework, Device Control Framework, Data Processing Framework, Time
-Distribution Framework, User Interface Framework, and I/O Framework.
+The :ref:`Component Framework <component_frameworks>` includes the following
+elements:  :ref:`core_framework`, :ref:`device_control_framework`,
+:ref:`data_processing_framework`, :ref:`time_distribution_framework`,
+:ref:`user_interface_framework`,  :ref:`IO_framework`.
 

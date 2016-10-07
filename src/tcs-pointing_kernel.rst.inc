@@ -4,23 +4,23 @@
 Pointing Kernel
 ---------------
 
-The telescope pointing kernel (Figure :ref:`below
-<figure-tel_pointing_kernel>`) is the subsystem that performs essential services
-to point the telescope to a desired sky location, to track the sky rotation, and
-to provide fine guiding on a target. The outputs of the pointing kernel are
-mechanical encoder values that are used to command repositioning of the mount
-and the instrument rotator (blue boxes in Figure 10-14). The GMT pointing kernel
-is built on the TCSpk, tpk, and SLALIB, packages developed by Tpoint Software19.
-The pointing kernel:
+The telescope pointing kernel (Figure :ref:`below <figure-tel_pointing_kernel>`)
+is the subsystem that performs essential services to point the telescope to a
+desired sky location, to track the sky rotation, and to provide fine guiding on
+a target. The outputs of the pointing kernel are mechanical encoder values that
+are used to command repositioning of the mount and the instrument rotator (blue
+boxes in :ref:`Figure below <figure-tel_pointing_kernel>`). The GMT pointing
+kernel is built on the *TCSpk* [Wall12a]_, *tpk* [Terr06]_, and *SLALIB*
+[Wall12b]_, packages developed by TPoint Software.  The pointing kernel:
 
   * Predicts the mount encoder angles required to image a specific coordinate on
     the sky to a given location in the focal plane
 
   * Provides accurate mapping of the World Coordinate System (WCS). For example
     to enable mapping of celestial coordinates onto locations in the
-    focal-plane, and vice versa, using SLALIB20 to account for atmospheric
-    refraction, pressure, temperature, Earth’s precession, nutation, light
-    deflection, etc.
+    focal-plane, and vice versa, using *SLALIB* [Wall12b]_ to account for
+    atmospheric refraction, pressure, temperature, Earth’s precession, nutation,
+    light deflection, etc.
 
   * Enables telescope tracking and autoguiding
 

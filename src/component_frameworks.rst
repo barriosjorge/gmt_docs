@@ -8,12 +8,12 @@ problems in specialized domains (e.g., control systems, distributed services,
 data processing, hardware interfaces) and facilitate developing observatory
 applications. At the same time, they provide an isolation mechanism from
 underlying software layers. The use of these component frameworks is key to
-building a cost effective system43 and provides the following benefits:
+building a cost effective system [Youn10]_ and provides the following benefits:
 
   * Improved internal reuse. The design of the component frameworks is based on
-    set of recurrent design patterns44 (e.g., Controller, Pipeline, Panel,
-    Workflow, Sequence, Wrapper45). A set of base classes implements these
-    design patterns by means of composition/delegation or specialization.
+    set of recurrent design patterns [Gamm94]_ (e.g., Controller, Pipeline,
+    Panel, Workflow, Sequence, Wrapper). A set of base classes implements
+    these design patterns by means of composition/delegation or specialization.
 
   * Improved consistency of designs and compliance with standards.
 

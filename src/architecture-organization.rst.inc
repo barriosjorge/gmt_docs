@@ -4,11 +4,12 @@
 Organization
 ------------
 
-The first phase in the SWCS development starts with the process of domain
-engineering (clause 7.3.1 of ISO12207) which allows one to identify the main
-architectural components of the SWCS and to group them into uniform categories
-of: subsystems, packages and components, following the criteria of cohesive
-functionality, timing requirements, and interface size.
+The first phase in the SWCS development starts with the :ref:`process of domain
+engineering <domain_engineering_process>` (clause 7.3.1 of [ISO12207]_)
+which allows one to identify the main architectural components of the SWCS and
+to group them into uniform categories of: subsystems, packages and components,
+based on the cohesion of certain functionalities, timing requirements, and the
+sizes of the interfaces.
 
 .. _swcs-organization:
 
@@ -26,3 +27,6 @@ extends Product Breakdown Element (PBE) and Work Breakdown Element (WBE) classes
 to enable mapping of the SWCS structure to the GMT project Product Breakdown
 Structure and Work Breakdown Structure.
 
+This section describes the SWCS architecture, while 
+the :ref:`domain_engineering_process` as defined in ISO/IEC-12207 [ISO12207]_ is
+discussed in the Section on :ref:`process-software_development`.

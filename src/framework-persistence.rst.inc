@@ -28,25 +28,27 @@ The GMT uses and produces different types of data:
 
 The table below shows the data persistence strategies:
 
-+--------------------------+----------------------------+-------------------+---------------------------+
-| | Data Type              | |  Storage Strategy        | | Persistence     | | Data format             |
-+==========================+============================+===================+===========================+
-| | Science and WFS        | |  Files +                 | | Permanent/      | | FITS + MongoDB          |
-| | frames                 | |  metadata object store   | | Time partition  | |                         |
-+--------------------------+----------------------------+-------------------+---------------------------+
-| | Telemetry streams      | |  Files +                 | | Time partition  | | HDF5/BSON/MessagePack + |
-| |                        | |  metadata object store   | |                 | | MongoDB                 |
-+--------------------------+----------------------------+-------------------+---------------------------+
-| | Alarm, Log streams     | |  Object store            | | Time partition  | | NoSQL DB (MongoDB)      |
-+--------------------------+----------------------------+-------------------+---------------------------+
-| | Configuration          | |  Object store            | | Permanent       | | NoSQL DB (MongoDB)      |
-+--------------------------+----------------------------+-------------------+---------------------------+
-| | Observing Programs     | |  Object store            | | Permanent       | | NoSQL DB (MongoDB)      |
-+--------------------------+----------------------------+-------------------+---------------------------+
-| | Observing Sequences    | |  Object store            | | Permanent       | | NoSQL DB (MongoDB)      |
-+--------------------------+----------------------------+-------------------+---------------------------+
-| | Recipe Parameters      | |  Object store            | | Permanent       | | NoSQL DB (MongoDB)      |
-+--------------------------+----------------------------+-------------------+---------------------------+
+.. table:: Data Persistence Strategies
+
+  +--------------------------+----------------------------+-------------------+---------------------------+
+  | | Data Type              | |  Storage Strategy        | | Persistence     | | Data format             |
+  +==========================+============================+===================+===========================+
+  | | Science and WFS        | |  Files +                 | | Permanent/      | | FITS + MongoDB          |
+  | | frames                 | |  metadata object store   | | Time partition  | |                         |
+  +--------------------------+----------------------------+-------------------+---------------------------+
+  | | Telemetry streams      | |  Files +                 | | Time partition  | | HDF5/BSON/MessagePack + |
+  | |                        | |  metadata object store   | |                 | | MongoDB                 |
+  +--------------------------+----------------------------+-------------------+---------------------------+
+  | | Alarm, Log streams     | |  Object store            | | Time partition  | | NoSQL DB (MongoDB)      |
+  +--------------------------+----------------------------+-------------------+---------------------------+
+  | | Configuration          | |  Object store            | | Permanent       | | NoSQL DB (MongoDB)      |
+  +--------------------------+----------------------------+-------------------+---------------------------+
+  | | Observing Programs     | |  Object store            | | Permanent       | | NoSQL DB (MongoDB)      |
+  +--------------------------+----------------------------+-------------------+---------------------------+
+  | | Observing Sequences    | |  Object store            | | Permanent       | | NoSQL DB (MongoDB)      |
+  +--------------------------+----------------------------+-------------------+---------------------------+
+  | | Recipe Parameters      | |  Object store            | | Permanent       | | NoSQL DB (MongoDB)      |
+  +--------------------------+----------------------------+-------------------+---------------------------+
 
 The design of the Persistence Framework is based on the use of a High
 Performance File System like `Lustre <http://www.opensfs.org/lustre>`_ in

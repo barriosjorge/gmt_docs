@@ -2,8 +2,7 @@
 .. _specification-alarm_service:
 
 .. code-block:: coffeescript
-
-    # Alarm Event Specification
+    :caption:  Alarm Event Specification
 
     EnumType "AlarmSeverity",
         desc: "Defines the severity level of the AlarmEvent"

@@ -28,12 +28,13 @@ evaluations. Other guidelines considered include:
     markets, especially where economy of scale plays an important role (e.g.,
     industrial automation).
 
-The GMT project office has evaluated54 several technologies as part of its
-preliminary design work, ranging from mature to more emergent. Preliminary
+The GMT project office has evaluated [Filg12]_ several technologies as part of
+its preliminary design work, ranging from mature to more emergent. Preliminary
 evaluations show that a design based on widely available industrial open
 standards and open source products is capable of meeting the GMT Control System
 requirements. A set of guidelines and requirements regarding the use of these
-technologies in the project is included in the Software and Controls Handbook16.
+technologies in the project is included in the Software and Controls Handbook
+[Filg13b]_.
 
 .. include:: platform-computing.rst.inc
 

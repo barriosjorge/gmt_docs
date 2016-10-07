@@ -44,6 +44,7 @@ and pointing-neutral tilt to rigid body motions of the M2 segments, which are
 passed on to the M2 Positioner hardware controller.
 
 A full description of the implementation of the wavefront controller for each of
-the three AO observing modes is given in the AO Preliminary Design Report25.
+the three AO observing modes is given in the AO Preliminary Design Report
+[Bouc13]_.
 
 Details of the WFCS may be made available here at a later time.

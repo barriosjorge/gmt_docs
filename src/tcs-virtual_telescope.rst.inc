@@ -1,5 +1,5 @@
-Virtual Telescopes and the Telescope Pointing Model
-...................................................
+*Virtual Telescopes and the Telescope Pointing Model*
+.....................................................
 
   The concept and use of a Virtual Telescope was introduced earlier, as one of
   the three main components that make up :ref:`the Telescope Pointing
@@ -14,9 +14,10 @@ Virtual Telescopes and the Telescope Pointing Model
   pointing model that handles particulars in the telescope mount orientation and
   optical geometries (:ref:`blue box in Figure <figure-virtual_telescope>`).
   The positional astronomy transformations from celestial coordinates into
-  observed direction is well-established and will use SLALIB20.  Mechanical
-  errors, misalignments, and flexure mapping/corrections will be implemented
-  using TCSpk21 and diagnosed using TPpoint Software.
+  observed direction is well-established and will use SLALIB [Wall12b]_.
+  Mechanical errors, misalignments, and flexure mapping/corrections will be
+  implemented using TCSpk [Wall12a]_ and diagnosed using TPoint Software
+  [Wall94]_.
 
   Virtual telescopes with different focal positions can exist at the same time,
   which enables fast dithering, fast re-positioning to transfer a target image
@@ -55,9 +56,9 @@ Virtual Telescopes and the Telescope Pointing Model
      the upper half of the :ref:`TCS/MCS Pointing Flow<figure-pointing_flow>`.
 
   The above Figure shows the "Virtual Telescope" and transformation terms that
-  make up the pointing model; figure taken from Wallace20. The telescope
-  pointing model (blue box) typically consists of 10-20 correction terms, here
-  summarized into 7-terms: IA (roll), IB (pitch), VD (vertical deflection), CA
-  (optical telescope axis/pitch non-perpendicularity), NP (roll/pitch
-  non-perpendicularity), AW and AN (roll axis misalignments).  GA and GB are
-  guiding corrections to the steady telescope tracking rate.
+  make up the pointing model; figure taken from Wallace [Wall12a]_. The
+  telescope pointing model (blue box) typically consists of 10-20 correction
+  terms, here summarized into 7-terms: IA (roll), IB (pitch), VD (vertical
+  deflection), CA (optical telescope axis/pitch non-perpendicularity), NP
+  (roll/pitch non-perpendicularity), AW and AN (roll axis misalignments).  GA
+  and GB are guiding corrections to the steady telescope tracking rate.

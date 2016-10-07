@@ -44,6 +44,18 @@ Home
 .. toctree::
    :maxdepth: 1
 
+   process_introduction
+
+.. toctree::
+   :maxdepth: 1
+
+   risks
+
+---------------------------
+
+.. toctree::
+   :maxdepth: 1
+
    installation
 
 .. toctree::
@@ -70,3 +82,8 @@ Home
    :maxdepth: 1
 
    contribute
+
+.. toctree::
+   :maxdepth: 1
+
+   bibliography
