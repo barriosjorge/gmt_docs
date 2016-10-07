@@ -14,76 +14,10 @@ Home
 .. toctree::
    :maxdepth: 1
 
-   swcs_introduction
+   system_level_PDR/index
 
 .. toctree::
    :maxdepth: 1
 
-   overall_architecture
+   software_development/index
 
-.. toctree::
-   :maxdepth: 1
-
-   tcs_introduction
-
-.. toctree::
-   :maxdepth: 1
-
-   observatory_services
-
-.. toctree::
-   :maxdepth: 1
-
-   component_frameworks
-
-.. toctree::
-   :maxdepth: 1
-
-   platform
-
-.. toctree::
-   :maxdepth: 1
-
-   process_introduction
-
-.. toctree::
-   :maxdepth: 1
-
-   risks
-
----------------------------
-
-.. toctree::
-   :maxdepth: 1
-
-   installation
-
-.. toctree::
-   :maxdepth: 1
-
-   configuration
-
-.. toctree::
-   :maxdepth: 1
-
-   services
-
-.. toctree::
-   :maxdepth: 1
-
-   examples
-
-.. toctree::
-   :maxdepth: 1
-
-   dcs_dev_guide
-
-.. toctree::
-   :maxdepth: 1
-
-   contribute
-
-.. toctree::
-   :maxdepth: 1
-
-   bibliography
