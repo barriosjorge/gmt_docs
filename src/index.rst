@@ -15,9 +15,6 @@ Home
    :maxdepth: 1
 
    system_level_PDR/index
-
-.. toctree::
-   :maxdepth: 1
-
+   SWCS_Standards/index
    software_development/index
 

@@ -10,7 +10,6 @@ Architecture and Design
 .. toctree::
    :maxdepth: 1
    :numbered:
-   :titlesonly:
 
    introduction/swcs_introduction
    architecture/overall_architecture
