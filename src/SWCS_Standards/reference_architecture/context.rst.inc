@@ -6,6 +6,8 @@ Context
 The following diagram extends the previous one to include the DCS components in
 the context of the overall GMT software:
 
+.. _figure-dcs_context:
+
 .. figure:: _static/dcs_context.png
 
   DCS Context
