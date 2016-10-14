@@ -8,5 +8,6 @@ Model Definition Files
    :numbered:
 
    introduction/introduction
+   model_elements/elements.rst
    example/example
 
