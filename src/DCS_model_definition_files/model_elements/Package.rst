@@ -13,6 +13,6 @@
 
     main:
 
-  * **connectors**:  :ref:`[connectors] <connector>`
+  * **connectors**:  :ref:`See "connectors" in Subsystem <connector>`
 
 
