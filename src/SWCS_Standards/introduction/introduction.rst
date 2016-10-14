@@ -1,5 +1,5 @@
 
-.. _introduction:
+.. _standards-introduction:
 
 Introduction
 ============
