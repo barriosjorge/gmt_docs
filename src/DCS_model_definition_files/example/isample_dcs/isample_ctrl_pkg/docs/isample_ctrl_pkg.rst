@@ -1,4 +1,4 @@
-.. _isample_pkg:
+.. _isample_ctrl_pkg:
 
 *isample_ctrl_pkg.coffee*
 -------------------------

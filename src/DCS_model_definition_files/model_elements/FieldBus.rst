@@ -3,23 +3,25 @@
 *FieldBus*
 ----------
 
-  * *info*
+  See :ref:`isample_ctrl_fb` for example.
 
-  * *desc*
+  * **info**
 
-  * *masters*
+  * **desc**
 
-    id:
-
-    rate:
-
-  * *domains*
+  * **masters**
 
     id:
 
     rate:
 
-  * *modules*
+  * **domains**
+
+    id:
+
+    rate:
+
+  * **modules**
 
     name:
 
@@ -27,7 +29,7 @@
 
     type:
 
-  * *data_objects*
+  * **data_objects**
 
     name:
 

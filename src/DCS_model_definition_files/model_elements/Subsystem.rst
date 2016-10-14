@@ -3,13 +3,15 @@
 *Subsystem*
 -----------
 
-  * *info*
+  See :ref:`isample_dcs` for example.
 
-  * *desc*
+  * **info**
+
+  * **desc**
 
   .. _connector:
 
-  * *connectors*
+  * **connectors**
 
     id:
 
@@ -31,5 +33,6 @@
 
     bus:
 
-  * *port_types*
+
+  * **port_types**
 

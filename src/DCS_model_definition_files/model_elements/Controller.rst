@@ -3,15 +3,22 @@
 *Controller*
 ------------
 
-  * *info*
+  See :ref:`isample_ctrl_super`,
+  :ref:`isample_filter_wheel_ctrl`,
+  :ref:`isample_focus_ctrl`,
+  :ref:`isample_hw_adapter`, and
+  :ref:`isample_temp_ctrl`,
+  for examples.
 
-  * *desc*
+  * **info**
 
-  * *extends*
+  * **desc**
 
-  * *abstract*
+  * **extends**
 
-  * *state_vars*
+  * **abstract**
+
+  * **state_vars**
 
     .. _position:
 
@@ -29,7 +36,7 @@
 
       desc:
 
-  * *input_ports*
+  * **input_ports**
 
     heartbeat:
 
@@ -41,11 +48,11 @@
 
       desc:
 
-  * *output_ports*: Same parameters as *input_ports*
+  * **output_ports**: Same parameters as *input_ports*
 
-  * *instance_configurations*
+  * **instance_configurations**
 
-  * *properties*
+  * **properties**
 
     uri_path:
 
@@ -71,7 +78,7 @@
 
       default:
 
-  * *data_object_map*
+  * **data_object_map**
 
     data_object:
 

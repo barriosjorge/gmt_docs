@@ -3,8 +3,10 @@
 *StructType*
 ------------
 
-  * *desc*
+  See :ref:`isample_types` for example.
 
-  * *elements*
+  * **desc**
+
+  * **elements**
 
 

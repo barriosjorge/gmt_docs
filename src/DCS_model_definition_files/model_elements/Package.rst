@@ -3,12 +3,16 @@
 *Package*
 ---------
 
-  * *info*
+  See :ref:`isample_ctrl_pkg` for example.
 
-  * *desc*
+  * **info**
 
-  * *appliations*
+  * **desc**
 
-  * *connectors*:  :ref:`[connectors] <connector>`
+  * **applications**
+
+    main:
+
+  * **connectors**:  :ref:`[connectors] <connector>`
 
 
