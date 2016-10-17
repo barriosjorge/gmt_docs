@@ -13,7 +13,7 @@ total number of degrees of freedom; the Controller Profile Mode column
 identifies the motion control profile as defined in IEC 61800-7 [IEC61800-7-1]_; and the
 Actuator Type column identifies the generic category of the actuator.
 
-.. include:: table-degrees_of_freedom.rst.inc
+.. include:: table-degrees_of_freedom_inc.rst
 
 There are a total of 77 different types of axes; some of them have multiple
 instances, for a total of 3005 mechanical degrees of freedom. Despite this large

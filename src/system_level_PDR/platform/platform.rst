@@ -36,14 +36,14 @@ requirements. A set of guidelines and requirements regarding the use of these
 technologies in the project is included in the Software and Controls Handbook
 [Filg13b]_.
 
-.. include:: platform-computing.rst.inc
+.. include:: platform-computing_inc.rst
 
-.. include:: platform-field_device_interface_technology.rst.inc
+.. include:: platform-field_device_interface_technology_inc.rst
 
-.. include:: platform-time_distribution_system.rst.inc
+.. include:: platform-time_distribution_system_inc.rst
 
-.. include:: platform-distributed_communications.rst.inc
+.. include:: platform-distributed_communications_inc.rst
 
-.. include:: platform-networking.rst.inc
+.. include:: platform-networking_inc.rst
 
-.. include:: platform-software_development.rst.inc
+.. include:: platform-software_development_inc.rst

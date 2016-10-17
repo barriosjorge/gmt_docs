@@ -21,7 +21,7 @@
 
   The following illustrates a log event specification:
 
-  .. include:: specification-logging_service.rst.inc
+  .. include:: specification-logging_service_inc.rst
 
   The figure below illustrates the Logging Service and the interactions between
   the components involved in the creation and propagation of log events.

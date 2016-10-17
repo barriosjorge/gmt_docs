@@ -35,8 +35,8 @@ subsystems and components being controlled include:
   * Network infrastructure management
   * Data flow service (Low latency/ high bandwidth / synchronous)
 
-.. include:: services-architecture.rst.inc
+.. include:: services-architecture_inc.rst
 
-.. include:: services-common.rst.inc
+.. include:: services-common_inc.rst
 
 

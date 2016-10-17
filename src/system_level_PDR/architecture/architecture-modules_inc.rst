@@ -28,9 +28,9 @@ in two categories:
     control subsystems.
 
 
-.. include:: table-control_packages.rst.inc
+.. include:: table-control_packages_inc.rst
 
-.. include:: table-operation_support_packages.rst.inc
+.. include:: table-operation_support_packages_inc.rst
 
 .. figure:: _static/m1-control-system-excerpt.png
 
@@ -106,4 +106,4 @@ approach provides several benefits:
     been subject to the same design process. :ref:`user_interface_framework` and
     :ref:`data_processing_framework` sections describe them respectively.
 
-.. include:: BaseLinearAxisController.rst.inc
+.. include:: BaseLinearAxisController_inc.rst

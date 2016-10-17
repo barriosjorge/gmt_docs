@@ -45,20 +45,20 @@ This section presents the design of the GMT common frameworks, from the domain
 engineering process to identify common building blocks, to the design and
 intended usage of each individual framework.
 
-.. include:: framework-domain_engineering.rst.inc
+.. include:: framework-domain_engineering_inc.rst
 
-.. include:: framework-code_generation.rst.inc
+.. include:: framework-code_generation_inc.rst
 
-.. include:: framework-core.rst.inc
+.. include:: framework-core_inc.rst
 
-.. include:: framework-device_control.rst.inc
+.. include:: framework-device_control_inc.rst
 
-.. include:: framework-persistence.rst.inc
+.. include:: framework-persistence_inc.rst
 
-.. include:: framework-data_processing.rst.inc
+.. include:: framework-data_processing_inc.rst
 
-.. include:: framework-time_distribution.rst.inc
+.. include:: framework-time_distribution_inc.rst
 
-.. include:: framework-user_interface.rst.inc
+.. include:: framework-user_interface_inc.rst
 
-.. include:: framework-IO.rst.inc
+.. include:: framework-IO_inc.rst

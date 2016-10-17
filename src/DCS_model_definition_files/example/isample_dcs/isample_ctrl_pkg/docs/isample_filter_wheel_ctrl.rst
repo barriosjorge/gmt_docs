@@ -1,4 +1,4 @@
-.. _isample_filter_wheel:
+.. _isample_filter_wheel_ctrl:
 
 *isample_filter_wheel_ctrl.coffee*
 ----------------------------------

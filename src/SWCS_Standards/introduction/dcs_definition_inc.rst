@@ -5,10 +5,10 @@ DCS_Definition
 
 Each DCS includes all the hardware and software necessary to control and operate
 a telescope or instrument opto/electro/mechanical subsystem (e.g. M1, NGSAO
-wavefront sensor, GMT science instrument).  The :ref:`Figure below
-<figure-dcs_subsystems>` presents the location of DCS within the context of the
-overall Software and Controls System.  The adoption of a reference architecture
-offers the following benefits:
+wavefront sensor, GMT science instrument).  The :numref:`Figure %s
+<figure-dcs_subsystems>`, below, presents the location of DCS within the context
+of the overall Software and Controls System.  The adoption of a reference
+architecture offers the following benefits:
 
   * Enables the inter-operation between different SWC subsystems.
   * Promotes commonality.
@@ -31,8 +31,13 @@ New specific alternatives may be approved and introduced in the standard only
 when, according the GMTO criteria:
 
   * The existing standard does not provide the capability to solve a problem.
-  * The solution of a problem turns out to be too complex with the current standard whereas it could be easily solved by means of alternative technologies.
-  * Technology evolution during the life of the telescope recommends updating part of the electronic equipment.
+
+  * The solution of a problem turns out to be too complex with the current
+    standard whereas it could be easily solved by means of alternative
+    technologies.
+
+  * Technology evolution during the life of the telescope recommends updating
+    part of the electronic equipment.
 
 The hardware standards described here apply to all the electronic equipment and
 electronic components that will be used in a DCS subsystem. This includes the

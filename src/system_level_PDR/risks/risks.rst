@@ -163,6 +163,6 @@ community support. Finally, it is necessary to keep enough backup spares to
 allow the observatory to operate for the duration of its lifecycle.
 
 
-.. include:: risk-register.rst.inc
+.. include:: risk-register_inc.rst
 
 

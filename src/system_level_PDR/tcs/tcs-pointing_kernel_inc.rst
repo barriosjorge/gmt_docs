@@ -91,10 +91,10 @@ briefly described:
     telescope generates mechanical demands to the mount encoders to reposition
     the telescope.
 
-.. include:: tcs-pointing_software.rst.inc
+.. include:: tcs-pointing_software_inc.rst
 
-.. include:: tcs-workflow.rst.inc
+.. include:: tcs-workflow_inc.rst
 
-.. include:: tcs-coordinate_transformation.rst.inc
+.. include:: tcs-coordinate_transformation_inc.rst
 
-.. include:: tcs-virtual_telescope.rst.inc
+.. include:: tcs-virtual_telescope_inc.rst

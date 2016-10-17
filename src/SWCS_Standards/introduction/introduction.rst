@@ -46,7 +46,7 @@ Software and Controls system.
     * :ref:`"Well-formedness" rules <appendix>` of the reference
       architecture (Appendix).
 
-.. include:: dcs_definition.rst.inc
-.. include:: terminology.rst.inc
+.. include:: dcs_definition_inc.rst
+.. include:: terminology_inc.rst
 
 

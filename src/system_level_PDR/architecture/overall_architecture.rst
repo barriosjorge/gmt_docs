@@ -26,20 +26,20 @@ layers <architecture-development>`, :ref:`software deployment layers
 modules <architecture-modules>`.
 
 
-.. include:: architecture-organization.rst.inc
+.. include:: architecture-organization_inc.rst
 
-.. include:: architecture-domains.rst.inc
+.. include:: architecture-domains_inc.rst
 
-.. include:: architecture-development.rst.inc
+.. include:: architecture-development_inc.rst
 
-.. include:: architecture-deployment.rst.inc
+.. include:: architecture-deployment_inc.rst
 
-.. include:: architecture-controls.rst.inc
+.. include:: architecture-controls_inc.rst
 
-.. include:: architecture-health_supervision.rst.inc
+.. include:: architecture-health_supervision_inc.rst
 
-.. include:: architecture-frameworks.rst.inc
+.. include:: architecture-frameworks_inc.rst
 
-.. include:: architecture-modules.rst.inc
+.. include:: architecture-modules_inc.rst
 
 

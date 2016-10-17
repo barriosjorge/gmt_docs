@@ -21,7 +21,7 @@
   alarms up the supervisory chain until they reach a component that can address
   the problem, or else eventually up to the operations staff.
 
-  .. include:: specification-alarm_service.rst.inc
+  .. include:: specification-alarm_service_inc.rst
 
   **Service Capabilities**
 

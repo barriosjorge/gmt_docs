@@ -34,13 +34,13 @@ development of:
     strategies that enable the graceful degradation of performance in
     non-nominal scenarios.
 
-.. include:: context.rst.inc
+.. include:: context_inc.rst
 
-.. include:: component_architecture.rst.inc
+.. include:: component_architecture_inc.rst
 
-.. include:: product_structure_modeling.rst.inc
+.. include:: product_structure_modeling_inc.rst
 
-.. include:: instrument_swc_integration.rst.inc
+.. include:: instrument_swc_integration_inc.rst
 
-.. include:: deployment.rst.inc
+.. include:: deployment_inc.rst
 
