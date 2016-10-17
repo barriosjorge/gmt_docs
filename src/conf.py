@@ -67,7 +67,7 @@ release = '1.0-rc1'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = []
+exclude_patterns = ['**/*_inc.rst']
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
@@ -208,10 +208,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  #('index', 'GMTSoftwareAndControls.tex', u'GMT Software And Controls Documentation',
-  # u'contributors', 'manual'),
-  ('SystemAdministration', 'SystemAdministration.tex', u'GMT Lab System Administration',
-   u'Matthieu Bec', 'manual'),
+('index', 'index.tex', 'GMT Software And Controls', 'Authors', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
