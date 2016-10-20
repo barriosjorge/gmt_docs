@@ -1,0 +1,431 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3. Using the Services &mdash; GMT Software And Controls documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="GMT Software And Controls documentation" href="../index.html"/>
+        <link rel="up" title="Software Development" href="index.html"/>
+        <link rel="next" title="4. Running Examples" href="examples.html"/>
+        <link rel="prev" title="2. Developer Info and Release Configuration" href="configuration.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> GMT Software And Controls
+          
+
+          
+            
+            <img src="../_static/logo.jpg" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../system_level_PDR/index.html">Architecture and Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SWCS_Standards/index.html">Software and Controls Standards</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Software Development</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="installation.html">1. Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">2. Developer Info and Release Configuration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3. Using the Services</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#starting-and-stopping-services">3.1. Starting and Stopping Services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#checking-the-log-service">3.2. Checking the Log Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#starting-example-components">3.3. Starting example components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#making-a-query-to-the-log-service">3.4. Making a query to the Log Service</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html">4. Running Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dcs_dev_guide.html">5. Creating a Device Control System (TBR)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html">6. Contribute</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../DCS_model_definition_files/index.html">Model Definition Files</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">GMT Software And Controls</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Software Development</a> &raquo;</li>
+      
+    <li>3. Using the Services</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/software_development/services.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="using-the-services">
+<h1>3. Using the Services<a class="headerlink" href="#using-the-services" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="starting-and-stopping-services">
+<h2>3.1. Starting and Stopping Services<a class="headerlink" href="#starting-and-stopping-services" title="Permalink to this headline">¶</a></h2>
+<p>The mongoDB daemon runs as a system service under <em>systemd</em>.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ sudo systemctl <span class="o">[</span>enable<span class="p">|</span>disable<span class="o">]</span> mongod
+$ sudo systemctl <span class="o">[</span>status<span class="p">|</span>start<span class="p">|</span>restart<span class="p">|</span>stop<span class="o">]</span> mongod
+</pre></div>
+</div>
+<p>The other services can be started, stopped or checked independently as follows:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ log_service <span class="o">[</span>start<span class="p">|</span>stop<span class="p">|</span>restart<span class="p">|</span>status<span class="o">]</span>
+$ telemetry_service <span class="o">[</span>start<span class="p">|</span>stop<span class="p">|</span>restart<span class="p">|</span>status<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="checking-the-log-service">
+<h2>3.2. Checking the Log Service<a class="headerlink" href="#checking-the-log-service" title="Permalink to this headline">¶</a></h2>
+<p>In order to check if the simple communication is working the following test can be performed.</p>
+<p>Open 2 unix terminals. We will call them terminal_1 and terminal_2.</p>
+<p>In terminal_1 verify that the log_service is running:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ log_service status
+</pre></div>
+</div>
+<p>If the status is not <em>online</em> then start the log service:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ log_service start
+</pre></div>
+</div>
+<p>and check the status again. In case of error verify that the mongoDB service is started (see previous section).
+If another error is shown please report this issue.</p>
+<p>If the log service is started with no error we&#8217;ll use terminal_1 to show the log messages that we&#8217;ll create later.
+We can run a log client with this command:</p>
+<blockquote>
+<div><em>Usage:</em>  <code class="docutils literal"><span class="pre">log_client</span> <span class="pre">[topic]</span></code></div></blockquote>
+<p>If a <em>topic</em> parameter is included in the command line it will filter the content of the messages and only the messages containing the topic will be shown.
+By default, if no parameter is given, the log client will subscribe to all log messages:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ log_client
+log client subscribed at port tcp://127.0.0.1:9995
+</pre></div>
+</div>
+<p>This means that the log_client is waiting for new log messages without any specific topic. Let&#8217;s produce some log messages.</p>
+<p>In terminal_2 we can launch programs that produce log messages. A couple of simple programs can be used for such purpose.
+The simplest test is this command:</p>
+<blockquote>
+<div><em>Usage:</em>  <code class="docutils literal"><span class="pre">test_log</span> <span class="pre">[message]</span></code></div></blockquote>
+<p>This command will produce 4 log messages (DEBUG, INFO, WARNING, ERROR) with the text specified in the <em>message</em> parameter:
+If the parameter <em>message</em> is not used the four messages will be empty.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ test_log <span class="s2">&quot;this a log service test&quot;</span>
+</pre></div>
+</div>
+<p>After this command the log_client in terminal_1 should show something like this:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ log_client
+log client subscribed at port tcp://127.0.0.1:9995
+<span class="o">[</span>DBG<span class="o">]</span> 2016-01-01T00:24:32.769Z <span class="o">[</span>gmt://tools/log_adapter<span class="o">]</span> this a log service <span class="nb">test</span>
+<span class="o">[</span>INF<span class="o">]</span> 2016-01-01T00:24:32.769Z <span class="o">[</span>gmt://tools/log_adapter<span class="o">]</span> this a log service <span class="nb">test</span>
+<span class="o">[</span>WRN<span class="o">]</span> 2016-01-01T00:24:32.769Z <span class="o">[</span>gmt://tools/log_adapter<span class="o">]</span> this a log service <span class="nb">test</span>
+<span class="o">[</span>ERR<span class="o">]</span> 2016-01-01T00:24:32.769Z <span class="o">[</span>gmt://tools/log_adapter<span class="o">]</span> this a log service <span class="nb">test</span>
+</pre></div>
+</div>
+<p>each message type using a different color. If messages are not shown please report the error.
+To exit the log_client just use CTRL-C.</p>
+<p>If the messages are shown you can do more tests filtering results using any topic:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ log_client instrument
+log client subscribed at port tcp://127.0.0.1:9995
+subscription topic: instrument
+</pre></div>
+</div>
+<p>If we send the following log messages from terminal_2:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ test_log <span class="s2">&quot;this another log service test&quot;</span>
+</pre></div>
+</div>
+<p>then nothing should be shown in terminal_1, but if in terminal_2 we use:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ test_log <span class="s2">&quot;this a log message from the instrument&quot;</span>
+</pre></div>
+</div>
+<p>the following should be shown in terminal_1:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ log_client instrument
+log client subscribed at port tcp://127.0.0.1:9995
+subscription topic: instrument
+<span class="o">[</span>DBG<span class="o">]</span> 2016-01-01T00:24:32.770Z <span class="o">[</span>gmt://tools/log_adapter<span class="o">]</span> this a log message from the instrument
+<span class="o">[</span>INF<span class="o">]</span> 2016-01-01T00:24:32.770Z <span class="o">[</span>gmt://tools/log_adapter<span class="o">]</span> this a log message from the instrument
+<span class="o">[</span>WRN<span class="o">]</span> 2016-01-01T00:24:32.770Z <span class="o">[</span>gmt://tools/log_adapter<span class="o">]</span> this a log message from the instrument
+<span class="o">[</span>ERR<span class="o">]</span> 2016-01-01T00:24:32.770Z <span class="o">[</span>gmt://tools/log_adapter<span class="o">]</span> this a log message from the instrument
+</pre></div>
+</div>
+<p>Multiple log clients can be started at the same time in different terminals and with different subscription topics.
+Each client subscribes to the log service independently.</p>
+<p>We can send more log messages using this command:</p>
+<blockquote>
+<div><em>Usage:</em>  <code class="docutils literal"><span class="pre">test_logs</span> <span class="pre">[number</span> <span class="pre">of</span> <span class="pre">messages]</span> <span class="pre">[thread_1</span> <span class="pre">rate</span> <span class="pre">in</span> <span class="pre">ns]</span> <span class="pre">[thread_2</span> <span class="pre">rate</span> <span class="pre">in</span> <span class="pre">ns]</span></code></div></blockquote>
+<p>This test uses two threads to send independent log messages and each thread has a different rate.
+For example, start the log_client as usual in terminal_1:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ log_client
+log client subscribed at port tcp://127.0.0.1:9995
+</pre></div>
+</div>
+<p>and in terminal_2 use:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ test_logs <span class="m">5</span> <span class="m">1000000</span> 2000000
+</pre></div>
+</div>
+<p>This will produce 5 x 2 threads x 4 types + 2 additional = 42 messages. The rates are 1 second and 2 seconds.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ log_client
+log client subscribed at port tcp://127.0.0.1:9995
+<span class="o">[</span>DBG<span class="o">]</span> 2016-09-01T23:11:16.167Z <span class="o">[</span>thread_1<span class="o">]</span> debug message <span class="nv">num</span> <span class="o">=</span> 1
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:11:16.167Z <span class="o">[</span>thread_1<span class="o">]</span> info message <span class="nv">num</span> <span class="o">=</span> 1
+<span class="o">[</span>WRN<span class="o">]</span> 2016-09-01T23:11:16.167Z <span class="o">[</span>thread_1<span class="o">]</span> warning message <span class="nv">num</span> <span class="o">=</span> 1
+<span class="o">[</span>ERR<span class="o">]</span> 2016-09-01T23:11:16.167Z <span class="o">[</span>thread_1<span class="o">]</span> error message <span class="nv">num</span> <span class="o">=</span> 1
+<span class="o">[</span>DBG<span class="o">]</span> 2016-09-01T23:11:17.167Z <span class="o">[</span>thread_2<span class="o">]</span> debug message <span class="nv">num</span> <span class="o">=</span> 1
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:11:17.167Z <span class="o">[</span>thread_2<span class="o">]</span> info message <span class="nv">num</span> <span class="o">=</span> 1
+<span class="o">[</span>WRN<span class="o">]</span> 2016-09-01T23:11:17.167Z <span class="o">[</span>thread_2<span class="o">]</span> warning message <span class="nv">num</span> <span class="o">=</span> 1
+<span class="o">[</span>ERR<span class="o">]</span> 2016-09-01T23:11:17.167Z <span class="o">[</span>thread_2<span class="o">]</span> error message <span class="nv">num</span> <span class="o">=</span> 1
+etc...
+</pre></div>
+</div>
+<p>Much faster rates and a large number of messages can be used:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ test_logs <span class="m">50000</span> <span class="m">1000</span> 2000
+</pre></div>
+</div>
+<p>In case messages are not shown please verify the following environment variables:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">GMT_LOG_POLICY</span><span class="o">=</span>1
+<span class="nb">export</span> <span class="nv">GMT_LOG_URL</span><span class="o">=</span>tcp://127.0.0.1:9998
+</pre></div>
+</div>
+</div>
+<div class="section" id="starting-example-components">
+<h2>3.3. Starting example components<a class="headerlink" href="#starting-example-components" title="Permalink to this headline">¶</a></h2>
+<p>The main use of the log service is inside the GMT components. To check the log service with the simple example components we can start them in terminal_2:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ run_example_components
+</pre></div>
+</div>
+<p>and then in terminal_1 we can see:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ log_client
+log client subscribed at port tcp://127.0.0.1:9995
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:00.157Z <span class="o">[</span>gmt://examples/my_app:7000<span class="o">]</span> app step <span class="nv">num</span> <span class="o">=</span> 0
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:00.158Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 3
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:00.158Z <span class="o">[</span>gmt://examples/component_sum1:8004<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 3
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:00.158Z <span class="o">[</span>gmt://examples/component_inc3:8003<span class="o">]</span> <span class="nv">x1</span> <span class="o">=</span> 1
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:00.158Z <span class="o">[</span>gmt://examples/component_inc1:8001<span class="o">]</span> <span class="nv">x1</span> <span class="o">=</span> 1
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:00.158Z <span class="o">[</span>gmt://examples/component_inc2:8002<span class="o">]</span> <span class="nv">x1</span> <span class="o">=</span> 1
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:00.158Z <span class="o">[</span>gmt://examples/simple_component:8000<span class="o">]</span> hello, component world
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:01.158Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 3
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:01.158Z <span class="o">[</span>gmt://examples/component_sum1:8004<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 3
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:01.158Z <span class="o">[</span>gmt://examples/component_inc3:8003<span class="o">]</span> <span class="nv">x1</span> <span class="o">=</span> 2
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:01.158Z <span class="o">[</span>gmt://examples/component_inc1:8001<span class="o">]</span> <span class="nv">x1</span> <span class="o">=</span> 2
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:01.158Z <span class="o">[</span>gmt://examples/component_inc2:8002<span class="o">]</span> <span class="nv">x1</span> <span class="o">=</span> 2
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:01.158Z <span class="o">[</span>gmt://examples/simple_component:8000<span class="o">]</span> hello, component world
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:02.157Z <span class="o">[</span>gmt://examples/my_app:7000<span class="o">]</span> app step <span class="nv">num</span> <span class="o">=</span> 1
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:02.158Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 3
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:02.158Z <span class="o">[</span>gmt://examples/component_sum1:8004<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 3
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:02.158Z <span class="o">[</span>gmt://examples/component_inc3:8003<span class="o">]</span> <span class="nv">x1</span> <span class="o">=</span> 3
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:02.158Z <span class="o">[</span>gmt://examples/component_inc1:8001<span class="o">]</span> <span class="nv">x1</span> <span class="o">=</span> 3
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:34:02.158Z <span class="o">[</span>gmt://examples/component_inc2:8002<span class="o">]</span> <span class="nv">x1</span> <span class="o">=</span> 3
+</pre></div>
+</div>
+<p>Messages are produced periodically while the components are running. To kill the components just use CTRL-C in terminal_2.
+If you have the process in background like this:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ run_example_components <span class="p">&amp;</span>
+</pre></div>
+</div>
+<p>then the components will keep running and using the network ports so, if you run again the same command, some errors will be shown:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>ERROR: unable to connect Port &lt;examples/my_app:setup&gt; <span class="o">(</span>tcp://0.0.0.0:7000<span class="o">)</span> : Address already in use
+ERROR: unable to connect Port &lt;examples/simple_component:setup&gt; <span class="o">(</span>tcp://0.0.0.0:8000<span class="o">)</span> : Address already in use
+ERROR: unable to connect Port &lt;examples/component_inc1:setup&gt; <span class="o">(</span>tcp://0.0.0.0:8001<span class="o">)</span> : Address already in use
+ERROR: unable to connect Port &lt;examples/component_inc2:setup&gt; <span class="o">(</span>tcp://0.0.0.0:8002<span class="o">)</span> : Address already in use
+ERROR: unable to connect Port &lt;examples/component_inc3:setup&gt; <span class="o">(</span>tcp://0.0.0.0:8003<span class="o">)</span> : Address already in use
+ERROR: unable to connect Port &lt;examples/component_sum1:setup&gt; <span class="o">(</span>tcp://0.0.0.0:8004<span class="o">)</span> : Address already in use
+ERROR: unable to connect Port &lt;examples/component_sum2:setup&gt; <span class="o">(</span>tcp://0.0.0.0:8005<span class="o">)</span> : Address already in use
+</pre></div>
+</div>
+<p>This means that the example components are already running and using the networks addresses.
+To avoid this you need to kill the run_example_components process before to start a new one:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ ps -fea <span class="p">|</span> grep run_example_components
+user     <span class="m">15209</span> <span class="m">31894</span>  <span class="m">0</span> 19:40 pts/0    00:00:00 run_example_components
+user     <span class="m">15365</span> <span class="m">31894</span>  <span class="m">0</span> 19:43 pts/0    00:00:00 grep --color<span class="o">=</span>auto run_example_components
+
+$ <span class="nb">kill</span> -9 15209
+<span class="o">[</span>1<span class="o">]</span>-  Killed            run_example_components
+</pre></div>
+</div>
+<p>We&#8217;ll see this example in much more detail later.</p>
+</div>
+<div class="section" id="making-a-query-to-the-log-service">
+<h2>3.4. Making a query to the Log Service<a class="headerlink" href="#making-a-query-to-the-log-service" title="Permalink to this headline">¶</a></h2>
+<p>The log service stores all received messages in a local database. In order to query this database the log service shall be started and then in any terminal we can use:</p>
+<blockquote>
+<div><em>Usage:</em>  <code class="docutils literal"><span class="pre">log_query</span> <span class="pre">uri</span> <span class="pre">num</span></code></div></blockquote>
+<p>For example, the following will show the last 10 messages (from newest to oldest) created by the simple_component in the previous section:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ log_query gmt://examples/simple_component:8000 10
+starting log query at tcp://127.0.0.1:9994
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:44:40.936Z <span class="o">[</span>gmt://examples/simple_component:8000<span class="o">]</span> hello, component world
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:44:39.936Z <span class="o">[</span>gmt://examples/simple_component:8000<span class="o">]</span> hello, component world
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:44:38.936Z <span class="o">[</span>gmt://examples/simple_component:8000<span class="o">]</span> hello, component world
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:44:37.936Z <span class="o">[</span>gmt://examples/simple_component:8000<span class="o">]</span> hello, component world
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:44:36.936Z <span class="o">[</span>gmt://examples/simple_component:8000<span class="o">]</span> hello, component world
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:44:35.934Z <span class="o">[</span>gmt://examples/simple_component:8000<span class="o">]</span> hello, component world
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:44:34.934Z <span class="o">[</span>gmt://examples/simple_component:8000<span class="o">]</span> hello, component world
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:44:34.853Z <span class="o">[</span>gmt://examples/simple_component:8000<span class="o">]</span> hello, component world
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:44:33.934Z <span class="o">[</span>gmt://examples/simple_component:8000<span class="o">]</span> hello, component world
+<span class="o">[</span>INF<span class="o">]</span> 2016-09-01T23:44:33.853Z <span class="o">[</span>gmt://examples/simple_component:8000<span class="o">]</span> hello, component world
+</pre></div>
+</div>
+<p>All queries have to be done on the exact <strong>URI</strong> of the component that produces the messages. More queries will be provided in future releases.</p>
+<p>It&#8217;s also possible to explore the log messages stored in the database or manage the databases using the <em>mongo</em> command line tool. Please check the mongoDB documentation in this case.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="examples.html" class="btn btn-neutral float-right" title="4. Running Examples" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="configuration.html" class="btn btn-neutral" title="2. Developer Info and Release Configuration" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, contributors.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0-rc1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
