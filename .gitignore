@@ -1,2 +1,4 @@
 /build/
 *.swp
+/js/
+/node_modules/
