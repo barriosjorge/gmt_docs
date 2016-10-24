@@ -1,7 +1,10 @@
-.. _release1.0:
+.. _release1:
 
-Release 1.0
------------
+Release 1
+---------
+
+1.0
+...
 
 Version 1.0 is out! The purpose of v1.0 documentation is currently limited to
 showing how to configure, start and monitor services (using logging and
