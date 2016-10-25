@@ -26,15 +26,12 @@
 
   
   
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/additional_style.css" type="text/css" />
   
 
   
 
   
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="GMT Software And Controls documentation" href="../../index.html"/>
         <link rel="up" title="Architecture and Design" href="../index.html"/>
         <link rel="next" title="5. Frameworks" href="../frameworks/component_frameworks.html"/>
@@ -61,7 +58,7 @@
 
           
             
-            <img src="../../_static/logo.jpg" class="logo" />
+            <img src="../../_static/logowhite.png" class="logo" />
           
           </a>
 
@@ -91,6 +88,7 @@
             
             
                 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../release_notes/index.html">Release Notes</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Architecture and Design</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../introduction/swcs_introduction.html">1. Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../architecture/overall_architecture.html">2. Overall Architecture</a></li>
@@ -125,7 +123,6 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../SWCS_Standards/index.html">Software and Controls Standards</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../software_development/index.html">Software Development</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../DCS_model_definition_files/index.html">Model Definition Files</a></li>
 </ul>
 
             
@@ -1020,8 +1017,8 @@ following code-block.  When a fault condition occurs in a component, it is the
 responsibility of that component to either handle the fault or to transmit
 alarms up the supervisory chain until they reach a component that can address
 the problem, or else eventually up to the operations staff.</p>
-<div class="literal-block-wrapper container" id="id14">
-<span id="specification-alarm-service"></span><div class="code-block-caption"><span class="caption-number">Listing 1 </span><span class="caption-text">Alarm Event Specification</span><a class="headerlink" href="#id14" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper container" id="alarm-event-specification">
+<span id="specification-alarm-service"></span><div class="code-block-caption"><span class="caption-number">Listing 1 </span><span class="caption-text">Alarm Event Specification</span><a class="headerlink" href="#alarm-event-specification" title="Permalink to this code">¶</a></div>
 <div class="highlight-coffeescript"><div class="highlight"><pre><span></span><span class="nx">EnumType</span> <span class="s">&quot;AlarmSeverity&quot;</span><span class="p">,</span>
     <span class="nv">desc: </span><span class="s">&quot;Defines the severity level of the AlarmEvent&quot;</span>
     <span class="nv">literals:</span>
@@ -1090,7 +1087,7 @@ the same computer.</p>
 </div></blockquote>
 </div></blockquote>
 </div></blockquote>
-<div class="figure" id="id15">
+<div class="figure" id="id14">
 <img alt="../../_images/alarm-service-block-diagram.png" src="../../_images/alarm-service-block-diagram.png" />
 <p class="caption"><span class="caption-number">Fig. 26 </span><span class="caption-text">Alarm Service Block Diagram.  (1) The component detects an alarm event
 and invokes the <em>send_alarm</em> method inherited from the <em>BaseComponent</em>
@@ -1112,8 +1109,8 @@ streaming mode.</div></blockquote>
 <div><p>The visualization package provides custom panels that allow observatory
 operators to monitor and manage the alarms of the system. This is done
 implementing several optimize visualizations.</p>
-<table border="1" class="docutils" id="id16">
-<caption><span class="caption-number">Table 8 </span><span class="caption-text">Alarm Service Visualization Panels</span><a class="headerlink" href="#id16" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils" id="id15">
+<caption><span class="caption-number">Table 8 </span><span class="caption-text">Alarm Service Visualization Panels</span><a class="headerlink" href="#id15" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="25%" />
 <col width="75%" />
@@ -1279,7 +1276,7 @@ Adapters forward the log events to the log supervisor using push/pull sockets.
 Usually a single Log Adapter is deployed for all the components of a Subsystem
 that are collocated in the same computer. Although the interfaces are
 different this arrangement is similar to the design other services.</p>
-<div class="figure" id="id17">
+<div class="figure" id="id16">
 <img alt="../../_images/log-service-block-diagram.png" src="../../_images/log-service-block-diagram.png" />
 <p class="caption"><span class="caption-number">Fig. 27 </span><span class="caption-text">Logging Service Block Diagram.  (1) A Component creates a log message and
 invokes the <em>log</em> method inherited from the <em>BaseComponent</em> or
@@ -1377,8 +1374,8 @@ be monitored by the telemetry system by specifying monitoring</p>
 operators to monitor and manage the configuration service, shown in the
 following table:</p>
 <blockquote>
-<div><table border="1" class="docutils" id="id18">
-<caption><span class="caption-number">Table 9 </span><span class="caption-text">Configuration Service Visualization Panels</span><a class="headerlink" href="#id18" title="Permalink to this table">¶</a></caption>
+<div><table border="1" class="docutils" id="id17">
+<caption><span class="caption-number">Table 9 </span><span class="caption-text">Configuration Service Visualization Panels</span><a class="headerlink" href="#id17" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="25%" />
 <col width="75%" />

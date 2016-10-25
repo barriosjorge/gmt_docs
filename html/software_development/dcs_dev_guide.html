@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>5. Creating a Device Control System (TBR) &mdash; GMT Software And Controls documentation</title>
+  <title>6. Creating a Device Control System (TBR) &mdash; GMT Software And Controls documentation</title>
   
 
   
@@ -26,19 +26,16 @@
 
   
   
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/additional_style.css" type="text/css" />
   
 
   
 
   
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="GMT Software And Controls documentation" href="../index.html"/>
         <link rel="up" title="Software Development" href="index.html"/>
-        <link rel="next" title="6. Contribute" href="contribute.html"/>
-        <link rel="prev" title="4. Running Examples" href="examples.html"/> 
+        <link rel="next" title="7. Contribute" href="contribute.html"/>
+        <link rel="prev" title="5. Running Examples" href="examples.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -61,7 +58,7 @@
 
           
             
-            <img src="../_static/logo.jpg" class="logo" />
+            <img src="../_static/logowhite.png" class="logo" />
           
           </a>
 
@@ -91,27 +88,28 @@
             
             
                 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../release_notes/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../system_level_PDR/index.html">Architecture and Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../SWCS_Standards/index.html">Software and Controls Standards</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Software Development</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installation.html">1. Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="configuration.html">2. Developer Info and Release Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="services.html">3. Using the Services</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples.html">4. Running Examples</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">5. Creating a Device Control System (TBR)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#edit-the-system-master-file">5.1. Edit the System Master File</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#define-the-components-in-the-model">5.2. Define the Components in the Model</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#compile-the-model">5.3. Compile the Model</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#load-the-model">5.4. Load the Model</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#generate-c-code">5.5. Generate C++ Code</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#make-and-run-the-generated-component">5.6. Make and Run the Generated Component</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#modify-the-generated-controller">5.7. Modify the Generated Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DCS_development/index.html">3. DCS Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html">4. Using the Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html">5. Running Examples</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">6. Creating a Device Control System (TBR)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#edit-the-system-master-file">6.1. Edit the System Master File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#define-the-components-in-the-model">6.2. Define the Components in the Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#compile-the-model">6.3. Compile the Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load-the-model">6.4. Load the Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generate-c-code">6.5. Generate C++ Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#make-and-run-the-generated-component">6.6. Make and Run the Generated Component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modify-the-generated-controller">6.7. Modify the Generated Controller</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="contribute.html">6. Contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html">7. Contribute</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../DCS_model_definition_files/index.html">Model Definition Files</a></li>
 </ul>
 
             
@@ -144,7 +142,7 @@
       
           <li><a href="index.html">Software Development</a> &raquo;</li>
       
-    <li>5. Creating a Device Control System (TBR)</li>
+    <li>6. Creating a Device Control System (TBR)</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -159,9 +157,9 @@
            <div itemprop="articleBody">
             
   <div class="section" id="creating-a-device-control-system-tbr">
-<h1>5. Creating a Device Control System (TBR)<a class="headerlink" href="#creating-a-device-control-system-tbr" title="Permalink to this headline">¶</a></h1>
+<h1>6. Creating a Device Control System (TBR)<a class="headerlink" href="#creating-a-device-control-system-tbr" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="edit-the-system-master-file">
-<h2>5.1. Edit the System Master File<a class="headerlink" href="#edit-the-system-master-file" title="Permalink to this headline">¶</a></h2>
+<h2>6.1. Edit the System Master File<a class="headerlink" href="#edit-the-system-master-file" title="Permalink to this headline">¶</a></h2>
 <p>In order to add a Device Control System (DCS) first it&#8217;s necessary to add it to the master file:</p>
 <blockquote>
 <div>src/model/db/swc_sys.coffee</div></blockquote>
@@ -178,7 +176,7 @@
 </div>
 </div>
 <div class="section" id="define-the-components-in-the-model">
-<h2>5.2. Define the Components in the Model<a class="headerlink" href="#define-the-components-in-the-model" title="Permalink to this headline">¶</a></h2>
+<h2>6.2. Define the Components in the Model<a class="headerlink" href="#define-the-components-in-the-model" title="Permalink to this headline">¶</a></h2>
 <p>In this case we&#8217;ll create the HDK_CS as an Instrument DCS:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">src</span><span class="o">/</span><span class="n">model</span><span class="o">/</span><span class="n">db</span><span class="o">/</span><span class="n">idcs</span><span class="o">/</span><span class="n">hdk_cs</span><span class="o">/</span><span class="n">hdk_cs</span><span class="o">.</span><span class="n">coffee</span>
 <span class="n">src</span><span class="o">/</span><span class="n">model</span><span class="o">/</span><span class="n">db</span><span class="o">/</span><span class="n">idcs</span><span class="o">/</span><span class="n">hdk_cs</span><span class="o">/</span><span class="n">hdk_cs</span><span class="o">.</span><span class="n">rst</span>
@@ -188,7 +186,7 @@
 <p>NOTE: The src/model/db/idcs/loader.coffee shall include the hdk_cs/loader file.</p>
 </div>
 <div class="section" id="compile-the-model">
-<h2>5.3. Compile the Model<a class="headerlink" href="#compile-the-model" title="Permalink to this headline">¶</a></h2>
+<h2>6.3. Compile the Model<a class="headerlink" href="#compile-the-model" title="Permalink to this headline">¶</a></h2>
 <p>From the ${GMT_ROOT} folder run</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ make
 </pre></div>
@@ -196,7 +194,7 @@
 <p>This will compile the model files an check for some errors.</p>
 </div>
 <div class="section" id="load-the-model">
-<h2>5.4. Load the Model<a class="headerlink" href="#load-the-model" title="Permalink to this headline">¶</a></h2>
+<h2>6.4. Load the Model<a class="headerlink" href="#load-the-model" title="Permalink to this headline">¶</a></h2>
 <p>Run the following command to start the command line</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="si">${</span><span class="nv">GMT_ROOT</span><span class="si">}</span>/bin/gmt
 </pre></div>
@@ -208,7 +206,7 @@ gmt&gt;
 </div>
 </div>
 <div class="section" id="generate-c-code">
-<h2>5.5. Generate C++ Code<a class="headerlink" href="#generate-c-code" title="Permalink to this headline">¶</a></h2>
+<h2>6.5. Generate C++ Code<a class="headerlink" href="#generate-c-code" title="Permalink to this headline">¶</a></h2>
 <p>We can generate the C++ skeletons from the model as follows:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>gmt&gt; gmt.model.&lt;subsystem&gt;.gen_code<span class="o">()</span>
 </pre></div>
@@ -233,7 +231,7 @@ $ cp hdk_hw_adapter_config.cson <span class="si">${</span><span class="nv">GMT_R
 <p>Note: configuration files shall be manually edited.</p>
 </div>
 <div class="section" id="make-and-run-the-generated-component">
-<h2>5.6. Make and Run the Generated Component<a class="headerlink" href="#make-and-run-the-generated-component" title="Permalink to this headline">¶</a></h2>
+<h2>6.6. Make and Run the Generated Component<a class="headerlink" href="#make-and-run-the-generated-component" title="Permalink to this headline">¶</a></h2>
 <p>The binaries are in the build/ folder using make</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ make
 </pre></div>
@@ -247,7 +245,7 @@ $ cp hdk_hw_adapter_config.cson <span class="si">${</span><span class="nv">GMT_R
 If not defined DEBUG messages and debug info is not included in the executables.</p>
 </div>
 <div class="section" id="modify-the-generated-controller">
-<h2>5.7. Modify the Generated Controller<a class="headerlink" href="#modify-the-generated-controller" title="Permalink to this headline">¶</a></h2>
+<h2>6.7. Modify the Generated Controller<a class="headerlink" href="#modify-the-generated-controller" title="Permalink to this headline">¶</a></h2>
 <p>Follow the provided examples to modify and run your own controllers.</p>
 </div>
 </div>
@@ -259,10 +257,10 @@ If not defined DEBUG messages and debug info is not included in the executables.
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="contribute.html" class="btn btn-neutral float-right" title="6. Contribute" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="contribute.html" class="btn btn-neutral float-right" title="7. Contribute" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="examples.html" class="btn btn-neutral" title="4. Running Examples" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="examples.html" class="btn btn-neutral" title="5. Running Examples" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -26,15 +26,12 @@
 
   
   
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/additional_style.css" type="text/css" />
   
 
   
 
   
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="GMT Software And Controls documentation" href="../../index.html"/>
         <link rel="up" title="Architecture and Design" href="../index.html"/>
         <link rel="next" title="6. Platform" href="../platform/platform.html"/>
@@ -61,7 +58,7 @@
 
           
             
-            <img src="../../_static/logo.jpg" class="logo" />
+            <img src="../../_static/logowhite.png" class="logo" />
           
           </a>
 
@@ -91,6 +88,7 @@
             
             
                 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../release_notes/index.html">Release Notes</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Architecture and Design</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../introduction/swcs_introduction.html">1. Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../architecture/overall_architecture.html">2. Overall Architecture</a></li>
@@ -138,7 +136,6 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../SWCS_Standards/index.html">Software and Controls Standards</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../software_development/index.html">Software Development</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../DCS_model_definition_files/index.html">Model Definition Files</a></li>
 </ul>
 
             
@@ -1462,7 +1459,7 @@ management.  The Figure below shows the Controller state machine.  Only the
 description of each state is shown.  Details about entry actions, transitions
 and activities are omitted in this diagram.</p>
 <div class="figure" id="id28">
-<img alt="../../_images/controller-state-machine.png" src="../../_images/controller-state-machine.png" />
+<img alt="../../_images/controller-state-machine1.png" src="../../_images/controller-state-machine1.png" />
 <p class="caption"><span class="caption-number">Fig. 30 </span><span class="caption-text">Controller State Machine</span></p>
 </div>
 <p>The table below provides the specification of the Controller state machine.  The
@@ -2459,8 +2456,8 @@ of memory. The I/O framework generates a mapping of the PDO map to different
 target programing languages, currently C/C++ and Python.</p>
 <p>The following code blocks below together show an example of an I/O Module PDO
 Mapping in C/C++ and Python:</p>
-<div class="literal-block-wrapper container" id="id38">
-<div class="code-block-caption"><span class="caption-number">Listing 2 </span><span class="caption-text">I/O Module PDO Mapping (C/C++)</span><a class="headerlink" href="#id38" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper container" id="i-o-module-pdo-mapping-c-c">
+<div class="code-block-caption"><span class="caption-number">Listing 2 </span><span class="caption-text">I/O Module PDO Mapping (C/C++)</span><a class="headerlink" href="#i-o-module-pdo-mapping-c-c" title="Permalink to this code">¶</a></div>
 <div class="highlight-c++"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">bh_el7041_00130000_sm3</span> <span class="p">{</span>
     <span class="kt">uint8_t</span> <span class="nl">x1a01_6000_01</span> <span class="p">:</span><span class="mi">1</span><span class="p">;</span> <span class="c1">// (ro) ENC Status - Status__Latch C valid</span>
     <span class="kt">uint8_t</span> <span class="nl">x1a01_6000_02</span> <span class="p">:</span><span class="mi">1</span><span class="p">;</span> <span class="c1">// (ro) ENC Status - Status__Latch extern valid</span>
@@ -2478,8 +2475,8 @@ Mapping in C/C++ and Python:</p>
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper container" id="id39">
-<div class="code-block-caption"><span class="caption-number">Listing 3 </span><span class="caption-text">I/O Module PDO Mapping (Python)</span><a class="headerlink" href="#id39" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper container" id="i-o-module-pdo-mapping-python">
+<div class="code-block-caption"><span class="caption-number">Listing 3 </span><span class="caption-text">I/O Module PDO Mapping (Python)</span><a class="headerlink" href="#i-o-module-pdo-mapping-python" title="Permalink to this code">¶</a></div>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">bh_el7041_00130000_sm3</span> <span class="p">(</span><span class="n">Structure</span><span class="p">)</span> <span class="p">:</span>
   <span class="n">_pack_</span> <span class="o">=</span> <span class="mi">1</span>
   <span class="n">_fields_</span> <span class="o">=</span> <span class="p">[</span>
@@ -2503,8 +2500,8 @@ Mapping in C/C++ and Python:</p>
 <p>Once registered to the ECM Driver, each <em>IOModule</em> instance exposes status
 information and its PDO mapping via the sysfs file system.</p>
 <p>The Table below shows an ECG I/O Module sysfs (EL7041 at position 10):</p>
-<table border="1" class="docutils" id="id40">
-<caption><span class="caption-number">Table 22 </span><span class="caption-text">ECG I/O Module <em>sysfs</em> (EL7041 at position 10)</span><a class="headerlink" href="#id40" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils" id="id38">
+<caption><span class="caption-number">Table 22 </span><span class="caption-text">ECG I/O Module <em>sysfs</em> (EL7041 at position 10)</span><a class="headerlink" href="#id38" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="38%" />
 <col width="11%" />
@@ -2625,8 +2622,8 @@ Master, each ECG Domain instance exposes status information and its fraction
 of the process image via the sysfs file system.</p>
 <p>The Table below shows an example of the Process Map sysfs:</p>
 </div></blockquote>
-<table border="1" class="docutils" id="id41">
-<caption><span class="caption-number">Table 23 </span><span class="caption-text">Process Map <em>sysfs</em></span><a class="headerlink" href="#id41" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils" id="id39">
+<caption><span class="caption-number">Table 23 </span><span class="caption-text">Process Map <em>sysfs</em></span><a class="headerlink" href="#id39" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="30%" />
 <col width="12%" />

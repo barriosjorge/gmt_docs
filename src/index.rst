@@ -18,5 +18,4 @@ Home
    system_level_PDR/index
    SWCS_Standards/index
    software_development/index
-   DCS_model_definition_files/index
 
