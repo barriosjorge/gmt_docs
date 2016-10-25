@@ -1,10 +1,14 @@
 .. _dcs_code-example:
 
-Example of DCS code generation: *isample_dcs*
+DCS code generation example: *isample_dcs*
 =============================================
 
 .. toctree:: 
    :maxdepth: 1
 
-   isample_dcs/coffee/loader
+   isample_dcs/index.rst
+   isample_dcs/isample_ctrl_pkg/index.rst
+   isample_dcs/isample_ctrl_pkg/isample_ctrl_super/index.rst
+   isample_dcs/isample_ctrl_pkg/isample_filter_wheel_ctrl/index.rst
+   isample_dcs/isample_ctrl_pkg/isample_hw_adapter/index.rst
 

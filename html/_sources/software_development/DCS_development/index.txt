@@ -8,7 +8,7 @@ DCS Development
    :numbered:
 
    introduction/introduction
-   model_elements/elements.rst
-   example/example
+   specification/specification
    codegen/codegen
+   model_elements/elements.rst
 
