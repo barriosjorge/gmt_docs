@@ -12,6 +12,7 @@ Software Development
    :numbered:
 
    installation
+   isample_example
    configuration
    DCS_development/index
    services

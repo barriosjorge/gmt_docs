@@ -47,7 +47,7 @@ You can review your changes after running `make` on your local copy and iterate:
 .. code-block:: bash
    
    $ git commit src
-   $ git commit html -m '- generated content'
+   $ git commit html -m 'Generated content'
 
    $ git push origin gh-pages
 

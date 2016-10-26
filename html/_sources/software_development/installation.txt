@@ -46,7 +46,7 @@ Procedure
     $ sudo dd bs=4m if=standalone.iso of=/dev/rdisk2
 
 
-  Linux - with drive on ``/dev/sdb``
+  Linux - with a drive on ``/dev/sdb``
 
   .. code-block:: bash
 
@@ -65,7 +65,7 @@ Procedure
 
   2.1  Enter the BIOS settings by pressing the <Del> key.
 
-  2.2  In the Boot panel, set Option #1 to [USB stick].
+  2.2  In the Boot panel, set Option #1 to [USB Stick].
 
     .. image:: _static/hdk-bios-usb.png
       :align: center
