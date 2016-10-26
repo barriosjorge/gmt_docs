@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3.2.8. module.mk &mdash; GMT Software And Controls documentation</title>
+  <title>3.3.8. module.mk &mdash; GMT Software And Controls documentation</title>
   
 
   
@@ -32,19 +32,10 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../../../../../../../genindex.html"/>
-        <link rel="search" title="Search" href="../../../../../../../search.html"/>
     <link rel="top" title="GMT Software And Controls documentation" href="../../../../../../../index.html"/>
-<<<<<<< HEAD
-        <link rel="up" title="3.2. DCS Hardware Adapter Files" href="../index.html"/>
+        <link rel="up" title="3.3. DCS Hardware Adapter Files" href="../index.html"/>
         <link rel="next" title="4. Model Elements" href="../../../../../model_elements/elements.html"/>
-        <link rel="prev" title="3.2.7. isample_hw_adapter_step.cpp" href="isample_hw_adapter_step.html"/> 
-=======
-        <link rel="up" title="4.3.5. DCS Hardware Adapter Files" href="../index.html"/>
-        <link rel="next" title="4.4. Model Elements" href="../../../../../model_elements/elements.html"/>
-        <link rel="prev" title="&lt;no title&gt;" href="isample_hw_adapter_step.html"/> 
->>>>>>> 6a1a28f97bb3f7ffeeb4aad20b22be868950cd12
+        <link rel="prev" title="3.3.7. isample_hw_adapter_step.cpp" href="isample_hw_adapter_step.html"/> 
 
   
   <script src="../../../../../../../_static/js/modernizr.min.js"></script>
@@ -102,7 +93,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../SWCS_Standards/index.html">Software and Controls Standards</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../../../../index.html">Software Development</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../../../../../installation.html">1. Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../../configuration.html">2. Developer Info and Release Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../isample_example.html">2. ISample Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../configuration.html">3. Developer Info and Release Configuration</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../../../../index.html">DCS Development</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../../../../../introduction/introduction.html">1. Introduction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../specification/specification.html">2. DCS specification example: <em>isample_dcs</em></a></li>
@@ -110,16 +102,16 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../index.html">DCS Subsystem files</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../index.html">3.1. DCS Control Package Files</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../isample_ctrl_super/index.html">DCS Control Supervisor Files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../isample_filter_wheel_ctrl/index.html">DCS Filter Wheel Controller Files</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="../index.html">3.2. DCS Hardware Adapter Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../isample_filter_wheel_ctrl/index.html">3.2. DCS Filter Wheel Controller Files</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">3.3. DCS Hardware Adapter Files</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../model_elements/elements.html">4. Model Elements</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../../services.html">3. Using the Services</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../../examples.html">4. Running Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../../contribute.html">5. Contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../services.html">4. Using the Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../examples.html">5. Running Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../contribute.html">6. Contribute</a></li>
 </ul>
 </li>
 </ul>
@@ -154,13 +146,13 @@
       
           <li><a href="../../../../../../index.html">Software Development</a> &raquo;</li>
       
-          <li><a href="../../../../../index.html">4. DCS Development</a> &raquo;</li>
+          <li><a href="../../../../../index.html">DCS Development</a> &raquo;</li>
       
-          <li><a href="../../../../codegen.html">4.3. DCS code generation example: <em>isample_dcs</em></a> &raquo;</li>
+          <li><a href="../../../../codegen.html">3. DCS code generation example: <em>isample_dcs</em></a> &raquo;</li>
       
-          <li><a href="../index.html">4.3.5. DCS Hardware Adapter Files</a> &raquo;</li>
+          <li><a href="../index.html">3.3. DCS Hardware Adapter Files</a> &raquo;</li>
       
-    <li>3.2.8. <em>module.mk</em></li>
+    <li>3.3.8. <em>module.mk</em></li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -173,7 +165,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="module-mk">
-<span id="id1"></span><h1>3.2.8. <em>module.mk</em><a class="headerlink" href="#module-mk" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>3.3.8. <em>module.mk</em><a class="headerlink" href="#module-mk" title="Permalink to this headline">¶</a></h1>
 <p>The Hardware Developers Kit (HDK) is a hardware platform
 that embodies a basic Device Control System that complies
 with the GMT DCS Reference Architecture (RA)</p>
@@ -198,10 +190,10 @@ with the GMT DCS Reference Architecture (RA)</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../../../../model_elements/elements.html" class="btn btn-neutral float-right" title="4.4. Model Elements" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../../../../model_elements/elements.html" class="btn btn-neutral float-right" title="4. Model Elements" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="isample_hw_adapter_step.html" class="btn btn-neutral" title="3.2.7. isample_hw_adapter_step.cpp" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="isample_hw_adapter_step.html" class="btn btn-neutral" title="3.3.7. isample_hw_adapter_step.cpp" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
