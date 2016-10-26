@@ -1,21 +1,18 @@
 
-# Should be supervisor
-
-Controller    'isample_ctrl_super',
+Supervisor    'isample_ctrl_super',
     info:     'isample Control Supervisor'
     desc:     'This provides supervision of the isample controllers'
     extends:  ['BaseController']
     abstract: false
 
-    state_vars:
-        position:     { type: 'float', controllable: true, init: 20.0, max: 40.0, min: 5.0, desc: 'position sv' }
+    state_vars:  {}
 
     input_ports:
         # Should be in super class
-        heartbeat:     { type: 'heartbeat',  protocol: 'pull', rate: 1, desc: 'HMI operation buttons' }
+        heartbeat_in:     { type: 'HeartBeatEvent',  protocol: 'pull', max_rate: 1, blocking_mode: 'async', desc: 'HMI operation buttons' }
 
     output_ports:
-        heartbeat:     { type: 'heartbeat',  protocol: 'push', rate: 1, desc: 'motor control' }
+        heartbeat_out:    { type: 'HeartBeatEvent',  protocol: 'push', max_rate: 1, blocking_mode: 'async', desc: 'motor control' }
 
     instance_configurations: ['isample_ctrl_super']
 

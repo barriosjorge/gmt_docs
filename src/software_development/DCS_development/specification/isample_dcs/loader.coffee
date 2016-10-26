@@ -1,4 +1,5 @@
 
+require './isample_def'
 require './isample_types'
 require './isample_dcs'
 require './isample_ctrl_pkg/isample_ctrl_pkg'

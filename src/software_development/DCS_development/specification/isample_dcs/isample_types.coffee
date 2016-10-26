@@ -11,14 +11,14 @@ StructType "isample_hmi_buttons",
 
 StructType "isample_temp_measurements",
     desc: "temperature measurements",
-    types:
+    elements:
         temp_sensor1:      { desc: "temperature sensor #1", type: "uint16_t", units: "celsius" }
         temp_sensor2:      { desc: "temperature sensor #2", type: "uint16_t", units: "celsius" }
         press_sensor1:     { desc: "pressure sensor    #1", type: "uint16_t", units: "bar" }
 
 StructType "isample_motor_status",
     desc: "status of motor device"
-    types:
+    elements:
         ready:             { desc: "Axis Ready",            type: "bool",     units: "" }
         enabled:           { desc: "Axis Enabled",          type: "bool",     units: "" }
         warning:           { desc: "Axis Warning",          type: "bool",     units: "" }
@@ -28,7 +28,7 @@ StructType "isample_motor_status",
 
 StructType "isample_hmi_leds",
     desc:  "digital outputs to control lights"
-    types:
+    elements:
         pilot:             { desc: "Pilot Light",           type: "bool",     units: "on/off" }
         emergency_light:   { desc: "Emergency Light",       type: "bool",     units: "on/off" }
         heartbeat:         { desc: "Heartbeat",             type: "bool",     units: "0/1"    }
@@ -36,14 +36,14 @@ StructType "isample_hmi_leds",
 
 StructType "isample_motor_control",
     desc:  "motor control"
-    types:
+    elements:
         enable:            { desc: "Axis Enable",           type: "bool",     units: "" }
         reset:             { desc: "Axis Reset",            type: "bool",     units: "" }
         velocity:          { desc: "Velocity",              type: "int16_t",  units: "steps/s2" }
 
 StructType "isample_sdo_data",
     desc: "service data objects",
-    types:
+    elements:
         sensor_type_1:     { desc: "sensor #1 tech",        type: "uint16_t", units: "" }
         sensor_type_2:     { desc: "sensor #2 tech",        type: "uint16_t", units: "" }
 

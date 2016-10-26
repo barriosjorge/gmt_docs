@@ -6,12 +6,12 @@ Controller    'isample_temp_ctrl',
     abstract: false
 
     state_vars:
-        cryo_temp:    { type: 'float', controllable: true, init: 20.0, max: 40.0, min: 5.0, desc: 'temperature sv' }
+        cryo_temp:    { type: 'float', controllable: true, default: 20.0, max: 40.0, min: 5.0, desc: 'temperature sv' }
 
     input_ports:
-        temperatures: { type: 'isample_temp_measurements', protocol: 'pull', rate: 1, desc: 'temperature measurements' }
+        temperatures: { type: 'isample_temp_measurements', protocol: 'pull', max_rate: 1, blocking_mode: 'async', desc: 'temperature measurements' }
 
-    instance_configurations: ['cryo_internal_temp_ctrl', 'cryo_external_temp_ctrl']
+    instance_configurations: ['isample_cryo_internal_temp_ctrl', 'isample_cryo_external_temp_ctrl']
 
     properties:
         uri_path: {type: 'String',  default: "gmt://isample_cs/"}

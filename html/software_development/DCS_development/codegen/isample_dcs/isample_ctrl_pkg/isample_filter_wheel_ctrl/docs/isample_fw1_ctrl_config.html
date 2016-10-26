@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>&lt;no title&gt; &mdash; GMT Software And Controls documentation</title>
+  <title>1. isample_fw1_ctrl_config.coffee &mdash; GMT Software And Controls documentation</title>
   
 
   
@@ -34,8 +34,8 @@
   
     <link rel="top" title="GMT Software And Controls documentation" href="../../../../../../../index.html"/>
         <link rel="up" title="DCS Filter Wheel Controller Files" href="../index.html"/>
-        <link rel="next" title="&lt;no title&gt;" href="isample_fw2_ctrl_config.html"/>
-        <link rel="prev" title="&lt;no title&gt;" href="isample_filter_wheel_ctrl_component.html"/> 
+        <link rel="next" title="2. isample_filter_wheel_ctrl.h" href="isample_filter_wheel_ctrl_h.html"/>
+        <link rel="prev" title="DCS Filter Wheel Controller Files" href="../index.html"/> 
 
   
   <script src="../../../../../../../_static/js/modernizr.min.js"></script>
@@ -87,11 +87,32 @@
           
             
             
-                <ul>
+                <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../release_notes/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../system_level_PDR/index.html">Architecture and Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../SWCS_Standards/index.html">Software and Controls Standards</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../../../index.html">Software Development</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../../../index.html">Software Development</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../installation.html">1. Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../configuration.html">2. Developer Info and Release Configuration</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../../../index.html">DCS Development</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../../../introduction/introduction.html">1. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../specification/specification.html">2. DCS specification example: <em>isample_dcs</em></a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../../../codegen.html">3. DCS code generation example: <em>isample_dcs</em></a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../index.html">DCS Subsystem files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../index.html">3.1. DCS Control Package Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../isample_ctrl_super/index.html">DCS Control Supervisor Files</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">DCS Filter Wheel Controller Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../isample_hw_adapter/index.html">3.2. DCS Hardware Adapter Files</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../model_elements/elements.html">4. Model Elements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../services.html">3. Using the Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../examples.html">4. Running Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../contribute.html">5. Contribute</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -130,7 +151,7 @@
       
           <li><a href="../index.html">DCS Filter Wheel Controller Files</a> &raquo;</li>
       
-    <li>&lt;no title&gt;</li>
+    <li>1. <em>isample_fw1_ctrl_config.coffee</em></li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -144,7 +165,53 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  
+  <div class="section" id="isample-fw1-ctrl-config-coffee">
+<span id="isample-fw1-ctrl-config"></span><h1>1. <em>isample_fw1_ctrl_config.coffee</em><a class="headerlink" href="#isample-fw1-ctrl-config-coffee" title="Permalink to this headline">¶</a></h1>
+<p>The Hardware Developers Kit (HDK) is a hardware platform
+that embodies a basic Device Control System that complies
+with the GMT DCS Reference Architecture (RA)</p>
+<div class="literal-block-wrapper container" id="code-isample-fw1-ctrl-config-coffee">
+<div class="code-block-caption"><span class="caption-number">Listing 34 </span><span class="caption-text">Code: <em>isample_fw1_ctrl_config.coffee</em></span><a class="headerlink" href="#code-isample-fw1-ctrl-config-coffee" title="Permalink to this code">¶</a></div>
+<div class="highlight-coffeescript"><div class="highlight"><pre><span></span><span class="c1"># Component   instance configuration file</span>
+<span class="c1"># Ports should be setup per instance</span>
+
+
+<span class="nx">isample_filter_wheel_ctrl</span> <span class="s">&quot;isample_fw1_ctrl&quot;</span><span class="p">,</span>
+    <span class="nv">default:</span>
+
+        <span class="nv">properties:</span>
+            <span class="nv">uri_path: </span><span class="s">&#39;gmt://default/&#39;</span>
+            <span class="nv">host: </span><span class="s">&#39;localhost&#39;</span>
+            <span class="nv">port: </span><span class="mi">8000</span>
+            <span class="nv">rate: </span><span class="mi">1000</span>
+            <span class="nv">acl: </span><span class="s">&#39;private&#39;</span>
+
+        <span class="nv">state_vars: </span><span class="p">[</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;position&#39;</span><span class="p">,</span> <span class="nv">default: </span><span class="mi">20</span><span class="p">,</span>  <span class="nv">min: </span><span class="mi">5</span><span class="p">,</span> <span class="nv">max: </span><span class="mi">40</span> <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;ops_state&#39;</span><span class="p">,</span> <span class="nv">default: </span><span class="s">&#39;OFF&#39;</span>  <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;sim_mode&#39;</span><span class="p">,</span> <span class="nv">default: </span><span class="s">&#39;ON_LINE&#39;</span>  <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;control_mode&#39;</span><span class="p">,</span> <span class="nv">default: </span><span class="s">&#39;STANDALONE&#39;</span>  <span class="p">}</span>
+        <span class="p">]</span>
+        <span class="nv">input_ports: </span><span class="p">[</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;motor_state&#39;</span><span class="p">,</span>           <span class="nv">protocol: </span><span class="s">&#39;pull&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8005&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="mi">1</span>        <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;position_goal&#39;</span><span class="p">,</span>         <span class="nv">protocol: </span><span class="s">&#39;pull&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8000&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="kc">undefined</span> <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;ops_state_goal&#39;</span><span class="p">,</span>        <span class="nv">protocol: </span><span class="s">&#39;pull&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8000&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="kc">undefined</span> <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;sim_mode_goal&#39;</span><span class="p">,</span>         <span class="nv">protocol: </span><span class="s">&#39;pull&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8000&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="kc">undefined</span> <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;control_mode_goal&#39;</span><span class="p">,</span>     <span class="nv">protocol: </span><span class="s">&#39;pull&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8000&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="kc">undefined</span> <span class="p">}</span>
+        <span class="p">]</span>
+        <span class="nv">output_ports: </span><span class="p">[</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;motor_ctrl&#39;</span><span class="p">,</span>            <span class="nv">protocol: </span><span class="s">&#39;push&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8009&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="mi">1</span>        <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;heartbeat_out&#39;</span><span class="p">,</span>         <span class="nv">protocol: </span><span class="s">&#39;push&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8011&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="mi">1</span>        <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;position_value&#39;</span><span class="p">,</span>        <span class="nv">protocol: </span><span class="s">&#39;push&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8000&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="kc">undefined</span> <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;ops_state_value&#39;</span><span class="p">,</span>       <span class="nv">protocol: </span><span class="s">&#39;push&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8000&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="kc">undefined</span> <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;sim_mode_value&#39;</span><span class="p">,</span>        <span class="nv">protocol: </span><span class="s">&#39;push&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8000&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="kc">undefined</span> <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;control_mode_value&#39;</span><span class="p">,</span>    <span class="nv">protocol: </span><span class="s">&#39;push&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8000&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="kc">undefined</span> <span class="p">}</span>
+        <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+
 
            </div>
           </div>
@@ -152,10 +219,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="isample_fw2_ctrl_config.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="isample_filter_wheel_ctrl_h.html" class="btn btn-neutral float-right" title="2. isample_filter_wheel_ctrl.h" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="isample_filter_wheel_ctrl_component.html" class="btn btn-neutral" title="&lt;no title&gt;" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../index.html" class="btn btn-neutral" title="DCS Filter Wheel Controller Files" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

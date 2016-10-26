@@ -6,17 +6,17 @@ Controller    'isample_focus_ctrl',
     abstract: false
 
     state_vars:
-        position:     { type: 'float', controllable: true, init: 20.0, max: 40.0, min: 5.0, desc: 'position sv' }
+        position:     { type: 'float', controllable: true, default: 20.0, max: 40.0, min: 5.0, desc: 'position sv' }
 
     input_ports:
-        hmi_inputs:   { type: 'hmi_buttons',       protocol: 'pull', rate: 1, desc: 'HMI operation buttons' }
-        motor_state:  { type: 'motor_status',      protocol: 'pull', rate: 1, desc: 'motor state' }
+        hmi_inputs:   { type: 'isample_hmi_buttons',   protocol: 'pull', max_rate: 1, blocking_mode: 'async', desc: 'HMI operation buttons' }
+        motor_state:  { type: 'isample_motor_status',  protocol: 'pull', max_rate: 1, blocking_mode: 'async', desc: 'motor state' }
 
     output_ports:
-        hmi_outputs:  { type: 'hmi_leds',          protocol: 'push', rate: 1, desc: 'digital outputs' }
-        motor_ctrl:   { type: 'motor_control',     protocol: 'push', rate: 1, desc: 'motor control' }
+        hmi_outputs:  { type: 'isample_hmi_leds',      protocol: 'push', max_rate: 1, blocking_mode: 'async', desc: 'digital outputs' }
+        motor_ctrl:   { type: 'isample_motor_control', protocol: 'push', max_rate: 1, blocking_mode: 'async', desc: 'motor control' }
 
-    instance_configurations: ['focus_ctrl']
+    instance_configurations: ['isample_focus_ctrl']
 
     properties:
         uri_path:     {type: 'String',  default: "gmt://isample_cs/"}

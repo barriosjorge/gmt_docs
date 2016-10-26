@@ -3,7 +3,7 @@ FieldBus "isample_ctrl_fb",
     info:    "Main isample EtherCAT bus"
     desc:    "Main isample EtherCAT bus"
 
-    masters: [                          # TODO Only one master per etherCAT fieldbus
+    masters: [
             { id: 0, rate: 1000 }
     ]
 
@@ -13,15 +13,15 @@ FieldBus "isample_ctrl_fb",
     ]
 
     modules: [
-        { name: "coupler",     position: 0, type: "EK1100-11" }
-        { name: "dig_inp",     position: 1, type: "EL1008-11" }
-        { name: "dig_out",     position: 2, type: "EL2008-11" }
-        { name: "ana_inp",     position: 3, type: "EL3002-14" }
-        { name: "pt100",       position: 4, type: "EL3202-13" }
-        { name: "ana_out",     position: 5, type: "EL4032-11" }
-        { name: "focus_motor", position: 6, type: "EL7041-17" }
-        { name: "fw1_motor",   position: 7, type: "EL7041-17" }
-        { name: "fw2_motor",   position: 8, type: "EL7041-17" }
+        { name: "coupler",     position: 0, type: "EK1100-11", master_id: 0 }
+        { name: "dig_inp",     position: 1, type: "EL1008-11", master_id: 0 }
+        { name: "dig_out",     position: 2, type: "EL2008-11", master_id: 0 }
+        { name: "ana_inp",     position: 3, type: "EL3002-14", master_id: 0 }
+        { name: "pt100",       position: 4, type: "EL3202-13", master_id: 0 }
+        { name: "ana_out",     position: 5, type: "EL4032-11", master_id: 0 }
+        { name: "focus_motor", position: 6, type: "EL7041-17", master_id: 0 }
+        { name: "fw1_motor",   position: 7, type: "EL7041-17", master_id: 0 }
+        { name: "fw2_motor",   position: 8, type: "EL7041-17", master_id: 0 }
     ]
 
     data_objects: [

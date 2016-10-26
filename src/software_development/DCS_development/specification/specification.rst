@@ -7,6 +7,7 @@ DCS specification example: *isample_dcs*
    :maxdepth: 1
 
    isample_dcs/docs/loader
+   isample_dcs/docs/isample_def.rst
    isample_dcs/docs/isample_dcs.rst
    isample_dcs/docs/isample_types.rst
    isample_dcs/isample_ctrl_pkg/docs/isample_ctrl_fb.rst
