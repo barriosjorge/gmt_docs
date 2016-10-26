@@ -8,7 +8,11 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
+<<<<<<< HEAD
   <title>3. Using the Services &mdash; GMT Software And Controls documentation</title>
+=======
+  <title>5. Using the Services &mdash; GMT Software And Controls documentation</title>
+>>>>>>> 6a1a28f97bb3f7ffeeb4aad20b22be868950cd12
   
 
   
@@ -32,10 +36,18 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="GMT Software And Controls documentation" href="../index.html"/>
         <link rel="up" title="Software Development" href="index.html"/>
+<<<<<<< HEAD
         <link rel="next" title="4. Running Examples" href="examples.html"/>
         <link rel="prev" title="4.5. Controller" href="DCS_development/model_elements/Controller.html"/> 
+=======
+        <link rel="next" title="6. Running Examples" href="examples.html"/>
+        <link rel="prev" title="4.4.5. Controller" href="DCS_development/model_elements/Controller.html"/> 
+>>>>>>> 6a1a28f97bb3f7ffeeb4aad20b22be868950cd12
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -93,6 +105,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../SWCS_Standards/index.html">Software and Controls Standards</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Software Development</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installation.html">1. Installation</a></li>
+<<<<<<< HEAD
 <li class="toctree-l2"><a class="reference internal" href="configuration.html">2. Developer Info and Release Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DCS_development/index.html">DCS Development</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">3. Using the Services</a><ul>
@@ -104,6 +117,21 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="examples.html">4. Running Examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contribute.html">5. Contribute</a></li>
+=======
+<li class="toctree-l2"><a class="reference internal" href="isample_example.html">2. ISample Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">3. Developer Info and Release Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DCS_development/index.html">4. DCS Development</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">5. Using the Services</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#starting-and-stopping-services">5.1. Starting and Stopping Services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#checking-the-log-service">5.2. Checking the Log Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#starting-example-components">5.3. Starting example components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#making-a-query-to-the-log-service">5.4. Making a query to the Log Service</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html">6. Running Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dcs_dev_guide.html">7. Creating a Device Control System (TBR)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html">8. Contribute</a></li>
+>>>>>>> 6a1a28f97bb3f7ffeeb4aad20b22be868950cd12
 </ul>
 </li>
 </ul>
@@ -138,11 +166,13 @@
       
           <li><a href="index.html">Software Development</a> &raquo;</li>
       
+<<<<<<< HEAD
     <li>3. Using the Services</li>
+=======
+    <li>5. Using the Services</li>
+>>>>>>> 6a1a28f97bb3f7ffeeb4aad20b22be868950cd12
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../_sources/software_development/services.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -153,9 +183,15 @@
            <div itemprop="articleBody">
             
   <div class="section" id="using-the-services">
+<<<<<<< HEAD
 <h1>3. Using the Services<a class="headerlink" href="#using-the-services" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="starting-and-stopping-services">
 <h2>3.1. Starting and Stopping Services<a class="headerlink" href="#starting-and-stopping-services" title="Permalink to this headline">¶</a></h2>
+=======
+<h1>5. Using the Services<a class="headerlink" href="#using-the-services" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="starting-and-stopping-services">
+<h2>5.1. Starting and Stopping Services<a class="headerlink" href="#starting-and-stopping-services" title="Permalink to this headline">¶</a></h2>
+>>>>>>> 6a1a28f97bb3f7ffeeb4aad20b22be868950cd12
 <p>The mongoDB daemon runs as a system service under <em>systemd</em>.</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ sudo systemctl <span class="o">[</span>enable<span class="p">|</span>disable<span class="o">]</span> mongod
 $ sudo systemctl <span class="o">[</span>status<span class="p">|</span>start<span class="p">|</span>restart<span class="p">|</span>stop<span class="o">]</span> mongod
@@ -168,7 +204,11 @@ $ telemetry_service <span class="o">[</span>start<span class="p">|</span>stop<sp
 </div>
 </div>
 <div class="section" id="checking-the-log-service">
+<<<<<<< HEAD
 <h2>3.2. Checking the Log Service<a class="headerlink" href="#checking-the-log-service" title="Permalink to this headline">¶</a></h2>
+=======
+<h2>5.2. Checking the Log Service<a class="headerlink" href="#checking-the-log-service" title="Permalink to this headline">¶</a></h2>
+>>>>>>> 6a1a28f97bb3f7ffeeb4aad20b22be868950cd12
 <p>In order to check if the simple communication is working the following test can be performed.</p>
 <p>Open 2 unix terminals. We will call them terminal_1 and terminal_2.</p>
 <p>In terminal_1 verify that the log_service is running:</p>
@@ -276,7 +316,11 @@ etc...
 </div>
 </div>
 <div class="section" id="starting-example-components">
+<<<<<<< HEAD
 <h2>3.3. Starting example components<a class="headerlink" href="#starting-example-components" title="Permalink to this headline">¶</a></h2>
+=======
+<h2>5.3. Starting example components<a class="headerlink" href="#starting-example-components" title="Permalink to this headline">¶</a></h2>
+>>>>>>> 6a1a28f97bb3f7ffeeb4aad20b22be868950cd12
 <p>The main use of the log service is inside the GMT components. To check the log service with the simple example components we can start them in terminal_2:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ run_example_components
 </pre></div>
@@ -333,7 +377,11 @@ $ <span class="nb">kill</span> -9 15209
 <p>We&#8217;ll see this example in much more detail later.</p>
 </div>
 <div class="section" id="making-a-query-to-the-log-service">
+<<<<<<< HEAD
 <h2>3.4. Making a query to the Log Service<a class="headerlink" href="#making-a-query-to-the-log-service" title="Permalink to this headline">¶</a></h2>
+=======
+<h2>5.4. Making a query to the Log Service<a class="headerlink" href="#making-a-query-to-the-log-service" title="Permalink to this headline">¶</a></h2>
+>>>>>>> 6a1a28f97bb3f7ffeeb4aad20b22be868950cd12
 <p>The log service stores all received messages in a local database. In order to query this database the log service shall be started and then in any terminal we can use:</p>
 <blockquote>
 <div><em>Usage:</em>  <code class="docutils literal"><span class="pre">log_query</span> <span class="pre">uri</span> <span class="pre">num</span></code></div></blockquote>
@@ -364,10 +412,17 @@ starting log query at tcp://127.0.0.1:9994
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+<<<<<<< HEAD
         <a href="examples.html" class="btn btn-neutral float-right" title="4. Running Examples" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="DCS_development/model_elements/Controller.html" class="btn btn-neutral" title="4.5. Controller" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+=======
+        <a href="examples.html" class="btn btn-neutral float-right" title="6. Running Examples" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="DCS_development/model_elements/Controller.html" class="btn btn-neutral" title="4.4.5. Controller" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+>>>>>>> 6a1a28f97bb3f7ffeeb4aad20b22be868950cd12
       
     </div>
   

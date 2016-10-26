@@ -32,9 +32,12 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="GMT Software And Controls documentation" href="../index.html"/>
         <link rel="up" title="Software Development" href="index.html"/>
-        <link rel="next" title="2. Developer Info and Release Configuration" href="configuration.html"/>
+        <link rel="next" title="2. ISample Example" href="isample_example.html"/>
         <link rel="prev" title="Software Development" href="index.html"/> 
 
   
@@ -97,11 +100,21 @@
 <li class="toctree-l3"><a class="reference internal" href="#sanity-check">1.2. Sanity Check</a></li>
 </ul>
 </li>
+<<<<<<< HEAD
 <li class="toctree-l2"><a class="reference internal" href="configuration.html">2. Developer Info and Release Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DCS_development/index.html">DCS Development</a></li>
 <li class="toctree-l2"><a class="reference internal" href="services.html">3. Using the Services</a></li>
 <li class="toctree-l2"><a class="reference internal" href="examples.html">4. Running Examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contribute.html">5. Contribute</a></li>
+=======
+<li class="toctree-l2"><a class="reference internal" href="isample_example.html">2. ISample Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">3. Developer Info and Release Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DCS_development/index.html">4. DCS Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html">5. Using the Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html">6. Running Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dcs_dev_guide.html">7. Creating a Device Control System (TBR)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html">8. Contribute</a></li>
+>>>>>>> 6a1a28f97bb3f7ffeeb4aad20b22be868950cd12
 </ul>
 </li>
 </ul>
@@ -139,8 +152,6 @@
     <li>1. Installation</li>
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../_sources/software_development/installation.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -193,7 +204,7 @@ $ sudo diskutil unmountDisk /dev/disk2
 $ sudo dd <span class="nv">bs</span><span class="o">=</span>4m <span class="k">if</span><span class="o">=</span>standalone.iso <span class="nv">of</span><span class="o">=</span>/dev/rdisk2
 </pre></div>
 </div>
-<p>Linux - with drive on <code class="docutils literal"><span class="pre">/dev/sdb</span></code></p>
+<p>Linux - with a drive on <code class="docutils literal"><span class="pre">/dev/sdb</span></code></p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ sha512sum -c standalone.sha512
 standalone.iso: OK
 
@@ -210,7 +221,7 @@ $ sudo dd <span class="nv">bs</span><span class="o">=</span>4M <span class="k">i
 with the Hardware Development Kit (HDK):</p>
 <p>2.1  Insert the USB drive into the IPC and power up the system</p>
 <p>2.1  Enter the BIOS settings by pressing the &lt;Del&gt; key.</p>
-<p>2.2  In the Boot panel, set Option #1 to [USB stick].</p>
+<p>2.2  In the Boot panel, set Option #1 to [USB Stick].</p>
 <blockquote>
 <div><a class="reference internal image-reference" href="../_images/hdk-bios-usb.png"><img alt="BIOS boot configuration" class="align-center" src="../_images/hdk-bios-usb.png" style="width: 560.0px; height: 352.09999999999997px;" /></a>
 </div></blockquote>
@@ -270,7 +281,7 @@ $ ethercat slaves
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="configuration.html" class="btn btn-neutral float-right" title="2. Developer Info and Release Configuration" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="isample_example.html" class="btn btn-neutral float-right" title="2. ISample Example" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral" title="Software Development" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>

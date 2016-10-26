@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2. Developer Info and Release Configuration &mdash; GMT Software And Controls documentation</title>
+  <title>3. Developer Info and Release Configuration &mdash; GMT Software And Controls documentation</title>
   
 
   
@@ -32,10 +32,13 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="GMT Software And Controls documentation" href="../index.html"/>
         <link rel="up" title="Software Development" href="index.html"/>
-        <link rel="next" title="DCS Development" href="DCS_development/index.html"/>
-        <link rel="prev" title="1. Installation" href="installation.html"/> 
+        <link rel="next" title="4. DCS Development" href="DCS_development/index.html"/>
+        <link rel="prev" title="2. ISample Example" href="isample_example.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -93,18 +96,27 @@
 <li class="toctree-l1"><a class="reference internal" href="../SWCS_Standards/index.html">Software and Controls Standards</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Software Development</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installation.html">1. Installation</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">2. Developer Info and Release Configuration</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#services-configuration">2.1. Services Configuration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#databases-and-logs">2.2. Databases and Logs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#firewall-and-network-ports">2.3. Firewall and Network Ports</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#uris-and-urls">2.4. URIs and URLs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#environment-vars">2.5. Environment vars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="isample_example.html">2. ISample Example</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3. Developer Info and Release Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#services-configuration">3.1. Services Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#databases-and-logs">3.2. Databases and Logs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#firewall-and-network-ports">3.3. Firewall and Network Ports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#uris-and-urls">3.4. URIs and URLs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#environment-vars">3.5. Environment vars</a></li>
 </ul>
 </li>
+<<<<<<< HEAD
 <li class="toctree-l2"><a class="reference internal" href="DCS_development/index.html">DCS Development</a></li>
 <li class="toctree-l2"><a class="reference internal" href="services.html">3. Using the Services</a></li>
 <li class="toctree-l2"><a class="reference internal" href="examples.html">4. Running Examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contribute.html">5. Contribute</a></li>
+=======
+<li class="toctree-l2"><a class="reference internal" href="DCS_development/index.html">4. DCS Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html">5. Using the Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html">6. Running Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dcs_dev_guide.html">7. Creating a Device Control System (TBR)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html">8. Contribute</a></li>
+>>>>>>> 6a1a28f97bb3f7ffeeb4aad20b22be868950cd12
 </ul>
 </li>
 </ul>
@@ -139,11 +151,9 @@
       
           <li><a href="index.html">Software Development</a> &raquo;</li>
       
-    <li>2. Developer Info and Release Configuration</li>
+    <li>3. Developer Info and Release Configuration</li>
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../_sources/software_development/configuration.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -154,7 +164,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="developer-info-and-release-configuration">
-<h1>2. Developer Info and Release Configuration<a class="headerlink" href="#developer-info-and-release-configuration" title="Permalink to this headline">¶</a></h1>
+<h1>3. Developer Info and Release Configuration<a class="headerlink" href="#developer-info-and-release-configuration" title="Permalink to this headline">¶</a></h1>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">If the installation is done via the USB drive, one can bypass the manual setup
@@ -176,7 +186,7 @@ and telemetry, are essential for controlling hardware and software.  The logging
 service uses <em>mongoDB</em> as the backend database, with each service having its
 own, independent, database.</p>
 <div class="section" id="services-configuration">
-<h2>2.1. Services Configuration<a class="headerlink" href="#services-configuration" title="Permalink to this headline">¶</a></h2>
+<h2>3.1. Services Configuration<a class="headerlink" href="#services-configuration" title="Permalink to this headline">¶</a></h2>
 <p>Currently we use only one unique server per service. Each server is a distributed component with the following ports:</p>
 <ul class="simple">
 <li>one port to receive data (logs, monitored values, etc) from external distributed components</li>
@@ -212,7 +222,7 @@ This variable is only required for the C++ components in:</p>
 </div>
 </div>
 <div class="section" id="databases-and-logs">
-<h2>2.2. Databases and Logs<a class="headerlink" href="#databases-and-logs" title="Permalink to this headline">¶</a></h2>
+<h2>3.2. Databases and Logs<a class="headerlink" href="#databases-and-logs" title="Permalink to this headline">¶</a></h2>
 <p>The Data Archive uses <em>mongoDB</em> as backend data base. Each service keeps and
 independent database.</p>
 <p>Each service daemon stores output and error messages on <cite>${GMT_ROOT}/var/log</cite>.  Please
@@ -220,7 +230,7 @@ check these files if services failed to start or an error is shown while
 checking their status</p>
 </div>
 <div class="section" id="firewall-and-network-ports">
-<h2>2.3. Firewall and Network Ports<a class="headerlink" href="#firewall-and-network-ports" title="Permalink to this headline">¶</a></h2>
+<h2>3.3. Firewall and Network Ports<a class="headerlink" href="#firewall-and-network-ports" title="Permalink to this headline">¶</a></h2>
 <p>The GMT software is networked system. The following instructions assume that the
 used ports are open for tcp/udp communications.  With root/admin permissions
 it&#8217;s possible to disable the whole firewall or specific ports can be open like
@@ -231,7 +241,7 @@ $ sudo firewall-cmd --add-port=$PORT/udp --permanent --zone=public
 </div>
 </div>
 <div class="section" id="uris-and-urls">
-<h2>2.4. URIs and URLs<a class="headerlink" href="#uris-and-urls" title="Permalink to this headline">¶</a></h2>
+<h2>3.4. URIs and URLs<a class="headerlink" href="#uris-and-urls" title="Permalink to this headline">¶</a></h2>
 <p>GMT Components use an unique URI in the following scheme</p>
 <blockquote>
 <div><em>Usage:</em> <code class="docutils literal"><span class="pre">gmt://subsystem/component:port</span></code></div></blockquote>
@@ -249,7 +259,7 @@ Example:</p>
 </div>
 </div>
 <div class="section" id="environment-vars">
-<h2>2.5. Environment vars<a class="headerlink" href="#environment-vars" title="Permalink to this headline">¶</a></h2>
+<h2>3.5. Environment vars<a class="headerlink" href="#environment-vars" title="Permalink to this headline">¶</a></h2>
 <p>Some UNIX environment variables are required and they should be automatically applied. See this file:</p>
 <blockquote>
 <div><cite>${GMT_ROOT}/etc/gmt_env_vars</cite></div></blockquote>
@@ -263,10 +273,10 @@ Example:</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="DCS_development/index.html" class="btn btn-neutral float-right" title="DCS Development" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="DCS_development/index.html" class="btn btn-neutral float-right" title="4. DCS Development" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="installation.html" class="btn btn-neutral" title="1. Installation" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="isample_example.html" class="btn btn-neutral" title="2. ISample Example" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
