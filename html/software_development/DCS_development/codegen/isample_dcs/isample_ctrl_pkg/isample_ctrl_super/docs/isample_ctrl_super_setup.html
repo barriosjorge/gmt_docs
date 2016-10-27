@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3.1.6. isample_ctrl_super_setup.cpp &mdash; GMT Software And Controls documentation</title>
+  <title>4. isample_ctrl_super_setup.cpp &mdash; GMT Software And Controls documentation</title>
   
 
   
@@ -33,9 +33,9 @@
 
   
     <link rel="top" title="GMT Software And Controls documentation" href="../../../../../../../index.html"/>
-        <link rel="up" title="3.1. DCS Control Supervisor Files" href="../index.html"/>
-        <link rel="next" title="3.1.7. isample_ctrl_super_step.cpp" href="isample_ctrl_super_step.html"/>
-        <link rel="prev" title="3.1.5. isample_ctrl_super_run.cpp" href="isample_ctrl_super_run.html"/> 
+        <link rel="up" title="4.3.3. DCS Control Supervisor Files" href="../index.html"/>
+        <link rel="next" title="5. isample_ctrl_super_step.cpp" href="isample_ctrl_super_step.html"/>
+        <link rel="prev" title="3. isample_ctrl_super.cpp" href="isample_ctrl_super_cpp.html"/> 
 
   
   <script src="../../../../../../../_static/js/modernizr.min.js"></script>
@@ -95,23 +95,23 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../../../installation.html">1. Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../../isample_example.html">2. ISample Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../../configuration.html">3. Developer Info and Release Configuration</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../../../../../index.html">DCS Development</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../../../../../introduction/introduction.html">1. Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../specification/specification.html">2. DCS specification example: <em>isample_dcs</em></a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../../../../codegen.html">3. DCS code generation example: <em>isample_dcs</em></a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="../../../index.html">DCS Subsystem files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../index.html">DCS Control Package Files</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="../index.html">3.1. DCS Control Supervisor Files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../isample_filter_wheel_ctrl/index.html">DCS Filter Wheel Controller Files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../isample_hw_adapter/index.html">DCS Hardware Adapter Files</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../../../index.html">4. DCS Development</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../../../introduction/introduction.html">4.1. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../specification/specification.html">4.2. DCS specification example: <em>isample_dcs</em></a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../../../codegen.html">4.3. DCS code generation example: <em>isample_dcs</em></a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../index.html">4.3.1. DCS Subsystem files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../index.html">4.3.2. DCS Control Package Files</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">4.3.3. DCS Control Supervisor Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../isample_filter_wheel_ctrl/index.html">4.3.4. DCS Filter Wheel Controller Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../isample_hw_adapter/index.html">4.3.5. DCS Hardware Adapter Files</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../model_elements/elements.html">4. Model Elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../model_elements/elements.html">4.4. Model Elements</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../../services.html">4. Using the Services</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../../examples.html">5. Running Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../../contribute.html">6. Contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../services.html">5. Using the Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../examples.html">6. Running Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../contribute.html">7. Contribute</a></li>
 </ul>
 </li>
 </ul>
@@ -136,7 +136,7 @@
         <div class="rst-content">
           
 
- 
+
 
 
 
@@ -146,13 +146,13 @@
       
           <li><a href="../../../../../../index.html">Software Development</a> &raquo;</li>
       
-          <li><a href="../../../../../index.html">DCS Development</a> &raquo;</li>
+          <li><a href="../../../../../index.html">4. DCS Development</a> &raquo;</li>
       
-          <li><a href="../../../../codegen.html">3. DCS code generation example: <em>isample_dcs</em></a> &raquo;</li>
+          <li><a href="../../../../codegen.html">4.3. DCS code generation example: <em>isample_dcs</em></a> &raquo;</li>
       
-          <li><a href="../index.html">3.1. DCS Control Supervisor Files</a> &raquo;</li>
+          <li><a href="../index.html">4.3.3. DCS Control Supervisor Files</a> &raquo;</li>
       
-    <li>3.1.6. <em>isample_ctrl_super_setup.cpp</em></li>
+    <li>4. <em>isample_ctrl_super_setup.cpp</em></li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -165,39 +165,8 @@
            <div itemprop="articleBody">
             
   <div class="section" id="isample-ctrl-super-setup-cpp">
-<span id="isample-ctrl-super-setup"></span><h1>3.1.6. <em>isample_ctrl_super_setup.cpp</em><a class="headerlink" href="#isample-ctrl-super-setup-cpp" title="Permalink to this headline">¶</a></h1>
-<p>The Hardware Developers Kit (HDK) is a hardware platform
-that embodies a basic Device Control System that complies
-with the GMT DCS Reference Architecture (RA)</p>
-<div class="literal-block-wrapper container" id="code-isample-ctrl-super-setup-cpp">
-<div class="code-block-caption"><span class="caption-number">Listing 31 </span><span class="caption-text">Code: <em>isample_ctrl_super_setup.cpp</em></span><a class="headerlink" href="#code-isample-ctrl-super-setup-cpp" title="Permalink to this code">¶</a></div>
-<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;isample_ctrl_super.h&quot;</span><span class="cp"></span>
-
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">gmt</span><span class="p">;</span>
-
-<span class="kt">void</span> <span class="n">IsampleCtrlSuper</span><span class="o">::</span><span class="n">setup</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">log_info</span><span class="p">(</span><span class="s">&quot;port setup&quot;</span><span class="p">);</span>
-
-    <span class="c1">// create input ports</span>
-    <span class="n">new_input_port</span><span class="p">(</span><span class="n">heartbeat_in</span><span class="p">,</span>             <span class="s">&quot;heartbeat_in&quot;</span><span class="p">);</span>
-
-    <span class="c1">// create output ports</span>
-    <span class="n">new_output_port</span><span class="p">(</span><span class="n">heartbeat_out</span><span class="p">,</span>           <span class="s">&quot;heartbeat_out&quot;</span><span class="p">);</span>
-
-    <span class="c1">// Create state variable ports  (current, goal, health)</span>
-    <span class="n">new_input_port</span><span class="p">(</span><span class="n">ops_state_sv</span><span class="p">.</span><span class="n">goal</span><span class="p">,</span>        <span class="s">&quot;ops_state_goal&quot;</span><span class="p">);</span>
-    <span class="n">new_output_port</span><span class="p">(</span><span class="n">ops_state_sv</span><span class="p">.</span><span class="n">value</span><span class="p">,</span>      <span class="s">&quot;ops_state_value&quot;</span><span class="p">);</span>
-    <span class="n">new_input_port</span><span class="p">(</span><span class="n">sim_mode_sv</span><span class="p">.</span><span class="n">goal</span><span class="p">,</span>         <span class="s">&quot;sim_mode_goal&quot;</span><span class="p">);</span>
-    <span class="n">new_output_port</span><span class="p">(</span><span class="n">sim_mode_sv</span><span class="p">.</span><span class="n">value</span><span class="p">,</span>       <span class="s">&quot;sim_mode_value&quot;</span><span class="p">);</span>
-    <span class="n">new_input_port</span><span class="p">(</span><span class="n">control_mode_sv</span><span class="p">.</span><span class="n">goal</span><span class="p">,</span>     <span class="s">&quot;control_mode_goal&quot;</span><span class="p">);</span>
-    <span class="n">new_output_port</span><span class="p">(</span><span class="n">control_mode_sv</span><span class="p">.</span><span class="n">value</span><span class="p">,</span>   <span class="s">&quot;control_mode_value&quot;</span><span class="p">);</span>
-
-    <span class="c1">// Add transport definition of port types related to state variables</span>
-
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
+<span id="isample-ctrl-super-setup"></span><h1>4. <em>isample_ctrl_super_setup.cpp</em><a class="headerlink" href="#isample-ctrl-super-setup-cpp" title="Permalink to this headline">¶</a></h1>
+<p>This is the definition of the setup method to create and connect the ports.</p>
 </div>
 
 
@@ -207,10 +176,10 @@ with the GMT DCS Reference Architecture (RA)</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="isample_ctrl_super_step.html" class="btn btn-neutral float-right" title="3.1.7. isample_ctrl_super_step.cpp" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="isample_ctrl_super_step.html" class="btn btn-neutral float-right" title="5. isample_ctrl_super_step.cpp" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="isample_ctrl_super_run.html" class="btn btn-neutral" title="3.1.5. isample_ctrl_super_run.cpp" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="isample_ctrl_super_cpp.html" class="btn btn-neutral" title="3. isample_ctrl_super.cpp" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

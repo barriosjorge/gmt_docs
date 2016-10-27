@@ -3,10 +3,7 @@
 *isample_hmi_leds.h*
 --------------------
 
-The Hardware Developers Kit (HDK) is a hardware platform
-that embodies a basic Device Control System that complies
-with the GMT DCS Reference Architecture (RA)
-
+This is the C++ msgpack struct required for the hmi_leds data type.
 
 .. literalinclude:: ../cpp/isample_hmi_leds.h
    :caption:  Code: *isample_hmi_leds.h*

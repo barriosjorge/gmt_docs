@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>5. Running Examples &mdash; GMT Software And Controls documentation</title>
+  <title>6. Running Examples &mdash; GMT Software And Controls documentation</title>
   
 
   
@@ -34,8 +34,8 @@
   
     <link rel="top" title="GMT Software And Controls documentation" href="../index.html"/>
         <link rel="up" title="Software Development" href="index.html"/>
-        <link rel="next" title="6. Contribute" href="contribute.html"/>
-        <link rel="prev" title="4. Using the Services" href="services.html"/> 
+        <link rel="next" title="7. Contribute" href="contribute.html"/>
+        <link rel="prev" title="5. Using the Services" href="services.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -95,21 +95,21 @@
 <li class="toctree-l2"><a class="reference internal" href="installation.html">1. Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="isample_example.html">2. ISample Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="configuration.html">3. Developer Info and Release Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DCS_development/index.html">DCS Development</a></li>
-<li class="toctree-l2"><a class="reference internal" href="services.html">4. Using the Services</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">5. Running Examples</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#gmt-components">5.1. GMT Components</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#connecting-components">5.2. Connecting Components</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#running-the-example-components">5.3. Running the example components</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#setup-components-and-ports">5.4. Setup Components and Ports</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#hardware-adapters-ethercat-example">5.5. Hardware Adapters: Ethercat Example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#controllers-example">5.6. Controllers Example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#check-monitored-values">5.7. Check Monitored Values</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#send-a-command-to-a-controller">5.8. Send a Command to a Controller</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#hdk-controller-with-ethercat-adapter">5.9. HDK Controller With Ethercat Adapter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DCS_development/index.html">4. DCS Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html">5. Using the Services</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">6. Running Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gmt-components">6.1. GMT Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connecting-components">6.2. Connecting Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-the-example-components">6.3. Running the example components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setup-components-and-ports">6.4. Setup Components and Ports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hardware-adapters-ethercat-example">6.5. Hardware Adapters: Ethercat Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#controllers-example">6.6. Controllers Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#check-monitored-values">6.7. Check Monitored Values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#send-a-command-to-a-controller">6.8. Send a Command to a Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hdk-controller-with-ethercat-adapter">6.9. HDK Controller With Ethercat Adapter</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="contribute.html">6. Contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html">7. Contribute</a></li>
 </ul>
 </li>
 </ul>
@@ -134,7 +134,7 @@
         <div class="rst-content">
           
 
- 
+
 
 
 
@@ -144,7 +144,7 @@
       
           <li><a href="index.html">Software Development</a> &raquo;</li>
       
-    <li>5. Running Examples</li>
+    <li>6. Running Examples</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -157,9 +157,9 @@
            <div itemprop="articleBody">
             
   <div class="section" id="running-examples">
-<h1>5. Running Examples<a class="headerlink" href="#running-examples" title="Permalink to this headline">¶</a></h1>
+<h1>6. Running Examples<a class="headerlink" href="#running-examples" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="gmt-components">
-<h2>5.1. GMT Components<a class="headerlink" href="#gmt-components" title="Permalink to this headline">¶</a></h2>
+<h2>6.1. GMT Components<a class="headerlink" href="#gmt-components" title="Permalink to this headline">¶</a></h2>
 <p>Components are the simple building blocks in the GMT software architecture and they will be used extensively at all levels.
 A software component is a unit of composition with contractually specified interfaces and explicit context dependencies only.
 Ports are interaction points for components. They can be the data inputs (required interface) or the data outputs (provided interface) of our components.
@@ -234,7 +234,7 @@ The component does not need to do update the ports because, for any component, t
 </div>
 </div>
 <div class="section" id="connecting-components">
-<h2>5.2. Connecting Components<a class="headerlink" href="#connecting-components" title="Permalink to this headline">¶</a></h2>
+<h2>6.2. Connecting Components<a class="headerlink" href="#connecting-components" title="Permalink to this headline">¶</a></h2>
 <p>The great thing about components is that they can be easily connected with other components to perform a much more complex function.
 A connector is a link that enables communication between components. A connector simply means that runtime component instances can communicate using their ports.</p>
 <p>Let&#8217;s create a component type called Inc with just one output port. This component has an initial value that is incremented at every step.
@@ -297,7 +297,7 @@ Components will run even when their ports are not connected to other components.
 <div><em>src/runtime/src/obs_fwk/core_fwk/c++/examples/example_components</em></div></blockquote>
 </div>
 <div class="section" id="running-the-example-components">
-<h2>5.3. Running the example components<a class="headerlink" href="#running-the-example-components" title="Permalink to this headline">¶</a></h2>
+<h2>6.3. Running the example components<a class="headerlink" href="#running-the-example-components" title="Permalink to this headline">¶</a></h2>
 <p>In one terminal open a log_client so</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ log_client
 log client subscribed at port tcp://127.0.0.1:9995
@@ -357,7 +357,7 @@ sum2.x3 = 2</dd>
 <p>In order to receive data from other components all components ports shall be setup.</p>
 </div>
 <div class="section" id="setup-components-and-ports">
-<h2>5.4. Setup Components and Ports<a class="headerlink" href="#setup-components-and-ports" title="Permalink to this headline">¶</a></h2>
+<h2>6.4. Setup Components and Ports<a class="headerlink" href="#setup-components-and-ports" title="Permalink to this headline">¶</a></h2>
 <p>When a components starts it will automatically run its step() loop at the required rate.
 On each step() it checks its inputs, process the inputs and sets the outputs. At the init phase only the setup port is ready.
 It can receive the following component setup:</p>
@@ -372,21 +372,21 @@ It can receive the following component setup:</p>
 </div></blockquote>
 <p>Any component can receive its setup using:</p>
 <blockquote>
-<div><em>Usage:</em>  <code class="docutils literal"><span class="pre">setup_component</span>&#160; <span class="pre">subsystem_name</span>&#160; <span class="pre">component_name</span></code></div></blockquote>
+<div><em>Usage:</em>  <tt class="docutils literal"><span class="pre">setup_component</span>&nbsp; <span class="pre">subsystem_name</span>&nbsp; <span class="pre">component_name</span></tt></div></blockquote>
 <p>This command will look the component configuration at:</p>
 <blockquote>
 <div><cite>${GMT_ROOT}/var/lib/gmt/cson/runtime/db/config/&lt;subsystem_name&gt;/&lt;component_name&gt;.cson</cite></div></blockquote>
 <p>For example, <em>component_sum1</em> has the following configuration in:</p>
 <blockquote>
 <div><cite>${GMT_ROOT}/var/lib/gmt/cson/runtime/db/config/examples/component_sum1.cson</cite></div></blockquote>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">component_setup</span><span class="p">:</span>
-    <span class="n">name</span>        <span class="p">:</span> <span class="s1">&#39;examples/component_sum1&#39;</span>
-    <span class="n">port</span>        <span class="p">:</span> <span class="mi">8004</span>
-    <span class="n">host</span>        <span class="p">:</span> <span class="s1">&#39;127.0.0.1&#39;</span>
-    <span class="n">rate</span>        <span class="p">:</span> <span class="s1">&#39;1000000&#39;</span>
-    <span class="n">input_ports</span> <span class="p">:</span> <span class="p">[</span> <span class="p">[</span> <span class="s2">&quot;x2&quot;</span><span class="p">,</span> <span class="s2">&quot;pull&quot;</span><span class="p">,</span> <span class="s2">&quot;tcp://127.0.0.1:9001&quot;</span><span class="p">,</span> <span class="s2">&quot;async&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-                    <span class="p">[</span> <span class="s2">&quot;x3&quot;</span><span class="p">,</span> <span class="s2">&quot;pull&quot;</span><span class="p">,</span> <span class="s2">&quot;tcp://127.0.0.1:9002&quot;</span><span class="p">,</span> <span class="s2">&quot;async&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="p">]</span>
-    <span class="n">output_ports</span> <span class="p">:</span> <span class="p">[</span> <span class="p">[</span> <span class="s2">&quot;x1&quot;</span><span class="p">,</span> <span class="s2">&quot;push&quot;</span><span class="p">,</span> <span class="s2">&quot;tcp://127.0.0.1:9004&quot;</span><span class="p">,</span> <span class="s2">&quot;async&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="p">]</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span>component_setup:
+    name        : &#39;examples/component_sum1&#39;
+    port        : 8004
+    host        : &#39;127.0.0.1&#39;
+    rate        : &#39;1000000&#39;
+    input_ports : [ [ &quot;x2&quot;, &quot;pull&quot;, &quot;tcp://127.0.0.1:9001&quot;, &quot;async&quot;, 1]
+                    [ &quot;x3&quot;, &quot;pull&quot;, &quot;tcp://127.0.0.1:9002&quot;, &quot;async&quot;, 1] ]
+    output_ports : [ [ &quot;x1&quot;, &quot;push&quot;, &quot;tcp://127.0.0.1:9004&quot;, &quot;async&quot;, 1] ]
 </pre></div>
 </div>
 <p>To connect all the example components as described in the previous section the following commands can be used:</p>
@@ -438,7 +438,7 @@ subscription topic: sum2
 The application will run for 1000 steps and then will automatically finish (see application source code).</p>
 </div>
 <div class="section" id="hardware-adapters-ethercat-example">
-<h2>5.5. Hardware Adapters: Ethercat Example<a class="headerlink" href="#hardware-adapters-ethercat-example" title="Permalink to this headline">¶</a></h2>
+<h2>6.5. Hardware Adapters: Ethercat Example<a class="headerlink" href="#hardware-adapters-ethercat-example" title="Permalink to this headline">¶</a></h2>
 <p>The GMT control system has to interface with many kinds of sensors and actuators which are connected to the optomechanical devices.
 EtherCAT will be used as the interface with most systems but other kind of interfaces and protocols such as serial port, usb or cameralink will be required.
 The I/O Framework (io_fwk) provides the infrastructure to interface with this hardware in a standard way for GMT purposes.
@@ -495,7 +495,7 @@ This specific example can be connected to the GMT Hardware Development Kit (HDK)
 </div></blockquote>
 <p>We can send the ethercat configuration through the <em>ecat_config</em> port using the following command:</p>
 <blockquote>
-<div><em>Usage:</em>  <code class="docutils literal"><span class="pre">ethercat_config</span>&#160; <span class="pre">subsystem_name</span>&#160; <span class="pre">ethercat_adapter</span>&#160; <span class="pre">configuration</span></code></div></blockquote>
+<div><em>Usage:</em>  <tt class="docutils literal"><span class="pre">ethercat_config</span>&nbsp; <span class="pre">subsystem_name</span>&nbsp; <span class="pre">ethercat_adapter</span>&nbsp; <span class="pre">configuration</span></tt></div></blockquote>
 <p>This port is already defined in the base class. Specific adapters only define the required ports.</p>
 <p>For example, the following command:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ ethercat_config examples ethercat_example ethercat_config
@@ -648,7 +648,7 @@ As we&#8217;ll see in next section using the GMT Controllers and the rest of fra
 </div>
 </div>
 <div class="section" id="controllers-example">
-<h2>5.6. Controllers Example<a class="headerlink" href="#controllers-example" title="Permalink to this headline">¶</a></h2>
+<h2>6.6. Controllers Example<a class="headerlink" href="#controllers-example" title="Permalink to this headline">¶</a></h2>
 <p>Controllers are the components responsible to control the different telescope or instruments devices.
 Usually controllers are connected to the external sensors and actuators using the Hardware Adapters that we have seen before.
 Many different kinds of controllers will be created for the telescope depending on the type of equipment to be controlled.
@@ -681,10 +681,10 @@ state_vars:
 <div>$ setup_component examples simple_controller</div></blockquote>
 </div>
 <div class="section" id="check-monitored-values">
-<h2>5.7. Check Monitored Values<a class="headerlink" href="#check-monitored-values" title="Permalink to this headline">¶</a></h2>
+<h2>6.7. Check Monitored Values<a class="headerlink" href="#check-monitored-values" title="Permalink to this headline">¶</a></h2>
 <p>Telemetry is a distributed service than can be started independently on each component as:</p>
 <blockquote>
-<div><em>Usage:</em>  <code class="docutils literal"><span class="pre">monitor_component</span>&#160; <span class="pre">subsystem_name</span>&#160; <span class="pre">component_name</span></code></div></blockquote>
+<div><em>Usage:</em>  <tt class="docutils literal"><span class="pre">monitor_component</span>&nbsp; <span class="pre">subsystem_name</span>&nbsp; <span class="pre">component_name</span></tt></div></blockquote>
 <p>This command will start the telemetry adapters for this component and they will send monitored values to the server.
 The telemetry service will:</p>
 <blockquote>
@@ -701,14 +701,14 @@ The telemetry service will:</p>
 </div>
 <p>To check the monitored values a telemetry_client can be started in another unix terminal:</p>
 <blockquote>
-<div><em>Usage:</em>  <code class="docutils literal"><span class="pre">telemetry_client</span> <span class="pre">[topic]</span></code></div></blockquote>
+<div><em>Usage:</em>  <tt class="docutils literal"><span class="pre">telemetry_client</span> <span class="pre">[topic]</span></tt></div></blockquote>
 <p>In the case will have:</p>
 <blockquote>
 <div>$ telemetry_client</div></blockquote>
 <p>And the monitored values shall be received on this terminal.</p>
 <p>A query can also be sent to the telemetry service like this:</p>
 <blockquote>
-<div><em>Usage:</em>  <code class="docutils literal"><span class="pre">telemetry_query</span>&#160; <span class="pre">monitor_name</span>&#160; <span class="pre">num</span></code></div></blockquote>
+<div><em>Usage:</em>  <tt class="docutils literal"><span class="pre">telemetry_query</span>&nbsp; <span class="pre">monitor_name</span>&nbsp; <span class="pre">num</span></tt></div></blockquote>
 <p>For example, the following will list the last 12 temperature values (from newest to oldest) from this controller:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ telemetry_query examples.simple_controller.temperature 12
 </pre></div>
@@ -716,10 +716,10 @@ The telemetry service will:</p>
 <p>All telemetry queries have to be done on specific monitors.</p>
 </div>
 <div class="section" id="send-a-command-to-a-controller">
-<h2>5.8. Send a Command to a Controller<a class="headerlink" href="#send-a-command-to-a-controller" title="Permalink to this headline">¶</a></h2>
+<h2>6.8. Send a Command to a Controller<a class="headerlink" href="#send-a-command-to-a-controller" title="Permalink to this headline">¶</a></h2>
 <p>Some numeric values can be sent directly to ports of any controller like this:</p>
 <blockquote>
-<div><em>Usage:</em>  <code class="docutils literal"><span class="pre">send_value</span> <span class="pre">subsystem</span>&#160; <span class="pre">controller</span>&#160; <span class="pre">port_name</span> <span class="pre">value</span> <span class="pre">{</span> <span class="pre">int</span> <span class="pre">|</span> <span class="pre">float</span> <span class="pre">}</span></code></div></blockquote>
+<div><em>Usage:</em>  <tt class="docutils literal"><span class="pre">send_value</span> <span class="pre">subsystem</span>&nbsp; <span class="pre">controller</span>&nbsp; <span class="pre">port_name</span> <span class="pre">value</span> <span class="pre">{</span> <span class="pre">int</span> <span class="pre">|</span> <span class="pre">float</span> <span class="pre">}</span></tt></div></blockquote>
 <p>For example:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ send_value examples simple_controller temperature_setpoint 23.3 float
 </pre></div>
@@ -733,7 +733,7 @@ When the temperature values are out the the defined range the log client should 
 </div>
 </div>
 <div class="section" id="hdk-controller-with-ethercat-adapter">
-<h2>5.9. HDK Controller With Ethercat Adapter<a class="headerlink" href="#hdk-controller-with-ethercat-adapter" title="Permalink to this headline">¶</a></h2>
+<h2>6.9. HDK Controller With Ethercat Adapter<a class="headerlink" href="#hdk-controller-with-ethercat-adapter" title="Permalink to this headline">¶</a></h2>
 <p>The HDK example contains and example with an EthercatAdapter and a simple Controller for the HDK.</p>
 <blockquote>
 <div><cite>${GMT_ROOT}/src/runtime/src/obs_fwk/ctrl_fwk/c++/examples/hdk_controller</cite></div></blockquote>
@@ -754,10 +754,10 @@ $ setup_component hdk_cs controller
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="contribute.html" class="btn btn-neutral float-right" title="6. Contribute" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="contribute.html" class="btn btn-neutral float-right" title="7. Contribute" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="services.html" class="btn btn-neutral" title="4. Using the Services" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="services.html" class="btn btn-neutral" title="5. Using the Services" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
