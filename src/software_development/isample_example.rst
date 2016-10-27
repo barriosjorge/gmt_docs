@@ -15,7 +15,7 @@ Retreive the sample model files from `here <../_static/isample_dcs.tgz>`_ and ex
 
    $ export GMT_DEV=$PWD
    $ gds codegen -e isample_dcs
-   $ gmake -C src/runtime/src/idcs/isample_dcs -j8 install
+   $ gmake -C src/runtime/src/idcs/isample_dcs -j`nproc` install
 
 The executables are located in `src/runtime/src/idcs/isample_dcs/install`.
 
