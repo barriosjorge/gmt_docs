@@ -10,10 +10,9 @@ Retreive the sample model files from `here <../_static/isample_dcs.tgz>`_ and ex
 
 .. code-block:: bash
 
+   $ curl -O http://52.52.46.32/_static/isample_dcs.tgz
    $ tar xvfz isample_dcs.tgz
    $ cd isample_dcs
-
-   $ export GMT_DEV=$PWD
    $ gds codegen -e isample_dcs
    $ gmake -C src/runtime/src/idcs/isample_dcs -j`nproc` install
 
