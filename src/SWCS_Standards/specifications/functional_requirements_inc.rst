@@ -116,8 +116,8 @@ Functional Requirements
     Note: All the GMT telemetry data is stored and archived by the telemetry
     service outside the DCS.
 
-*State Variables (draft)*
-.........................
+*State Variables*
+.................
 
 Definition of state variables and relationship with goals and sequencing
 

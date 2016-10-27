@@ -109,10 +109,52 @@ Non-Functional Requirements
   **SWC-DCS-0011: Unique naming**
 
     Each DCS, DCS package and DCS component shall have a unique name.
-  
+
     Note: The appendix DCS Reference Architecture Rules defines the naming
     rules.
 
+  **SWC-DCS-0150: DCS naming**
+
+    Each :ref:`DCS <dcs_reference_architecture>` shall be named according to the following format:
+
+    .. code-block:: coffeescript
+
+        <SUBS>_dcs    # where
+
+        <SUB>: Abbreviation of the Subsystem
+
+        new RegExp ///^#{SUBS}_dcs$///.test dcs.name #formal naming test
+
+
+  **SWC-DCS-0151: Package naming**
+
+    Each DCS :ref:`Package <dcs_product_structure_modeling>` shall be named according to the following format
+
+    .. code-block:: coffeescript
+
+        <SUBS>_<CAT>_<MCLASS>    # where
+
+        <SUB>:     Abbreviation of the Subsystem
+        <CAT>:     Functional catefory of the pacakge as defined in :ref:`digrams<>`
+        <MCLASS>:  Metamodel class abbreviation of the component class (e.g. Controller -> ctrl)
+        as per :ref:`dictionnary <>`
+
+        new RegExp ///#{SUBS}_(#{CATS.join "|"})_pkg$///.test pkg.name #formal naming test
+
+
+  **SWC-DCS-0152: Component naming**
+
+    Each DCS :ref:`Component <dcs_component_architecture>` shall be named according to the following format:
+
+    .. code-block:: coffeescript
+
+        <SUBS>_<CMP>_<CAT>    # where
+
+        <SUB>:     Abbreviation of the Subsystem
+        <CMP>:     Component abbreviation
+        <MCLASS>:  Metamodel class abbreviation (in this case Packages -> pkg)
+
+        new RegExp ///#{SUBS}_[a-z_]+_(#{MCLASS.join "|"})$///.test cmp.name    #formal naming test
 
 
 *Software Infrastructure*
