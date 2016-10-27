@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4.10.4. isample_types.coffee &mdash; GMT Software And Controls documentation</title>
+  <title>2.4. DCS own Data Types (isample_types.coffee) &mdash; GMT Software And Controls documentation</title>
   
 
   
@@ -33,9 +33,9 @@
 
   
     <link rel="top" title="GMT Software And Controls documentation" href="../../../../../index.html"/>
-        <link rel="up" title="4.10. DCS specification example: isample_dcs" href="../../specification.html"/>
-        <link rel="next" title="4.10.5. isample_ctrl_fb.coffee" href="../isample_ctrl_pkg/docs/isample_ctrl_fb.html"/>
-        <link rel="prev" title="4.10.3. isample_dcs.coffee" href="isample_dcs.html"/> 
+        <link rel="up" title="2. DCS specification example: isample_dcs" href="../../specification.html"/>
+        <link rel="next" title="2.5. Fieldbus description (isample_ctrl_fb.coffee)" href="../isample_ctrl_pkg/docs/isample_ctrl_fb.html"/>
+        <link rel="prev" title="2.3. DCS description isample_dcs.coffee" href="isample_dcs.html"/> 
 
   
   <script src="../../../../../_static/js/modernizr.min.js"></script>
@@ -95,37 +95,29 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../installation.html">1. Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../isample_example.html">2. ISample Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../configuration.html">3. Developer Info and Release Configuration</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">4. DCS Development</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../../../introduction/introduction.html">4.1. Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../introduction/introduction.html#creating-a-device-control-system">4.2. Creating a Device Control System</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../introduction/introduction.html#edit-the-system-master-file">4.3. Edit the System Master File</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../introduction/introduction.html#define-the-components-in-the-model">4.4. Define the Components in the Model</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../introduction/introduction.html#compile-the-model">4.5. Compile the Model</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../introduction/introduction.html#load-the-model">4.6. Load the Model</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../introduction/introduction.html#generate-c-code">4.7. Generate C++ Code</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../introduction/introduction.html#make-and-run-the-generated-component">4.8. Make and Run the Generated Component</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../introduction/introduction.html#modify-the-generated-controller">4.9. Modify the Generated Controller</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../../specification.html">4.10. DCS specification example: <em>isample_dcs</em></a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="loader.html">4.10.1. <em>loader.coffee</em></a></li>
-<li class="toctree-l4"><a class="reference internal" href="isample_def.html">4.10.2. <em>isample_def.coffee</em></a></li>
-<li class="toctree-l4"><a class="reference internal" href="isample_dcs.html">4.10.3. <em>isample_dcs.coffee</em></a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">4.10.4. <em>isample_types.coffee</em></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../isample_ctrl_pkg/docs/isample_ctrl_fb.html">4.10.5. <em>isample_ctrl_fb.coffee</em></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../isample_ctrl_pkg/docs/isample_ctrl_pkg.html">4.10.6. <em>isample_ctrl_pkg.coffee</em></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../isample_ctrl_pkg/docs/isample_ctrl_super.html">4.10.7. <em>isample_ctrl_super.coffee</em></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../isample_ctrl_pkg/docs/isample_filter_wheel_ctrl.html">4.10.8. <em>isample_filter_wheel_ctrl.coffee</em></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../isample_ctrl_pkg/docs/isample_focus_ctrl.html">4.10.9. <em>isample_focus_ctrl.coffee</em></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../isample_ctrl_pkg/docs/isample_hw_adapter.html">4.10.10. <em>isample_hw_adapter.coffee</em></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../isample_ctrl_pkg/docs/isample_temp_ctrl.html">4.10.11. <em>isample_temp_ctrl.coffee</em></a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">DCS Development</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction/introduction.html">1. Introduction</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../specification.html">2. DCS specification example: <em>isample_dcs</em></a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="loader.html">2.1. Module loader (<em>loader.coffee</em>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="isample_def.html">2.2. <em>isample_def.coffee</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="isample_dcs.html">2.3. DCS description <em>isample_dcs.coffee</em></a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">2.4. DCS own Data Types (<em>isample_types.coffee</em>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../isample_ctrl_pkg/docs/isample_ctrl_fb.html">2.5. Fieldbus description (<em>isample_ctrl_fb.coffee</em>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../isample_ctrl_pkg/docs/isample_ctrl_pkg.html">2.6. Control Package (<em>isample_ctrl_pkg.coffee</em>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../isample_ctrl_pkg/docs/isample_ctrl_super.html">2.7. Control Supervisor (<em>isample_ctrl_super.coffee</em>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../isample_ctrl_pkg/docs/isample_filter_wheel_ctrl.html">2.8. Filter Wheel Controller (<em>isample_filter_wheel_ctrl.coffee</em>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../isample_ctrl_pkg/docs/isample_focus_ctrl.html">2.9. Focus Controller (<em>isample_focus_ctrl.coffee</em>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../isample_ctrl_pkg/docs/isample_hw_adapter.html">2.10. <em>isample_hw_adapter.coffee</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../isample_ctrl_pkg/docs/isample_temp_ctrl.html">2.11. Temperature Controller (<em>isample_temp_ctrl.coffee</em>)</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../codegen/codegen.html">4.11. DCS code generation example: <em>isample_dcs</em></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../model_elements/elements.html">4.12. Model Elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../codegen/codegen.html">3. DCS code generation example: <em>isample_dcs</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../model_elements/elements.html">4. Model Elements</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../services.html">5. Using the Services</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../examples.html">6. Running Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../contribute.html">7. Contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../services.html">4. Using the Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../examples.html">5. Running Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../contribute.html">6. Contribute</a></li>
 </ul>
 </li>
 </ul>
@@ -160,11 +152,11 @@
       
           <li><a href="../../../../index.html">Software Development</a> &raquo;</li>
       
-          <li><a href="../../../index.html">4. DCS Development</a> &raquo;</li>
+          <li><a href="../../../index.html">DCS Development</a> &raquo;</li>
       
-          <li><a href="../../specification.html">4.10. DCS specification example: <em>isample_dcs</em></a> &raquo;</li>
+          <li><a href="../../specification.html">2. DCS specification example: <em>isample_dcs</em></a> &raquo;</li>
       
-    <li>4.10.4. <em>isample_types.coffee</em></li>
+    <li>2.4. DCS own Data Types (<em>isample_types.coffee</em>)</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -176,8 +168,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="isample-types-coffee">
-<span id="isample-types"></span><h1>4.10.4. <em>isample_types.coffee</em><a class="headerlink" href="#isample-types-coffee" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="dcs-own-data-types-isample-types-coffee">
+<span id="isample-types"></span><h1>2.4. DCS own Data Types (<em>isample_types.coffee</em>)<a class="headerlink" href="#dcs-own-data-types-isample-types-coffee" title="Permalink to this headline">¶</a></h1>
+<p>Input and output ports of the components can use any kind of
+data type. Usually it&#8217;s convenient to group several simple data types
+into structured types to move data between components.</p>
+<p>This file includes the specific structured data types required
+for the data input and output ports of the DCS components.
+Each structured type includes a brief description and the list of single types.
+Per each single type there is also a description,
+the implementation data type and the units used for
+this value if required.</p>
 <div class="literal-block-wrapper container" id="code-isample-types-coffee">
 <div class="code-block-caption"><span class="caption-number">Listing 7 </span><span class="caption-text">Code: <em>isample_types.coffee</em></span><a class="headerlink" href="#code-isample-types-coffee" title="Permalink to this code">¶</a></div>
 <div class="highlight-coffeescript"><div class="highlight"><pre><span></span><span class="nv">fs = </span><span class="nx">require</span> <span class="s">&#39;fs&#39;</span>
@@ -240,10 +241,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../isample_ctrl_pkg/docs/isample_ctrl_fb.html" class="btn btn-neutral float-right" title="4.10.5. isample_ctrl_fb.coffee" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../isample_ctrl_pkg/docs/isample_ctrl_fb.html" class="btn btn-neutral float-right" title="2.5. Fieldbus description (isample_ctrl_fb.coffee)" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="isample_dcs.html" class="btn btn-neutral" title="4.10.3. isample_dcs.coffee" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="isample_dcs.html" class="btn btn-neutral" title="2.3. DCS description isample_dcs.coffee" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

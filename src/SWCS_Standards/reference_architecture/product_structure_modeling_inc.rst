@@ -1,5 +1,5 @@
 
-.. _dcs-product_structure_modeling:
+.. _dcs_product_structure_modeling:
 
 DCS Product Structure Modeling
 ------------------------------

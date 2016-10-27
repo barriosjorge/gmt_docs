@@ -1,4 +1,4 @@
-.. _dcs-component_architecture:
+.. _dcs_component_architecture:
 
 Component Architecture
 ----------------------

@@ -3,6 +3,10 @@
 DCS specification example: *isample_dcs*
 ========================================
 
+The isample_dcs is a instrument :ref:`DCS<dcs_reference_architecture>` with several devices to
+be controlled.  In order to define and integrate this DCS
+we need to create the following files in the working directory:
+
 .. toctree:: 
    :maxdepth: 1
 

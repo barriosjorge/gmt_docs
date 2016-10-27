@@ -1,5 +1,5 @@
 
-.. _dcs-reference_architecture:
+.. _dcs_reference_architecture:
 
 DCS Reference Architecture
 ==========================

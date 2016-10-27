@@ -1,7 +1,10 @@
 .. _isample_temp_ctrl:
 
-*isample_temp_ctrl.coffee*
---------------------------
+Temperature Controller (*isample_temp_ctrl.coffee*)
+---------------------------------------------------
+
+This is the temperature controller specification.
+See the :ref:`Filter Wheel example <_isample_filter_wheel_ctrl>` example for more information.
 
 .. literalinclude:: ../isample_temp_ctrl.coffee
    :caption:  Code: *isample_temp_ctrl.coffee*

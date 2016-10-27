@@ -9,11 +9,8 @@ specification. Initialy ISample is focused in the specification of the
 control packages. The specification of other packages (e.g.calibration
 or diagnostics) follows the same principles. It will include
 
-Creating a Device Control System
---------------------------------
-
 Edit the System Master File
----------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In order to add a Device Control System (DCS) first it's necessary to add it to the master file:
 
@@ -34,7 +31,7 @@ In the example provided we create hdk_cs (hardware developer kit control system)
 
 
 Define the Components in the Model
-----------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In this case we'll create the HDK_CS as an Instrument DCS:
 
@@ -47,7 +44,7 @@ In this case we'll create the HDK_CS as an Instrument DCS:
 NOTE: The src/model/db/idcs/loader.coffee shall include the hdk_cs/loader file.
 
 Compile the Model
------------------
+~~~~~~~~~~~~~~~~~
 
 From the ${GMT_ROOT} folder run
 
@@ -58,7 +55,7 @@ From the ${GMT_ROOT} folder run
 This will compile the model files an check for some errors.
 
 Load the Model
---------------
+~~~~~~~~~~~~~~
 
 Run the following command to start the command line
 
@@ -74,7 +71,7 @@ The model is loaded into memory and the gmt model prompt is shown
      gmt>
 
 Generate C++ Code
------------------
+~~~~~~~~~~~~~~~~~
 
 We can generate the C++ skeletons from the model as follows:
 
@@ -109,7 +106,7 @@ Copy the configuration file as instance configuration file into the config direc
 Note: configuration files shall be manually edited.
 
 Make and Run the Generated Component
-------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The binaries are in the build/ folder using make
 
@@ -129,7 +126,7 @@ In C++ if the GMT_DEBUG is defined at compile time log messages and compiler deb
 If not defined DEBUG messages and debug info is not included in the executables.
 
 Modify the Generated Controller
--------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Follow the provided examples to modify and run your own controllers.
 
