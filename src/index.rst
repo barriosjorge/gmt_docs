@@ -23,4 +23,6 @@ Home
    system_level_PDR/index
    SWCS_Standards/index
    software_development/index
+   data_products/index
+   glossary/swc_sys_glossary
 
