@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>DCS Filter Wheel Controller Files &mdash; GMT Software And Controls documentation</title>
+  <title>4.3.4. DCS Filter Wheel Controller Files &mdash; GMT Software And Controls documentation</title>
   
 
   
@@ -34,7 +34,11 @@
   
     <link rel="top" title="GMT Software And Controls documentation" href="../../../../../../index.html"/>
         <link rel="up" title="4.3. DCS code generation example: isample_dcs" href="../../../codegen.html"/>
+<<<<<<< HEAD
         <link rel="next" title="1. isample_fw1_ctrl_config.coffee" href="docs/isample_fw1_ctrl_config.html"/>
+=======
+        <link rel="next" title="1. isample_filter_wheel_ctrl.h" href="docs/isample_filter_wheel_ctrl_h.html"/>
+>>>>>>> aa305e246c52769c7a310942a2a167e38cc9c992
         <link rel="prev" title="8. module.mk" href="../isample_ctrl_super/docs/module.html"/> 
 
   
@@ -100,10 +104,17 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../specification/specification.html">4.2. DCS specification example: <em>isample_dcs</em></a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../../../codegen.html">4.3. DCS code generation example: <em>isample_dcs</em></a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="../../index.html">4.3.1. DCS Subsystem files</a></li>
+<<<<<<< HEAD
 <li class="toctree-l4"><a class="reference internal" href="../index.html">DCS Control Package Files</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../isample_ctrl_super/index.html">DCS Control Supervisor Files</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">DCS Filter Wheel Controller Files</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../isample_hw_adapter/index.html">DCS Hardware Adapter Files</a></li>
+=======
+<li class="toctree-l4"><a class="reference internal" href="../index.html">4.3.2. DCS Control Package Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../isample_ctrl_super/index.html">4.3.3. DCS Control Supervisor Files</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="">4.3.4. DCS Filter Wheel Controller Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../isample_hw_adapter/index.html">4.3.5. DCS Hardware Adapter Files</a></li>
+>>>>>>> aa305e246c52769c7a310942a2a167e38cc9c992
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../model_elements/elements.html">4.4. Model Elements</a></li>
@@ -136,7 +147,7 @@
         <div class="rst-content">
           
 
- 
+
 
 
 
@@ -150,7 +161,7 @@
       
           <li><a href="../../../codegen.html">4.3. DCS code generation example: <em>isample_dcs</em></a> &raquo;</li>
       
-    <li>DCS Filter Wheel Controller Files</li>
+    <li>4.3.4. DCS Filter Wheel Controller Files</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -163,18 +174,19 @@
            <div itemprop="articleBody">
             
   <div class="section" id="dcs-filter-wheel-controller-files">
-<span id="dcs-ctrl-pkg-code"></span><h1>DCS Filter Wheel Controller Files<a class="headerlink" href="#dcs-filter-wheel-controller-files" title="Permalink to this headline">¶</a></h1>
+<span id="dcs-ctrl-pkg-code"></span><h1>4.3.4. DCS Filter Wheel Controller Files<a class="headerlink" href="#dcs-filter-wheel-controller-files" title="Permalink to this headline">¶</a></h1>
+<p>These are the generated files for the Filter Wheel Controller.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="docs/isample_fw1_ctrl_config.html">1. <em>isample_fw1_ctrl_config.coffee</em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="docs/isample_filter_wheel_ctrl_h.html">2. <em>isample_filter_wheel_ctrl.h</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/isample_filter_wheel_ctrl_h.html">1. <em>isample_filter_wheel_ctrl.h</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/isample_filter_wheel_ctrl_msgpack.html">2. <em>isample_filter_wheel_ctrl_msgpack.h</em></a></li>
 <li class="toctree-l1"><a class="reference internal" href="docs/isample_filter_wheel_ctrl_cpp.html">3. <em>isample_filter_wheel_ctrl.cpp</em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="docs/isample_filter_wheel_ctrl_msgpack.html">4. <em>isample_filter_wheel_ctrl_msgpack.h</em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="docs/isample_filter_wheel_ctrl_run.html">5. <em>isample_filter_wheel_ctrl_run.cpp</em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="docs/isample_filter_wheel_ctrl_setup.html">6. <em>isample_filter_wheel_ctrl_setup.cpp</em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="docs/isample_filter_wheel_ctrl_step.html">7. <em>isample_filter_wheel_ctrl_step.cpp</em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="docs/module.html">8. <em>module.mk</em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="docs/isample_filter_wheel_ctrl_component.html">9. <em>isample_filter_wheel_ctrl_controller.py</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/isample_filter_wheel_ctrl_setup.html">4. <em>isample_filter_wheel_ctrl_setup.cpp</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/isample_filter_wheel_ctrl_step.html">5. <em>isample_filter_wheel_ctrl_step.cpp</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/isample_fw1_ctrl_config.html">6. <em>isample_fw1_ctrl_config.coffee</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/isample_fw2_ctrl_config.html">7. <em>isample_fw2_ctrl_config.coffee</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/isample_filter_wheel_ctrl_run.html">8. <em>isample_filter_wheel_ctrl_run.cpp</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/module.html">9. <em>module.mk</em></a></li>
 </ul>
 </div>
 </div>
@@ -186,7 +198,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="docs/isample_fw1_ctrl_config.html" class="btn btn-neutral float-right" title="1. isample_fw1_ctrl_config.coffee" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="docs/isample_filter_wheel_ctrl_h.html" class="btn btn-neutral float-right" title="1. isample_filter_wheel_ctrl.h" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../isample_ctrl_super/docs/module.html" class="btn btn-neutral" title="8. module.mk" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>

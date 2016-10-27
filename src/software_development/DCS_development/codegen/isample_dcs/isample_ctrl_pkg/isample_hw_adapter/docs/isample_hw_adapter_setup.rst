@@ -3,10 +3,7 @@
 *isample_hw_adapter_setup.cpp*
 ------------------------------
 
-The Hardware Developers Kit (HDK) is a hardware platform
-that embodies a basic Device Control System that complies
-with the GMT DCS Reference Architecture (RA)
-
+This is the definition of the setup method to create and connect the ports.
 
 .. literalinclude:: ../cpp/isample_hw_adapter_setup.cpp
    :caption:  Code: *isample_hw_adapter_setup.cpp*

@@ -3,10 +3,7 @@
 *loader.coffee*
 ---------------
 
-The Hardware Developers Kit (HDK) is a hardware platform
-that embodies a basic Device Control System that complies
-with the GMT DCS Reference Architecture (RA)
-
+This is the module loader for the DCS Control Package in the runtime part of the model.
 
 .. literalinclude:: ../coffee/loader.coffee
    :caption:  Code: *loader.coffee*

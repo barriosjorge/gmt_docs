@@ -97,7 +97,11 @@
 <li class="toctree-l2"><a class="reference internal" href="configuration.html">3. Developer Info and Release Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DCS_development/index.html">4. DCS Development</a></li>
 <li class="toctree-l2"><a class="reference internal" href="services.html">5. Using the Services</a></li>
+<<<<<<< HEAD
 <li class="toctree-l2 current"><a class="current reference internal" href="#">6. Running Examples</a><ul>
+=======
+<li class="toctree-l2 current"><a class="current reference internal" href="">6. Running Examples</a><ul>
+>>>>>>> aa305e246c52769c7a310942a2a167e38cc9c992
 <li class="toctree-l3"><a class="reference internal" href="#gmt-components">6.1. GMT Components</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#connecting-components">6.2. Connecting Components</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#running-the-example-components">6.3. Running the example components</a></li>
@@ -134,7 +138,7 @@
         <div class="rst-content">
           
 
- 
+
 
 
 
@@ -372,21 +376,21 @@ It can receive the following component setup:</p>
 </div></blockquote>
 <p>Any component can receive its setup using:</p>
 <blockquote>
-<div><em>Usage:</em>  <code class="docutils literal"><span class="pre">setup_component</span>&#160; <span class="pre">subsystem_name</span>&#160; <span class="pre">component_name</span></code></div></blockquote>
+<div><em>Usage:</em>  <tt class="docutils literal"><span class="pre">setup_component</span>&nbsp; <span class="pre">subsystem_name</span>&nbsp; <span class="pre">component_name</span></tt></div></blockquote>
 <p>This command will look the component configuration at:</p>
 <blockquote>
 <div><cite>${GMT_ROOT}/var/lib/gmt/cson/runtime/db/config/&lt;subsystem_name&gt;/&lt;component_name&gt;.cson</cite></div></blockquote>
 <p>For example, <em>component_sum1</em> has the following configuration in:</p>
 <blockquote>
 <div><cite>${GMT_ROOT}/var/lib/gmt/cson/runtime/db/config/examples/component_sum1.cson</cite></div></blockquote>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">component_setup</span><span class="p">:</span>
-    <span class="n">name</span>        <span class="p">:</span> <span class="s1">&#39;examples/component_sum1&#39;</span>
-    <span class="n">port</span>        <span class="p">:</span> <span class="mi">8004</span>
-    <span class="n">host</span>        <span class="p">:</span> <span class="s1">&#39;127.0.0.1&#39;</span>
-    <span class="n">rate</span>        <span class="p">:</span> <span class="s1">&#39;1000000&#39;</span>
-    <span class="n">input_ports</span> <span class="p">:</span> <span class="p">[</span> <span class="p">[</span> <span class="s2">&quot;x2&quot;</span><span class="p">,</span> <span class="s2">&quot;pull&quot;</span><span class="p">,</span> <span class="s2">&quot;tcp://127.0.0.1:9001&quot;</span><span class="p">,</span> <span class="s2">&quot;async&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-                    <span class="p">[</span> <span class="s2">&quot;x3&quot;</span><span class="p">,</span> <span class="s2">&quot;pull&quot;</span><span class="p">,</span> <span class="s2">&quot;tcp://127.0.0.1:9002&quot;</span><span class="p">,</span> <span class="s2">&quot;async&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="p">]</span>
-    <span class="n">output_ports</span> <span class="p">:</span> <span class="p">[</span> <span class="p">[</span> <span class="s2">&quot;x1&quot;</span><span class="p">,</span> <span class="s2">&quot;push&quot;</span><span class="p">,</span> <span class="s2">&quot;tcp://127.0.0.1:9004&quot;</span><span class="p">,</span> <span class="s2">&quot;async&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="p">]</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span>component_setup:
+    name        : &#39;examples/component_sum1&#39;
+    port        : 8004
+    host        : &#39;127.0.0.1&#39;
+    rate        : &#39;1000000&#39;
+    input_ports : [ [ &quot;x2&quot;, &quot;pull&quot;, &quot;tcp://127.0.0.1:9001&quot;, &quot;async&quot;, 1]
+                    [ &quot;x3&quot;, &quot;pull&quot;, &quot;tcp://127.0.0.1:9002&quot;, &quot;async&quot;, 1] ]
+    output_ports : [ [ &quot;x1&quot;, &quot;push&quot;, &quot;tcp://127.0.0.1:9004&quot;, &quot;async&quot;, 1] ]
 </pre></div>
 </div>
 <p>To connect all the example components as described in the previous section the following commands can be used:</p>
@@ -495,7 +499,7 @@ This specific example can be connected to the GMT Hardware Development Kit (HDK)
 </div></blockquote>
 <p>We can send the ethercat configuration through the <em>ecat_config</em> port using the following command:</p>
 <blockquote>
-<div><em>Usage:</em>  <code class="docutils literal"><span class="pre">ethercat_config</span>&#160; <span class="pre">subsystem_name</span>&#160; <span class="pre">ethercat_adapter</span>&#160; <span class="pre">configuration</span></code></div></blockquote>
+<div><em>Usage:</em>  <tt class="docutils literal"><span class="pre">ethercat_config</span>&nbsp; <span class="pre">subsystem_name</span>&nbsp; <span class="pre">ethercat_adapter</span>&nbsp; <span class="pre">configuration</span></tt></div></blockquote>
 <p>This port is already defined in the base class. Specific adapters only define the required ports.</p>
 <p>For example, the following command:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ ethercat_config examples ethercat_example ethercat_config
@@ -684,7 +688,7 @@ state_vars:
 <h2>6.7. Check Monitored Values<a class="headerlink" href="#check-monitored-values" title="Permalink to this headline">¶</a></h2>
 <p>Telemetry is a distributed service than can be started independently on each component as:</p>
 <blockquote>
-<div><em>Usage:</em>  <code class="docutils literal"><span class="pre">monitor_component</span>&#160; <span class="pre">subsystem_name</span>&#160; <span class="pre">component_name</span></code></div></blockquote>
+<div><em>Usage:</em>  <tt class="docutils literal"><span class="pre">monitor_component</span>&nbsp; <span class="pre">subsystem_name</span>&nbsp; <span class="pre">component_name</span></tt></div></blockquote>
 <p>This command will start the telemetry adapters for this component and they will send monitored values to the server.
 The telemetry service will:</p>
 <blockquote>
@@ -701,14 +705,14 @@ The telemetry service will:</p>
 </div>
 <p>To check the monitored values a telemetry_client can be started in another unix terminal:</p>
 <blockquote>
-<div><em>Usage:</em>  <code class="docutils literal"><span class="pre">telemetry_client</span> <span class="pre">[topic]</span></code></div></blockquote>
+<div><em>Usage:</em>  <tt class="docutils literal"><span class="pre">telemetry_client</span> <span class="pre">[topic]</span></tt></div></blockquote>
 <p>In the case will have:</p>
 <blockquote>
 <div>$ telemetry_client</div></blockquote>
 <p>And the monitored values shall be received on this terminal.</p>
 <p>A query can also be sent to the telemetry service like this:</p>
 <blockquote>
-<div><em>Usage:</em>  <code class="docutils literal"><span class="pre">telemetry_query</span>&#160; <span class="pre">monitor_name</span>&#160; <span class="pre">num</span></code></div></blockquote>
+<div><em>Usage:</em>  <tt class="docutils literal"><span class="pre">telemetry_query</span>&nbsp; <span class="pre">monitor_name</span>&nbsp; <span class="pre">num</span></tt></div></blockquote>
 <p>For example, the following will list the last 12 temperature values (from newest to oldest) from this controller:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ telemetry_query examples.simple_controller.temperature 12
 </pre></div>
@@ -719,7 +723,7 @@ The telemetry service will:</p>
 <h2>6.8. Send a Command to a Controller<a class="headerlink" href="#send-a-command-to-a-controller" title="Permalink to this headline">¶</a></h2>
 <p>Some numeric values can be sent directly to ports of any controller like this:</p>
 <blockquote>
-<div><em>Usage:</em>  <code class="docutils literal"><span class="pre">send_value</span> <span class="pre">subsystem</span>&#160; <span class="pre">controller</span>&#160; <span class="pre">port_name</span> <span class="pre">value</span> <span class="pre">{</span> <span class="pre">int</span> <span class="pre">|</span> <span class="pre">float</span> <span class="pre">}</span></code></div></blockquote>
+<div><em>Usage:</em>  <tt class="docutils literal"><span class="pre">send_value</span> <span class="pre">subsystem</span>&nbsp; <span class="pre">controller</span>&nbsp; <span class="pre">port_name</span> <span class="pre">value</span> <span class="pre">{</span> <span class="pre">int</span> <span class="pre">|</span> <span class="pre">float</span> <span class="pre">}</span></tt></div></blockquote>
 <p>For example:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ send_value examples simple_controller temperature_setpoint 23.3 float
 </pre></div>

@@ -3,10 +3,7 @@
 *isample_fw1_ctrl_config.coffee*
 ----------------------------------
 
-The Hardware Developers Kit (HDK) is a hardware platform
-that embodies a basic Device Control System that complies
-with the GMT DCS Reference Architecture (RA)
-
+This is the configuration for the filter wheel instance fw1.
 
 .. literalinclude:: ../coffee/isample_fw1_ctrl_config.coffee
    :caption:  Code: *isample_fw1_ctrl_config.coffee*

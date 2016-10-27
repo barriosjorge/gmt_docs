@@ -104,7 +104,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../../docs/isample_types.html">4.2.4. DCS own Data Types (<em>isample_types.coffee</em>)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="isample_ctrl_fb.html">4.2.5. Fieldbus description (<em>isample_ctrl_fb.coffee</em>)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="isample_ctrl_pkg.html">4.2.6. Control Package (<em>isample_ctrl_pkg.coffee</em>)</a></li>
+<<<<<<< HEAD
 <li class="toctree-l4 current"><a class="current reference internal" href="#">4.2.7. Control Supervisor (<em>isample_ctrl_super.coffee</em>)</a></li>
+=======
+<li class="toctree-l4 current"><a class="current reference internal" href="">4.2.7. Control Supervisor (<em>isample_ctrl_super.coffee</em>)</a></li>
+>>>>>>> aa305e246c52769c7a310942a2a167e38cc9c992
 <li class="toctree-l4"><a class="reference internal" href="isample_filter_wheel_ctrl.html">4.2.8. Filter Wheel Controller (<em>isample_filter_wheel_ctrl.coffee</em>)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="isample_focus_ctrl.html">4.2.9. Focus Controller (<em>isample_focus_ctrl.coffee</em>)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="isample_hw_adapter.html">4.2.10. <em>isample_hw_adapter.coffee</em></a></li>
@@ -142,7 +146,7 @@
         <div class="rst-content">
           
 
- 
+
 
 
 
@@ -173,33 +177,6 @@
 <p>The Supervisor is a special type of component in charge
 of supervision the health state of the DCS control package components.
 This component monitors the heartbeats of the other components.</p>
-<div class="literal-block-wrapper container" id="code-isample-ctrl-super-coffee">
-<div class="code-block-caption"><span class="caption-number">Listing 10 </span><span class="caption-text">Code: <em>isample_ctrl_super.coffee</em></span><a class="headerlink" href="#code-isample-ctrl-super-coffee" title="Permalink to this code">¶</a></div>
-<div class="highlight-coffeescript"><div class="highlight"><pre><span></span><span class="nx">Supervisor</span>    <span class="s">&#39;isample_ctrl_super&#39;</span><span class="p">,</span>
-    <span class="nv">info: </span>    <span class="s">&#39;isample Control Supervisor&#39;</span>
-    <span class="nv">desc: </span>    <span class="s">&#39;This provides supervision of the isample controllers&#39;</span>
-    <span class="k">extends</span><span class="o">:</span>  <span class="p">[</span><span class="s">&#39;BaseController&#39;</span><span class="p">]</span>
-    <span class="nv">abstract: </span><span class="kc">false</span>
-
-    <span class="nv">state_vars: </span> <span class="p">{}</span>
-
-    <span class="nv">input_ports:</span>
-        <span class="c1"># Should be in super class</span>
-        <span class="nv">heartbeat_in: </span>    <span class="p">{</span> <span class="nv">type: </span><span class="s">&#39;HeartBeatEvent&#39;</span><span class="p">,</span>  <span class="nv">protocol: </span><span class="s">&#39;pull&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="mi">1</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">desc: </span><span class="s">&#39;HMI operation buttons&#39;</span> <span class="p">}</span>
-
-    <span class="nv">output_ports:</span>
-        <span class="nv">heartbeat_out: </span>   <span class="p">{</span> <span class="nv">type: </span><span class="s">&#39;HeartBeatEvent&#39;</span><span class="p">,</span>  <span class="nv">protocol: </span><span class="s">&#39;push&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="mi">1</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">desc: </span><span class="s">&#39;motor control&#39;</span> <span class="p">}</span>
-
-    <span class="nv">instance_configurations: </span><span class="p">[</span><span class="s">&#39;isample_ctrl_super&#39;</span><span class="p">]</span>
-
-    <span class="nv">properties:</span>
-        <span class="nv">uri_path: </span>    <span class="p">{</span><span class="nv">type: </span><span class="s">&#39;String&#39;</span><span class="p">,</span>  <span class="nv">default: </span><span class="s">&quot;gmt://isample_cs/&quot;</span><span class="p">}</span>
-        <span class="nv">host: </span>        <span class="p">{</span><span class="nv">type: </span><span class="s">&#39;String&#39;</span><span class="p">,</span>  <span class="nv">default: </span><span class="s">&quot;127.0.0.1&quot;</span><span class="p">}</span>
-        <span class="nv">port: </span>        <span class="p">{</span><span class="nv">type: </span><span class="s">&#39;Integer&#39;</span><span class="p">,</span> <span class="nv">default: </span><span class="mi">8001</span><span class="p">}</span>
-        <span class="nv">rate: </span>        <span class="p">{</span><span class="nv">type: </span><span class="s">&#39;Integer&#39;</span><span class="p">,</span> <span class="nv">default: </span><span class="mi">10</span><span class="p">}</span>
-</pre></div>
-</div>
-</div>
 </div>
 
 

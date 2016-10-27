@@ -96,7 +96,11 @@
 <li class="toctree-l2"><a class="reference internal" href="isample_example.html">2. ISample Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="configuration.html">3. Developer Info and Release Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DCS_development/index.html">4. DCS Development</a></li>
+<<<<<<< HEAD
 <li class="toctree-l2 current"><a class="current reference internal" href="#">5. Using the Services</a><ul>
+=======
+<li class="toctree-l2 current"><a class="current reference internal" href="">5. Using the Services</a><ul>
+>>>>>>> aa305e246c52769c7a310942a2a167e38cc9c992
 <li class="toctree-l3"><a class="reference internal" href="#starting-and-stopping-services">5.1. Starting and Stopping Services</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#checking-the-log-service">5.2. Checking the Log Service</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#starting-example-components">5.3. Starting example components</a></li>
@@ -129,7 +133,7 @@
         <div class="rst-content">
           
 
- 
+
 
 
 
@@ -183,7 +187,7 @@ If another error is shown please report this issue.</p>
 <p>If the log service is started with no error we&#8217;ll use terminal_1 to show the log messages that we&#8217;ll create later.
 We can run a log client with this command:</p>
 <blockquote>
-<div><em>Usage:</em>  <code class="docutils literal"><span class="pre">log_client</span> <span class="pre">[topic]</span></code></div></blockquote>
+<div><em>Usage:</em>  <tt class="docutils literal"><span class="pre">log_client</span> <span class="pre">[topic]</span></tt></div></blockquote>
 <p>If a <em>topic</em> parameter is included in the command line it will filter the content of the messages and only the messages containing the topic will be shown.
 By default, if no parameter is given, the log client will subscribe to all log messages:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ log_client
@@ -194,7 +198,7 @@ log client subscribed at port tcp://127.0.0.1:9995
 <p>In terminal_2 we can launch programs that produce log messages. A couple of simple programs can be used for such purpose.
 The simplest test is this command:</p>
 <blockquote>
-<div><em>Usage:</em>  <code class="docutils literal"><span class="pre">test_log</span> <span class="pre">[message]</span></code></div></blockquote>
+<div><em>Usage:</em>  <tt class="docutils literal"><span class="pre">test_log</span> <span class="pre">[message]</span></tt></div></blockquote>
 <p>This command will produce 4 log messages (DEBUG, INFO, WARNING, ERROR) with the text specified in the <em>message</em> parameter:
 If the parameter <em>message</em> is not used the four messages will be empty.</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ test_log <span class="s2">&quot;this a log service test&quot;</span>
@@ -239,7 +243,7 @@ subscription topic: instrument
 Each client subscribes to the log service independently.</p>
 <p>We can send more log messages using this command:</p>
 <blockquote>
-<div><em>Usage:</em>  <code class="docutils literal"><span class="pre">test_logs</span> <span class="pre">[number</span> <span class="pre">of</span> <span class="pre">messages]</span> <span class="pre">[thread_1</span> <span class="pre">rate</span> <span class="pre">in</span> <span class="pre">ns]</span> <span class="pre">[thread_2</span> <span class="pre">rate</span> <span class="pre">in</span> <span class="pre">ns]</span></code></div></blockquote>
+<div><em>Usage:</em>  <tt class="docutils literal"><span class="pre">test_logs</span> <span class="pre">[number</span> <span class="pre">of</span> <span class="pre">messages]</span> <span class="pre">[thread_1</span> <span class="pre">rate</span> <span class="pre">in</span> <span class="pre">ns]</span> <span class="pre">[thread_2</span> <span class="pre">rate</span> <span class="pre">in</span> <span class="pre">ns]</span></tt></div></blockquote>
 <p>This test uses two threads to send independent log messages and each thread has a different rate.
 For example, start the log_client as usual in terminal_1:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ log_client
@@ -335,7 +339,7 @@ $ <span class="nb">kill</span> -9 15209
 <h2>5.4. Making a query to the Log Service<a class="headerlink" href="#making-a-query-to-the-log-service" title="Permalink to this headline">¶</a></h2>
 <p>The log service stores all received messages in a local database. In order to query this database the log service shall be started and then in any terminal we can use:</p>
 <blockquote>
-<div><em>Usage:</em>  <code class="docutils literal"><span class="pre">log_query</span> <span class="pre">uri</span> <span class="pre">num</span></code></div></blockquote>
+<div><em>Usage:</em>  <tt class="docutils literal"><span class="pre">log_query</span> <span class="pre">uri</span> <span class="pre">num</span></tt></div></blockquote>
 <p>For example, the following will show the last 10 messages (from newest to oldest) created by the simple_component in the previous section:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ log_query gmt://examples/simple_component:8000 10
 starting log query at tcp://127.0.0.1:9994

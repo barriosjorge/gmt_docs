@@ -105,7 +105,11 @@
 <li class="toctree-l4"><a class="reference internal" href="isample_ctrl_fb.html">4.2.5. Fieldbus description (<em>isample_ctrl_fb.coffee</em>)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="isample_ctrl_pkg.html">4.2.6. Control Package (<em>isample_ctrl_pkg.coffee</em>)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="isample_ctrl_super.html">4.2.7. Control Supervisor (<em>isample_ctrl_super.coffee</em>)</a></li>
+<<<<<<< HEAD
 <li class="toctree-l4 current"><a class="current reference internal" href="#">4.2.8. Filter Wheel Controller (<em>isample_filter_wheel_ctrl.coffee</em>)</a></li>
+=======
+<li class="toctree-l4 current"><a class="current reference internal" href="">4.2.8. Filter Wheel Controller (<em>isample_filter_wheel_ctrl.coffee</em>)</a></li>
+>>>>>>> aa305e246c52769c7a310942a2a167e38cc9c992
 <li class="toctree-l4"><a class="reference internal" href="isample_focus_ctrl.html">4.2.9. Focus Controller (<em>isample_focus_ctrl.coffee</em>)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="isample_hw_adapter.html">4.2.10. <em>isample_hw_adapter.coffee</em></a></li>
 <li class="toctree-l4"><a class="reference internal" href="isample_temp_ctrl.html">4.2.11. Temperature Controller (<em>isample_temp_ctrl.coffee</em>)</a></li>
@@ -142,7 +146,7 @@
         <div class="rst-content">
           
 
- 
+
 
 
 
@@ -183,33 +187,6 @@ The rate is related with the component step rate
 <p>Note that several instances of the same controller can be created.
 Each instance will have it&#8217;s own configuration. The list of configuration
 properties is defined at the end of the files.</p>
-<div class="literal-block-wrapper container" id="code-isample-filter-wheel-ctrl-coffee">
-<div class="code-block-caption"><span class="caption-number">Listing 11 </span><span class="caption-text">Code: <em>isample_filter_wheel_ctrl.coffee</em></span><a class="headerlink" href="#code-isample-filter-wheel-ctrl-coffee" title="Permalink to this code">¶</a></div>
-<div class="highlight-coffeescript"><div class="highlight"><pre><span></span><span class="nx">Controller</span>    <span class="s">&#39;isample_filter_wheel_ctrl&#39;</span><span class="p">,</span>
-    <span class="nv">info: </span>    <span class="s">&#39;isample filter_wheel Controller&#39;</span>
-    <span class="nv">desc: </span>    <span class="s">&#39;This component implements the control of the isample&#39;</span>
-    <span class="k">extends</span><span class="o">:</span>  <span class="p">[</span><span class="s">&#39;BaseController&#39;</span><span class="p">]</span>
-    <span class="nv">abstract: </span><span class="kc">false</span>
-
-    <span class="nv">state_vars:</span>
-        <span class="nv">position: </span>    <span class="p">{</span> <span class="nv">type: </span><span class="s">&#39;float&#39;</span><span class="p">,</span> <span class="nv">controllable: </span><span class="kc">true</span><span class="p">,</span> <span class="nv">default: </span><span class="mf">20.0</span><span class="p">,</span> <span class="nv">max: </span><span class="mf">40.0</span><span class="p">,</span> <span class="nv">min: </span><span class="mf">5.0</span><span class="p">,</span> <span class="nv">desc: </span><span class="s">&#39;position sv&#39;</span> <span class="p">}</span>
-
-    <span class="nv">input_ports:</span>
-        <span class="nv">motor_state: </span> <span class="p">{</span> <span class="nv">type: </span><span class="s">&#39;isample_motor_status&#39;</span><span class="p">,</span> <span class="nv">protocol: </span><span class="s">&#39;pull&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="mi">1</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">desc: </span><span class="s">&#39;motor state&#39;</span> <span class="p">}</span>
-
-    <span class="nv">output_ports:</span>
-        <span class="nv">motor_ctrl: </span>  <span class="p">{</span> <span class="nv">type: </span><span class="s">&#39;isample_motor_control&#39;</span><span class="p">,</span> <span class="nv">protocol: </span><span class="s">&#39;push&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="mi">1</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">desc: </span><span class="s">&#39;motor control&#39;</span> <span class="p">}</span>
-
-    <span class="nv">properties:</span>
-        <span class="nv">uri_path: </span><span class="p">{</span> <span class="nv">type: </span><span class="s">&#39;String&#39;</span><span class="p">,</span>  <span class="nv">default: </span><span class="s">&quot;gmt://isample_cs/&quot;</span><span class="p">}</span>
-        <span class="nv">host: </span>    <span class="p">{</span> <span class="nv">type: </span><span class="s">&#39;String&#39;</span><span class="p">,</span>  <span class="nv">default: </span><span class="s">&quot;127.0.0.1&quot;</span><span class="p">}</span>
-        <span class="nv">port: </span>    <span class="p">{</span> <span class="nv">type: </span><span class="s">&#39;Integer&#39;</span><span class="p">,</span> <span class="nv">default: </span><span class="mi">8002</span><span class="p">}</span>
-        <span class="nv">rate: </span>    <span class="p">{</span> <span class="nv">type: </span><span class="s">&#39;Integer&#39;</span><span class="p">,</span> <span class="nv">default: </span><span class="mi">10</span><span class="p">}</span>
-
-    <span class="nv">instance_configurations: </span><span class="p">[</span><span class="s">&#39;isample_fw1_ctrl&#39;</span><span class="p">,</span> <span class="s">&#39;isample_fw2_ctrl&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
 </div>
 
 

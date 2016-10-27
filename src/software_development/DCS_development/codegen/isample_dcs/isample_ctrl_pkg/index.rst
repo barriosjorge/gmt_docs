@@ -3,6 +3,8 @@
 DCS Control Package Files
 -------------------------
 
+These are the generated files for the DCS Control Package.
+
 .. toctree::
    :maxdepth: 1
    :numbered:
@@ -10,4 +12,3 @@ DCS Control Package Files
    docs/loader.rst
    docs/isample_ctrl_pkg_main_run.rst
    docs/module.rst
-
