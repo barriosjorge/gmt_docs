@@ -1,7 +1,7 @@
 .. _model_definition_files:
 
 DCS Development
----------------
+===============
 
 .. toctree::
    :maxdepth: 1
