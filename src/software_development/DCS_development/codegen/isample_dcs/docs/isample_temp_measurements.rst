@@ -3,10 +3,7 @@
 *isample_temp_measurements.h*
 -----------------------------
 
-The Hardware Developers Kit (HDK) is a hardware platform
-that embodies a basic Device Control System that complies
-with the GMT DCS Reference Architecture (RA)
-
+This is the C++ msgpack struct required for the temp_measurements data type.
 
 .. literalinclude:: ../cpp/isample_temp_measurements.h
    :caption:  Code: *isample_temp_measurements.h*

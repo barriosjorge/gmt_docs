@@ -3,10 +3,7 @@
 *isample_ctrl_super.cpp*
 ------------------------
 
-The Hardware Developers Kit (HDK) is a hardware platform
-that embodies a basic Device Control System that complies
-with the GMT DCS Reference Architecture (RA)
-
+This is the definition of the constructor and destructor methods.
 
 .. literalinclude:: ../cpp/isample_ctrl_super.cpp
    :caption:  Code: *isample_ctrl_super.cpp*

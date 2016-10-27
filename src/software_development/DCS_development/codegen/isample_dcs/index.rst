@@ -3,6 +3,8 @@
 DCS Subsystem files
 -------------------
 
+These are the generated global subsystem files.
+
 .. toctree::
    :maxdepth: 1
    :numbered:

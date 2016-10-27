@@ -3,10 +3,7 @@
 *isample_motor_status.h*
 ------------------------
 
-The Hardware Developers Kit (HDK) is a hardware platform
-that embodies a basic Device Control System that complies
-with the GMT DCS Reference Architecture (RA)
-
+This is the C++ msgpack struct required for the motor_status data type.
 
 .. literalinclude:: ../cpp/isample_motor_status.h
    :caption:  Code: *isample_motor_status.h*
