@@ -82,6 +82,9 @@ Procedure
 
   .. warning::
     * Your system drive will be reformated and erased!
+  
+  .. warning::
+    * For HDK, **do not** use the Beckhoff CFast card with TwinCAT3!
 
   3.2 Press the <Tab> key. The following options are available:
 
