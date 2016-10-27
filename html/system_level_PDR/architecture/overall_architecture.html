@@ -91,7 +91,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../release_notes/index.html">Release Notes</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Architecture and Design</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../introduction/swcs_introduction.html">1. Introduction</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">2. Overall Architecture</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2. Overall Architecture</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#organization">2.1. Organization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#domains-of-control">2.2. Domains of Control</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#software-development">2.3. Software Development</a></li>
@@ -135,7 +135,7 @@
         <div class="rst-content">
           
 
-
+ 
 
 
 
@@ -170,26 +170,26 @@ the overall system.  They further filter down and are refined into technical and
 operational requirements that become the basis around which detailed designs of
 the control software may begin.  The software architecture is a process that
 captures decisions to best meet the requirements at the system level, while
-optimizing over parameters to meet the <a class="reference internal" href="../introduction/swcs_introduction.html#key-principles"><em>General Principles and Guidelines</em></a>, in particular,
+optimizing over parameters to meet the <a class="reference internal" href="../introduction/swcs_introduction.html#key-principles"><span class="std std-ref">General Principles and Guidelines</span></a>, in particular,
 performance, reliability, maintainability, and cost.  The discussion below gives
 a summary of the overall SWCS architecture from several different top-level
-perspectives, i.e. from the standpoint of the SWCS organization, <a class="reference internal" href="#architecture-control-domains"><em>the
-global SWCS domains</em></a>, <a class="reference internal" href="#architecture-development"><em>software development
-layers</em></a>, <a class="reference internal" href="#architecture-deployment"><em>software deployment layers</em></a>, <a class="reference internal" href="#architecture-controls"><em>control hierarchy</em></a>,
-<a class="reference internal" href="#architecture-health-supervision"><em>system health and supervision</em></a>,
-<a class="reference internal" href="#architecture-frameworks"><em>software frameworks</em></a>, and <a class="reference internal" href="#architecture-modules"><em>the subsystem
-modules</em></a>.</p>
+perspectives, i.e. from the standpoint of the SWCS organization, <a class="reference internal" href="#architecture-control-domains"><span class="std std-ref">the
+global SWCS domains</span></a>, <a class="reference internal" href="#architecture-development"><span class="std std-ref">software development
+layers</span></a>, <a class="reference internal" href="#architecture-deployment"><span class="std std-ref">software deployment layers</span></a>, <a class="reference internal" href="#architecture-controls"><span class="std std-ref">control hierarchy</span></a>,
+<a class="reference internal" href="#architecture-health-supervision"><span class="std std-ref">system health and supervision</span></a>,
+<a class="reference internal" href="#architecture-frameworks"><span class="std std-ref">software frameworks</span></a>, and <a class="reference internal" href="#architecture-modules"><span class="std std-ref">the subsystem
+modules</span></a>.</p>
 <div class="section" id="organization">
 <span id="architecture-organization"></span><h2>2.1. Organization<a class="headerlink" href="#organization" title="Permalink to this headline">¶</a></h2>
-<p>The first phase in the SWCS development starts with the <a class="reference internal" href="../process/process_introduction.html#domain-engineering-process"><em>process of domain
-engineering</em></a> (clause 7.3.1 of <a class="reference internal" href="../bibliography/bibliography.html#iso12207" id="id2">[ISO12207]</a>)
+<p>The first phase in the SWCS development starts with the <a class="reference internal" href="../process/process_introduction.html#domain-engineering-process"><span class="std std-ref">process of domain
+engineering</span></a> (clause 7.3.1 of <a class="reference internal" href="../bibliography/bibliography.html#iso12207" id="id2">[ISO12207]</a>)
 which allows one to identify the main architectural components of the SWCS and
 to group them into uniform categories of: subsystems, packages and components,
 based on the cohesion of certain functionalities, timing requirements, and the
 sizes of the interfaces.</p>
-<div class="figure" id="swcs-organization">
-<img alt="../../_images/swcs-organization.png" src="../../_images/swcs-organization.png" />
-<p class="caption">SWCS Organization</p>
+<div class="figure" id="id7">
+<span id="swcs-organization"></span><img alt="../../_images/swcs-organization.png" src="../../_images/swcs-organization.png" />
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">SWCS Organization</span></p>
 </div>
 <p>The above figure illustrates how the SWCS organization hierarchy fits into the
 project organization using the Unified Modeling Language (UML) diagram after the
@@ -201,29 +201,29 @@ extends Product Breakdown Element (PBE) and Work Breakdown Element (WBE) classes
 to enable mapping of the SWCS structure to the GMT project Product Breakdown
 Structure and Work Breakdown Structure.</p>
 <p>This section describes the SWCS architecture, while
-the <a class="reference internal" href="../process/process_introduction.html#domain-engineering-process"><em>Domain Engineering Process</em></a> as defined in ISO/IEC-12207 <a class="reference internal" href="../bibliography/bibliography.html#iso12207" id="id3">[ISO12207]</a> is
-discussed in the Section on <a class="reference internal" href="../process/process_introduction.html#process-software-development"><em>Software Development Process</em></a>.</p>
+the <a class="reference internal" href="../process/process_introduction.html#domain-engineering-process"><span class="std std-ref">Domain Engineering Process</span></a> as defined in ISO/IEC-12207 <a class="reference internal" href="../bibliography/bibliography.html#iso12207" id="id3">[ISO12207]</a> is
+discussed in the Section on <a class="reference internal" href="../process/process_introduction.html#process-software-development"><span class="std std-ref">Software Development Process</span></a>.</p>
 </div>
 <div class="section" id="domains-of-control">
 <span id="architecture-control-domains"></span><h2>2.2. Domains of Control<a class="headerlink" href="#domains-of-control" title="Permalink to this headline">¶</a></h2>
 <p>One perspective of the software architecture is based on the functional
 decomposition of the observatory.  In this view, there are four major domains of
 software control, based on a clear separation of concerns: the
-<a class="reference internal" href="../tcs/tcs_introduction.html#tcs-introduction"><em>Telescope Control System</em></a> (TCS), Observatory Operations System (OPS),
-<a class="reference internal" href="../services/observatory_services.html#observatory-services"><em>Observatory Services</em></a> (OSRV), and Instrument Control System (ICS), as
+<a class="reference internal" href="../tcs/tcs_introduction.html#tcs-introduction"><span class="std std-ref">Telescope Control System</span></a> (TCS), Observatory Operations System (OPS),
+<a class="reference internal" href="../services/observatory_services.html#observatory-services"><span class="std std-ref">Observatory Services</span></a> (OSRV), and Instrument Control System (ICS), as
 shown in the figure below. The components within each domain are partitioned in
 a way to facilitate modular software design.  Modularity allows different
 components to evolve independently through the life of the project, to address
 new scalability needs (e.g., new hardware subsystems require higher performance
 telemetry), or to address different optimization strategies.</p>
-<div class="figure" id="figure-domains-of-control">
-<img alt="../../_images/application-layer.png" src="../../_images/application-layer.png" />
-<p class="caption">Application Layer: Domains of Control</p>
+<div class="figure" id="id8">
+<span id="figure-domains-of-control"></span><img alt="../../_images/application-layer.png" src="../../_images/application-layer.png" />
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Application Layer: Domains of Control</span></p>
 </div>
 <p>In brief, the four domains and some underlying considerations are:</p>
 <blockquote>
 <div><ul>
-<li><p class="first"><a class="reference internal" href="../tcs/tcs_introduction.html#tcs-introduction"><em>Telescope Control System</em></a> – The TCS domain comprises subsystems that are in
+<li><p class="first"><a class="reference internal" href="../tcs/tcs_introduction.html#tcs-introduction"><span class="std std-ref">Telescope Control System</span></a> – The TCS domain comprises subsystems that are in
 charge of controlling the telescope optomechanical devices. The hierarchy of
 the TCS architecture follows a functional decomposition or breakdown that
 closely mirrors the physical organization of the telescope hardware
@@ -236,7 +236,7 @@ structure is that it is likely to be very stable once the project is
 baselined. While new hardware will be developed and integrated during the
 life of the project, the core optomechanical design will remain unchanged.</p>
 <p>Most of the software subsystems of the TCS can be designed to share a common
-architecture, which is presented in <a class="reference internal" href="../frameworks/component_frameworks.html#device-control-framework"><em>Device Control Framework</em></a>.  Doing
+architecture, which is presented in <a class="reference internal" href="../frameworks/component_frameworks.html#device-control-framework"><span class="std std-ref">Device Control Framework</span></a>.  Doing
 so facilitates the reuse of common designs among subsystems, communication
 among groups due to having common &#8220;vocabularies&#8221; and concepts, development
 of a common body of experience, and a more efficient operation and
@@ -259,7 +259,7 @@ where productivity can be improved. The goal is to develop a system that
 remains flexible and, at the same time, that efficiently supports the
 operational workflows without constraining the introduction of new ones.</p>
 </li>
-<li><p class="first"><a class="reference internal" href="../services/observatory_services.html#observatory-services"><em>Observatory Services</em></a> &#8211; The OSRV groups the subsystems that provide
+<li><p class="first"><a class="reference internal" href="../services/observatory_services.html#observatory-services"><span class="std std-ref">Observatory Services</span></a> &#8211; The OSRV groups the subsystems that provide
 common infrastructure service components. Each observatory services
 subsystem (engineering user interface, logging, telemetry, configuration,
 etc.) addresses a specific structural function. Structural functions are
@@ -279,8 +279,8 @@ control subsystems.</p>
 <div class="section" id="software-development">
 <span id="architecture-development"></span><h2>2.3. Software Development<a class="headerlink" href="#software-development" title="Permalink to this headline">¶</a></h2>
 <p>From a development standpoint, the software architecture has the following
-hierarchy (see Figure below on <a class="reference internal" href="#layered-software-architecture"><em>Layered Software Architecture</em></a>).  The
-application layer (<a class="reference internal" href="#architecture-control-domains"><em>Domains of Control</em></a>) residing at the top
+hierarchy (see Figure below on <a class="reference internal" href="#layered-software-architecture"><span class="std std-ref">Layered Software Architecture</span></a>).  The
+application layer (<a class="reference internal" href="#architecture-control-domains"><span class="std std-ref">Domains of Control</span></a>) residing at the top
 contains services and tools that run the observatory (via services and
 operations), telescope control system (TCS), and the instrument control system
 (ICS).  Below the application layer are frameworks, packages, and the operating
@@ -291,9 +291,9 @@ low-level service software, like operating systems and network stacks, to
 high-level applications (see Figure below). Intermediate layers provide domain
 independent and dependent frameworks that help contain changes of platform or
 APIs.  Circular dependencies are not allowed as the system is built bottom-up.</p>
-<div class="figure" id="layered-software-architecture">
-<img alt="../../_images/layered-architecture.png" src="../../_images/layered-architecture.png" />
-<p class="caption">Layered Software Architecture</p>
+<div class="figure" id="id9">
+<span id="layered-software-architecture"></span><img alt="../../_images/layered-architecture.png" src="../../_images/layered-architecture.png" />
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Layered Software Architecture</span></p>
 </div>
 <p>A software framework is a universal, reusable software platform used to develop
 applications, products and solutions.  It is an abstraction whereby software
@@ -316,29 +316,29 @@ but cannot change its code.</li>
 </ul>
 </div></blockquote>
 <p>The <em>Domain of SWCS Control</em> forms the Application Layer, and is discussed in
-<a class="reference internal" href="#architecture-control-domains"><em>Domains of Control</em></a>, while the <a class="reference internal" href="#architecture-frameworks"><em>Frameworks</em></a>
+<a class="reference internal" href="#architecture-control-domains"><span class="std std-ref">Domains of Control</span></a>, while the <a class="reference internal" href="#architecture-frameworks"><span class="std std-ref">Frameworks</span></a>
 form the Domain Specific Layer.</p>
 </div>
 <div class="section" id="software-deployment">
 <span id="architecture-deployment"></span><h2>2.4. Software Deployment<a class="headerlink" href="#software-deployment" title="Permalink to this headline">¶</a></h2>
 <p>The SWCS software Components are deployed in a distributed set of computers
 connected by the control network.  The deployment architecture follows a layered
-approach (See <a class="reference internal" href="#deployment-architecture-figure"><em>Deployment Architecture</em></a> Figure below):</p>
+approach (See <a class="reference internal" href="#deployment-architecture-figure"><span class="std std-ref">Deployment Architecture</span></a> Figure below):</p>
 <blockquote>
 <div><ul class="simple">
 <li>The Device Layer is the system under control. It includes the optomechanical
 devices of the telescope.</li>
 <li>The Fieldbus Layer enables the interface between the control subsystem and
-the subsystem under control. The Section on <a class="reference internal" href="../platform/platform.html#field-device-interface"><em>Field Device Interface Technology</em></a>
+the subsystem under control. The Section on <a class="reference internal" href="../platform/platform.html#field-device-interface"><span class="std std-ref">Field Device Interface Technology</span></a>
 describes how EtherCAT and other standard buses are used to implement this
 interface.</li>
 <li>The Supervisory and Control Layer implements the control of the different
 subsystems as explained above. The controllers are deployed in the GMT
 standard hardware platform. All of them are connected to the control
 network.  The internal architecture of the control subsystems is presented
-in the Section on the <a class="reference internal" href="../tcs/tcs_introduction.html#tcs-introduction"><em>Telescope Control System</em></a>. This layer also includes the
+in the Section on the <a class="reference internal" href="../tcs/tcs_introduction.html#tcs-introduction"><span class="std std-ref">Telescope Control System</span></a>. This layer also includes the
 Wavefront Control and Pointing Kernel subsystems that implement the system
-behavior of the telescope. The Section on <a class="reference internal" href="../platform/platform.html#computing-platform"><em>Computing Platform</em></a>
+behavior of the telescope. The Section on <a class="reference internal" href="../platform/platform.html#computing-platform"><span class="std std-ref">Computing Platform</span></a>
 describes the computing platform options used for the deployment of device
 control subsystems.</li>
 <li>The Observatory Layer includes the software components that implement
@@ -353,9 +353,9 @@ infrastructure is likely to evolve before the final deployment of the
 system.</li>
 </ul>
 </div></blockquote>
-<div class="figure" id="deployment-architecture-figure">
-<img alt="../../_images/deployment-architecture.png" src="../../_images/deployment-architecture.png" />
-<p class="caption">Deployment Architecture</p>
+<div class="figure" id="id10">
+<span id="deployment-architecture-figure"></span><img alt="../../_images/deployment-architecture.png" src="../../_images/deployment-architecture.png" />
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Deployment Architecture</span></p>
 </div>
 <p>There are two types of interfaces, shown red in the above Figure:</p>
 <blockquote>
@@ -370,9 +370,9 @@ adequate.</li>
 </div></blockquote>
 <p>The following Figure provides a schematic view of the TCS hardware components
 deployment and their physical location.</p>
-<div class="figure">
+<div class="figure" id="id11">
 <img alt="../../_images/tcs-deployment-schematic.png" src="../../_images/tcs-deployment-schematic.png" />
-<p class="caption">TCS Deployment Schematic</p>
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">TCS Deployment Schematic</span></p>
 </div>
 <p>In the above Figure: (1) Motors and encoders are connected to drives and I/O
 terminals, (2) Cameras are connected to data acquisition computers with fiber
@@ -389,7 +389,7 @@ system.</p>
 <div class="section" id="controls-hierarchy">
 <span id="architecture-controls"></span><h2>2.5. Controls Hierarchy<a class="headerlink" href="#controls-hierarchy" title="Permalink to this headline">¶</a></h2>
 <p>An example of the control hierarchy addressed by the SWC software modeling
-process is shown in the <a class="reference internal" href="#control-hierarchy"><em>Figure below</em></a>.  At the top
+process is shown in the <a class="reference internal" href="#control-hierarchy"><span class="std std-ref">Figure below</span></a>.  At the top
 level, the Sequencer subsystem orchestrates the operational workflow of
 high-level processes, such as telescope pointing and acquisition. At
 intermediate levels, control and operational logic dictate how to carry out the
@@ -397,13 +397,13 @@ commanded operations.  At the lowest levels, control demands are sent to devices
 that produce telescope axis motion. The purpose of the SWC software modeling
 process is to enable physical control that accurately captures the operating
 principles of the observatory.</p>
-<div class="figure" id="control-hierarchy">
-<img alt="../../_images/control-hierarchy.png" src="../../_images/control-hierarchy.png" />
-<p class="caption">Conceptual Control Hierarchy</p>
+<div class="figure" id="id12">
+<span id="control-hierarchy"></span><img alt="../../_images/control-hierarchy.png" src="../../_images/control-hierarchy.png" />
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Conceptual Control Hierarchy</span></p>
 </div>
 <p>The GMT Instruments Controls Subsystem follows the same architectural design as
 other device control subsystems. Typically an Instrument Software and Controls
-Subsystem will include most of the packages described <a class="reference internal" href="#table-control-packages"><em>for control</em></a> and will be developed following the standards and
+Subsystem will include most of the packages described <a class="reference internal" href="#table-control-packages"><span class="std std-ref">for control</span></a> and will be developed following the standards and
 guidelines described in the SWCS Handbook.  The operation of ICS, TCS and AO
 subsystems will be coordinated by the GMT Sequencer in order execute automated
 observation or calibration operations.  The ICS data pipeline packages are
@@ -468,10 +468,10 @@ operation</li>
 <li>Subsystem IO health</li>
 </ul>
 </div></blockquote>
-<p>The Figure below shows the conceptual view of the <a class="reference internal" href="#figure-supervisory-hierarchy"><em>Supervisory Hierarchy</em></a>.</p>
-<div class="figure" id="figure-supervisory-hierarchy">
-<img alt="../../_images/supervisory-hierarchy.png" src="../../_images/supervisory-hierarchy.png" />
-<p class="caption">Supervisory Hierarchy</p>
+<p>The Figure below shows the conceptual view of the <a class="reference internal" href="#figure-supervisory-hierarchy"><span class="std std-ref">Supervisory Hierarchy</span></a>.</p>
+<div class="figure" id="id13">
+<span id="figure-supervisory-hierarchy"></span><img alt="../../_images/supervisory-hierarchy.png" src="../../_images/supervisory-hierarchy.png" />
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Supervisory Hierarchy</span></p>
 </div>
 </div>
 <div class="section" id="frameworks">
@@ -482,7 +482,7 @@ to design a framework that implements architectural patterns (e.g., Controller,
 Pipeline) and common components.  The domain engineering process shows that many
 subsystems share common architecture and many components share similar
 solutions.</p>
-<p><a class="reference internal" href="../frameworks/component_frameworks.html#component-frameworks"><em>Frameworks</em></a> provide a collection of reusable building blocks
+<p><a class="reference internal" href="../frameworks/component_frameworks.html#component-frameworks"><span class="std std-ref">Frameworks</span></a> provide a collection of reusable building blocks
 that solve recurrent problems in different domains (e.g., control systems,
 distributed services, data processing, hardware interfaces) and that allow
 developing observatory applications. At the same time, they provide an isolation
@@ -510,29 +510,29 @@ required.</li>
 <p>Ideally it should not be necessary to develop any domain independent framework,
 as they address problems that are common to a large family of applications;
 examples of those are middleware libraries, database management systems, etc.
-The <a class="reference internal" href="../frameworks/component_frameworks.html#component-frameworks"><em>Component Framework</em></a> includes the following
-elements:  <a class="reference internal" href="../frameworks/component_frameworks.html#core-framework"><em>Core Framework</em></a>, <a class="reference internal" href="../frameworks/component_frameworks.html#device-control-framework"><em>Device Control Framework</em></a>,
-<a class="reference internal" href="../frameworks/component_frameworks.html#data-processing-framework"><em>Data Processing Framework</em></a>, <a class="reference internal" href="../frameworks/component_frameworks.html#time-distribution-framework"><em>Time Distribution Framework</em></a>,
-<a class="reference internal" href="../frameworks/component_frameworks.html#user-interface-framework"><em>User Interface Framework</em></a>,  <a class="reference internal" href="../frameworks/component_frameworks.html#io-framework"><em>I/O Framework</em></a>.</p>
+The <a class="reference internal" href="../frameworks/component_frameworks.html#component-frameworks"><span class="std std-ref">Component Framework</span></a> includes the following
+elements:  <a class="reference internal" href="../frameworks/component_frameworks.html#core-framework"><span class="std std-ref">Core Framework</span></a>, <a class="reference internal" href="../frameworks/component_frameworks.html#device-control-framework"><span class="std std-ref">Device Control Framework</span></a>,
+<a class="reference internal" href="../frameworks/component_frameworks.html#data-processing-framework"><span class="std std-ref">Data Processing Framework</span></a>, <a class="reference internal" href="../frameworks/component_frameworks.html#time-distribution-framework"><span class="std std-ref">Time Distribution Framework</span></a>,
+<a class="reference internal" href="../frameworks/component_frameworks.html#user-interface-framework"><span class="std std-ref">User Interface Framework</span></a>,  <a class="reference internal" href="../frameworks/component_frameworks.html#io-framework"><span class="std std-ref">I/O Framework</span></a>.</p>
 </div>
 <div class="section" id="modules-subsystem-packages-components">
 <span id="architecture-modules"></span><h2>2.8. Modules: Subsystem, Packages, Components<a class="headerlink" href="#modules-subsystem-packages-components" title="Permalink to this headline">¶</a></h2>
 <p>The SWCS domains (TCS, OPS, OSRV) are each composed of software subsystem
-modules. As illustrated in the bottom row of the <a class="reference internal" href="#swcs-organization"><em>SWCS Organization</em></a>
+modules. As illustrated in the bottom row of the <a class="reference internal" href="#swcs-organization"><span class="std std-ref">SWCS Organization</span></a>
 figure, each subsystem is then made up of components organized into packages
 according to their affinity or relationships. The SWC reference architecture
 <a class="reference internal" href="../bibliography/bibliography.html#filg13b" id="id5">[Filg13b]</a> defines a guide for organizing subsystem components into a set of
 canonical packages.  Examples of packages and their components are shown in
-Tables below on <a class="reference internal" href="#table-control-packages"><em>Control Packages</em></a> and <a class="reference internal" href="#figure-core-components"><em>Core Components</em></a>.
+Tables below on <a class="reference internal" href="#table-control-packages"><span class="std std-ref">Control Packages</span></a> and <a class="reference internal" href="#figure-core-components"><span class="std std-ref">Core Components</span></a>.
 Which packages exist in which subsystem depends on the specific functionality
 (e.g., some subsystems do not require special calibration components, or do not
 interface with hardware devices). The tables below describe this pattern, split
 in two categories:</p>
 <blockquote>
 <div><ul class="simple">
-<li><a class="reference internal" href="#table-control-packages"><em>Control Packages</em></a> – These packages are included in
+<li><a class="reference internal" href="#table-control-packages"><span class="std std-ref">Control Packages</span></a> – These packages are included in
 subsystems that involve the control of optomechanical hardware Devices.</li>
-<li><a class="reference internal" href="#operation-support-packages"><em>Operation Support Packages</em></a> – These
+<li><a class="reference internal" href="#operation-support-packages"><span class="std std-ref">Operation Support Packages</span></a> – These
 Packages include software components necessary to support health monitoring,
 automation, and proper operation of a Subsystem. Diagnosis and calibration
 packages are emphasized early on in the design. This is an area that is
@@ -541,8 +541,8 @@ development effort, especially in the case of complex adaptive optics
 control subsystems.</li>
 </ul>
 </div></blockquote>
-<table border="1" class="docutils" id="table-control-packages">
-<caption>Control Packages</caption>
+<table border="1" class="docutils" id="id14">
+<span id="table-control-packages"></span><caption><span class="caption-number">Table 1 </span><span class="caption-text">Control Packages</span><a class="headerlink" href="#id14" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="22%" />
 <col width="56%" />
@@ -637,8 +637,8 @@ control subsystems.</li>
 </tr>
 </tbody>
 </table>
-<table border="1" class="docutils" id="operation-support-packages">
-<caption>Operation Support Packages</caption>
+<table border="1" class="docutils" id="id15">
+<span id="operation-support-packages"></span><caption><span class="caption-number">Table 2 </span><span class="caption-text">Operation Support Packages</span><a class="headerlink" href="#id15" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="22%" />
 <col width="56%" />
@@ -834,35 +834,35 @@ control subsystems.</li>
 </tr>
 </tbody>
 </table>
-<div class="figure">
+<div class="figure" id="id16">
 <img alt="../../_images/m1-control-system-excerpt.png" src="../../_images/m1-control-system-excerpt.png" />
-<p class="caption">M1 Control System Package and Components Excerpt</p>
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">M1 Control System Package and Components Excerpt</span></p>
 </div>
 <p>The Figure above shows an example of the component organization for the M1
 Control System. The structure of all the SWCS Subsystems has been analyzed and
 developed following this pattern. As described above and later,
-<a class="reference internal" href="../frameworks/component_frameworks.html#framework-domain-engineering"><em>Domain Engineering</em></a> helps to identify sets of common components
+<a class="reference internal" href="../frameworks/component_frameworks.html#framework-domain-engineering"><span class="std std-ref">Domain Engineering</span></a> helps to identify sets of common components
 that are the elementary building blocks of the SWCS subsystems.  The figure on
-<a class="reference internal" href="#figure-core-components"><em>Core Components</em></a> below shows those core component classes.  Each
-component is defined by a set of <a class="reference internal" href="#figure-component-features"><em>Component Features</em></a> whose
-definitions are detailed in <a class="reference internal" href="../frameworks/component_frameworks.html#core-framework"><em>Core Framework</em></a>.  In fact, all SWCS modules,
+<a class="reference internal" href="#figure-core-components"><span class="std std-ref">Core Components</span></a> below shows those core component classes.  Each
+component is defined by a set of <a class="reference internal" href="#figure-component-features"><span class="std std-ref">Component Features</span></a> whose
+definitions are detailed in <a class="reference internal" href="../frameworks/component_frameworks.html#core-framework"><span class="std std-ref">Core Framework</span></a>.  In fact, all SWCS modules,
 including subsystems, packages, and components are fully specified by a text
 file containing their features, as shown in the example of
-<a class="reference internal" href="#baselinearaxiscontroller"><em>BaseLinearAxisController</em></a>. The Section on
-<a class="reference internal" href="../process/process_introduction.html#subsystem-specification-and-modeling"><em>Subsystem Specification and Modeling</em></a> explains the formal specification
+<a class="reference internal" href="#baselinearaxiscontroller"><span class="std std-ref">BaseLinearAxisController</span></a>. The Section on
+<a class="reference internal" href="../process/process_introduction.html#subsystem-specification-and-modeling"><span class="std std-ref">Subsystem Specification and Modeling</span></a> explains the formal specification
 process in more detail.</p>
-<div class="figure" id="figure-core-components">
-<img alt="../../_images/core-components.png" src="../../_images/core-components.png" />
-<p class="caption">Core Components</p>
+<div class="figure" id="id17">
+<span id="figure-core-components"></span><img alt="../../_images/core-components.png" src="../../_images/core-components.png" />
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Core Components</span></p>
 </div>
-<div class="figure" id="figure-component-features">
-<img alt="../../_images/component-features.png" src="../../_images/component-features.png" />
-<p class="caption">Component Features</p>
+<div class="figure" id="id18">
+<span id="figure-component-features"></span><img alt="../../_images/component-features.png" src="../../_images/component-features.png" />
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Component Features</span></p>
 </div>
 <p>Each Component has been assigned to a class that defines its default behavior in
-the corresponding specification file. <a class="reference internal" href="#baselinearaxiscontroller"><em>The following code-block excerpt</em></a> shows an example of the specification file that
+the corresponding specification file. <a class="reference internal" href="#baselinearaxiscontroller"><span class="std std-ref">The following code-block excerpt</span></a> shows an example of the specification file that
 defines the interface and features of a <em>BaseLinearAxisController</em>
-(<a class="reference internal" href="../frameworks/component_frameworks.html#device-control-framework"><em>Device Control Framework</em></a> provides an overview of common motion control
+(<a class="reference internal" href="../frameworks/component_frameworks.html#device-control-framework"><span class="std std-ref">Device Control Framework</span></a> provides an overview of common motion control
 Components). This specification is based on the IEC 61800-7-201 <a class="reference internal" href="../bibliography/bibliography.html#iec61800-7-201" id="id6">[IEC61800-7-201]</a>
 Standard. The standard is concrete, but at the same time is designed to cover a
 majority of the motion control use cases. The design process captures when a
@@ -881,7 +881,7 @@ platform of the responsibility to perform all the real-time functionality.
 As the control loops run in dedicated standardized controllers, it is then
 feasible to implement a layer that integrates the controller with the rest
 of the observatory services using more productive high-level languages
-(<a class="reference internal" href="../platform/platform.html#software-development-platform"><em>Software Development Platform</em></a>).</li>
+(<a class="reference internal" href="../platform/platform.html#software-development-platform"><span class="std std-ref">Software Development Platform</span></a>).</li>
 <li>The mapping between specification and implementation is as direct as it
 gets, and greatly facilitates the traceability of requirements.</li>
 <li>The interfaces of similar Components share the same detailed specification
@@ -892,13 +892,13 @@ procedures.</li>
 <li>It is possible to specify accordingly the majority of the elementary degrees
 of freedom of the GMT as well as some Axis Groups (e.g.,
 <em>BaseLinearXYController</em> for a Cartesian linear stage), as discussed in
-<a class="reference internal" href="../tcs/tcs_introduction.html#tcs-introduction"><em>Telescope Control System</em></a>. It is also possible to incorporate fault
+<a class="reference internal" href="../tcs/tcs_introduction.html#tcs-introduction"><span class="std std-ref">Telescope Control System</span></a>. It is also possible to incorporate fault
 management, and startup/shut down procedures in the same manner modeled
 using supervisor components.  Supervisors are usually more specific to the
 application and their implementation, thus require more customization. Other
 domains, like user interface components or data processing components have
-been subject to the same design process. <a class="reference internal" href="../frameworks/component_frameworks.html#user-interface-framework"><em>User Interface Framework</em></a> and
-<a class="reference internal" href="../frameworks/component_frameworks.html#data-processing-framework"><em>Data Processing Framework</em></a> sections describe them respectively.</li>
+been subject to the same design process. <a class="reference internal" href="../frameworks/component_frameworks.html#user-interface-framework"><span class="std std-ref">User Interface Framework</span></a> and
+<a class="reference internal" href="../frameworks/component_frameworks.html#data-processing-framework"><span class="std std-ref">Data Processing Framework</span></a> sections describe them respectively.</li>
 </ul>
 </div></blockquote>
 <div class="highlight-coffeescript" id="baselinearaxiscontroller"><div class="highlight"><pre><span></span><span class="nv">properties:</span>

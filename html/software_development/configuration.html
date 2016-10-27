@@ -94,7 +94,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Software Development</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installation.html">1. Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="isample_example.html">2. ISample Example</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">3. Developer Info and Release Configuration</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3. Developer Info and Release Configuration</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#services-configuration">3.1. Services Configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#databases-and-logs">3.2. Databases and Logs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#firewall-and-network-ports">3.3. Firewall and Network Ports</a></li>
@@ -130,7 +130,7 @@
         <div class="rst-content">
           
 
-
+ 
 
 
 
@@ -187,26 +187,26 @@ own, independent, database.</p>
 certain rates.  The following files need to be customized for you application in:</p>
 <blockquote>
 <div><cite>${GMT_ROOT}/var/lib/gmt/cson/runtime/db/config/obs_srv/log_sys/log_service.cson</cite></div></blockquote>
-<div class="highlight-python"><div class="highlight"><pre><span></span>server_1:
-    name      : &#39;LogServer_1&#39;
-    rate      : 600000                                   # periodic loop rate to perform checks, stats, etc.
-    url       : &#39;tcp://127.0.0.1:9998&#39;                   # to receive log messages from components
-    pub_url   : &#39;tcp://127.0.0.1:9995&#39;                   # to publish logs to subscribers
-    query_url : &#39;tcp://127.0.0.1:9994&#39;                   # to receive querys from clients
-    db_url    : &#39;mongodb://127.0.0.1:27017/gmt_test_logs_1&#39; # db to store log messages
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">server_1</span><span class="p">:</span>
+    <span class="n">name</span>      <span class="p">:</span> <span class="s1">&#39;LogServer_1&#39;</span>
+    <span class="n">rate</span>      <span class="p">:</span> <span class="mi">600000</span>                                   <span class="c1"># periodic loop rate to perform checks, stats, etc.</span>
+    <span class="n">url</span>       <span class="p">:</span> <span class="s1">&#39;tcp://127.0.0.1:9998&#39;</span>                   <span class="c1"># to receive log messages from components</span>
+    <span class="n">pub_url</span>   <span class="p">:</span> <span class="s1">&#39;tcp://127.0.0.1:9995&#39;</span>                   <span class="c1"># to publish logs to subscribers</span>
+    <span class="n">query_url</span> <span class="p">:</span> <span class="s1">&#39;tcp://127.0.0.1:9994&#39;</span>                   <span class="c1"># to receive querys from clients</span>
+    <span class="n">db_url</span>    <span class="p">:</span> <span class="s1">&#39;mongodb://127.0.0.1:27017/gmt_test_logs_1&#39;</span> <span class="c1"># db to store log messages</span>
 </pre></div>
 </div>
 <p>Note: The <em>pub_url</em> value shall be the same used in the GMT_LOG_URL environment var.
 This variable is only required for the C++ components in:</p>
 <blockquote>
 <div><cite>${GMT_ROOT}/var/lib/gmt/cson/runtime/db/config/obs_srv/telemetry_sys/telemetry_service.cson</cite></div></blockquote>
-<div class="highlight-python"><div class="highlight"><pre><span></span>server_1:
-    name      : &#39;TelemetryServer_1&#39;
-    rate      : 600000                                   # periodic loop rate to perform checks, stats, etc.
-    url       : &#39;tcp://127.0.0.1:9997&#39;                   # to receive monitored values from components
-    pub_url   : &#39;tcp://127.0.0.1:9993&#39;                   # to publish monitors to subscribers
-    query_url : &#39;tcp://127.0.0.1:9992&#39;                   # to receive queries from clients
-    db_url    : &#39;mongodb://127.0.0.1:27017/gmt_test_telemetry_1&#39; # db to store monitors
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">server_1</span><span class="p">:</span>
+    <span class="n">name</span>      <span class="p">:</span> <span class="s1">&#39;TelemetryServer_1&#39;</span>
+    <span class="n">rate</span>      <span class="p">:</span> <span class="mi">600000</span>                                   <span class="c1"># periodic loop rate to perform checks, stats, etc.</span>
+    <span class="n">url</span>       <span class="p">:</span> <span class="s1">&#39;tcp://127.0.0.1:9997&#39;</span>                   <span class="c1"># to receive monitored values from components</span>
+    <span class="n">pub_url</span>   <span class="p">:</span> <span class="s1">&#39;tcp://127.0.0.1:9993&#39;</span>                   <span class="c1"># to publish monitors to subscribers</span>
+    <span class="n">query_url</span> <span class="p">:</span> <span class="s1">&#39;tcp://127.0.0.1:9992&#39;</span>                   <span class="c1"># to receive queries from clients</span>
+    <span class="n">db_url</span>    <span class="p">:</span> <span class="s1">&#39;mongodb://127.0.0.1:27017/gmt_test_telemetry_1&#39;</span> <span class="c1"># db to store monitors</span>
 </pre></div>
 </div>
 </div>
@@ -224,7 +224,7 @@ checking their status</p>
 used ports are open for tcp/udp communications.  With root/admin permissions
 it&#8217;s possible to disable the whole firewall or specific ports can be open like
 this:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>$ sudo firewall-cmd --add-port=$PORT/tcp --permanent --zone=public
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ sudo firewall-cmd --add-port=$PORT/tcp --permanent --zone=public
 $ sudo firewall-cmd --add-port=$PORT/udp --permanent --zone=public
 </pre></div>
 </div>
@@ -233,17 +233,17 @@ $ sudo firewall-cmd --add-port=$PORT/udp --permanent --zone=public
 <h2>3.4. URIs and URLs<a class="headerlink" href="#uris-and-urls" title="Permalink to this headline">¶</a></h2>
 <p>GMT Components use an unique URI in the following scheme</p>
 <blockquote>
-<div><em>Usage:</em> <tt class="docutils literal"><span class="pre">gmt://subsystem/component:port</span></tt></div></blockquote>
+<div><em>Usage:</em> <code class="docutils literal"><span class="pre">gmt://subsystem/component:port</span></code></div></blockquote>
 <p>The port number is used to send the component setup (rates, ports, etc).
 Example:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>gmt://examples/basic_controller:8001
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">gmt</span><span class="p">:</span><span class="o">//</span><span class="n">examples</span><span class="o">/</span><span class="n">basic_controller</span><span class="p">:</span><span class="mi">8001</span>
 </pre></div>
 </div>
 <p>GMT Ports have an url using the <em>nanomsg</em> scheme:</p>
 <blockquote>
-<div><em>Usage:</em> <tt class="docutils literal"><span class="pre">transport://host:net_port</span></tt></div></blockquote>
+<div><em>Usage:</em> <code class="docutils literal"><span class="pre">transport://host:net_port</span></code></div></blockquote>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>tcp://127.0.0.1:9001
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">tcp</span><span class="p">:</span><span class="o">//</span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="p">:</span><span class="mi">9001</span>
 </pre></div>
 </div>
 </div>

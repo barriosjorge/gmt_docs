@@ -98,11 +98,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">4. DCS Development</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../../../introduction/introduction.html">4.1. Introduction</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../../specification.html">4.2. DCS specification example: <em>isample_dcs</em></a><ul class="current">
-<<<<<<< HEAD
 <li class="toctree-l4 current"><a class="current reference internal" href="#">4.2.1. Module loader (<em>loader.coffee</em>)</a></li>
-=======
-<li class="toctree-l4 current"><a class="current reference internal" href="">4.2.1. Module loader (<em>loader.coffee</em>)</a></li>
->>>>>>> aa305e246c52769c7a310942a2a167e38cc9c992
 <li class="toctree-l4"><a class="reference internal" href="isample_def.html">4.2.2. <em>isample_def.coffee</em></a></li>
 <li class="toctree-l4"><a class="reference internal" href="isample_dcs.html">4.2.3. DCS description <em>isample_dcs.coffee</em></a></li>
 <li class="toctree-l4"><a class="reference internal" href="isample_types.html">4.2.4. DCS own Data Types (<em>isample_types.coffee</em>)</a></li>
@@ -146,7 +142,7 @@
         <div class="rst-content">
           
 
-
+ 
 
 
 
@@ -175,8 +171,23 @@
   <div class="section" id="module-loader-loader-coffee">
 <span id="isample-loader"></span><h1>4.2.1. Module loader (<em>loader.coffee</em>)<a class="headerlink" href="#module-loader-loader-coffee" title="Permalink to this headline">¶</a></h1>
 <p>The loader file included the previous files in order.
-This it&#8217;s used to load all required <a class="reference internal" href="../../../../../SWCS_Standards/reference_architecture/dcs_reference_architecture.html#dcs-component-architecture"><em>components</em></a> of the
+This it&#8217;s used to load all required <a class="reference internal" href="../../../../../SWCS_Standards/reference_architecture/dcs_reference_architecture.html#dcs-component-architecture"><span class="std std-ref">components</span></a> of the
 DCS into the GMT model</p>
+<div class="literal-block-wrapper container" id="code-loader-coffee">
+<div class="code-block-caption"><span class="caption-number">Listing 4 </span><span class="caption-text">Code: <em>loader.coffee</em></span><a class="headerlink" href="#code-loader-coffee" title="Permalink to this code">¶</a></div>
+<div class="highlight-coffeescript"><div class="highlight"><pre><span></span><span class="nx">require</span> <span class="s">&#39;./isample_def&#39;</span>
+<span class="nx">require</span> <span class="s">&#39;./isample_types&#39;</span>
+<span class="nx">require</span> <span class="s">&#39;./isample_dcs&#39;</span>
+<span class="nx">require</span> <span class="s">&#39;./isample_ctrl_pkg/isample_ctrl_pkg&#39;</span>
+<span class="nx">require</span> <span class="s">&#39;./isample_ctrl_pkg/isample_ctrl_super&#39;</span>
+<span class="nx">require</span> <span class="s">&#39;./isample_ctrl_pkg/isample_temp_ctrl&#39;</span>
+<span class="nx">require</span> <span class="s">&#39;./isample_ctrl_pkg/isample_focus_ctrl&#39;</span>
+<span class="nx">require</span> <span class="s">&#39;./isample_ctrl_pkg/isample_filter_wheel_ctrl&#39;</span>
+<span class="nx">require</span> <span class="s">&#39;./isample_ctrl_pkg/isample_hw_adapter&#39;</span>
+<span class="nx">require</span> <span class="s">&#39;./isample_ctrl_pkg/isample_ctrl_fb&#39;</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 

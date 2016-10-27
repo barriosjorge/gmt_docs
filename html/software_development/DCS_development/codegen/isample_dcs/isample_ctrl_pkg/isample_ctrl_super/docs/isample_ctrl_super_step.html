@@ -8,11 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-<<<<<<< HEAD
-  <title>7. isample_ctrl_super_step.cpp &mdash; GMT Software And Controls documentation</title>
-=======
-  <title>5. isample_ctrl_super_step.cpp &mdash; GMT Software And Controls documentation</title>
->>>>>>> aa305e246c52769c7a310942a2a167e38cc9c992
+  <title>4.3.3.5. isample_ctrl_super_step.cpp &mdash; GMT Software And Controls documentation</title>
   
 
   
@@ -37,15 +33,9 @@
 
   
     <link rel="top" title="GMT Software And Controls documentation" href="../../../../../../../index.html"/>
-<<<<<<< HEAD
-        <link rel="up" title="DCS Control Supervisor Files" href="../index.html"/>
-        <link rel="next" title="8. module.mk" href="module.html"/>
-        <link rel="prev" title="6. isample_ctrl_super_setup.cpp" href="isample_ctrl_super_setup.html"/> 
-=======
         <link rel="up" title="4.3.3. DCS Control Supervisor Files" href="../index.html"/>
-        <link rel="next" title="6. isample_ctrl_super_config.coffee" href="isample_ctrl_super_config.html"/>
-        <link rel="prev" title="4. isample_ctrl_super_setup.cpp" href="isample_ctrl_super_setup.html"/> 
->>>>>>> aa305e246c52769c7a310942a2a167e38cc9c992
+        <link rel="next" title="4.3.3.6. isample_ctrl_super_config.coffee" href="isample_ctrl_super_config.html"/>
+        <link rel="prev" title="4.3.3.4. isample_ctrl_super_setup.cpp" href="isample_ctrl_super_setup.html"/> 
 
   
   <script src="../../../../../../../_static/js/modernizr.min.js"></script>
@@ -110,17 +100,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../../specification/specification.html">4.2. DCS specification example: <em>isample_dcs</em></a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../../../../codegen.html">4.3. DCS code generation example: <em>isample_dcs</em></a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="../../../index.html">4.3.1. DCS Subsystem files</a></li>
-<<<<<<< HEAD
-<li class="toctree-l4"><a class="reference internal" href="../../index.html">DCS Control Package Files</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="../index.html">DCS Control Supervisor Files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../isample_filter_wheel_ctrl/index.html">DCS Filter Wheel Controller Files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../isample_hw_adapter/index.html">DCS Hardware Adapter Files</a></li>
-=======
 <li class="toctree-l4"><a class="reference internal" href="../../index.html">4.3.2. DCS Control Package Files</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="../index.html">4.3.3. DCS Control Supervisor Files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../isample_filter_wheel_ctrl/index.html">4.3.4. DCS Filter Wheel Controller Files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../isample_hw_adapter/index.html">4.3.5. DCS Hardware Adapter Files</a></li>
->>>>>>> aa305e246c52769c7a310942a2a167e38cc9c992
+<li class="toctree-l4"><a class="reference internal" href="../../isample_filter_wheel_ctrl/index.html">DCS Filter Wheel Controller Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../isample_hw_adapter/index.html">4.3.4. DCS Hardware Adapter Files</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../model_elements/elements.html">4.4. Model Elements</a></li>
@@ -153,7 +136,7 @@
         <div class="rst-content">
           
 
-
+ 
 
 
 
@@ -167,15 +150,9 @@
       
           <li><a href="../../../../codegen.html">4.3. DCS code generation example: <em>isample_dcs</em></a> &raquo;</li>
       
-<<<<<<< HEAD
-          <li><a href="../index.html">DCS Control Supervisor Files</a> &raquo;</li>
-      
-    <li>7. <em>isample_ctrl_super_step.cpp</em></li>
-=======
           <li><a href="../index.html">4.3.3. DCS Control Supervisor Files</a> &raquo;</li>
       
-    <li>5. <em>isample_ctrl_super_step.cpp</em></li>
->>>>>>> aa305e246c52769c7a310942a2a167e38cc9c992
+    <li>4.3.3.5. <em>isample_ctrl_super_step.cpp</em></li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -188,13 +165,10 @@
            <div itemprop="articleBody">
             
   <div class="section" id="isample-ctrl-super-step-cpp">
-<<<<<<< HEAD
-<span id="isample-ctrl-super-step"></span><h1>7. <em>isample_ctrl_super_step.cpp</em><a class="headerlink" href="#isample-ctrl-super-step-cpp" title="Permalink to this headline">¶</a></h1>
-<p>The Hardware Developers Kit (HDK) is a hardware platform
-that embodies a basic Device Control System that complies
-with the GMT DCS Reference Architecture (RA)</p>
+<span id="isample-ctrl-super-step"></span><h1>4.3.3.5. <em>isample_ctrl_super_step.cpp</em><a class="headerlink" href="#isample-ctrl-super-step-cpp" title="Permalink to this headline">¶</a></h1>
+<p>This is the definition of the step method. This is where most of the custom programming shall be done.</p>
 <div class="literal-block-wrapper container" id="code-isample-ctrl-super-step-cpp">
-<div class="code-block-caption"><span class="caption-number">Listing 32 </span><span class="caption-text">Code: <em>isample_ctrl_super_step.cpp</em></span><a class="headerlink" href="#code-isample-ctrl-super-step-cpp" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 30 </span><span class="caption-text">Code: <em>isample_ctrl_super_step.cpp</em></span><a class="headerlink" href="#code-isample-ctrl-super-step-cpp" title="Permalink to this code">¶</a></div>
 <div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;isample_ctrl_super.h&quot;</span><span class="cp"></span>
 
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">gmt</span><span class="p">;</span>
@@ -209,10 +183,6 @@ with the GMT DCS Reference Architecture (RA)</p>
 </pre></div>
 </div>
 </div>
-=======
-<span id="isample-ctrl-super-step"></span><h1>5. <em>isample_ctrl_super_step.cpp</em><a class="headerlink" href="#isample-ctrl-super-step-cpp" title="Permalink to this headline">¶</a></h1>
-<p>This is the definition of the step method. This is where most of the custom programming shall be done.</p>
->>>>>>> aa305e246c52769c7a310942a2a167e38cc9c992
 </div>
 
 
@@ -222,17 +192,10 @@ with the GMT DCS Reference Architecture (RA)</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-<<<<<<< HEAD
-        <a href="module.html" class="btn btn-neutral float-right" title="8. module.mk" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="isample_ctrl_super_config.html" class="btn btn-neutral float-right" title="4.3.3.6. isample_ctrl_super_config.coffee" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="isample_ctrl_super_setup.html" class="btn btn-neutral" title="6. isample_ctrl_super_setup.cpp" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-=======
-        <a href="isample_ctrl_super_config.html" class="btn btn-neutral float-right" title="6. isample_ctrl_super_config.coffee" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="isample_ctrl_super_setup.html" class="btn btn-neutral" title="4. isample_ctrl_super_setup.cpp" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
->>>>>>> aa305e246c52769c7a310942a2a167e38cc9c992
+        <a href="isample_ctrl_super_setup.html" class="btn btn-neutral" title="4.3.3.4. isample_ctrl_super_setup.cpp" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

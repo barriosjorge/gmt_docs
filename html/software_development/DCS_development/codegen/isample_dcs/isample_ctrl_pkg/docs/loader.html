@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>1. loader.coffee &mdash; GMT Software And Controls documentation</title>
+  <title>4.3.2.1. loader.coffee &mdash; GMT Software And Controls documentation</title>
   
 
   
@@ -34,7 +34,7 @@
   
     <link rel="top" title="GMT Software And Controls documentation" href="../../../../../../index.html"/>
         <link rel="up" title="4.3.2. DCS Control Package Files" href="../index.html"/>
-        <link rel="next" title="2. isample_ctrl_pkg_main_run.cpp" href="isample_ctrl_pkg_main_run.html"/>
+        <link rel="next" title="4.3.2.2. isample_ctrl_pkg_main_run.cpp" href="isample_ctrl_pkg_main_run.html"/>
         <link rel="prev" title="4.3.2. DCS Control Package Files" href="../index.html"/> 
 
   
@@ -100,17 +100,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../specification/specification.html">4.2. DCS specification example: <em>isample_dcs</em></a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../../../codegen.html">4.3. DCS code generation example: <em>isample_dcs</em></a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="../../index.html">4.3.1. DCS Subsystem files</a></li>
-<<<<<<< HEAD
-<li class="toctree-l4 current"><a class="reference internal" href="../index.html">DCS Control Package Files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../isample_ctrl_super/index.html">DCS Control Supervisor Files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../isample_filter_wheel_ctrl/index.html">DCS Filter Wheel Controller Files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../isample_hw_adapter/index.html">DCS Hardware Adapter Files</a></li>
-=======
 <li class="toctree-l4 current"><a class="reference internal" href="../index.html">4.3.2. DCS Control Package Files</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../isample_ctrl_super/index.html">4.3.3. DCS Control Supervisor Files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../isample_filter_wheel_ctrl/index.html">4.3.4. DCS Filter Wheel Controller Files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../isample_hw_adapter/index.html">4.3.5. DCS Hardware Adapter Files</a></li>
->>>>>>> aa305e246c52769c7a310942a2a167e38cc9c992
+<li class="toctree-l4"><a class="reference internal" href="../isample_filter_wheel_ctrl/index.html">DCS Filter Wheel Controller Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../isample_hw_adapter/index.html">4.3.4. DCS Hardware Adapter Files</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../model_elements/elements.html">4.4. Model Elements</a></li>
@@ -143,7 +136,7 @@
         <div class="rst-content">
           
 
-
+ 
 
 
 
@@ -159,7 +152,7 @@
       
           <li><a href="../index.html">4.3.2. DCS Control Package Files</a> &raquo;</li>
       
-    <li>1. <em>loader.coffee</em></li>
+    <li>4.3.2.1. <em>loader.coffee</em></li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -172,8 +165,20 @@
            <div itemprop="articleBody">
             
   <div class="section" id="loader-coffee">
-<span id="isample-dcs-loader"></span><h1>1. <em>loader.coffee</em><a class="headerlink" href="#loader-coffee" title="Permalink to this headline">¶</a></h1>
+<span id="isample-dcs-loader"></span><h1>4.3.2.1. <em>loader.coffee</em><a class="headerlink" href="#loader-coffee" title="Permalink to this headline">¶</a></h1>
 <p>This is the module loader for the DCS Control Package in the runtime part of the model.</p>
+<div class="literal-block-wrapper container" id="code-loader-coffee">
+<div class="code-block-caption"><span class="caption-number">Listing 23 </span><span class="caption-text">Code: <em>loader.coffee</em></span><a class="headerlink" href="#code-loader-coffee" title="Permalink to this code">¶</a></div>
+<div class="highlight-coffeescript"><div class="highlight"><pre><span></span><span class="nx">require</span> <span class="s">&#39;../isample_ctrl_super/coffee/isample_ctrl_super_config&#39;</span>
+<span class="nx">require</span> <span class="s">&#39;../isample_temp_ctrl/coffee/isample_cryo_internal_temp_ctrl_config&#39;</span>
+<span class="nx">require</span> <span class="s">&#39;../isample_temp_ctrl/coffee/isample_cryo_external_temp_ctrl_config&#39;</span>
+<span class="nx">require</span> <span class="s">&#39;../isample_focus_ctrl/coffee/isample_focus_ctrl_config&#39;</span>
+<span class="nx">require</span> <span class="s">&#39;../isample_filter_wheel_ctrl/coffee/isample_fw1_ctrl_config&#39;</span>
+<span class="nx">require</span> <span class="s">&#39;../isample_filter_wheel_ctrl/coffee/isample_fw2_ctrl_config&#39;</span>
+<span class="nx">require</span> <span class="s">&#39;../isample_hw_adapter/coffee/isample_hw_adapter_config&#39;</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -183,7 +188,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="isample_ctrl_pkg_main_run.html" class="btn btn-neutral float-right" title="2. isample_ctrl_pkg_main_run.cpp" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="isample_ctrl_pkg_main_run.html" class="btn btn-neutral float-right" title="4.3.2.2. isample_ctrl_pkg_main_run.cpp" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../index.html" class="btn btn-neutral" title="4.3.2. DCS Control Package Files" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>

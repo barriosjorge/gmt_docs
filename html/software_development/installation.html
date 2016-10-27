@@ -92,7 +92,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../system_level_PDR/index.html">Architecture and Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../SWCS_Standards/index.html">Software and Controls Standards</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Software Development</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="">1. Installation</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1. Installation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#procedure">1.1. Procedure</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sanity-check">1.2. Sanity Check</a></li>
 </ul>
@@ -127,7 +127,7 @@
         <div class="rst-content">
           
 
-
+ 
 
 
 
@@ -179,11 +179,11 @@ $ curl -O http://52.52.46.32/srv/gmt/iso/standalone.sha512
 <p class="first admonition-title">Warning</p>
 <ul class="last simple">
 <li>The drive needs a minimum 3GB capacity</li>
-<li>Properly identify your drive&#8217;s <tt class="docutils literal"><span class="pre">device</span></tt></li>
+<li>Properly identify your drive&#8217;s <code class="docutils literal"><span class="pre">device</span></code></li>
 <li>The entire drive will be erased!</li>
 </ul>
 </div>
-<p>OSX - with a drive on <tt class="docutils literal"><span class="pre">/dev/disk2</span></tt></p>
+<p>OSX - with a drive on <code class="docutils literal"><span class="pre">/dev/disk2</span></code></p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ shasum -a <span class="m">512</span> -c standalone.sha512
 standalone.iso: OK
 
@@ -192,7 +192,7 @@ $ sudo diskutil unmountDisk /dev/disk2
 $ sudo dd <span class="nv">bs</span><span class="o">=</span>4m <span class="k">if</span><span class="o">=</span>standalone.iso <span class="nv">of</span><span class="o">=</span>/dev/rdisk2
 </pre></div>
 </div>
-<p>Linux - with a drive on <tt class="docutils literal"><span class="pre">/dev/sdb</span></tt></p>
+<p>Linux - with a drive on <code class="docutils literal"><span class="pre">/dev/sdb</span></code></p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ sha512sum -c standalone.sha512
 standalone.iso: OK
 
@@ -258,7 +258,7 @@ $ ethercat slaves
 </pre></div>
 </div>
 </div></blockquote>
-<p><a class="reference internal" href="#installation"><em>[back to top]</em></a></p>
+<p><a class="reference internal" href="#installation"><span class="std std-ref">[back to top]</span></a></p>
 </div>
 </div>
 

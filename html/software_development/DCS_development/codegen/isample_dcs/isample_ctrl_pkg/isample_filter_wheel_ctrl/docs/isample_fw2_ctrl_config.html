@@ -33,7 +33,7 @@
 
   
     <link rel="top" title="GMT Software And Controls documentation" href="../../../../../../../index.html"/>
-        <link rel="up" title="4.3.4. DCS Filter Wheel Controller Files" href="../index.html"/>
+        <link rel="up" title="DCS Filter Wheel Controller Files" href="../index.html"/>
         <link rel="next" title="8. isample_filter_wheel_ctrl_run.cpp" href="isample_filter_wheel_ctrl_run.html"/>
         <link rel="prev" title="6. isample_fw1_ctrl_config.coffee" href="isample_fw1_ctrl_config.html"/> 
 
@@ -102,8 +102,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../index.html">4.3.1. DCS Subsystem files</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../index.html">4.3.2. DCS Control Package Files</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../isample_ctrl_super/index.html">4.3.3. DCS Control Supervisor Files</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="../index.html">4.3.4. DCS Filter Wheel Controller Files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../isample_hw_adapter/index.html">4.3.5. DCS Hardware Adapter Files</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">DCS Filter Wheel Controller Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../isample_hw_adapter/index.html">4.3.4. DCS Hardware Adapter Files</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../model_elements/elements.html">4.4. Model Elements</a></li>
@@ -136,7 +136,7 @@
         <div class="rst-content">
           
 
-
+ 
 
 
 
@@ -150,7 +150,7 @@
       
           <li><a href="../../../../codegen.html">4.3. DCS code generation example: <em>isample_dcs</em></a> &raquo;</li>
       
-          <li><a href="../index.html">4.3.4. DCS Filter Wheel Controller Files</a> &raquo;</li>
+          <li><a href="../index.html">DCS Filter Wheel Controller Files</a> &raquo;</li>
       
     <li>7. <em>isample_fw2_ctrl_config.coffee</em></li>
       <li class="wy-breadcrumbs-aside">
@@ -167,6 +167,78 @@
   <div class="section" id="isample-fw2-ctrl-config-coffee">
 <span id="isample-fw2-ctrl-config"></span><h1>7. <em>isample_fw2_ctrl_config.coffee</em><a class="headerlink" href="#isample-fw2-ctrl-config-coffee" title="Permalink to this headline">¶</a></h1>
 <p>This is the configuration for the filter wheel instance fw2.</p>
+<div class="literal-block-wrapper container" id="code-isample-fw2-ctrl-config-coffee">
+<div class="code-block-caption"><span class="caption-number">Listing 40 </span><span class="caption-text">Code: <em>isample_fw2_ctrl_config.coffee</em></span><a class="headerlink" href="#code-isample-fw2-ctrl-config-coffee" title="Permalink to this code">¶</a></div>
+<div class="highlight-coffeescript"><div class="highlight"><pre><span></span><span class="c1"># Component   instance configuration file</span>
+<span class="c1"># Ports should be setup per instance</span>
+
+
+<span class="nx">isample_filter_wheel_ctrl</span> <span class="s">&quot;isample_fw1_ctrl&quot;</span><span class="p">,</span>
+    <span class="nv">default:</span>
+
+        <span class="nv">properties:</span>
+            <span class="nv">uri_path: </span><span class="s">&#39;gmt://default/&#39;</span>
+            <span class="nv">host: </span><span class="s">&#39;localhost&#39;</span>
+            <span class="nv">port: </span><span class="mi">8000</span>
+            <span class="nv">rate: </span><span class="mi">1000</span>
+            <span class="nv">acl: </span><span class="s">&#39;private&#39;</span>
+
+        <span class="nv">state_vars: </span><span class="p">[</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;position&#39;</span><span class="p">,</span> <span class="nv">default: </span><span class="mi">20</span><span class="p">,</span>  <span class="nv">min: </span><span class="mi">5</span><span class="p">,</span> <span class="nv">max: </span><span class="mi">40</span> <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;ops_state&#39;</span><span class="p">,</span> <span class="nv">default: </span><span class="s">&#39;OFF&#39;</span>  <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;sim_mode&#39;</span><span class="p">,</span> <span class="nv">default: </span><span class="s">&#39;ON_LINE&#39;</span>  <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;control_mode&#39;</span><span class="p">,</span> <span class="nv">default: </span><span class="s">&#39;STANDALONE&#39;</span>  <span class="p">}</span>
+        <span class="p">]</span>
+        <span class="nv">input_ports: </span><span class="p">[</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;motor_state&#39;</span><span class="p">,</span>           <span class="nv">protocol: </span><span class="s">&#39;pull&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8005&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="mi">1</span>        <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;position_goal&#39;</span><span class="p">,</span>         <span class="nv">protocol: </span><span class="s">&#39;pull&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8000&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="kc">undefined</span> <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;ops_state_goal&#39;</span><span class="p">,</span>        <span class="nv">protocol: </span><span class="s">&#39;pull&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8000&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="kc">undefined</span> <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;sim_mode_goal&#39;</span><span class="p">,</span>         <span class="nv">protocol: </span><span class="s">&#39;pull&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8000&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="kc">undefined</span> <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;control_mode_goal&#39;</span><span class="p">,</span>     <span class="nv">protocol: </span><span class="s">&#39;pull&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8000&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="kc">undefined</span> <span class="p">}</span>
+        <span class="p">]</span>
+        <span class="nv">output_ports: </span><span class="p">[</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;motor_ctrl&#39;</span><span class="p">,</span>            <span class="nv">protocol: </span><span class="s">&#39;push&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8009&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="mi">1</span>        <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;heartbeat_out&#39;</span><span class="p">,</span>         <span class="nv">protocol: </span><span class="s">&#39;push&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8011&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="mi">1</span>        <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;position_value&#39;</span><span class="p">,</span>        <span class="nv">protocol: </span><span class="s">&#39;push&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8000&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="kc">undefined</span> <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;ops_state_value&#39;</span><span class="p">,</span>       <span class="nv">protocol: </span><span class="s">&#39;push&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8000&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="kc">undefined</span> <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;sim_mode_value&#39;</span><span class="p">,</span>        <span class="nv">protocol: </span><span class="s">&#39;push&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8000&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="kc">undefined</span> <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;control_mode_value&#39;</span><span class="p">,</span>    <span class="nv">protocol: </span><span class="s">&#39;push&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8000&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="kc">undefined</span> <span class="p">}</span>
+        <span class="p">]</span>
+
+<span class="nx">isample_filter_wheel_ctrl</span> <span class="s">&quot;isample_fw2_ctrl&quot;</span><span class="p">,</span>
+    <span class="nv">default:</span>
+
+        <span class="nv">properties:</span>
+            <span class="nv">uri_path: </span><span class="s">&#39;gmt://default/&#39;</span>
+            <span class="nv">host: </span><span class="s">&#39;localhost&#39;</span>
+            <span class="nv">port: </span><span class="mi">8000</span>
+            <span class="nv">rate: </span><span class="mi">1000</span>
+            <span class="nv">acl: </span><span class="s">&#39;private&#39;</span>
+
+        <span class="nv">state_vars: </span><span class="p">[</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;position&#39;</span><span class="p">,</span> <span class="nv">default: </span><span class="mi">20</span><span class="p">,</span>  <span class="nv">min: </span><span class="mi">5</span><span class="p">,</span> <span class="nv">max: </span><span class="mi">40</span> <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;ops_state&#39;</span><span class="p">,</span> <span class="nv">default: </span><span class="s">&#39;OFF&#39;</span>  <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;sim_mode&#39;</span><span class="p">,</span> <span class="nv">default: </span><span class="s">&#39;ON_LINE&#39;</span>  <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;control_mode&#39;</span><span class="p">,</span> <span class="nv">default: </span><span class="s">&#39;STANDALONE&#39;</span>  <span class="p">}</span>
+        <span class="p">]</span>
+        <span class="nv">input_ports: </span><span class="p">[</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;motor_state&#39;</span><span class="p">,</span>           <span class="nv">protocol: </span><span class="s">&#39;pull&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8006&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="mi">1</span>        <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;position_goal&#39;</span><span class="p">,</span>         <span class="nv">protocol: </span><span class="s">&#39;pull&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8000&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="kc">undefined</span> <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;ops_state_goal&#39;</span><span class="p">,</span>        <span class="nv">protocol: </span><span class="s">&#39;pull&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8000&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="kc">undefined</span> <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;sim_mode_goal&#39;</span><span class="p">,</span>         <span class="nv">protocol: </span><span class="s">&#39;pull&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8000&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="kc">undefined</span> <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;control_mode_goal&#39;</span><span class="p">,</span>     <span class="nv">protocol: </span><span class="s">&#39;pull&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8000&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="kc">undefined</span> <span class="p">}</span>
+        <span class="p">]</span>
+        <span class="nv">output_ports: </span><span class="p">[</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;motor_ctrl&#39;</span><span class="p">,</span>            <span class="nv">protocol: </span><span class="s">&#39;push&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8010&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="mi">1</span>        <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;heartbeat_out&#39;</span><span class="p">,</span>         <span class="nv">protocol: </span><span class="s">&#39;push&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8011&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="mi">1</span>        <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;position_value&#39;</span><span class="p">,</span>        <span class="nv">protocol: </span><span class="s">&#39;push&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8000&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="kc">undefined</span> <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;ops_state_value&#39;</span><span class="p">,</span>       <span class="nv">protocol: </span><span class="s">&#39;push&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8000&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="kc">undefined</span> <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;sim_mode_value&#39;</span><span class="p">,</span>        <span class="nv">protocol: </span><span class="s">&#39;push&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8000&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="kc">undefined</span> <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;control_mode_value&#39;</span><span class="p">,</span>    <span class="nv">protocol: </span><span class="s">&#39;push&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8000&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="kc">undefined</span> <span class="p">}</span>
+        <span class="p">]</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 

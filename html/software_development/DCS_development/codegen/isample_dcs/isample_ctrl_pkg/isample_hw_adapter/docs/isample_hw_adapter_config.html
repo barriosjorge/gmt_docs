@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>6. isample_hw_adapter_config.coffee &mdash; GMT Software And Controls documentation</title>
+  <title>4.3.4.6. isample_hw_adapter_config.coffee &mdash; GMT Software And Controls documentation</title>
   
 
   
@@ -33,9 +33,9 @@
 
   
     <link rel="top" title="GMT Software And Controls documentation" href="../../../../../../../index.html"/>
-        <link rel="up" title="4.3.5. DCS Hardware Adapter Files" href="../index.html"/>
-        <link rel="next" title="7. isample_hw_adapter_run.cpp" href="isample_hw_adapter_run.html"/>
-        <link rel="prev" title="5. isample_hw_adapter_step.cpp" href="isample_hw_adapter_step.html"/> 
+        <link rel="up" title="4.3.4. DCS Hardware Adapter Files" href="../index.html"/>
+        <link rel="next" title="4.3.4.7. isample_hw_adapter_run.cpp" href="isample_hw_adapter_run.html"/>
+        <link rel="prev" title="4.3.4.5. isample_hw_adapter_step.cpp" href="isample_hw_adapter_step.html"/> 
 
   
   <script src="../../../../../../../_static/js/modernizr.min.js"></script>
@@ -100,17 +100,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../../specification/specification.html">4.2. DCS specification example: <em>isample_dcs</em></a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../../../../codegen.html">4.3. DCS code generation example: <em>isample_dcs</em></a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="../../../index.html">4.3.1. DCS Subsystem files</a></li>
-<<<<<<< HEAD
-<li class="toctree-l4"><a class="reference internal" href="../../index.html">DCS Control Package Files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../isample_ctrl_super/index.html">DCS Control Supervisor Files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../isample_filter_wheel_ctrl/index.html">DCS Filter Wheel Controller Files</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="../index.html">DCS Hardware Adapter Files</a></li>
-=======
 <li class="toctree-l4"><a class="reference internal" href="../../index.html">4.3.2. DCS Control Package Files</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../isample_ctrl_super/index.html">4.3.3. DCS Control Supervisor Files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../isample_filter_wheel_ctrl/index.html">4.3.4. DCS Filter Wheel Controller Files</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="../index.html">4.3.5. DCS Hardware Adapter Files</a></li>
->>>>>>> aa305e246c52769c7a310942a2a167e38cc9c992
+<li class="toctree-l4"><a class="reference internal" href="../../isample_filter_wheel_ctrl/index.html">DCS Filter Wheel Controller Files</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">4.3.4. DCS Hardware Adapter Files</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../model_elements/elements.html">4.4. Model Elements</a></li>
@@ -143,7 +136,7 @@
         <div class="rst-content">
           
 
-
+ 
 
 
 
@@ -157,9 +150,9 @@
       
           <li><a href="../../../../codegen.html">4.3. DCS code generation example: <em>isample_dcs</em></a> &raquo;</li>
       
-          <li><a href="../index.html">4.3.5. DCS Hardware Adapter Files</a> &raquo;</li>
+          <li><a href="../index.html">4.3.4. DCS Hardware Adapter Files</a> &raquo;</li>
       
-    <li>6. <em>isample_hw_adapter_config.coffee</em></li>
+    <li>4.3.4.6. <em>isample_hw_adapter_config.coffee</em></li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -172,8 +165,50 @@
            <div itemprop="articleBody">
             
   <div class="section" id="isample-hw-adapter-config-coffee">
-<span id="isample-hw-adapter-config"></span><h1>6. <em>isample_hw_adapter_config.coffee</em><a class="headerlink" href="#isample-hw-adapter-config-coffee" title="Permalink to this headline">¶</a></h1>
+<span id="isample-hw-adapter-config"></span><h1>4.3.4.6. <em>isample_hw_adapter_config.coffee</em><a class="headerlink" href="#isample-hw-adapter-config-coffee" title="Permalink to this headline">¶</a></h1>
 <p>This is the configuration for the hardware adapter instance.</p>
+<div class="literal-block-wrapper container" id="code-isample-hw-adapter-config-coffee">
+<div class="code-block-caption"><span class="caption-number">Listing 48 </span><span class="caption-text">Code: <em>isample_hw_adapter_config.coffee</em></span><a class="headerlink" href="#code-isample-hw-adapter-config-coffee" title="Permalink to this code">¶</a></div>
+<div class="highlight-coffeescript"><div class="highlight"><pre><span></span><span class="c1"># Component   instance configuration file</span>
+<span class="c1"># Ports should be setup per instance</span>
+
+
+<span class="nx">isample_hw_adapter</span> <span class="s">&quot;isample_hw_adapter&quot;</span><span class="p">,</span>
+    <span class="nv">default:</span>
+
+        <span class="nv">properties:</span>
+            <span class="nv">uri_path: </span><span class="s">&#39;gmt://default/&#39;</span>
+            <span class="nv">host: </span><span class="s">&#39;localhost&#39;</span>
+            <span class="nv">port: </span><span class="mi">8000</span>
+            <span class="nv">acl: </span><span class="s">&#39;private&#39;</span>
+            <span class="nv">rate: </span><span class="mi">1000</span>
+
+        <span class="nv">state_vars: </span><span class="p">[</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;ops_state&#39;</span><span class="p">,</span> <span class="nv">default: </span><span class="s">&#39;OFF&#39;</span>  <span class="p">}</span>
+        <span class="p">]</span>
+        <span class="nv">input_ports: </span><span class="p">[</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;operator_leds&#39;</span><span class="p">,</span>         <span class="nv">protocol: </span><span class="s">&#39;pull&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8007&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="mi">1</span>        <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;focus_motor_control&#39;</span><span class="p">,</span>   <span class="nv">protocol: </span><span class="s">&#39;pull&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8008&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="mi">1</span>        <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;fw1_motor_control&#39;</span><span class="p">,</span>     <span class="nv">protocol: </span><span class="s">&#39;pull&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8009&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="mi">1</span>        <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;fw2_motor_control&#39;</span><span class="p">,</span>     <span class="nv">protocol: </span><span class="s">&#39;pull&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8010&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="mi">1</span>        <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;sdo_in&#39;</span><span class="p">,</span>                <span class="nv">protocol: </span><span class="s">&#39;pull&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8000&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="mi">1</span>        <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;ecat_bus&#39;</span><span class="p">,</span>              <span class="nv">protocol: </span><span class="s">&#39;pull&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8000&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="mi">1</span>        <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;ops_state_goal&#39;</span><span class="p">,</span>        <span class="nv">protocol: </span><span class="s">&#39;pull&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8000&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="kc">undefined</span> <span class="p">}</span>
+        <span class="p">]</span>
+        <span class="nv">output_ports: </span><span class="p">[</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;operator_buttons&#39;</span><span class="p">,</span>      <span class="nv">protocol: </span><span class="s">&#39;push&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8003&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="mi">1</span>        <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;cryo_internal_temp&#39;</span><span class="p">,</span>    <span class="nv">protocol: </span><span class="s">&#39;push&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8001&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="mi">1</span>        <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;cryo_external_temp&#39;</span><span class="p">,</span>    <span class="nv">protocol: </span><span class="s">&#39;push&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8002&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="mi">1</span>        <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;focus_motor_status&#39;</span><span class="p">,</span>    <span class="nv">protocol: </span><span class="s">&#39;push&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8004&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="mi">1</span>        <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;fw1_motor_status&#39;</span><span class="p">,</span>      <span class="nv">protocol: </span><span class="s">&#39;push&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8005&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="mi">1</span>        <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;fw2_motor_status&#39;</span><span class="p">,</span>      <span class="nv">protocol: </span><span class="s">&#39;push&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8006&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="mi">1</span>        <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;sdo_out&#39;</span><span class="p">,</span>               <span class="nv">protocol: </span><span class="s">&#39;push&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8000&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="mi">1</span>        <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;heartbeat_out&#39;</span><span class="p">,</span>         <span class="nv">protocol: </span><span class="s">&#39;push&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8011&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="mi">1</span>        <span class="p">}</span>
+            <span class="p">{</span> <span class="nv">name: </span><span class="s">&#39;ops_state_value&#39;</span><span class="p">,</span>       <span class="nv">protocol: </span><span class="s">&#39;push&#39;</span><span class="p">,</span>  <span class="nv">url: </span><span class="s">&#39;tcp://localhost:8000&#39;</span><span class="p">,</span> <span class="nv">blocking_mode: </span><span class="s">&#39;async&#39;</span><span class="p">,</span> <span class="nv">max_rate: </span><span class="kc">undefined</span> <span class="p">}</span>
+        <span class="p">]</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -183,10 +218,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="isample_hw_adapter_run.html" class="btn btn-neutral float-right" title="7. isample_hw_adapter_run.cpp" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="isample_hw_adapter_run.html" class="btn btn-neutral float-right" title="4.3.4.7. isample_hw_adapter_run.cpp" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="isample_hw_adapter_step.html" class="btn btn-neutral" title="5. isample_hw_adapter_step.cpp" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="isample_hw_adapter_step.html" class="btn btn-neutral" title="4.3.4.5. isample_hw_adapter_step.cpp" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

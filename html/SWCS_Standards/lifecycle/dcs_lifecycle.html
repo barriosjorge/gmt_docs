@@ -95,7 +95,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">1. Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../references/references.html">2. References</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../reference_architecture/dcs_reference_architecture.html">3. DCS Reference Architecture</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">4. DCS Life Cycle</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4. DCS Life Cycle</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#system-life-cycle-view">4.1. System Life Cycle View</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#phasing-of-systems-and-software-reviews-draft">4.2. Phasing of Systems and Software Reviews (draft)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#life-cycle-activities-draft">4.3. Life Cycle Activities (draft)</a></li>
@@ -133,7 +133,7 @@
         <div class="rst-content">
           
 
-
+ 
 
 
 
@@ -160,8 +160,7 @@
 <div class="section" id="system-life-cycle-view">
 <h2>4.1. System Life Cycle View<a class="headerlink" href="#system-life-cycle-view" title="Permalink to this headline">¶</a></h2>
 <p>This chapter specifies the DCS life cycle and development process. The DCS
-lifecycle is divided in four main phases as illustrated in <a href="#id1"><span class="problematic" id="id2">:numref:`Figure %s
-&lt;lifecycle_phases&gt;`</span></a>. Each phase is characterized by the definition of its inputs
+lifecycle is divided in four main phases as illustrated in <a class="reference internal" href="#lifecycle-phases"><span class="std std-numref">Figure 57</span></a>. Each phase is characterized by the definition of its inputs
 and outputs. The outputs for one phase are used as inputs to the next phase with
 the addition of other applicable GMTO documents. These phases shall be connected
 with the controlled plant milestones.</p>
@@ -260,8 +259,8 @@ a set of base classes. A set of tools provides the capability to generate the
 skeleton o a component implementation from the specification of its interface.</p>
 <p>Table 4‑1 describes three common framework use cases and the functionality
 provided by the frameworks involved.</p>
-<table border="1" class="docutils" id="framework-use-cases">
-<caption>Framework Typical Use Cases</caption>
+<table border="1" class="docutils" id="id2">
+<span id="framework-use-cases"></span><caption><span class="caption-number">Table 34 </span><span class="caption-text">Framework Typical Use Cases</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="20%" />
 <col width="22%" />
@@ -490,7 +489,7 @@ delivered to GMTO.</div></blockquote>
 <blockquote>
 <div><p>All software components and updated System Definition Files (SDF) shall be
 delivered to the GMTO Software Repository.</p>
-<p>Note: See Section on <a class="reference internal" href="#system-definition-files"><em>System Definition Files</em></a> for an introduction to
+<p>Note: See Section on <a class="reference internal" href="#system-definition-files"><span class="std std-ref">System Definition Files</span></a> for an introduction to
 SDF.</p>
 </div></blockquote>
 <p><strong>SWC-DCS-0002: Software Continuous Integration</strong></p>
@@ -551,13 +550,13 @@ document (GMT-SE-DOC-00003)</div></blockquote>
 documentation shall be delivered.</div></blockquote>
 </div>
 <div class="section" id="system-definition-files">
-<span id="id3"></span><h2>4.7. System Definition Files<a class="headerlink" href="#system-definition-files" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h2>4.7. System Definition Files<a class="headerlink" href="#system-definition-files" title="Permalink to this headline">¶</a></h2>
 <p><strong>SWC-DCS-0078: SDF lifecycle (draft)</strong></p>
 <blockquote>
 <div>The following diagram describes the DCS implementation strategy:</div></blockquote>
-<div class="figure">
+<div class="figure" id="id3">
 <img alt="../../_images/dcs_implementation_strategy.png" src="../../_images/dcs_implementation_strategy.png" />
-<p class="caption">DCS Implementation Strategy</p>
+<p class="caption"><span class="caption-number">Fig. 58 </span><span class="caption-text">DCS Implementation Strategy</span></p>
 </div>
 </div>
 </div>

@@ -88,33 +88,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../release_notes/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../system_level_PDR/index.html">Architecture and Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../SWCS_Standards/index.html">Software and Controls Standards</a></li>
-<<<<<<< HEAD
-<li class="toctree-l1 current"><a class="reference internal" href="../../../../../../index.html">Software Development</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../../../../../installation.html">1. Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../../isample_example.html">2. ISample Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../../configuration.html">3. Developer Info and Release Configuration</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../../../../../index.html">4. DCS Development</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../../../../../introduction/introduction.html">4.1. Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../specification/specification.html">4.2. DCS specification example: <em>isample_dcs</em></a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../../../../codegen.html">4.3. DCS code generation example: <em>isample_dcs</em></a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="../../../index.html">4.3.1. DCS Subsystem files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../index.html">DCS Control Package Files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../isample_ctrl_super/index.html">DCS Control Supervisor Files</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="../index.html">DCS Filter Wheel Controller Files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../isample_hw_adapter/index.html">DCS Hardware Adapter Files</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../model_elements/elements.html">4.4. Model Elements</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../../services.html">5. Using the Services</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../../examples.html">6. Running Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../../contribute.html">7. Contribute</a></li>
-</ul>
-</li>
-=======
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../index.html">Software Development</a></li>
->>>>>>> aa305e246c52769c7a310942a2a167e38cc9c992
 </ul>
 
             
@@ -137,7 +111,7 @@
         <div class="rst-content">
           
 
-
+ 
 
 
 
@@ -145,19 +119,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../../../../../../../index.html">Docs</a> &raquo;</li>
       
-<<<<<<< HEAD
-          <li><a href="../../../../../../index.html">Software Development</a> &raquo;</li>
-      
-          <li><a href="../../../../../index.html">4. DCS Development</a> &raquo;</li>
-      
-          <li><a href="../../../../codegen.html">4.3. DCS code generation example: <em>isample_dcs</em></a> &raquo;</li>
-      
-          <li><a href="../index.html">DCS Filter Wheel Controller Files</a> &raquo;</li>
-      
-    <li>9. <em>isample_filter_wheel_ctrl_controller.py</em></li>
-=======
     <li><em>isample_filter_wheel_ctrl_controller.py</em></li>
->>>>>>> aa305e246c52769c7a310942a2a167e38cc9c992
       <li class="wy-breadcrumbs-aside">
         
           
@@ -172,6 +134,34 @@
   <div class="section" id="isample-filter-wheel-ctrl-controller-py">
 <span id="isample-filter-wheel-ctrl-controller"></span><h1><em>isample_filter_wheel_ctrl_controller.py</em><a class="headerlink" href="#isample-filter-wheel-ctrl-controller-py" title="Permalink to this headline">¶</a></h1>
 <p>This is python version of the filter wheel controller.</p>
+<div class="literal-block-wrapper container" id="code-isample-filter-wheel-ctrl-controller-py">
+<div class="code-block-caption"><span class="caption-text">Code: <em>isample_filter_wheel_ctrl_controller.py</em></span><a class="headerlink" href="#code-isample-filter-wheel-ctrl-controller-py" title="Permalink to this code">¶</a></div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env python3</span>
+
+<span class="kn">from</span> <span class="nn">component</span> <span class="kn">import</span> <span class="n">Controller</span>
+
+<span class="k">class</span> <span class="nc">IsampleFilterWheelCtrl</span><span class="p">(</span><span class="n">Controller</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;IsampleFilterWheelCtrl setup&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Input ports</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">motor_state</span>     <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">new_input_port</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;motor_state&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Output ports</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">motor_ctrl</span>      <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">new_output_port</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;motor_ctrl&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">heartbeat_out</span>   <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">new_output_port</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;heartbeat_out&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">setup_ok</span><span class="p">:</span>
+            <span class="c1"># Add code here</span>
+
+<span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">environ</span> <span class="k">as</span> <span class="n">env</span><span class="p">;</span> <span class="n">env</span><span class="p">[</span><span class="s1">&#39;PYTHONINSPECT&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;True&#39;</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">IsampleFilterWheelCtrl</span><span class="p">(</span><span class="s1">&#39;gmt://default/isample_filter_wheel_ctrl:7000&#39;</span><span class="p">,</span> <span class="mf">1e6</span><span class="p">)</span>
+<span class="n">app</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
