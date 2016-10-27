@@ -5,7 +5,8 @@ Software Development
 
 .. note:: 
 
-   Software development instructions in support of instrumentation development
+   This section includes a set of guides for the installation and
+   development of GMT Device Control System (DCS) software.
 
 .. toctree::
    :maxdepth: 1

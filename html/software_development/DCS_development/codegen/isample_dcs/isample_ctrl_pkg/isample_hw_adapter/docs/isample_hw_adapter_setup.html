@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3.3.6. isample_hw_adapter_setup.cpp &mdash; GMT Software And Controls documentation</title>
+  <title>4.11.5.6. isample_hw_adapter_setup.cpp &mdash; GMT Software And Controls documentation</title>
   
 
   
@@ -33,9 +33,9 @@
 
   
     <link rel="top" title="GMT Software And Controls documentation" href="../../../../../../../index.html"/>
-        <link rel="up" title="3.3. DCS Hardware Adapter Files" href="../index.html"/>
-        <link rel="next" title="3.3.7. isample_hw_adapter_step.cpp" href="isample_hw_adapter_step.html"/>
-        <link rel="prev" title="3.3.5. isample_hw_adapter_run.cpp" href="isample_hw_adapter_run.html"/> 
+        <link rel="up" title="4.11.5. DCS Hardware Adapter Files" href="../index.html"/>
+        <link rel="next" title="4.11.5.7. isample_hw_adapter_step.cpp" href="isample_hw_adapter_step.html"/>
+        <link rel="prev" title="4.11.5.5. isample_hw_adapter_run.cpp" href="isample_hw_adapter_run.html"/> 
 
   
   <script src="../../../../../../../_static/js/modernizr.min.js"></script>
@@ -95,23 +95,31 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../../../installation.html">1. Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../../isample_example.html">2. ISample Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../../configuration.html">3. Developer Info and Release Configuration</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../../../../../index.html">DCS Development</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../../../../../introduction/introduction.html">1. Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../specification/specification.html">2. DCS specification example: <em>isample_dcs</em></a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../../../../codegen.html">3. DCS code generation example: <em>isample_dcs</em></a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="../../../index.html">DCS Subsystem files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../index.html">3.1. DCS Control Package Files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../isample_ctrl_super/index.html">DCS Control Supervisor Files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../isample_filter_wheel_ctrl/index.html">3.2. DCS Filter Wheel Controller Files</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="../index.html">3.3. DCS Hardware Adapter Files</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../../../index.html">4. DCS Development</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../../../introduction/introduction.html">4.1. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../introduction/introduction.html#creating-a-device-control-system">4.2. Creating a Device Control System</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../introduction/introduction.html#edit-the-system-master-file">4.3. Edit the System Master File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../introduction/introduction.html#define-the-components-in-the-model">4.4. Define the Components in the Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../introduction/introduction.html#compile-the-model">4.5. Compile the Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../introduction/introduction.html#load-the-model">4.6. Load the Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../introduction/introduction.html#generate-c-code">4.7. Generate C++ Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../introduction/introduction.html#make-and-run-the-generated-component">4.8. Make and Run the Generated Component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../introduction/introduction.html#modify-the-generated-controller">4.9. Modify the Generated Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../specification/specification.html">4.10. DCS specification example: <em>isample_dcs</em></a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../../../codegen.html">4.11. DCS code generation example: <em>isample_dcs</em></a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../index.html">4.11.1. DCS Subsystem files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../index.html">4.11.2. DCS Control Package Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../isample_ctrl_super/index.html">4.11.3. DCS Control Supervisor Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../isample_filter_wheel_ctrl/index.html">4.11.4. DCS Filter Wheel Controller Files</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">4.11.5. DCS Hardware Adapter Files</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../model_elements/elements.html">4. Model Elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../model_elements/elements.html">4.12. Model Elements</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../../services.html">4. Using the Services</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../../examples.html">5. Running Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../../contribute.html">6. Contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../services.html">5. Using the Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../examples.html">6. Running Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../contribute.html">7. Contribute</a></li>
 </ul>
 </li>
 </ul>
@@ -146,13 +154,13 @@
       
           <li><a href="../../../../../../index.html">Software Development</a> &raquo;</li>
       
-          <li><a href="../../../../../index.html">DCS Development</a> &raquo;</li>
+          <li><a href="../../../../../index.html">4. DCS Development</a> &raquo;</li>
       
-          <li><a href="../../../../codegen.html">3. DCS code generation example: <em>isample_dcs</em></a> &raquo;</li>
+          <li><a href="../../../../codegen.html">4.11. DCS code generation example: <em>isample_dcs</em></a> &raquo;</li>
       
-          <li><a href="../index.html">3.3. DCS Hardware Adapter Files</a> &raquo;</li>
+          <li><a href="../index.html">4.11.5. DCS Hardware Adapter Files</a> &raquo;</li>
       
-    <li>3.3.6. <em>isample_hw_adapter_setup.cpp</em></li>
+    <li>4.11.5.6. <em>isample_hw_adapter_setup.cpp</em></li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -165,7 +173,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="isample-hw-adapter-setup-cpp">
-<span id="isample-hw-adapter-setup"></span><h1>3.3.6. <em>isample_hw_adapter_setup.cpp</em><a class="headerlink" href="#isample-hw-adapter-setup-cpp" title="Permalink to this headline">¶</a></h1>
+<span id="isample-hw-adapter-setup"></span><h1>4.11.5.6. <em>isample_hw_adapter_setup.cpp</em><a class="headerlink" href="#isample-hw-adapter-setup-cpp" title="Permalink to this headline">¶</a></h1>
 <p>The Hardware Developers Kit (HDK) is a hardware platform
 that embodies a basic Device Control System that complies
 with the GMT DCS Reference Architecture (RA)</p>
@@ -259,10 +267,10 @@ with the GMT DCS Reference Architecture (RA)</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="isample_hw_adapter_step.html" class="btn btn-neutral float-right" title="3.3.7. isample_hw_adapter_step.cpp" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="isample_hw_adapter_step.html" class="btn btn-neutral float-right" title="4.11.5.7. isample_hw_adapter_step.cpp" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="isample_hw_adapter_run.html" class="btn btn-neutral" title="3.3.5. isample_hw_adapter_run.cpp" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="isample_hw_adapter_run.html" class="btn btn-neutral" title="4.11.5.5. isample_hw_adapter_run.cpp" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

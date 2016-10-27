@@ -1,7 +1,7 @@
 .. _dcs_code-example:
 
 DCS code generation example: *isample_dcs*
-=============================================
+------------------------------------------
 
 .. toctree:: 
    :maxdepth: 1

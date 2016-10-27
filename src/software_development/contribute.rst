@@ -5,7 +5,7 @@ Contribute
 
 Code
 ----
-        
+
 1. Create a user account on github
 2. Contact GMTO staff to be be granted access to our private repositories
 3. Fork on github

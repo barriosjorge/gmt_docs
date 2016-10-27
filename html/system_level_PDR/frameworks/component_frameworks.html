@@ -826,25 +826,17 @@ Component is specified and defined by a set of Features in the following Table:<
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>Commands</td>
+<tr class="row-odd"><td>State Variables</td>
 <td><div class="first last line-block">
-<div class="line">Commands allow requests for a service from a component. Commands</div>
-<div class="line">are mainly used to direct the logic of a component, however they</div>
-<div class="line">are not intended to support control data flow.</div>
+<div class="line">State variables allow continuous or episodic sampling of the</div>
+<div class="line">phisical state of the Component. State variables are transported</div>
+<div class="line">as a stream of time-stamped data. State variables are the source</div>
+<div class="line">of the telemetry service. Telemetry communication is kept</div>
+<div class="line">separated from control data.</div>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>Monitors</td>
-<td><div class="first last line-block">
-<div class="line">Monitors allow continuous or episodic sampling of a state</div>
-<div class="line">variable of the Component. Monitors are transported as a stream</div>
-<div class="line">of time-stamped data. Monitors are used to implement telemetry</div>
-<div class="line">service. Telemetry communication is kept separated from control</div>
-<div class="line">data.</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td>Alarms</td>
+<tr class="row-even"><td>Alarms</td>
 <td><div class="first last line-block">
 <div class="line">Alarms represent fault conditions that may affect the nominal</div>
 <div class="line">behavior of the Component. The occurrence of an alarm is always</div>
@@ -852,9 +844,9 @@ Component is specified and defined by a set of Features in the following Table:<
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>Data Inputs</td>
+<tr class="row-odd"><td>Input Ports</td>
 <td><div class="first last line-block">
-<div class="line">Data inputs provide communication ports that support low</div>
+<div class="line">Data inputs use communication ports that support low</div>
 <div class="line">latency, synchronous and asynchronous control data flow. Data</div>
 <div class="line">inputs and data outputs are specified with the data types and</div>
 <div class="line">the maximum rate that they support. Data inputs and data output</div>
@@ -865,19 +857,19 @@ Component is specified and defined by a set of Features in the following Table:<
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>Data Outputs</td>
+<tr class="row-even"><td>Output Ports</td>
 <td><div class="first last line-block">
 <div class="line">Data outputs are defined analogously to Data input features.</div>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>Elements</td>
+<tr class="row-odd"><td>Elements</td>
 <td><div class="first last line-block">
 <div class="line">Aggregated components in the case of a composite Component.</div>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>Files</td>
+<tr class="row-even"><td>Files</td>
 <td><div class="first last line-block">
 <div class="line">Auxiliary information that can be associated to complete the</div>
 <div class="line">description of the Component.</div>

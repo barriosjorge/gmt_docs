@@ -1,11 +1,13 @@
 .. _SLPDR:
 
+-----------------------
 Architecture and Design
-=======================
+-----------------------
 
-.. note:: 
+.. note::
 
-   This section comes from the System Level PDR
+   This section is a live version of the GMT Software and Controls
+   Architecture and Design.
 
 .. toctree::
    :maxdepth: 1

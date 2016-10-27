@@ -1,7 +1,7 @@
 .. _mdf-introduction:
 
 Introduction
-============
+------------
 
 ISample is an example of a Device Control System specification. It provides
 a template that can be used by DCS developers to quick start their own

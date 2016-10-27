@@ -50,21 +50,17 @@ Component is specified and defined by a set of Features in the following Table:
   |                | |  versions can be defined for a given component (e.g., diagnosis,    |
   |                | |  engineering) and can be applied as a unit.                         |
   +----------------+-----------------------------------------------------------------------+
-  |  Commands      | |  Commands allow requests for a service from a component. Commands   |
-  |                | |  are mainly used to direct the logic of a component, however they   |
-  |                | |  are not intended to support control data flow.                     |
-  +----------------+-----------------------------------------------------------------------+
-  |  Monitors      | |  Monitors allow continuous or episodic sampling of a state          |
-  |                | |  variable of the Component. Monitors are transported as a stream    |
-  |                | |  of time-stamped data. Monitors are used to implement telemetry     |
-  |                | |  service. Telemetry communication is kept separated from control    |
-  |                | |  data.                                                              |
+  | State Variables| |  State variables allow continuous or episodic sampling of the       |
+  |                | |  phisical state of the Component. State variables are transported   |
+  |                | |  as a stream of time-stamped data. State variables are the source   |
+  |                | |  of the telemetry service. Telemetry communication is kept          |
+  |                | |  separated from control data.                                       |
   +----------------+-----------------------------------------------------------------------+
   |  Alarms        | |  Alarms represent fault conditions that may affect the nominal      |
   |                | |  behavior of the Component. The occurrence of an alarm is always    |
   |                | |  reported.                                                          |
   +----------------+-----------------------------------------------------------------------+
-  |  Data Inputs   | |  Data inputs provide communication ports that support low           |
+  |  Input Ports   | |  Data inputs use communication ports that support low               |
   |                | |  latency, synchronous and asynchronous control data flow. Data      |
   |                | |  inputs and data outputs are specified with the data types and      |
   |                | |  the maximum rate that they support. Data inputs and data output    |
@@ -73,7 +69,7 @@ Component is specified and defined by a set of Features in the following Table:
   |                | |  ports. Connectors include the QoS specification corresponding      |
   |                | |  with connection configuration and the fault management strategy.   |
   +----------------+-----------------------------------------------------------------------+
-  |  Data Outputs  | |  Data outputs are defined analogously to Data input features.       |
+  |  Output Ports  | |  Data outputs are defined analogously to Data input features.       |
   +----------------+-----------------------------------------------------------------------+
   |  Elements      | |  Aggregated components in the case of a composite Component.        |
   +----------------+-----------------------------------------------------------------------+
