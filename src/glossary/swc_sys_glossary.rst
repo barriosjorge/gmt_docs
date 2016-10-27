@@ -1,4 +1,4 @@
-
+.. _glossary:
 
 ==============================================
 Software and Controls Acronyms and Definitions
@@ -27,7 +27,7 @@ Abbreviated terms
 
 .. tabularcolumns:: p{4cm} | p{11cm}
 
-.. list-table:: 
+.. list-table::
     :header-rows: 1
 
     * - Term
@@ -293,7 +293,7 @@ GMT Software and Controls Control Engineering Glossary and Definitions. Based on
       - System Definition File
 
 
-
+.. _n_grams:
 
 -------
 N-grams

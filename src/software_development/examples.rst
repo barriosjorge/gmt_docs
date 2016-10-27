@@ -2,6 +2,11 @@
 Running Examples
 ================
 
+.. warning::
+
+  The syntax to execute some of these examples is being reviewed.
+  This section needs to be updated accordingly.
+
 GMT Components
 ---------------
 

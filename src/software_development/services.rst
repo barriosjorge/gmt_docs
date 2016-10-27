@@ -2,6 +2,11 @@
 Using the Services
 ==================
 
+.. warning::
+
+  The syntax to invoke some of these commands is being reviewed.
+  This section needs to be updated accordingly.
+
 Starting and Stopping Services
 ------------------------------
 

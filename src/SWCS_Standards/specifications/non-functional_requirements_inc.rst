@@ -110,10 +110,15 @@ Non-Functional Requirements
 
     Each DCS, DCS package and DCS component shall have a unique name.
 
-    Note: The appendix DCS Reference Architecture Rules defines the naming
-    rules.
 
-  **SWC-DCS-0150: DCS naming**
+  **SWC-DCS-0150: Use of abbreviations**
+
+    Abbreviations used in the componsition of names shall be contained in the
+    glossary :ref:`n-grams <n_grams>`.
+
+    Note: See :ref:`SWC glossary <glossary>` for reference.
+
+  **SWC-DCS-0151: DCS naming**
 
     Each :ref:`DCS <dcs_reference_architecture>` shall be named according to the following format:
 
@@ -126,7 +131,7 @@ Non-Functional Requirements
         new RegExp ///^#{SUBS}_dcs$///.test dcs.name #formal naming test
 
 
-  **SWC-DCS-0151: Package naming**
+  **SWC-DCS-0152: Package naming**
 
     Each DCS :ref:`Package <dcs_product_structure_modeling>` shall be named according to the following format
 
@@ -135,14 +140,13 @@ Non-Functional Requirements
         <SUBS>_<CAT>_<MCLASS>    # where
 
         <SUB>:     Abbreviation of the Subsystem
-        <CAT>:     Functional catefory of the pacakge as defined in :ref:`digrams<>`
-        <MCLASS>:  Metamodel class abbreviation of the component class (e.g. Controller -> ctrl)
-        as per :ref:`dictionnary <>`
+        <CAT>:     Abbreviation of the functional category of the package as defined in the glossary n-grams
+        <MCLASS>:  Metamodel class abbreviation (in this case Packages -> pkg)
 
         new RegExp ///#{SUBS}_(#{CATS.join "|"})_pkg$///.test pkg.name #formal naming test
 
 
-  **SWC-DCS-0152: Component naming**
+  **SWC-DCS-0153: Component naming**
 
     Each DCS :ref:`Component <dcs_component_architecture>` shall be named according to the following format:
 
@@ -152,7 +156,8 @@ Non-Functional Requirements
 
         <SUB>:     Abbreviation of the Subsystem
         <CMP>:     Component abbreviation
-        <MCLASS>:  Metamodel class abbreviation (in this case Packages -> pkg)
+        <MCLASS>:  Metamodel class abbreviation of the component class (e.g. Controller -> ctrl)
+        as defined in the glossary n-grams
 
         new RegExp ///#{SUBS}_[a-z_]+_(#{MCLASS.join "|"})$///.test cmp.name    #formal naming test
 
