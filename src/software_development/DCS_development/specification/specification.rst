@@ -1,4 +1,4 @@
-.. _dcs_mdf-example:
+.. _dcs_spec_example:
 
 DCS specification example: *isample_dcs*
 ========================================

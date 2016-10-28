@@ -3,10 +3,10 @@
 ISample Example
 ===============
 
-ISample DCS is an instrument control system example (ISample). This example provides
+:ref:`ISample DCS <dcs_spec_example>` is an instrument control system example that provides
 a template that instrument developers can use as a model.
 
-Retreive the sample model files from `here <../_static/isample_dcs.tgz>`_ and execute:
+Retrieve the sample model files from `here <../_static/isample_dcs.tgz>`_ and execute:
 
 .. code-block:: bash
 

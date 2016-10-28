@@ -1,4 +1,4 @@
-.. _release1:
+.. _release_1:
 
 Release 1
 =========
