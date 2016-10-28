@@ -1,4 +1,4 @@
-.. _module_mk:
+.. _hw_adapter_module_mk:
 
 *module.mk*
 -----------

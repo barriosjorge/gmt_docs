@@ -1,4 +1,4 @@
-.. _dcs_ctrl_pkg_code:
+.. _hw_adapter_files:
 
 DCS Hardware Adapter Files
 --------------------------

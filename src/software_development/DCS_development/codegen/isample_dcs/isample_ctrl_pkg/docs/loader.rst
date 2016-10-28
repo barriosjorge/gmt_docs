@@ -1,4 +1,4 @@
-.. _isample_dcs_loader:
+.. _isample_ctrl_pkg_loader:
 
 *loader.coffee*
 ---------------

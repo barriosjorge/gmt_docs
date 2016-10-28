@@ -84,7 +84,7 @@ Description:
       - primary
       - This keyword shall be used only in primary array headers or IMAGE
         extension headers with positive values of BITPIX (i.e., in arrays with
-        integer data).  Columns 1-8 contain the string, `BLANK   ' (ASCII
+        integer data).  Columns 1-8 contain the string, 'BLANK   ' (ASCII
         blanks in columns 6-8).  The value field shall contain an integer that
         specifies the representation of array values whose physical values are
         undefined.  
@@ -434,7 +434,8 @@ Description:
         specified by the Standard.  A proposed convention is described in
         Appendix B.2 of the FITS Standard in which the value string has the
         format '(l,m,n...)' where l, m, n,... are the dimensions of the array.
-                The data are ordered such that the array index of the first dimension
+
+        The data are ordered such that the array index of the first dimension
         given (l) is the most rapidly varying and that of the last dimension
         given is the least rapidly varying.
     * - *tdispn*
@@ -568,7 +569,8 @@ Description:
       - extension
       - Required to be the first keyword of all image (XTENSION= 'IMAGE  
         ')and table (XTENSION= 'BINTABLE' or XTENSION= 'TABLE   ') extensions.
-                The value field shall contain a character string giving the name of
+
+        The value field shall contain a character string giving the name of
         the extension type.  This keyword is mandatory for an extension header
         and must not appear in the primary header.  For an extension that is
         not a standard extension, the type name must not be the same as that

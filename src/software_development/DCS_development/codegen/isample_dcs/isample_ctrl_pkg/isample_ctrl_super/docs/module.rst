@@ -1,4 +1,4 @@
-.. _module_mk:
+.. _ctrl_super_module_mk:
 
 *module.mk*
 -----------
