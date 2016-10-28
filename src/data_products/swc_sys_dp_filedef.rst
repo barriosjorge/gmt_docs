@@ -974,8 +974,10 @@ Format:
     corner after trimming the overscan region.  The types of bad pixels
     recorded and their code values are: 
 
-                4 	– dead pixels    8 	– deviant zeroth read (NIR) or bad pixel in
-    bias (UVIS)    32 	– unstable (NIR)    512 – bad in flatfield 
+    4 – dead pixels
+    8 – deviant zeroth read (NIR) or bad pixel in bias (UVIS)
+    32 – unstable (NIR)
+    512 – bad in flatfield 
 
     These values are reflected in the data quality extensions during data
     processing.
@@ -1248,7 +1250,7 @@ Format:
     the bias levels (BIASA  through BIASD), gain (ATODGNA through
     ATODGND), and readnoise  (RDNOISEA through RDNOISED). 
 
-        Table B-18 show an example where a detector chip is read out by 4 
+    Table B-18 show an example where a detector chip is read out by 4 
     amplifiers (A-D), each amplifier reading out one quadrant.  The  AMPX
     and AMPY keywords indicate the dividing rows and columns of  the
     quadrants.  For example, For a 4096x4096 pixels in area,  AMPX=2049
@@ -1735,10 +1737,14 @@ Description:
     receiving data from an instrument, where the data are in their
     unprocessed image state.  To arrive at this stage, the DPS:
 
-    • Packaged the raw instrument data stream into FITS binary data  
-    format, • Parsed the telemetry stream to obtain meta data and to
-    assign   FITS header information, • Created a FITS file with the “raw”
-    suffix, without regard to   how the data would subsequently be used,
+        • Packaged the raw instrument data stream into FITS binary data  
+          format,
+
+        • Parsed the telemetry stream to obtain meta data and to assign FITS
+          header information,
+
+        • Created a FITS file with the “raw” suffix, without regard to   how the
+          data would subsequently be used,
 
     At this stage, the file suffix does not yet reflect the intended
     purpose of the data.  The purpose is only apparent after additional

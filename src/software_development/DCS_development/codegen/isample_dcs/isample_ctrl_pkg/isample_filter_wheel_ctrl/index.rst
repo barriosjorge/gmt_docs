@@ -1,4 +1,4 @@
-.. _dcs_ctrl_pkg_code:
+.. _filter_wheel_ctrl:
 
 DCS Filter Wheel Controller Files
 ---------------------------------

@@ -1,4 +1,4 @@
-.. _module_mk:
+.. _ctrl_pkg_module_mk:
 
 *module.mk*
 -----------

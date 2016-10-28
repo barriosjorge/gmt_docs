@@ -35,7 +35,7 @@ Software and Controls system.
 
     * :ref:`Applicable definitions and references <references>`
 
-    * :ref:`DCS reference architecture <dcs-reference_architecture>`
+    * :ref:`DCS reference architecture <dcs_reference_architecture>`
 
     * :ref:`DCS development process and life cycle <lifecycle>`
 
