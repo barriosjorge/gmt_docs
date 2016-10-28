@@ -1,4 +1,4 @@
-.. _module_mk:
+.. _filter_wheel_ctrl_module_mk:
 
 *module.mk*
 -----------

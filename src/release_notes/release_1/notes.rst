@@ -7,7 +7,7 @@ Contents of the release 1.0
 ---------------------------
 
 - A set of common frameworks that provide software components that address similar
-  problems with a :ref:`unified architecture <dcs-reference_architecture>`. The common frameworks encapsulate the implementation
+  problems with a :ref:`unified architecture <dcs_reference_architecture>`. The common frameworks encapsulate the implementation
   details allowing the developers to focus in the solving the domain specific programming tasks.
   These release includes a first implementation of the following frameworks:
 
