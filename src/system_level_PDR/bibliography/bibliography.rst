@@ -45,7 +45,9 @@ Bibliography
 
 .. [ISO12207] ISO/IEC 12207: Systems and software engineering — Software life cycle processes, 2008.
 
-.. [John11] Johns M.; et al.: System Engineering Management Plan, GMT-SE-DOC-00002, Rev. A, 2011.
+.. [John11] Johns, M.; et al.: System Engineering Management Plan, GMT-SE-DOC-00002, Rev. A, 2011.
+
+.. [John13] Johns, M.; System Level PDR, Chapter 12: Telescope. https://docushare.gmto.org/docushare/dsweb/Get/Document-13239/GMT%20SLPDR%20Section%2006%20Telescope.pdf
 
 .. [KaKD11] Karban, R.; Kornweibel, N.; Dvorak, D.; Ingham, M.; Wagner, D.; Towards a State Based Control Architecture for Large Telescopes: Laying a Foundation at the VLT, 2011
 
@@ -56,6 +58,8 @@ Bibliography
 .. [Meye00] Meyer, B.: Object-Oriented Software Construction, 2nd Edition, ISBN 0-13-629155-4, March 2000.
 
 .. [NASA13] NASA Software Engineering Handbook, NASA-HDBK-2203, 2013.
+
+.. [Noll76] Noll, R. J.: Zernike polynomials and atmospheric turbulence, J. Opt. Soc. Am., 66, 207-211, 1976.
 
 .. [Prow96] Prowell, S. J.: Sequence Based Specification, 1996.
 
@@ -96,7 +100,6 @@ Bibliography
   12 D. Sawyer, Telescope Common Utilities and Equipment, GMT-SE-REF-00190, 2012.
   21 P. T. Wallace, Gemini Project, Gemini TCS Note (PTW) 3.12 (TN_PS_G0044) 1996.
   23 G. Trancho, GMT Natural Seeing and AO Modes Operation Concept Definition Document, GMT-AO-REF-00244, 2013.
-  26 R. J. Noll, Zernike polynomials and atmospheric turbulence, J. Opt. Soc. Am., 66, 207-211, 1976.
   27 B. McLeod, Wavefront Control System Preliminary Design Report, SAO-TEL-DOC-00007, Rev. 2, 2013.
   28 R. J. Noll, Zernike polynomials and atmospheric turbulence, J. Opt. Soc. Am., 66, 207-211, 1976.
   29 C. Smith, Active Optics Reconstructors – 3 Methods, GMT-TEL-DOC-00425, Rev. 1, 2013.

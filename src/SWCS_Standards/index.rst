@@ -1,4 +1,4 @@
-.. _swc_standards:
+.. _swcs_standards:
 
 -------------------------------
 Software and Controls Standards
