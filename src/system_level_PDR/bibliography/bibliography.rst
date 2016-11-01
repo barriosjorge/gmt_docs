@@ -59,6 +59,8 @@ Bibliography
 
 .. [McCa13] McCarthy, P.: GMT Operations Concept Document, GMT-SCI-DOC-00034, 2013.
 
+.. [McLe13] McLeod, B. A.: Wavefront Control System Preliminary Design Report, SAO-TEL-DOC-00007, Rev. 2, 2013.
+
 .. [Meye00] Meyer, B.: Object-Oriented Software Construction, 2nd Edition, ISBN 0-13-629155-4, March 2000.
 
 .. [NASA13] NASA Software Engineering Handbook, NASA-HDBK-2203, 2013.
@@ -82,6 +84,8 @@ Bibliography
 .. [Sphi13] Sphinx-doc.org – Python Documentation Generator, retrieved 2013.
 
 .. [Terr06] Terrett, D. L.: SPIE, Vol. 6274, 62740G-1, 2006.
+
+.. [Tran13] Trancho, G.: GMT Natural Seeing and AO Modes Operation Concept Definition Document, GMT-AO-REF-00244, 2013.
 
 .. [Tuft01] Tufte, E.: The Visual Display of Quantitative Information, ISBN-10: 0961392142, 2001.
 
@@ -107,8 +111,6 @@ Bibliography
   11 D. Sawyer, GMT Electrical Power Systems, GMT-SE-REF-00019, 2012.
   12 D. Sawyer, Telescope Common Utilities and Equipment, GMT-SE-REF-00190, 2012.
   21 P. T. Wallace, Gemini Project, Gemini TCS Note (PTW) 3.12 (TN_PS_G0044) 1996.
-  23 G. Trancho, GMT Natural Seeing and AO Modes Operation Concept Definition Document, GMT-AO-REF-00244, 2013.
-  27 B. McLeod, Wavefront Control System Preliminary Design Report, SAO-TEL-DOC-00007, Rev. 2, 2013.
   32 C. Y. Peng, L. C. Ho, C. D. Impey, & H. W. Rix, 2010, AJ, 139, 2007.
   33 G. Bruzual, & S. Charlot, MNRAS, 344, 1000, 2003.
   34 D. W. Hogg et al., , 2008.

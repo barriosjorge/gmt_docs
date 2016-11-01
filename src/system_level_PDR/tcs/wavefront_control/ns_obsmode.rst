@@ -243,6 +243,9 @@ shown).
     controllers enforce the stroke and force limits, and may therefore convert
     low-order bending modes into segment rigid body motion as required.
 
+
+    .. _aco_reconstructor_output_terms:
+
     .. table:: Active Optics Reconstructor Output Terms
 
         +-------------------------------------+---------------+------------------------------------------+
@@ -279,6 +282,33 @@ shown).
     observing modes, but the reconstructor is different for each mode. The
     observing modes for which the ports are active are indicated in the last
     column.
+
+**Active Optics Reconstructor Server**
+
+    The Active Optics Reconstructor Server generates the reconstructor matrices
+    for fast guiding and active optics correction. Each of these depends on the
+    observing mode, the configuration of the AGWS probes, their positions in the
+    DG focal plane, and the angle of the GIR. The component’s data interfaces
+    are listed in :numref:`Table %s <aco_reconstructor_server_ports>`.
+
+    The reconstructor matrix for fast guiding simply average and rotate
+    wavefront slope vectors and can be computed analytically. The active optics
+    reconstructor matrix is more complex, and the strategy followed to date (see
+    Section 6.12.2.5 [John13]_) is to raytrace the spots of each Shack-Hartmann
+    camera using Zemax. An unperturbed model of the telescope and AGWS wavefront
+    sensors is first traced to provide reference spot positions. The model is
+    then perturbed in each of the 319 degrees of freedom listed in
+    :numref:`Table %s <aco_reconstructor_output_terms>`, and the difference
+    between the centroids and their reference positions provides a column in the
+    system matrix.  Finally, the reconstructor is computed by taking the
+    pseudo-inverse of this system matrix.
+
+    The reconstructor is dependent on each sensor’s position and orientation in
+    the telescope focal plane. Simulations have shown that when tracking near
+    zenith, the matrix must be updated every ~15 seconds to avoid significant
+    reduction in the delivered image quality due to the rapid rotation of the
+    GIR [McLe13]_. Active optics updates may have to be interrupted during a
+    transit near zenith when the pupil rotation rate exceeds 6 deg/min.
 
     .. _aco_wfc_ports:
 
@@ -344,6 +374,8 @@ shown).
         | |                | | tip-tilt.                                  | |        | |        | |        | |        | |      |
         +------------------+----------------------------------------------+----------+----------+----------+----------+--------+
 
+
+    .. _aco_reconstructor_server_ports:
 
     .. table:: Active Optics Reconstructor Server Ports
 

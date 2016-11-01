@@ -48,18 +48,18 @@
 
        Sky Tracking Workflow
 
-    * *Pointing* -
-      Like with telescope tracking, the act of pointing the mount utilizes only
-      mount encoder information.  As shown in the :ref:`Figure
-      below<figure-mount_pointing>`, to point to a new location in the sky, the user
-      provides a coordinate [α, δ] or [Az, El] to the TCS.  The pointing kernel
-      translates the input coordinate into mount [Az, El] demands.  Upon receiving
-      the demands, the MCS servo loop repositions the mount.  If the telescope is
-      already in tracking mode when it arrives at the new location, the mount
-      motion continues along the tracking trajectory.  Without sky-tracking, all
-      mount motion would come to a stop as soon as the mount arrives at the
-      demanded location.  Details of the telescope pointing sequence are provided
-      in the AO OCDD.  
+    * *Pointing* - Like with telescope tracking, the act of pointing the mount
+      utilizes only mount encoder information.  As shown in the :ref:`Figure
+      below<figure-mount_pointing>`, to point to a new location in the sky, the
+      user provides a coordinate [α, δ] or [Az, El] to the TCS.  The pointing
+      kernel translates the input coordinate into mount [Az, El] demands.  Upon
+      receiving the demands, the MCS servo loop repositions the mount.  If the
+      telescope is already in tracking mode when it arrives at the new location,
+      the mount motion continues along the tracking trajectory.  Without
+      sky-tracking, all mount motion would come to a stop as soon as the mount
+      arrives at the demanded location.  Details of the telescope pointing
+      sequence are provided in the Operation Concept Definition Document (OCDD)
+      GMT-AO- REF-00244 [Tran13]_. 
 
     .. _figure-mount_pointing:
 
