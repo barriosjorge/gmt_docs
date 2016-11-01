@@ -1,6 +1,6 @@
 
-Developer Info and Release Configuration
-========================================
+Release Software Configuration
+==============================
 
 .. note::
 

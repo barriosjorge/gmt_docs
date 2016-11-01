@@ -1,7 +1,8 @@
 .. _software_development:
 
+--------------------
 Software Development
-====================
+--------------------
 
 .. note:: 
 
@@ -14,10 +15,9 @@ Software Development
 
    installation
    isample_example
+   development
    configuration
-   DCS_development/index
    services
    examples
    contribute
-
 
