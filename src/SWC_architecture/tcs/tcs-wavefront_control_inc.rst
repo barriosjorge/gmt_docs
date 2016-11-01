@@ -45,6 +45,13 @@ passed on to the M2 Positioner hardware controller.
 
 A full description of the implementation of the wavefront controller for each of
 the three AO observing modes is given in the AO Preliminary Design Report
-[Bouc13]_.
+[Bouc13]_.  Only an outline of the Natural Guide star Ground Layer AO observing
+mode WFC is presented here, providing an example of the interaction between the
+AO wavefront controller components and the Active Optics Wavefront Controller.
 
-Details of the WFCS may be made available here at a later time.
+.. toctree::
+
+    wavefront_control/ns_obsmode
+    wavefront_control/ngsao_obsmode
+    wavefront_control/ltao_obsmode
+    wavefront_control/nglao_obsmode
