@@ -6,17 +6,22 @@ ISample Example
 :ref:`ISample DCS <dcs_spec_example>` is an instrument control system example that provides
 a template that instrument developers can use as a model.
 
-Retrieve the sample model files from `here <../_static/isample_dcs.tgz>`_ and execute:
+Retrieve the sample model files from `here <../_static/isample_dcs.tgz>`_ or execute:
 
 .. code-block:: bash
 
    $ curl -O http://52.52.46.32/_static/isample_dcs.tgz
+
+Once the file has been downloaded execute:
+
+.. code-block:: bash
+
    $ tar xvfz isample_dcs.tgz
    $ cd isample_dcs
    $ gds codegen -e isample_dcs
    $ gmake -C src/runtime/src/idcs/isample_dcs -j`nproc` install
 
-The executables are located in `src/runtime/src/idcs/isample_dcs/install`.
+The executables will be installed located in `src/runtime/src/idcs/isample_dcs/install`.
 
 .. note::
 
