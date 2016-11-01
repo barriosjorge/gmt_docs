@@ -3,6 +3,8 @@
 Bibliography
 ============
 
+.. [ANU13] Australian National University: GMT Laser Tomography Adaptive Optics System Design Manual, ANU-AO-DOC-00023, v1.0, 2013.
+
 .. [Bec12a] Bec, M.: EtherCAT Master Stack Evaluation, GMT Technical Report, GMT-SWC-DOC-00262, Rev 4, 2012.
 
 .. [Bec12b] Bec, M.: Real Time Linux Evaluation, GMT Technical Report, GMT-SWC-DOC-00263, Rev 5, 2012.
@@ -89,6 +91,8 @@ Bibliography
 
 .. [Wall94] Wallace, P. T.: TPOINT-Telescope Pointing Analysis System (v4.4) Starlink Project (DRAL/Rutherton Appleton Laboratory) p. 27 28, 1994.
 
+.. [Wils02] Wilson, R., W.: SLODAR: measuring optical turbulence altitude with a Shack–Hartmann wavefront sensor, MNRAS 337, 2002.
+
 .. [Youn10] Young, P.; et al.: Proc. SPIE 7740, Software and Cyberinfrastructure for Astronomy, 77403F, 2010.
 
 
@@ -105,8 +109,6 @@ Bibliography
   21 P. T. Wallace, Gemini Project, Gemini TCS Note (PTW) 3.12 (TN_PS_G0044) 1996.
   23 G. Trancho, GMT Natural Seeing and AO Modes Operation Concept Definition Document, GMT-AO-REF-00244, 2013.
   27 B. McLeod, Wavefront Control System Preliminary Design Report, SAO-TEL-DOC-00007, Rev. 2, 2013.
-  30 R. W. Wilson, SLODAR: measuring optical turbulence altitude with a Shack–Hartmann wavefront sensor, MNRAS 337, 2002.
-  31 Australian National University, GMT Laser Tomography Adaptive Optics System Design Manual, ANU-AO-DOC-00023, v1.0, 2013.
   32 C. Y. Peng, L. C. Ho, C. D. Impey, & H. W. Rix, 2010, AJ, 139, 2007.
   33 G. Bruzual, & S. Charlot, MNRAS, 344, 1000, 2003.
   34 D. W. Hogg et al., , 2008.
