@@ -15,6 +15,8 @@ Bibliography
 
 .. [Bouc13] Bouchez, A.: Adaptive Optics System Preliminary Design Report, GMT-AO-RVW-00407, Rev. B, 2013.
 
+.. [Bouc13b] Bouchez, A.; System Level PDR, Chapter 8: Adaptive Optics. https://docushare.gmto.org/docushare/dsweb/Get/Document-13209/GMT%20SLPDR%20Section%2008%20AO.pdf 
+
 .. [Chac14] Chacon, S.: Pro Git 2014, http://git-scm.com/book
 
 .. [CuHW13] Cummings, K.; Hubbard, J.; Wampler, S.; Goodrich, B.: Common Services Framework Reference Guide, ATST Project Documentation, Document SPEC-0022-2, Rev H, 2013
@@ -71,6 +73,8 @@ Bibliography
 
 .. [Schm06] Schmidt, D. C.: Model-Driven Engineering, IEEE Computer 39 (2) 2006.
 
+.. [Smit13] Smith, C.: Active Optics Reconstructors – 3 Methods, GMT-TEL-DOC-00425, Rev. 1, 2013.
+
 .. [Soto13] Soto, J. M.: OPC UA Address Space Model for GMT, GMT Technical Report, GMT-SWC-DOC- 00645, 2013.
 
 .. [Sphi13] Sphinx-doc.org – Python Documentation Generator, retrieved 2013.
@@ -101,8 +105,6 @@ Bibliography
   21 P. T. Wallace, Gemini Project, Gemini TCS Note (PTW) 3.12 (TN_PS_G0044) 1996.
   23 G. Trancho, GMT Natural Seeing and AO Modes Operation Concept Definition Document, GMT-AO-REF-00244, 2013.
   27 B. McLeod, Wavefront Control System Preliminary Design Report, SAO-TEL-DOC-00007, Rev. 2, 2013.
-  28 R. J. Noll, Zernike polynomials and atmospheric turbulence, J. Opt. Soc. Am., 66, 207-211, 1976.
-  29 C. Smith, Active Optics Reconstructors – 3 Methods, GMT-TEL-DOC-00425, Rev. 1, 2013.
   30 R. W. Wilson, SLODAR: measuring optical turbulence altitude with a Shack–Hartmann wavefront sensor, MNRAS 337, 2002.
   31 Australian National University, GMT Laser Tomography Adaptive Optics System Design Manual, ANU-AO-DOC-00023, v1.0, 2013.
   32 C. Y. Peng, L. C. Ho, C. D. Impey, & H. W. Rix, 2010, AJ, 139, 2007.

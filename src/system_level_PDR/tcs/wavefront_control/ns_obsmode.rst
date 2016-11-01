@@ -32,24 +32,26 @@ shown).
 
     Four main control loops operate simultaneously in the natural seeing mode:
 
-    * The Slow Guiding control loop updates the pointing kernel guiding offsets
-      based on low- pass filtered AGWS average wavefront tilt measurements.
+    A. The Slow Guiding control loop updates the pointing kernel guiding offsets
+       based on low- pass filtered AGWS average wavefront tilt measurements.
 
-    * The Fast Guiding control loop updates the tip-tilt of the FSM (or ASM)
-      based on full-rate AGWS segment tilt measurements.
+    B. The Fast Guiding control loop updates the tip-tilt of the FSM (or ASM)
+       based on full-rate AGWS segment tilt measurements.
 
-    * The Active Optics control loop updates the positions of the M1 and M2
-      segments, and the figure of M1, based on AGWS wavefront sensor measurements.
+    C. The Active Optics control loop updates the positions of the M1 and M2
+       segments, and the figure of M1, based on AGWS wavefront sensor
+       measurements.
 
-    * The Flexure control loop updates the position of the AGWS probes based on
-      On- Instrument Wavefront Sensor measurements.
+    D. The Flexure control loop updates the position of the AGWS probes based on
+       On- Instrument Wavefront Sensor measurements.
+
 
     The natural seeing mode fast and slow guiding control loops, and their
-    expected performances, as well as the Active Optics control loop and its
-    performance are detailed in Sections 10 and 11 of [Bouc13]_, and Section
-    12.2 of the System Level PDR. In addition to these main feedback loops,
-    there is also an offload between the fast guiding controller and the
-    pointing kernel to avoid saturation of the FSM or ASM tip-tilt actuators.
+    expected performances, are described in detail in Section 6.12.3 [John13]_.
+    The Active Optics control loop and its performance are detailed in Section
+    6.12.2 [John13]_. In addition to these main feedback loops, there is also an
+    offload between the fast guiding controller and the pointing kernel to avoid
+    saturation of the FSM or ASM tip-tilt actuators.
 
 **Component Descriptions**
 
@@ -211,11 +213,172 @@ shown).
        | | m2 segment     | | Time-average segment tilt, to offload to the M2    | | mas  | | 0.056 | | 0.3  | | Output |
        | | tilt av        | | Positioner.                                        | |      | |       | |      | |        |
        +------------------+------------------------------------------------------+--------+---------+--------+----------+
- 
 
- 
+    In routine operation, the Fast Guiding Controller will close the servo
+    control loop between the system segment tilt error measured by one AGWS
+    probe in TT7 mode, and the absolute FSM or ASM segment tilt and piston
+    commands. If no probe is configured in the TT7 mode, then global tilt
+    measured by a probe in guide mode will be used. The Fast Guiding Controller
+    must rotate the measured tilt error into the telescope coordinate system,
+    and appropriately average measurements of multiple probes if several happen
+    to be in TT7 or guide mode. This is done with a single matrix
+    multiplication. Note that the low-pass filtered system global tilt error is
+    simultaneously sent from the AGWS slope processor to the pointing kernel,
+    and corrected at low bandwidth (~2 Hz) by the mount.
+
+    The time average of the M2 segment tilt is also computed, and offloaded to
+    M2 Positioner via the Active Optics Controller to avoid saturation of the
+    FSM/ASM tilt actuators.
+
+**Active Optics Wavefront Controller**
+
+    The Active Optics Wavefront Controller maintains the alignment of the
+    telescope and the figure of M1 and M2. The controller multiplies the vector
+    of wavefront slopes measured by the three AGWS probes in WFS mode by a
+    reconstructor matrix to compute the necessary corrections. The AGWS cameras
+    in WFS mode will be synchronized, and will typically use 30 s integrations
+    to average out atmospheric turbulence. The 319 error terms output by the
+    matrix multiplication are summarized in Table 10-20. These are sent to the
+    M1 and M2 optics controllers, as shown in Figure 10-22. The optics
+    controllers enforce the stroke and force limits, and may therefore convert
+    low-order bending modes into segment rigid body motion as required.
+
+    .. table:: Active Optics Reconstructor Output Terms
+
+        +-------------------------------------+---------------+------------------------------------------+
+        |  Output Terms                       | | Degrees of  | Controlled Aberrations                   |
+        |                                     | | Freedom     |                                          |
+        +=====================================+===============+==========================================+
+        |  M1 global vertex tilt              | 2             | Global field-dependent focus             |
+        +-------------------------------------+---------------+------------------------------------------+
+        |  M2 global pointing-neutral tilt    | 2             | Global coma                              |
+        +-------------------------------------+---------------+------------------------------------------+
+        |  M2 global coma-neutral tilt        | 2             | Global field-dependent astigmatism       |
+        +-------------------------------------+---------------+------------------------------------------+
+        |  M2 segment pointing-neutral tilt   | 2×6           | System segment coma                      |
+        +-------------------------------------+---------------+------------------------------------------+
+        |  M2 global Z position               | 1             | System global focus                      |
+        +-------------------------------------+---------------+------------------------------------------+
+        |  M2 segment Z position              | 6             | System segment focus                     |
+        +-------------------------------------+---------------+------------------------------------------+
+        |  M1 bending modes 5,6,9-45          | 38×7          | M1 segment figure                        |
+        +-------------------------------------+---------------+------------------------------------------+
+        |  M2 segment Zernike modes 5,6,9,10  | 4×7           | M2 low-order segment figure (ASM only)   |
+        +-------------------------------------+---------------+------------------------------------------+
+
+    GIR rotation error and differential probe position errors are determined by
+    computing the average tip and tilt measured by each AGWS camera in WFS mode,
+    and fitting these with a geometrical model. Any average rotation around the
+    camera in Guide or TT7 mode is interpreted as a GIR rotation error, while
+    the residual tip-tilt errors after the rotation is subtracted are
+    interpreted as differential position errors of the WFS probes. GIR rotation
+    error and differential probe position error are sent to the pointing kernel.
+
+    A complete list of the Active Optics Wavefront Controller data interfaces is
+    given in Table :numref:`aco_wfc_ports`. This component is common to all
+    observing modes, but the reconstructor is different for each mode. The
+    observing modes for which the ports are active are indicated in the last
+    column.
+
+    .. _aco_wfc_ports:
+
+    .. table:: Active Optics Wavefront Controller Ports
+
+        +------------------+----------------------------------------------+----------+----------+----------+----------+--------+
+        | | Port Name      | | Description                                | | Unit   | | Size   | | Rate   | | Type   | | Mode |
+        | |                | |                                            | |        | | (kB)   | | (Hz)   | |        | |      |
+        +==================+==============================================+==========+==========+==========+==========+========+
+        | | agws wf        | | S-H centroids from up to 4 probes,         | | mas    | | 18.4   | | 206    | | Input  | | All  |
+        | | slopes         | | in frame of of reference of sensors,       | |        | |        | |        | |        | |      |
+        | |                | | potentially updated asynchronously.        | |        | |        | |        | |        | |      |
+        +------------------+----------------------------------------------+----------+----------+----------+----------+--------+
+        | | oiws system    | | System global tip-tilt error measured by   | | mas    | | 0.008  | | 1      | | Input  | | NS & |
+        | | global tilt    | | an OIWFS, in instrument coordinate system. | |        | |        | |        | |        | | GL   |
+        +------------------+----------------------------------------------+----------+----------+----------+----------+--------+
+        | | oiws system    | | System global focus error measured by an   | | nm     | | 0.004  | | 1      | | Input  | | NS & |
+        | | global focus   | | OIWFS, in instrument coordinate system.    | |        | |        | |        | |        | | GL   |
+        +------------------+----------------------------------------------+----------+----------+----------+----------+--------+
+        | | asm global     | | Time-averaged ASM global Zernike modes     | | μm     | | 0.012  | | 1      | | Input  | | AO   |
+        | | lo av          | | 4-6.                                       | | RMS    | |        | |        | |        | |      |
+        +------------------+----------------------------------------------+----------+----------+----------+----------+--------+
+        | | asm segment    | | Time-average of ASM actuators, projected   | | μm     | | 1.26   | | 1      | | Input  | | AO   |
+        | | lo av          | | onto M1 segment bending modes 1-45.        | | RMS    | |        | |        | |        | |      |
+        +------------------+----------------------------------------------+----------+----------+----------+----------+--------+
+        | | aco recon      | | Reconstruction matrix, computed based on   | | n/a    | | 2925   | | 0.3    | | Input  | | All  |
+        | |                | | AGWS probe position, observing mode, and   | |        | |        | |        | |        | |      |
+        | |                | | GIR angle.                                 | |        | |        | |        | |        | |      |
+        +------------------+----------------------------------------------+----------+----------+----------+----------+--------+
+        | | m2 global      | | Global Z position command to M2            | | μm     | | 0.004  | | 0.3    | | Output | | All  |
+        | | piston         | | Positioner, from AGWS or ASM system        | |        | |        | |        | |        | |      |
+        | |                | | global focus.                              | |        | |        | |        | |        | |      |
+        +------------------+----------------------------------------------+----------+----------+----------+----------+--------+
+        | | m2 global      | | Global pointing-neutral tilt command to    | | μrad   | | 0.008  | | 0.3    | | Output | | All  |
+        | | point neutral  | | M2 Positioner, from AGWS or ASM system     | |        | |        | |        | |        | |      |
+        | | tilt           | | global coma.                               | |        | |        | |        | |        | |      |
+        +------------------+----------------------------------------------+----------+----------+----------+----------+--------+
+        | | m2 global coma | | Global coma-neutral tilt command to M2     | | μrad   | | 0.008  | | 0.3    | | Output | | All  |
+        | | neutral tilt   | | Positioner, from AGWS system field-        | |        | |        | |        | |        | |      |
+        | |                | | dependent astigmatism.                     | |        | |        | |        | |        | |      |
+        +------------------+----------------------------------------------+----------+----------+----------+----------+--------+
+        | | m2 segment     | | Segment pointing-neutral tilt command to   | | μrad   | | 0.048  | | 0.3    | | Output | | NS   |
+        | | point neutral  | | M2 Positioner, from AGWS system segment    | |        | |        | |        | |        | |      |
+        | | tilt           | | coma.                                      | |        | |        | |        | |        | |      |
+        +------------------+----------------------------------------------+----------+----------+----------+----------+--------+
+        | | m2 segment     | | Segment Z position command to M2           | | μm     | | 0.048  | | 0.3    | | Output | | NS   |
+        | | piston         | | Positioner, from AGWS system segment       | |        | |        | |        | |        | |      |
+        | |                | | focus.                                     | |        | |        | |        | |        | |      |
+        +------------------+----------------------------------------------+----------+----------+----------+----------+--------+
+        | | m1 global      | | Global tilt command to M1 Positioner,      | | μrad   | | 0.008  | | 0.3    | | Output | | All  |
+        | | vertex tilt    | | from AGWS system field-dependent focus.    | |        | |        | |        | |        | |      |
+        +------------------+----------------------------------------------+----------+----------+----------+----------+--------+
+        | | m1 segment     | | M1 segment bending modes 5,6, 9-45.        | | μm     | | 1.04   | | 0.3    | | Output | | All  |
+        | | bending modes  | |                                            | | RMS    | |        | |        | |        | |      |
+        +------------------+----------------------------------------------+----------+----------+----------+----------+--------+
+        | | m2 segment     | | ASM segment Zernike modes 5,6,9,10.        | | μm     | | 0.11   | | 0.3    | | Output | | NS   |
+        | | lo modes       | |                                            | | RMS    | |        | |        | |        | |      |
+        +------------------+----------------------------------------------+----------+----------+----------+----------+--------+
+        | | agws diff      | | AGWS probe position error, from AGWS       | | μm     | | 0.032  | | 0.3    | | Output | | All  |
+        | | pos err        | | global tip-tilt.                           | |        | |        | |        | |        | |      |
+        +------------------+----------------------------------------------+----------+----------+----------+----------+--------+
+        | | gir rot err    | | GIR rotation error, from AGWS global       | | μrad   | | 0.004  | | 0.3    | | Output | | All  |
+        | |                | | tip-tilt.                                  | |        | |        | |        | |        | |      |
+        +------------------+----------------------------------------------+----------+----------+----------+----------+--------+
 
 
- 
+    .. table:: Active Optics Reconstructor Server Ports
+
+        +--------------------+-------------------------------------------------+--------+---------+--------+----------+
+        | | Port Name        | | Description                                   | | Unit | | Size  | | Rate | | Type   |
+        | |                  | |                                               | |      | | (kB)  | | (Hz) | |        |
+        +====================+=================================================+========+=========+========+==========+
+        | | agws probe posn  | | AGWS probe position, in telescope             | | mm   | | 0.032 | | 1    | | Input  |
+        | |                  | | coordinate system.                            | |      | |       | |      | |        |
+        +--------------------+-------------------------------------------------+--------+---------+--------+----------+
+        | | gir posn         | | GIR position, in telescope coordinate system. | | deg  | | 0.004 | | 1    | | Input  |
+        +--------------------+-------------------------------------------------+--------+---------+--------+----------+
+        | | fast guide recon | | Fast guiding reconstructor matrix.  Converts  | | n/a  | | 3.1   | | 0.3  | | Output |
+        | |                  | | Guide or TT7 centroids to system segment tilt | |      | |       | |      | |        |
+        | |                  | | in telescope coordinate system.               | |      | |       | |      | |        |
+        +--------------------+-------------------------------------------------+--------+---------+--------+----------+
+        | | aco recon        | | Active optics reconstruction matrix.          | | n/a  | | 2925  | | 0.3  | | Output |
+        | |                  | | Converts WFS centroids to M1 and M2 positions | |      | |       | |      | |        |
+        | |                  | | and bending modes.                            | |      | |       | |      | |        |
+        +--------------------+-------------------------------------------------+--------+---------+--------+----------+
 
 
+**Deployment**
+
+    A representation of the deployment locations of the Natural Seeing WFC is
+    provided in Figure the Figure below.  All WFC software components run on standard
+    rack-mounted servers in the Electronics Room of the Summit Support Building.
+    All of these hardware components will be connected with both a low-latency
+    Infiniband network and a standard Ethernet control network.  The wavefront
+    sensor slope processors connect to their camera systems with various
+    fiber-based camera protocols (e.g., CameraLink HS), allowing them to also be
+    located in the Electronics Room.  Thus the only data connections onto the
+    telescope are via fiber optics.
+
+    .. figure:: _static/ns_wfcs_deployment.png
+       :scale: 100%
+
+       Natural Seeing Wavefront Control System Deployment Schematic
