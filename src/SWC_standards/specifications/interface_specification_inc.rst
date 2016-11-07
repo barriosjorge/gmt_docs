@@ -1,38 +1,34 @@
 
 .. _interface_specification:
 
-Interface Specification (draft)
--------------------------------
+Interface Specification
+-----------------------
 
-This chapter defines the interface between the DCS and the GMT SWC Core Systems
-(DCP-GCS interface).
+The main building blocks of a DCS are Components. Components may communicate
+with other Components in their own containing Package, with other Components of other
+Package of the same DCS or with Components in other Subsystems.
 
-Data interface = connector map.
+Components use ports to connect with other components. The connection between
+two ports is represented by a connector. Connectors are grouped in connection
+maps. Connection maps are part of the :ref:`System Definition Files <subsystem_specification_and_modeling>` specification
 
-[Based on components/ports/connectors]
+    **SWC-DCS-0160: Package connection map**
 
-Two type of interfaces: component ports that offer DCS services to the outside
-are defined using connection maps. DCS components that are integrated with Core
-applications must implement an API which is often defined by inheritance from an
-abstract component definition.
-
-DCS – Core system interfaces are specified using Connection maps. Connection map
-definitions are build using connectors that connect ports between different
-components.
-
-TODO: DCP-GCS interface drawing. / supervisory interface.
-
-Internal interfaces:
-  * device map
-  * field map
-
-External interfaces:
-  * device map
-  * supervisory (better name) map [CORE – DCS maps]
+      The connections between ports of components beloging to the same package
+      shall be specified in the Package connectors property.
 
 
-Data Interface
-..............
+    **SWC-DCS-0161: DCS connection map**
+
+      The connections between ports of components beloging to different packages
+      of the same DCS shall be specified in the DCS connectors propertys
+
+    **SWC-DCS-0162: DCS external connection map**
+
+      The connections between ports of components beloging a DCS with components
+      of an external subsystem shall be specified in the DCS connectors property
+      of the <subsystem>-DCS Interface.
+
 
 
 Physical Interface
@@ -42,9 +38,7 @@ Physical Interface
 
     DCC is considered being a part of the DCS. All DCC are connected to the GMT
     Control Network (GCN), although one and only one DCS Master Supervisor shall
-    be deployed. 
-
-    [TODO: Add network drawing]
+    be deployed.
 
   * Network Interface
 

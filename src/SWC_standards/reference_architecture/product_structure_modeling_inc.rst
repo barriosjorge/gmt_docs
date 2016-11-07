@@ -8,10 +8,6 @@ Each DCS is made up of components organized into packages according to their
 functional affinity or relationships. Examples of packages and their components
 are shown in the Table below.
 
-[TBA] Table with function categories and abbreviation. Example of allocation of
-functions to components as part of the product verification matrix.
-
-
 **Functional Breakdown**
 
   Which packages exist in which subsystem depends on the specific functionality

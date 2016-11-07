@@ -169,16 +169,16 @@ Hardware Requirements
   **SWC-DCS-0045: IO Module sizing**
 
     Additional reserve space for IO Modules per DIN rail in the allocated
-    Standard Electronic Cabinet (SEC) shall be more than 20% (TBC)
+    Standard Electronic Cabinet (SEC) should be more than 20% (TBC)
 
   **SWC-DCS-0046: Not equipped I/O channel additional reserve**
 
-    Additional reserve I/O channels (not equipped) per type shall be more than
+    Additional reserve I/O channels (not equipped) per type should be more than
     20% (TBC)
 
   **SWC-DCS-0047: Equipped I/O channel additional reserve**
 
-    Additional reserve I/O channels (equipped) per type shall be more than 5%
+    Additional reserve I/O channels (equipped) per type should be more than 5%
     (TBC)
 
 

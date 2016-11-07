@@ -1,0 +1,1584 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4. Observatory Services &mdash; GMT Software And Controls documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/additional_style.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="GMT Software And Controls documentation" href="../../index.html"/>
+        <link rel="up" title="Architecture and Design" href="../index.html"/>
+        <link rel="next" title="5. Frameworks" href="../frameworks/component_frameworks.html"/>
+        <link rel="prev" title="3.5.4. Natural-Guidestar Ground Layer Adaptive Optics (NGLAO)" href="../tcs/wavefront_control/nglao_obsmode.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> GMT Software And Controls
+          
+
+          
+            
+            <img src="../../_static/logowhite.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../release_notes/index.html">Release Notes</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Architecture and Design</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction/swcs_introduction.html">1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture/overall_architecture.html">2. Overall Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tcs/tcs_introduction.html">3. Telescope Control System</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4. Observatory Services</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#service-architecture">4.1. Service Architecture</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#service-adapters">4.1.1. <em>Service Adapters</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#service-supervisors">4.1.2. <em>Service Supervisors</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#service-bus">4.1.3. <em>Service Bus</em></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#common-services">4.2. Common Services</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#engineering-user-interface-service">4.2.1. <em>Engineering User Interface Service</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#command-execution-service">4.2.2. <em>Command Execution Service</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-supervisor-service">4.2.3. <em>System Supervisor Service</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#telemetry-service">4.2.4. <em>Telemetry Service</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#alarm-service">4.2.5. <em>Alarm Service</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#logging-service">4.2.6. <em>Logging Service</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#networking-infrastructure-service">4.2.7. <em>Networking Infrastructure Service</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration-service">4.2.8. <em>Configuration Service</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#on-line-documentation-service">4.2.9. <em>On-Line Documentation Service</em></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../frameworks/component_frameworks.html">5. Frameworks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform/platform.html">6. Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../process/process_introduction.html">7. Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../risks/risks.html">8. Software and Control Risks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bibliography/bibliography.html">9. Bibliography</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../SWC_standards/index.html">Software and Controls Standards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software_development/index.html">Software Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_products/index.html">Data Products</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/swc_sys_glossary.html">Software and Controls Acronyms and Definitions</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">GMT Software And Controls</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Architecture and Design</a> &raquo;</li>
+      
+    <li>4. Observatory Services</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="observatory-services">
+<span id="id1"></span><h1>4. Observatory Services<a class="headerlink" href="#observatory-services" title="Permalink to this headline">¶</a></h1>
+<p>The GMT software and controls system is highly distributed: the control
+components are deployed in computers distributed across different locations of
+the observatory and connected by networking infrastructure. This scheme makes it
+possible to optimize digital and analog signal paths, thermal conditioning, and
+maintenance accessibility.</p>
+<p>A set of <em>common services</em> provides the basic infrastructure that enables the
+<em>telescope control system</em> (TCS) and <em>observatory operations</em> (OOP) components
+to communicate and collaborate in order to perform high-level control and
+monitoring. Additionally, some of these services have components that allow
+self-monitoring of their own operation.  The Figure below shows the
+Observatory Services Product Tree:</p>
+<div class="figure" id="id4">
+<img alt="../../_images/observatory_services_overview.png" src="../../_images/observatory_services_overview.png" />
+<p class="caption"><span class="caption-number">Fig. 33 </span><span class="caption-text">Observatory Services Product Tree</span></p>
+</div>
+<p>The set of common services available to
+subsystems and components being controlled include:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Command Execution</li>
+<li>Alarm events transport and management</li>
+<li>Logging events transport</li>
+<li>Telemetry sampling, transport and filtering</li>
+<li>Component configuration</li>
+<li>System health supervision</li>
+<li>Engineering user interface</li>
+<li>Command line access to all the registered components</li>
+<li>Component and subsystem on line documentation (metadata)</li>
+<li>Network infrastructure management</li>
+<li>Data flow service (Low latency/ high bandwidth / synchronous)</li>
+</ul>
+</div></blockquote>
+<div class="section" id="service-architecture">
+<span id="services-architecture"></span><h2>4.1. Service Architecture<a class="headerlink" href="#service-architecture" title="Permalink to this headline">¶</a></h2>
+<p>The implementation of the common services follows a distributed architecture
+(see following figure) in which service adapters allow distributed components to
+access the service bus, while service supervisors coordinate services.  Service
+adapters define the low-level interface between components and observatory
+services. Communication between adapters and supervisors may follow different
+communication patterns (e.g., publish/subscribe, push/pull, request/reply). The
+Section on <a class="reference internal" href="../frameworks/component_frameworks.html#core-framework"><span class="std std-ref">Core Framework</span></a> describes the different communication patterns
+that are available.</p>
+<div class="figure" id="id5">
+<span id="section-service-adapters"></span><img alt="../../_images/common-services-architecture.png" src="../../_images/common-services-architecture.png" />
+<p class="caption"><span class="caption-number">Fig. 34 </span><span class="caption-text">Common Services Architecture.  (1) Components access the service through the
+adapter API when an event is generated (e.g., alarm detected). (2) The
+&#8220;payload&#8221; (e.g. alarm event, telemetry sample) is transported from adapter to
+supervisor through the <a class="reference internal" href="#service-bus"><span class="std std-ref">Service Bus</span></a>.  (3) <a class="reference internal" href="#service-supervisors"><span class="std std-ref">Service Supervisors</span></a>
+coordinate services, and process the service payload when received.  (4) The
+service payload is stored and/or forwarded to components that subscribe to the
+service.  (5)  Operators can filter or cross-correlate any persistent data
+stream for further analysis.  .. _service_adapters:</span></p>
+</div>
+<div class="section" id="service-adapters">
+<h3>4.1.1. <em>Service Adapters</em><a class="headerlink" href="#service-adapters" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Service adapters enable every distributed component in the system to access
+infrastructure common services.  They serve as the low level interface between
+hardware and software components and observatory services.  Service adapters
+help to:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Isolate distributed components from service implementation.  This
+helps to manage obsolescence in hardware and software.</li>
+<li>Focus application developers on developing applications (e.g. control,
+data processing).  Application developers should not need to solve
+infrastructure problems that are common to all subsystems.</li>
+<li>Standardize base implmentation. A base component (in an object oriented
+sense) implementation provides a template for all service adapters
+to bootstrap from.</li>
+<li>Simplify interaction and deployment.  Software components need to only
+know about the service native API, and not how the service or
+distributed communication are implemented.  They hide details like
+how to manage connection, service threads, marshaling and de-marshaling
+of events and data streams, time stamps, middleware configuration,
+optimal communication pattern, how to register component services
+in runtime database.</li>
+</ul>
+</div></blockquote>
+<p>Base classes in the Core Component Framework wrap these low-level interfaces
+in a simplified high-level application-programming interface (API), reducing
+the overhead necessary to integrate a software component into the GMT system.
+When a component is deployed and its service adapters setup and bootstrapped,
+all the component service features become available system-wide. Service
+adapters can be shared between components depending on the performance
+requirements.</p>
+<p>The adapter hides from the component service implementation details like:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Connection management</li>
+<li>Service Thread management</li>
+<li>Marshaling and de-marshaling of event and data streams</li>
+<li>Time stamping of events</li>
+<li>Specific middleware setup</li>
+<li>Implementation of optimal communication patterns</li>
+<li>Registering of component service functions in the runtime database</li>
+</ul>
+</div></blockquote>
+<p>Communication between adapters and supervisors may follow different
+communication patterns (e.g., publish/subscribe, push/pull, request/reply).
+The Section on <a class="reference internal" href="../frameworks/component_frameworks.html#core-framework"><span class="std std-ref">Core Framework</span></a> describes the different communication
+patterns that are available.</p>
+</div></blockquote>
+</div>
+<div class="section" id="service-supervisors">
+<span id="id2"></span><h3>4.1.2. <em>Service Supervisors</em><a class="headerlink" href="#service-supervisors" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Service supervisors coordinate and maintain the health status of the services.
+Some services may require several servers running in a cluster, or may connect
+to a high performance file system for persistent high throughput events or
+data streams. The service supervisor provides the following capabilities:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Archiving of the data and event streams coming from service adapters</li>
+<li>Implementation of optimal communication pattern</li>
+<li>Archiving of the service configuration data</li>
+<li>Service analytics and reporting</li>
+<li>Monitoring the health of the service adapters (the System Supervisor is
+responsible for monitoring the health of the different Service Supervisors)</li>
+<li>Publish/subscribe access to the data and event streams</li>
+<li>Load balancing</li>
+<li>Fault tolerance</li>
+<li>Scaling due to bandwidth or growing storage demands (e.g., new systems
+added to the observatory)</li>
+<li>Visualization of service data</li>
+<li>Cross filtering of multidimensional datasets.</li>
+</ul>
+</div></blockquote>
+<p>The implementation of the service supervisors is not monolithic. Depending
+on the prevailing communication patterns, it is possible to implement
+different ways to distribute the process workload (e.g., broker, fan-out).
+This allows the efficient use of computing resources and elastic adaptation
+to the load.</p>
+</div></blockquote>
+</div>
+<div class="section" id="service-bus">
+<span id="id3"></span><h3>4.1.3. <em>Service Bus</em><a class="headerlink" href="#service-bus" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div>A dedicated service bus connects Service Adapters and Service Supervisors.
+Each service bus provides a logical network connection that addresses the
+specific throughput, bandwidth and latency requirements of the service.  The
+Section on the <a class="reference internal" href="../platform/platform.html#networking"><span class="std std-ref">networking platform</span></a> provides a description
+of the GMT networking infrastructure.</div></blockquote>
+</div>
+</div>
+<div class="section" id="common-services">
+<span id="services-common"></span><h2>4.2. Common Services<a class="headerlink" href="#common-services" title="Permalink to this headline">¶</a></h2>
+<p>This section goes elaborates on the architecture, design, and specifications of
+the observatory common services.</p>
+<div class="section" id="engineering-user-interface-service">
+<span id="services-engineering-ui"></span><h3>4.2.1. <em>Engineering User Interface Service</em><a class="headerlink" href="#engineering-user-interface-service" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Engineering user interfaces provide a low level detailed graphical interface
+to the GMT system. This interface is not optimized for scientific operations,
+and is used in collaboration with the Command Line Interface (CLI) service
+during the development, testing, integration, and commissioning phases of the
+GMT subsystems.</p>
+<div class="figure">
+<img alt="../../_images/engineering_UI_product_tree.png" src="../../_images/engineering_UI_product_tree.png" />
+</div>
+<p>Engineering User Interface Product Tree overview</p>
+<p>Like all of the GMT user interfaces, the main components are Panels and
+Widgets. Widgets are grouped into Panels that are assigned to the GMT
+operation display units. Engineering user interfaces are in most cases
+generated according to UI specification files. The engineering Panels are
+built using the standard Widgets provided by the UI framework (e.g., 2D plot,
+scalar). In contrast, the Operation User Interface System includes additional
+ad-hoc widgets designed to optimize the main high-level operator workflows.
+The figure below shows and example of a scalar view widget.</p>
+<div class="figure" id="id6">
+<img alt="../../_images/engineering-scalar-widget-example1.png" src="../../_images/engineering-scalar-widget-example1.png" />
+<p class="caption"><span class="caption-number">Fig. 35 </span><span class="caption-text">Engineering Scalar Widget Example</span></p>
+</div>
+<p><strong>Service Capabilities</strong></p>
+<blockquote>
+<div><p>The engineering user interface components provide the following capabilities:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Display of all the information relevant to a Subsystem or Component</li>
+<li>Default Panel generation using engineering layouts</li>
+<li>Subsystem view (e.g., alarms, logs, monitors, commands, properties)</li>
+<li>Component view</li>
+<li>System navigation (e.g., system tree widget)</li>
+<li>Profile management</li>
+<li>Integration with the Operations User Interface</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="command-execution-service">
+<span id="services-command-execution"></span><h3>4.2.2. <em>Command Execution Service</em><a class="headerlink" href="#command-execution-service" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The Command Line Interface (CLI) complements the graphic user interfaces used
+for both engineering and operations. It provides low-level access to all the
+system functionality, and the flexibility often required during testing and
+commissioning phases. CLI also provides a way to operate subsystems in early
+stages of development, when the UI is still being developed and does not provide
+all the functionality.</p>
+<p>The figure below shows a screenshot of the CLI interface used to navigate the
+GMT semantic model. More specifically, it shows command-line completion (first
+line) and component introspection (fourth line).  The CLI allows scoped name
+completion and component introspection. Alias and shortcuts can be defined to
+facilitate user interaction.</p>
+<div class="figure" id="id7">
+<img alt="../../_images/command-line-service.png" src="../../_images/command-line-service.png" />
+<p class="caption"><span class="caption-number">Fig. 36 </span><span class="caption-text">Command-line Service.  Example of command line completion (first line) and
+component introspection (fourth line)</span></p>
+</div>
+<p><strong>Service Capabilities</strong></p>
+<blockquote>
+<div><p>The Command Line Interface components provide the following capabilities:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Access to the public interface of any distributed component</li>
+<li>Advanced debugging and troubleshooting</li>
+<li>Command completion and introspection enables interactive discovery of
+the system functionality at runtime</li>
+<li>Support for development and test automation</li>
+<li>Interactive shell command (gmt command)</li>
+<li>Access to on-line documentation, introspection and model and metamodel
+semantics.</li>
+<li>Scripting</li>
+<li>Batch processing (gds “gmt development system” command)</li>
+<li>Alias definition to minimize typing long command names and reducing
+typing errors.</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<p><strong>Service Deployment</strong></p>
+<blockquote>
+<div>The Command Line Interface can be executed in any of the operation consoles
+on the observatory control network. Given the distributed nature of the
+project it may often be useful to grant access to the CLI tool from the
+operation network so subsystems experts can diagnose a fault condition. For
+safety reasons, CLI sessions in the operation network should only be granted
+specific authorization levels.</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="system-supervisor-service">
+<span id="services-system-supervisor"></span><h3>4.2.3. <em>System Supervisor Service</em><a class="headerlink" href="#system-supervisor-service" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Health and quality monitoring is central to ensuring that all the hardware,
+devices, components, and so on down the line are working properly and safely.
+As such, means of monitoring are provided inside many hardware and their
+devices at all levels via controller supervisors (which are defined as part of
+the SWCS architecture).</p>
+<p>The GMT has a large number of distributed Subsystems and Components that are
+deployed in different computers or embedded units to implement telescope
+control functions. Each Subsystem is required to deploy a Supervisor to
+coordinate, monitor, and manage, the health status of its respective software
+and hardware Components. In order to guarantee reliability it is important to
+monitor and manage the overall health of these Subsystems and Components. The
+System Supervisor is thus in charge of the overall health of the system by
+watching over the hierarchy. It ensures that the system as a whole can handle
+fault tolerance, service availability, and failure detection, thus ensuring
+the overall robustness.</p>
+<p>The implementation of supervisory functions in a dedicated subsystem allows
+the rest of the components to focus on their primary operational functions. It
+allows the separation of responsibilities, thus enabling the supervisory
+strategies to evolve independently from their subsystems. For example, it is
+possible to implement a new supervisory strategy without the need to modify
+the application subsystems. This strategy also simplifies the implementation
+of the Supervisory Service, as it only has to focus on monitoring and managing
+the health of the system. A mix of watchdog, heartbeat, and ping, mechanisms
+usually accomplishes this.</p>
+<p>The System Supervisor accesses the database to load runtime system
+configurations appropriate to a given operation mode (e.g., only the health of
+focal stations that are considered active or standby or the hardware installed
+on the telescope, FSM vs. ASM, are being monitored).</p>
+<div class="figure" id="id8">
+<img alt="../../_images/system-supervision-block-diagram.png" src="../../_images/system-supervision-block-diagram.png" />
+<p class="caption"><span class="caption-number">Fig. 37 </span><span class="caption-text">System Supervisor Service Block Diagram.   (1) A component creates a
+<em>health</em> event and invokes the <em>health_check</em> method inherited from the
+<em>BaseComponent</em> or <em>BaseSupervisor</em> classes. (2) A service adapter sends the
+<em>health</em> event to the supervisor using a push socket. (3) The service
+supervisor forwards the event to the subscribed components using a pub
+socket.</span></p>
+</div>
+<p>The above System Supervisor design is inspired by <a class="reference external" href="http://en.wikipedia.org/wiki/Erlang_(programming_language)">Erlang/OTP</a> which is one of
+the most reliable systems. It is designed to recover easily from fault
+conditions. The emphasis in Erlang is not so much to reduce the risk of
+failure, but to consider fault conditions as part of the nominal scenario so
+as to be able to recover from faults quickly and efficiently.</p>
+<p><strong>Service Capabilities</strong></p>
+<blockquote>
+<div><p>The System Supervisor provides the following capabilities:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Coordinates the GMT automatic start-up and shutdown procedures</li>
+<li>Starts and shuts down the subsystem hardware</li>
+<li>Re-starts any SWC subsystem that crashes</li>
+<li>Re-starts any SWC subsystem when requested by a user</li>
+<li>Ensures that all the subsystems required by a given operation mode are in
+nominal operation state (e.g., ping/watchdog)</li>
+<li>Enables users to query the health of all subsystems at various
+granularities. Querying may be performed via user interfaces at high levels,
+and direct command line interfaces at low levels. The query system will
+allow users to learn about devices, commands, and meaning of the parameters
+and outputs, on-line and interactively.</li>
+<li>Manages optimal information flow to inform human supervisors. This
+involves processing and filtering of information.</li>
+<li>Provides effective and efficient visualization displays that adequately
+capture the overall health of the observatory, telescope, instruments, and
+weather environment.</li>
+<li>Reports host information: Operating system resources usage, version of
+operating system and installed software, version of every software module,
+validation vs. specified configuration.</li>
+<li>Enables automated localization and alert of problems and devices that do
+not operate within nominal ranges, or environmental conditions that endanger
+the safety of the telescope or observatory.</li>
+<li>Reports information about the processes running in the system: start time,
+status, etc.</li>
+<li>Administers the system deployment model</li>
+<li>Redeploys a service or process in an alternative computer if the one
+assigned becomes unresponsive.</li>
+<li>Implements secondary fault tolerance and load balancing. (The system
+supervisor, analyses the load of the different services and may deploy
+additional resources to address additional demands)</li>
+<li>Detects health of the underlying communication infrastructure</li>
+<li>Implements an Observatory Wide rule system to match global rule conditions
+and trigger associated actions.</li>
+<li>Acts as a Supervisor of supervisors. Each subsystem is required to deploy
+a Subsystem supervisor.</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<p><strong>Service Packages</strong></p>
+<blockquote>
+<div><p>The System Supervisor Subsystem is organized in the following configuration:</p>
+<div class="figure" id="id9">
+<img alt="../../_images/system_supervisor_product_tree.png" src="../../_images/system_supervisor_product_tree.png" />
+<p class="caption"><span class="caption-number">Fig. 38 </span><span class="caption-text">System Supervisor Product Tree</span></p>
+</div>
+<p><em>Service Package (server &amp; adapter)</em> -</p>
+<blockquote>
+<div>A supervisory server system, deployed in several machines, takes care of
+implementing the System Supervisory functions. Additionally the system
+supervisor server provides features that allow managing of load balancing
+and fault tolerance. The system supervisor operation, as with any other
+component, can be monitored by the telemetry system defining monitoring
+features in its interface (e.g., the number of components connected,
+number of active alarms, state of the server, instant alarm throughput).</div></blockquote>
+<p><em>Analytics Package</em> -</p>
+<blockquote>
+<div><p>The analytics package provides the following capabilities:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Allows reconstructing the history of the health of the system.</li>
+<li>Allows the analysis package components to run in real time streaming mode.</li>
+<li>Triggers any action associated with the system supervisor rules.</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<p><em>Visualization Package</em> -</p>
+<blockquote>
+<div><p>The visualization package provides custom panels that allow observatory
+operators to monitor and manage the System Supervision System, summarized
+in the following table:</p>
+<blockquote>
+<div><table border="1" class="docutils" id="id10">
+<caption><span class="caption-number">Table 13 </span><span class="caption-text">Alarm Service Visualization Panels</span><a class="headerlink" href="#id10" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><div class="first last line-block">
+<div class="line">Visualization Panel</div>
+</div>
+</th>
+<th class="head"><div class="first last line-block">
+<div class="line">Description</div>
+</div>
+</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">Global Panel</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Provides an overall view of the status of the supervisor system. The following</div>
+<div class="line">information will be displayed:</div>
+<div class="line"><br /></div>
+<div class="line-block">
+<div class="line">* State of each telemetry server component</div>
+<div class="line-block">
+<div class="line">(e.g., RUNNING, STOPPED, FAULT)</div>
+</div>
+<div class="line">* State of each telemetry adapter component</div>
+<div class="line-block">
+<div class="line">(e.g., RUNNING, STOPPED, FAULT)</div>
+</div>
+<div class="line">* List of active monitors</div>
+<div class="line">* Overall view of the system health, one box per subsystem color coded:</div>
+<div class="line-block">
+<div class="line">- green: No active monitors in fault state</div>
+<div class="line">- yellow: No serious active alarms</div>
+<div class="line">- red: The monitor system is not working</div>
+</div>
+<div class="line">* Global life-cycle actions (global start and stop of the system, switching</div>
+<div class="line-block">
+<div class="line">modes)</div>
+</div>
+</div>
+<div class="line">Note: State information shall be color-coded.</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">Navigation Panel</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Provides a way to navigate all the monitor servers and adapters. From the</div>
+<div class="line">navigation panel the state and detailed info of every server and adapter can be</div>
+<div class="line">accessed.</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">Guide Panel</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Displays the on line documentation of the system supervisor service.</div>
+<div class="line">Allows access to the user guide as well as the metadata (model information) of</div>
+<div class="line">the runtime objects.</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">Analytics Panel</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Provides access to the runtime statistics of the supervisor service.</div>
+<div class="line">These should include at least.</div>
+<div class="line-block">
+<div class="line">* Number and state (running/stopped/fault)</div>
+<div class="line">* Instant throughput of the system</div>
+<div class="line">* Total and Subsystem Monitor samples/sec</div>
+<div class="line">* Total data bandwidth</div>
+<div class="line">* Persistence capacity (used/available)</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p><strong>Service Deployment</strong></p>
+<blockquote>
+<div><p>The System Supervisor service is a distributed system; it consists of
+several components running on different computers in the GMT control
+network. A System Supervisor server is deployed in one of the Sever Class
+Computers in the electronics room. Each SWCS subsystem is required to deploy
+a Subsystem Supervisor Component in the corresponding computer. It is
+important to emphasize that all of the SWCS subsystems are required to
+deploy a supervisor, this includes not only Device control Subsystems but
+also user interface applications.</p>
+<p>The visualization package components are deployed in the control room
+Operation Support Computers.</p>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="telemetry-service">
+<span id="services-telemetry"></span><h3>4.2.4. <em>Telemetry Service</em><a class="headerlink" href="#telemetry-service" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The telemetry service provides the ability to observe any data transmitted by
+hardware or software subsystem available for monitoring. Telemetry data
+usually consist of a continuous flow of scalar values at a certain rate. The
+Telemetry Service allows one to select the quantities to monitor, and to start
+or to stop collecting data.</p>
+<p>The telemetry adapter provides an interface that allows:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Retrieval of quantities to be monitored in a given Subsystem or Component</li>
+<li>Start/stop sampling and collecting of monitoring data</li>
+<li>Specifying the rate at which the data are sampled.</li>
+</ul>
+</div></blockquote>
+<p>Two categories of measurement data can be sampled:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Continuous: quantities that are continuous in values. For instance, a
+temperature sensor.</li>
+<li>Discrete: quantities that are discrete in values. For instance, the state
+of a switch (ON, OFF), the position of a window within a range of three
+possible positions (CLOSED, HALF-OPEN, OPEN), etc. When monitoring
+discrete quantities, only the changes of value are sampled.</li>
+</ul>
+</div></blockquote>
+<p>The Table below shows the GMT estimated bandwidth including all subsystems
+described in Table 10-5 plus AO. The total average bandwidth is 76.35 MBps, or
+2.62 TB per night (considering a 10hr night), which defines the GMT storage
+requirements.</p>
+<table border="1" class="docutils" id="id11">
+<span id="telemetry-bandwidth"></span><caption><span class="caption-number">Table 14 </span><span class="caption-text">Estimated Telemetry Bandwidth</span><a class="headerlink" href="#id11" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="18%" />
+<col width="23%" />
+<col width="18%" />
+<col width="25%" />
+<col width="17%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><div class="first last line-block">
+<div class="line">Subsystem</div>
+<div class="line"><br /></div>
+</div>
+</th>
+<th class="head"><div class="first last line-block">
+<div class="line">Raw Bandwidth</div>
+<div class="line">(MBps)</div>
+</div>
+</th>
+<th class="head"><div class="first last line-block">
+<div class="line">Duty Cycle</div>
+<div class="line">(%)</div>
+</div>
+</th>
+<th class="head"><div class="first last line-block">
+<div class="line">Operational</div>
+<div class="line">Bandwidth (MBps)</div>
+</div>
+</th>
+<th class="head"><div class="first last line-block">
+<div class="line">Percentage</div>
+<div class="line">(%)</div>
+</div>
+</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">Telescope</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">22.95</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">100</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">22.95</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">30.1</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">AO-LTAO</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">174</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">20</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">34.80</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">45.6</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">AO-GLAO</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">21</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">50</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">10.50</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">13.7</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">AO-NGSAO</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">162</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">5</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">8.10</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">10.6</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td colspan="3"><div class="first last line-block">
+<div class="line">Total</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">76.35</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">100</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The telemetry service is implemented, like other infrastructure services, as a
+distributed system.  The telemetry adapters allow any component of the system,
+usually running in Device Control Computers, to send any telemetry data to the
+telemetry supervisor through a common API.  Depending on the required
+bandwidth the adapter may provide different transport strategies (e.g., a
+circular buffer held in memory or Solid State Disk that is flushed
+periodically) and fault tolerance capabilities (e.g., routing the outgoing
+data to an alternative supervisor). The telemetry supervisor takes care of
+storing the data in the telemetry database for further analysis or to relay
+the streams of data for presentation in the user interface.</p>
+<p><strong>Service Packages</strong></p>
+<blockquote>
+<div><p><em>Service Package (server &amp; adapter)</em> -</p>
+<blockquote>
+<div><p>A telemetry server system, deployed eventually in several machines takes
+care of receiving telemetry samples, storing them and forwarding them to
+the telemetry user interface panels or the telemetry analysis system.</p>
+<p>In addition to the handling of telemetry monitors, the telemetry server
+provides features that allow load balancing and fault tolerance. The
+telemetry system operation, as with any other component, can be monitored
+by the telemetry system itself specifying monitor features in its
+interface (e.g., number of components connected, number of active alarms,
+state of the server, instant alarm throughput).</p>
+</div></blockquote>
+<p><em>Analytics Package</em> -</p>
+<blockquote>
+<div><p>The analytics package provides the following capabilities:</p>
+<blockquote>
+<div><ul class="simple">
+<li>History reconstruction of any quantity monitored by the system</li>
+<li>Real-time monitoring and telemetry analysis in streaming mode.</li>
+<li>Export of time-stamped telemetry data samples to ASCII format (e.g., CSV files).</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<p><em>Visualization Package</em> -</p>
+<blockquote>
+<div>The visualization package provides custom panels that allow observatory
+operators to monitor and manage the telemetry of the system. This is done
+by implementing several optimized visualizations.</div></blockquote>
+<table border="1" class="docutils" id="id12">
+<caption><span class="caption-number">Table 15 </span><span class="caption-text">Telemetry Service Visualization Panels</span><a class="headerlink" href="#id12" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><div class="first last line-block">
+<div class="line">Visualization Panel</div>
+</div>
+</th>
+<th class="head"><div class="first last line-block">
+<div class="line">Description</div>
+</div>
+</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">Global Panel</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Provides an overall view of the status of the telemetry system. The following</div>
+<div class="line">information will be displayed:</div>
+<div class="line"><br /></div>
+<div class="line-block">
+<div class="line">* State of each telemetry server component</div>
+<div class="line-block">
+<div class="line">(e.g., RUNNING, STOPPED, FAULT)</div>
+</div>
+<div class="line">* State of each telemetry adapter component</div>
+<div class="line-block">
+<div class="line">(e.g., RUNNING, STOPPED, FAULT)</div>
+</div>
+<div class="line">* List of active monitors</div>
+<div class="line">* Overall view of the service health, one box per subsystem color coded:</div>
+<div class="line-block">
+<div class="line">- green: No active monitors in fault state</div>
+<div class="line">- yellow: No serious active alarms</div>
+<div class="line">- red: The telemetry system is not working</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">Navigation Panel</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Provides a way to navigate all the monitor servers and adapters. From the</div>
+<div class="line">navigation panel the state and detailed info of every server and adapter can be</div>
+<div class="line">accessed.</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">Analytics Panel</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Provides access to the runtime statistics of the telemetry service.</div>
+<div class="line">These should include at least.</div>
+<div class="line-block">
+<div class="line">* Number and state (running/stopped/fault)</div>
+<div class="line">* Instant throughput of the system</div>
+<div class="line">* Total and Subsystem Monitor samples/sec</div>
+<div class="line">* Total data bandwidth</div>
+<div class="line">* Storage capacity (used/available)</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><strong>Service Deployment</strong></p>
+<blockquote>
+<div><p>The most demanding use of the telemetry system will be for AO operations; a
+potential implementation is shown in the Figure below. Sampling the dense
+actuator subsystems at full rates and storing the data for follow-up
+analysis and diagnosis require large storage capacity, large bandwidth, and
+the ability to access the data efficiently.</p>
+<p>The <a class="reference internal" href="#telemetry-bandwidth"><span class="std std-ref">telemetry bandwidth estimate</span></a> table above
+presents the bandwidth requirements for telemetry service in the AO
+observing modes. The aggregated bandwidth required is just 260 MB/s due to
+the fact that it is not necessary to store the WFS pixel values. For
+follow-up diagnostic purposes, the AO System requirements document
+stipulates that the full rate telemetry should be stored for a minimum
+period of 10 min, with the goal of storing a full night of telemetry data.</p>
+<p>With the current generation, low cost, Infiniband network adapters and
+switches, bandwidth tests (see <a class="reference internal" href="../platform/platform.html#networking"><span class="std std-ref">Networking Section</span></a>) show
+that it is already possible to achieve an average of 3 GB/s. Readily
+available Solid State Drives (SSD) provide a data writing bandwidth in
+excess of 1 GB/s using a PCIExpress 3.0 interface, and more if they are
+combined in a RAID arrangement. Only 16 GB are necessary to hold 10 minutes
+of telemetry at full rate, a trivial amount now for current high-end solid
+state drives. As performance inevitably improves and the storage cost
+continues to decrease with time, storing a full night of telemetry data in a
+cost-effective way will be achievable.</p>
+</div></blockquote>
+</div></blockquote>
+<div class="figure" id="id13">
+<img alt="../../_images/telemetry_service_implementation.png" src="../../_images/telemetry_service_implementation.png" />
+<p class="caption"><span class="caption-number">Fig. 39 </span><span class="caption-text">A Possible Telemetry Service Implementation</span></p>
+</div>
+</div>
+<div class="section" id="alarm-service">
+<span id="services-alarm"></span><h3>4.2.5. <em>Alarm Service</em><a class="headerlink" href="#alarm-service" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The alarm system, along with the system supervisor and the Interlock &amp; Safety
+System (ISS), provide functions to assess and manage the overall health of the
+system. Alarm events are triggered when an alarm condition is detected by a
+Component (e.g., Controller or Supervisor). Alarm events are time-stamped and
+include information on the component that has triggered the alarm.</p>
+<p>The alarm system associates (using metadata) a set of actions with every alarm
+event that has to be monitored manually or executed automatically. These
+actions can include a reference to a workflow or sequence if one has been
+defined.</p>
+<p>Alarm conditions are part of the specification of a component, shown in the
+following code-block.  When a fault condition occurs in a component, it is the
+responsibility of that component to either handle the fault or to transmit
+alarms up the supervisory chain until they reach a component that can address
+the problem, or else eventually up to the operations staff.</p>
+<div class="literal-block-wrapper container" id="alarm-event-specification">
+<span id="specification-alarm-service"></span><div class="code-block-caption"><span class="caption-number">Listing 1 </span><span class="caption-text">Alarm Event Specification</span><a class="headerlink" href="#alarm-event-specification" title="Permalink to this code">¶</a></div>
+<div class="highlight-coffeescript"><div class="highlight"><pre><span></span><span class="nx">EnumType</span> <span class="s">&quot;AlarmSeverity&quot;</span><span class="p">,</span>
+    <span class="nv">desc: </span><span class="s">&quot;Defines the severity level of the AlarmEvent&quot;</span>
+    <span class="nv">literals:</span>
+        <span class="nv">ALARM_A: </span><span class="s">&quot;&quot;</span>
+
+<span class="nx">StructType</span> <span class="s">&quot;AlarmEvent&quot;</span><span class="p">,</span>
+    <span class="k">extends</span><span class="o">:</span> <span class="p">[]</span>
+    <span class="nv">abstract: </span><span class="kc">false</span>
+    <span class="nv">desc: </span><span class="s">&quot;Time stamped Alarm Event&quot;</span>
+    <span class="nv">elements:</span>
+        <span class="nv">id:</span>
+            <span class="nv">type: </span><span class="s">&quot;string&quot;</span>
+            <span class="nv">desc: </span><span class="s">&quot;Alarm ID. Allows associating the alarm with the Alarm description&quot;</span>
+        <span class="nv">value:</span>
+            <span class="nv">type: </span><span class="s">&quot;string&quot;</span>
+            <span class="nv">desc: </span><span class="s">&quot;Text message with additional information related to the alarm event occurrence&quot;</span>
+        <span class="nv">timestamp:</span>
+            <span class="nv">type: </span><span class="s">&quot;TimeStamp&quot;</span>
+            <span class="nv">desc: </span><span class="s">&quot;Trigger time of the alarm event&quot;</span>
+        <span class="nv">severity:</span>
+            <span class="nv">type: </span><span class="s">&quot;AlarmSeverity&quot;</span>
+            <span class="nv">desc: </span><span class="s">&quot;Level of severity of the alarm event&quot;</span>
+        <span class="nv">source:</span>
+            <span class="nv">type: </span><span class="s">&quot;string&quot;</span>
+            <span class="nv">desc: </span><span class="s">&quot;URI of the component that has detect the alarm condition&quot;</span>
+</pre></div>
+</div>
+</div>
+<p><strong>Service Capabilities</strong></p>
+<blockquote>
+<div><p>The Alarm System provides the following capabilities:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Notification of alarm events from any component in the system</li>
+<li>Analysis of the stream of alarms to identify system health conditions</li>
+<li>Filtering of alarms</li>
+<li>Storage of alarm events</li>
+<li>Visualization of the status of all the alarms in the system</li>
+<li>Correlation via timestamp with any other event in the system</li>
+<li>Logging operator acknowledgment.</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<p><strong>Service Packages</strong></p>
+<blockquote>
+<div><p>The implementation of the above capabilities is distributed to a set of
+packages:</p>
+<blockquote>
+<div><p><em>Service Package (server &amp; adapter)</em> -</p>
+<blockquote>
+<div><p>An alarm server system, deployed in several machines, takes care of
+receiving alarms, storing them and forwarding them to the alarm UI
+panels, or the alarm analysis system.</p>
+<p>In addition to the handling of alarm events, the alarm server provides
+features that allow managing of load balancing and fault tolerance. The
+alarm system operation, as with any other component, can be monitored by
+the telemetry system by specifying monitoring features in its interface
+(e.g., the number of components connected, the number of active alarms,
+state of the server, instant alarm throughput).</p>
+<p>The following alarm service block diagram shows how distributed
+components and supervisors access the Alarm Adapter interface to notify
+an alarm event. Adapters forward the alarm events to the alarm
+supervisor using push/pull sockets. Usually a single Alarm Adapter is
+deployed for all the components of a Subsystem that are collocated in
+the same computer.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<div class="figure" id="id14">
+<img alt="../../_images/alarm-service-block-diagram.png" src="../../_images/alarm-service-block-diagram.png" />
+<p class="caption"><span class="caption-number">Fig. 40 </span><span class="caption-text">Alarm Service Block Diagram.  (1) The component detects an alarm event
+and invokes the <em>send_alarm</em> method inherited from the <em>BaseComponent</em>
+or <em>BaseSupervisor</em> classes. (2) The service adapter sends the alarm
+event to the supervisor using a push socket. The <em>Service supervisor</em>
+applies the business process rules associated with the alarm event if
+they are defined.  (3) The <em>Service supervisor</em> publishes the event to
+the subscribed components using a pub socket.</span></p>
+<div class="legend">
+<blockquote>
+<div><p><em>Analytics Package</em> -</p>
+<blockquote>
+<div>When an alarm is triggered, it may be useful to reconstruct the history and
+states of a subsystem surrounding that event. The analytics package allows
+for that possibility. The <em>analysis package</em> components run in real time
+streaming mode.</div></blockquote>
+<p><em>Visualization Package</em> -</p>
+<blockquote>
+<div><p>The visualization package provides custom panels that allow observatory
+operators to monitor and manage the alarms of the system. This is done
+implementing several optimize visualizations.</p>
+<table border="1" class="docutils" id="id15">
+<caption><span class="caption-number">Table 16 </span><span class="caption-text">Alarm Service Visualization Panels</span><a class="headerlink" href="#id15" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><div class="first last line-block">
+<div class="line">Visualization Panel</div>
+</div>
+</th>
+<th class="head"><div class="first last line-block">
+<div class="line">Description</div>
+</div>
+</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">Global Panel</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Provides an overall view of the status of the alarm system. The following</div>
+<div class="line">information will be displayed:</div>
+<div class="line"><br /></div>
+<div class="line-block">
+<div class="line">* State of each telemetry server component</div>
+<div class="line-block">
+<div class="line">(e.g., RUNNING, STOPPED, FAULT)</div>
+</div>
+<div class="line">* State of each telemetry adapter component</div>
+<div class="line-block">
+<div class="line">(e.g., RUNNING, STOPPED, FAULT)</div>
+</div>
+<div class="line">* List of active monitors</div>
+<div class="line">* Overall view of the system health, one box per subsystem color coded:</div>
+<div class="line-block">
+<div class="line">- green: No active alarms</div>
+<div class="line">- yellow: No serious active alarms</div>
+<div class="line">- red: Critical alarm active</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">Navigation Panel</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Provides a way to navigate all the alarm servers and adapters. From the</div>
+<div class="line">navigation panel the state and detailed info of every server and adapter can be</div>
+<div class="line">accessed.</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">Analytics Panel</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Provides access to the runtime statistics of the alarm service.</div>
+<div class="line">These should include at least.</div>
+<div class="line-block">
+<div class="line">* Number and state (running/stopped/fault)</div>
+<div class="line">* Instant throughput of the system</div>
+<div class="line">* Alarms/sec</div>
+<div class="line">* Total data bandwidth</div>
+<div class="line">* Persistence capacity (used/available)</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div></blockquote>
+</div>
+</div>
+<p><strong>Service Deployment</strong></p>
+<blockquote>
+<div>During operation, the alarm system components are deployed in different
+computers. A simple library is added to every component that allows the
+sending of alarm events. This is done via a simple API that doesn’t expose
+any service details to the component.</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="logging-service">
+<span id="services-logging"></span><h3>4.2.6. <em>Logging Service</em><a class="headerlink" href="#logging-service" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Logging records the history of events, whether normal or abnormal, surrounding
+GMT operations, such as whether an user has logged on to the GMT, or an
+observation has just been completed. Logging events are intended for view and
+access on a console, and stored in a persistent database.</p>
+<p>The <em>analysis package</em> provides the capability to visualize or display
+specific information in the log database, e.g., automatically generate
+periodic reports reflecting operator activity, command logs, instrument and
+equipment activity.  Messages generated during an observation can be added to
+the observation data bundle to enable provenance and quality monitoring.
+Sometimes major errors can arise first from scattered and seemingly harmless
+errors that are correlated in time. The supervisor service can define rules to
+detect and decide whether such occurrences are symptomatic of something more
+severe.</p>
+<p>The following illustrates a log event specification:</p>
+<div class="highlight-coffeescript" id="specification-logging-service"><div class="highlight"><pre><span></span><span class="c1"># Logging Event Specification</span>
+
+<span class="nx">EnumType</span> <span class="s">&quot;LogLevel&quot;</span><span class="p">,</span>
+
+    <span class="nv">desc: </span><span class="s">&quot;The log methods expect a log level, which can be used to filter</span>
+<span class="s">          log messages when they are retrieved. Levels follow OSGi Log Service</span>
+<span class="s">          Specification.&quot;</span>
+
+    <span class="nv">literals:</span>
+        <span class="nv">LOG_DEBUG: </span>  <span class="s">&quot;Used for problem determination and may be irrelevant to anyone but</span>
+<span class="s">                     the Component developer.&quot;</span>
+        <span class="nv">LOG_ERROR: </span>  <span class="s">&quot;Indicates the component may not be functional. Action should be</span>
+<span class="s">                     taken to correct this situation.&quot;</span>
+        <span class="nv">LOG_INFO: </span>   <span class="s">&quot;May be the result of any change in the component and does not</span>
+<span class="s">                     indicate problem.&quot;</span>
+        <span class="nv">LOG_WARNING: </span><span class="s">&quot;Indicates a component is still functioning but may experience</span>
+<span class="s">                     problems in the future because a warning condition&quot;</span>
+
+    <span class="nx">StructType</span> <span class="s">&quot;LogEvent&quot;</span><span class="p">,</span>
+        <span class="k">extends</span><span class="o">:</span> <span class="p">[]</span>
+        <span class="nv">abstract: </span><span class="kc">false</span>
+        <span class="nv">desc: </span><span class="s">&quot;Time stamped Log event&quot;</span>
+        <span class="nv">elements:</span>
+            <span class="nv">value:</span>
+                <span class="nv">type: </span><span class="s">&quot;string&quot;</span>
+                <span class="nv">desc: </span><span class="s">&quot;Text message with additional information related to the alarm event occurrence&quot;</span>
+            <span class="nv">timestamp:</span>
+                <span class="nv">type: </span><span class="s">&quot;TimeStamp&quot;</span>
+                <span class="nv">desc: </span><span class="s">&quot;Time of the creation of the log message&quot;</span>
+            <span class="nv">level:</span>
+                <span class="nv">type: </span><span class="s">&quot;LogLevel&quot;</span>
+                <span class="nv">desc: </span><span class="s">&quot;Level of the log event&quot;</span>
+            <span class="nv">source:</span>
+                <span class="nv">type: </span><span class="s">&quot;string&quot;</span>
+                <span class="nv">desc: </span><span class="s">&quot;URI of the component that has issue the log message&quot;</span>
+</pre></div>
+</div>
+<p>The figure below illustrates the Logging Service and the interactions between
+the components involved in the creation and propagation of log events.
+Adapters forward the log events to the log supervisor using push/pull sockets.
+Usually a single Log Adapter is deployed for all the components of a Subsystem
+that are collocated in the same computer. Although the interfaces are
+different this arrangement is similar to the design other services.</p>
+<div class="figure" id="id16">
+<img alt="../../_images/log-service-block-diagram.png" src="../../_images/log-service-block-diagram.png" />
+<p class="caption"><span class="caption-number">Fig. 41 </span><span class="caption-text">Logging Service Block Diagram.  (1) A Component creates a log message and
+invokes the <em>log</em> method inherited from the <em>BaseComponent</em> or
+<em>BaseSupervisor</em> classes.  (2)  The Service Adapters forward the log events
+to the log supervisor using push/pull sockets. Usually a single Log Adapter
+is deployed for all the components of a Subsystem that are collocated in the
+same computer. Although the interfaces are different this arrangement is
+similar to the design other services. (3) The Service Supervisor forwards
+the event to the subscribed components using a pub socket.</span></p>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="networking-infrastructure-service">
+<span id="services-networking-infrastructure"></span><h3>4.2.7. <em>Networking Infrastructure Service</em><a class="headerlink" href="#networking-infrastructure-service" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>A combination of multi-fiber trunks and breakout cables provides galvanic
+isolation between the different equipment installed in the electronics room and
+the telescope enclosure. The network layout is based on a switching fabric
+layout common in High Performance Computing applications.</p>
+<p>Logical networks (e.g., in the current baseline design, Infiniband) are used
+to implement the low latency communication between components involved in the
+“Fast-Control” AO loops, while 10/40 GbE is used to transport and store AO
+telemetry data streams independently of control data.</p>
+</div></blockquote>
+</div>
+<div class="section" id="configuration-service">
+<span id="services-configuration"></span><h3>4.2.8. <em>Configuration Service</em><a class="headerlink" href="#configuration-service" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The properties/behaviors of all controlled Subsystems and Components are
+stored as sets of static properties or metadata in a Configuration Database.
+Operators or subsystem specialists need to change these properties, so it is
+not convenient to have them hardcoded. Instead, configuration service manages
+and modifies the behavior of the subsystems and components. Configurations can
+be changed as a whole, depending on the operation mode (e.g., different values
+on limits may be used for testing and calibration than during nominal
+operation). These properties are loaded during startup, but may be changed
+individually during the execution of the system (e.g., using a new look-up
+table to apply error mapping correction in a motion control system).</p>
+<p>The GMT SWC is composed of a large number of Subsystems and several thousand
+Component instances. Some Components are identical, such as the 6 positioners
+of the seven M2 segments. The behavior of the Controller of each positioner is
+the same and is implemented as a class, which is a specialization of
+<em>BaseController</em>. However, the configuration properties of each segment position
+Controller are different for each instance. As a result, the configuration
+service has to be able to manage efficiently a large number of configuration
+properties. As a general rule, there will be at least a default configuration
+for each component instance. It would be possible to create new configuration
+snapshots on-the-fly once a property is changed interactively.</p>
+<p>Each Subsystem is required to implement a Configuration Adapter, which is a
+specialization of the <em>BaseConfigurationAdapter</em>. The Configuration Adapter
+interfaces with the Configuration Service to receive new configuration requests
+and implements the configuration strategy sequence. The change in configuration
+Properties of a Component depends on the state of the component, and not all the
+Properties can be changed in any state. For example, servo gain cannot be
+changed when a Controller is performing a motion in normal operation mode or the
+readout gain of a detector cannot be changed in the middle of a readout
+operation.</p>
+<p><strong>Service Features and Properties</strong></p>
+<blockquote>
+<div><p>The Configuration Service provides the ability to store properties, to group
+them into sets called configurations, to view the current properties used by
+a Subsystem, and to consult the available configuration for a Subsystem
+(e.g., default configuration, calibration configuration).</p>
+<p>At least one predefined configuration for each GMT subsystem must exist,
+named the <em>default</em>. This configuration is loaded when a subsystem starts
+and enters the state setup (The Section on <a class="reference internal" href="../frameworks/component_frameworks.html#controller-state-machine"><span class="std std-ref">Controller State Machine</span></a>
+explains the different states of a component). Although the Configuration
+Service checks to see if the value of a property is the correct range, it is
+the responsibility of the Subsystem or Component to check the correctness
+and consistency with predefined configurations before is applied. Individual
+property changes are allowed, but can only be saved as part of an existing
+or new configuration if the user has the appropriate permission.
+Configuration and Property changes are always logged to facilitate debugging
+in case of a malfunction.</p>
+<p>Properties that represent physical magnitudes must specify their units and
+the data type. Only units defined as <em>UnitType</em>, and data types defined as
+<em>DataTypes</em> in the metamodel can be used in the definition of a property
+metadata.</p>
+</div></blockquote>
+<p><strong>Service Packages</strong></p>
+<blockquote>
+<div><p><em>Service Package</em> -</p>
+<blockquote>
+<div><p>A configuration server system, deployed in several machines, takes care of
+receiving configuration request and updates, storing or sending them to
+components that made the requests.</p>
+<p>In addition to handling configuration properties, the configuration server
+provides features that allow the management of load balancing and fault
+tolerance. The configuration service operation, as any other component can
+be monitored by the telemetry system by specifying monitoring</p>
+</div></blockquote>
+<p><em>Visualization Package</em> -</p>
+<blockquote>
+<div><p>The visualization package provides custom panels that allow observatory
+operators to monitor and manage the configuration service, shown in the
+following table:</p>
+<blockquote>
+<div><table border="1" class="docutils" id="id17">
+<caption><span class="caption-number">Table 17 </span><span class="caption-text">Configuration Service Visualization Panels</span><a class="headerlink" href="#id17" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><div class="first last line-block">
+<div class="line">Visualization Panel</div>
+</div>
+</th>
+<th class="head"><div class="first last line-block">
+<div class="line">Description</div>
+</div>
+</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">Global Panel</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Provides an overall view of the status of the configuration service. The</div>
+<div class="line">following information will be displayed:</div>
+<div class="line"><br /></div>
+<div class="line-block">
+<div class="line">* State of each server component</div>
+<div class="line-block">
+<div class="line">(e.g., RUNNING, STOPPED, FAULT)</div>
+</div>
+<div class="line">* State of each adapter component</div>
+<div class="line-block">
+<div class="line">(e.g., RUNNING, STOPPED, FAULT)</div>
+</div>
+<div class="line">* Overall view of the system health, one box per subsystem color coded:</div>
+<div class="line-block">
+<div class="line">- green: No active alarms</div>
+<div class="line">- yellow: No serious active alarms</div>
+<div class="line">- red: Critical alarm active</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">Navigation Panel</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Provides a way to navigate all the configuration servers and adapters. From the</div>
+<div class="line">navigation panel the state and detailed info of every server and adapter can be</div>
+<div class="line">accessed. The Navigation Panel allows also browsing efficiently all</div>
+<div class="line">configurations of the GMT software components.</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">Guide Panel</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Displays the on line documentation of the configuration service. Allows access</div>
+<div class="line">to the user guide as well as the metadata (model information) of the runtime</div>
+<div class="line">objects.</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">Analytics Panel</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Provides access to the runtime statistics of the configuration service.</div>
+<div class="line">These should include at least.</div>
+<div class="line-block">
+<div class="line">* Number and state (running/stopped/fault)</div>
+<div class="line">* Instant throughput of the system</div>
+<div class="line">* Configuration changes/sec</div>
+<div class="line">* Total data bandwidth</div>
+<div class="line">* Storage capacity (used/available)</div>
+</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">Service Editor Panel</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">The Configuration Editor Panel provides the capability to edit the values of</div>
+<div class="line">the properties of a configuration. It also enables to save, copy, or delete the</div>
+<div class="line">configuration of any given component.</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p><strong>Service Deployment</strong></p>
+<blockquote>
+<div>The Configuration Supervisor is deployed in one of the SCC in the electronic
+room. The Supervisor has access to a permanent store and is available to all
+runtime components through the service bus.</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="on-line-documentation-service">
+<h3>4.2.9. <em>On-Line Documentation Service</em><a class="headerlink" href="#on-line-documentation-service" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><strong>To Be Added</strong></div></blockquote>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../frameworks/component_frameworks.html" class="btn btn-neutral float-right" title="5. Frameworks" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../tcs/wavefront_control/nglao_obsmode.html" class="btn btn-neutral" title="3.5.4. Natural-Guidestar Ground Layer Adaptive Optics (NGLAO)" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, contributors.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0-rc1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
