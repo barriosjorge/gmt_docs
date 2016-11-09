@@ -94,7 +94,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../revision_log.html">Revision Log</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">1. Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../references/references.html">2. References</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">3. DCS Reference Architecture</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="">3. DCS Reference Architecture</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#context">3.1. Context</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#component-architecture">3.2. Component Architecture</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#dcs-product-structure-modeling">3.3. DCS Product Structure Modeling</a></li>
@@ -133,7 +133,7 @@
         <div class="rst-content">
           
 
- 
+
 
 
 
@@ -159,7 +159,7 @@
 <span id="id1"></span><h1>3. DCS Reference Architecture<a class="headerlink" href="#dcs-reference-architecture" title="Permalink to this headline">¶</a></h1>
 <p>This chapter gives a description of the GMT Device Control Subsystems (DCS)
 terminology and architecture, its design philosophy and its main functions.  The
-<a class="reference internal" href="../../SWC_architecture/index.html#slpdr"><span class="std std-ref">Software and Controls Architecture and Design</span></a> provides an
+<a class="reference internal" href="../../SWC_architecture/index.html#slpdr"><em>Software and Controls Architecture and Design</em></a> provides an
 extended description of the overall Software and Controls System that
 illustrates how the different DCS fit in the overall software architecture.</p>
 <p>Device Control Subsystems (e.g. primary mirror control system, adaptive
@@ -189,9 +189,9 @@ non-nominal scenarios.</li>
 <span id="dcs-context"></span><h2>3.1. Context<a class="headerlink" href="#context" title="Permalink to this headline">¶</a></h2>
 <p>The following diagram extends the previous one to include the DCS components in
 the context of the overall GMT software:</p>
-<div class="figure" id="id4">
-<span id="figure-dcs-context"></span><img alt="../../_images/dcs_context.png" src="../../_images/dcs_context.png" />
-<p class="caption"><span class="caption-number">Fig. 67 </span><span class="caption-text">DCS Context</span></p>
+<div class="figure" id="figure-dcs-context">
+<img alt="../../_images/dcs_context.png" src="../../_images/dcs_context.png" />
+<p class="caption">DCS Context</p>
 </div>
 <p>The DCS Reference Architecture elements:</p>
 <blockquote>
@@ -243,9 +243,9 @@ and adaptive optics CSS.</li>
 Science Instruments.</li>
 </ul>
 </div></blockquote>
-<div class="figure" id="id5">
+<div class="figure">
 <img alt="../../_images/dcs_reference_architecture.png" src="../../_images/dcs_reference_architecture.png" />
-<p class="caption"><span class="caption-number">Fig. 68 </span><span class="caption-text">Device Control Subsystem Reference Architecture</span></p>
+<p class="caption">Device Control Subsystem Reference Architecture</p>
 </div>
 </div>
 <div class="section" id="component-architecture">
@@ -261,9 +261,9 @@ component responses with user interface components; or (c) connect components
 with common observatory services. Connectors are specified in the model without
 making any assumption of the underlying middleware used by the platform-specific
 implementation.</p>
-<div class="figure" id="id6">
+<div class="figure">
 <img alt="../../_images/component_port_connector.png" src="../../_images/component_port_connector.png" />
-<p class="caption"><span class="caption-number">Fig. 69 </span><span class="caption-text">Component, Port, and Connector</span></p>
+<p class="caption">Component, Port, and Connector</p>
 </div>
 <p>Components, Ports and Connectors are used to model both physical and logical
 systems. SysML internal block diagrams (<em>ibd</em>) are used to represent how
@@ -302,8 +302,8 @@ control subsystems.</li>
 </ul>
 </div></blockquote>
 </div></blockquote>
-<table border="1" class="docutils" id="id7">
-<caption><span class="caption-number">Table 40 </span><span class="caption-text">SWC Functional Packages:  Device Control</span><a class="headerlink" href="#id7" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils">
+<caption>SWC Functional Packages:  Device Control</caption>
 <colgroup>
 <col width="22%" />
 <col width="58%" />
@@ -402,8 +402,8 @@ control subsystems.</li>
 </tr>
 </tbody>
 </table>
-<table border="1" class="docutils" id="id8">
-<caption><span class="caption-number">Table 41 </span><span class="caption-text">SWC Functional Packages:  Operation Support</span><a class="headerlink" href="#id8" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils">
+<caption>SWC Functional Packages:  Operation Support</caption>
 <colgroup>
 <col width="22%" />
 <col width="58%" />
@@ -634,8 +634,8 @@ control subsystems.</li>
 <span id="dcs-instrument-swcs-integration"></span><h2>3.4. Instrument Software and Controls Integration<a class="headerlink" href="#instrument-software-and-controls-integration" title="Permalink to this headline">¶</a></h2>
 <p>The GMT instruments software and controls follow the same architectural design
 as other device control subsystems. Typically an Instrument Device Control
-Subsystem will include most of the packages described in the <a class="reference internal" href="#figure-dcs-context"><span class="std std-ref">Figure on DCS
-context</span></a> and will be developed following the standards and
+Subsystem will include most of the packages described in the <a class="reference internal" href="#figure-dcs-context"><em>Figure on DCS
+context</em></a> and will be developed following the standards and
 rules described in this document. The operation of instrument, telescope and
 adaptive optics DCSs will be coordinated by the GCS Core Systems (e.g. as
 operation sequences executed by the Sequencer) in order to execute automated
@@ -651,9 +651,9 @@ of observatory workflows.</p>
 <p>The DCS reference architecture defines a generic design that shall be refined
 and adapted to the specific CSS. The Figure below gives three examples of
 possible DCS physical architectures.</p>
-<div class="figure" id="id9">
+<div class="figure">
 <img alt="../../_images/dcp_reference_architecture.png" src="../../_images/dcp_reference_architecture.png" />
-<p class="caption"><span class="caption-number">Fig. 70 </span><span class="caption-text">DCP Reference Architecture</span></p>
+<p class="caption">DCP Reference Architecture</p>
 </div>
 <p>A DCS consists on a set of Device Control Packages (DCP) and a set of Operation
 Support Packages (OSP).</p>

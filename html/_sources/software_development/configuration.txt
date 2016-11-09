@@ -1,6 +1,6 @@
 
-Release Software Configuration
-==============================
+Developer Info and Release Configuration
+========================================
 
 .. note::
 
@@ -36,15 +36,13 @@ Currently we use only one unique server per service. Each server is a distribute
 - one port to receive queries and send answers from/to clients
 - one local connection to the database server
 
-Also, each service has an internal schedule to perform periodic checks or other tasks at
-certain rates.  The following files need to be customized for you application in:
-
-   `${GMT_ROOT}/var/lib/gmt/cson/runtime/db/config/obs_srv/log_sys/log_service.cson`
+Also, each service has an internal schedule to perform periodic checks or other tasks at certain rates.
+This is the configuration:
 
 ::
 
-  server_1:
-      name      : 'LogServer_1'
+  log_server_1:
+      name      : 'log_server_1'
       rate      : 600000                                   # periodic loop rate to perform checks, stats, etc.
       url       : 'tcp://127.0.0.1:9998'                   # to receive log messages from components
       pub_url   : 'tcp://127.0.0.1:9995'                   # to publish logs to subscribers
@@ -53,20 +51,17 @@ certain rates.  The following files need to be customized for you application in
 
 
 Note: The *pub_url* value shall be the same used in the GMT_LOG_URL environment var.
-This variable is only required for the C++ components in:
-
-  `${GMT_ROOT}/var/lib/gmt/cson/runtime/db/config/obs_srv/telemetry_sys/telemetry_service.cson`
+This variable is only required for the C++ components.
 
 ::
 
-  server_1:
-      name      : 'TelemetryServer_1'
+  telemetry_server_1:
+      name      : 'telemetry_server_1'
       rate      : 600000                                   # periodic loop rate to perform checks, stats, etc.
       url       : 'tcp://127.0.0.1:9997'                   # to receive monitored values from components
       pub_url   : 'tcp://127.0.0.1:9993'                   # to publish monitors to subscribers
       query_url : 'tcp://127.0.0.1:9992'                   # to receive queries from clients
       db_url    : 'mongodb://127.0.0.1:27017/gmt_test_telemetry_1' # db to store monitors
-
 
 Databases and Logs
 ------------------
