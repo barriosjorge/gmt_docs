@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3.3.5. isample_filter_wheel_ctrl_step.cpp &mdash; GMT Software And Controls documentation</title>
+  <title>3.4.5. isample_filter_wheel_ctrl_step.cpp &mdash; GMT Software And Controls documentation</title>
   
 
   
@@ -33,9 +33,9 @@
 
   
     <link rel="top" title="GMT Software And Controls documentation" href="../../../../../../../index.html"/>
-        <link rel="up" title="3.3. DCS Filter Wheel Controller Files" href="../index.html"/>
-        <link rel="next" title="3.3.6. isample_filter_wheel_ctrl_controller.py" href="isample_filter_wheel_ctrl_controller.html"/>
-        <link rel="prev" title="3.3.4. isample_filter_wheel_ctrl_setup.cpp" href="isample_filter_wheel_ctrl_setup.html"/> 
+        <link rel="up" title="3.4. DCS Filter Wheel Controller Files" href="../index.html"/>
+        <link rel="next" title="3.4.6. isample_filter_wheel_ctrl_controller.py" href="isample_filter_wheel_ctrl_controller.html"/>
+        <link rel="prev" title="3.4.4. isample_filter_wheel_ctrl_setup.cpp" href="isample_filter_wheel_ctrl_setup.html"/> 
 
   
   <script src="../../../../../../../_static/js/modernizr.min.js"></script>
@@ -94,23 +94,23 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../../../../../index.html">Software Development</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../../../../../installation.html">1. Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../../isample_example.html">2. ISample Example</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../../../../../../development.html">DCS Development</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../../../../development.html">3. DCS Development</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../../../../../introduction/introduction.html">1. Introduction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../specification/specification.html">2. DCS specification example: <em>isample_dcs</em></a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../../../../codegen.html">3. DCS code generation example: <em>isample_dcs</em></a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="../../../index.html">3.1. DCS Subsystem files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../index.html">DCS Control Package Files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../isample_ctrl_super/index.html">3.2. DCS Control Supervisor Files</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="../index.html">3.3. DCS Filter Wheel Controller Files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../isample_hw_adapter/index.html">3.4. DCS Hardware Adapter Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../index.html">3.2. DCS Control Package Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../isample_ctrl_super/index.html">3.3. DCS Control Supervisor Files</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">3.4. DCS Filter Wheel Controller Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../isample_hw_adapter/index.html">3.5. DCS Hardware Adapter Files</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../../configuration.html">3. Release Software Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../../services.html">4. Using the Services</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../../examples.html">5. Running Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../../contribute.html">6. Contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../configuration.html">4. Developer Info and Release Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../services.html">5. Using the Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../examples.html">6. Running Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../contribute.html">7. Contribute</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../data_products/index.html">Data Products</a></li>
@@ -137,7 +137,7 @@
         <div class="rst-content">
           
 
- 
+
 
 
 
@@ -147,13 +147,13 @@
       
           <li><a href="../../../../../../index.html">Software Development</a> &raquo;</li>
       
-          <li><a href="../../../../../../development.html">DCS Development</a> &raquo;</li>
+          <li><a href="../../../../../../development.html">3. DCS Development</a> &raquo;</li>
       
           <li><a href="../../../../codegen.html">3. DCS code generation example: <em>isample_dcs</em></a> &raquo;</li>
       
-          <li><a href="../index.html">3.3. DCS Filter Wheel Controller Files</a> &raquo;</li>
+          <li><a href="../index.html">3.4. DCS Filter Wheel Controller Files</a> &raquo;</li>
       
-    <li>3.3.5. <em>isample_filter_wheel_ctrl_step.cpp</em></li>
+    <li>3.4.5. <em>isample_filter_wheel_ctrl_step.cpp</em></li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -166,24 +166,8 @@
            <div itemprop="articleBody">
             
   <div class="section" id="isample-filter-wheel-ctrl-step-cpp">
-<span id="isample-filter-wheel-ctrl-step"></span><h1>3.3.5. <em>isample_filter_wheel_ctrl_step.cpp</em><a class="headerlink" href="#isample-filter-wheel-ctrl-step-cpp" title="Permalink to this headline">¶</a></h1>
+<span id="isample-filter-wheel-ctrl-step"></span><h1>3.4.5. <em>isample_filter_wheel_ctrl_step.cpp</em><a class="headerlink" href="#isample-filter-wheel-ctrl-step-cpp" title="Permalink to this headline">¶</a></h1>
 <p>This is the definition of the step method. This is where most of the custom programming shall be done.</p>
-<div class="literal-block-wrapper container" id="code-isample-filter-wheel-ctrl-step-cpp">
-<div class="code-block-caption"><span class="caption-number">Listing 38 </span><span class="caption-text">Code: <em>isample_filter_wheel_ctrl_step.cpp</em></span><a class="headerlink" href="#code-isample-filter-wheel-ctrl-step-cpp" title="Permalink to this code">¶</a></div>
-<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;isample_filter_wheel_ctrl.h&quot;</span><span class="cp"></span>
-
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">gmt</span><span class="p">;</span>
-
-<span class="kt">void</span> <span class="n">IsampleFilterWheelCtrl</span><span class="o">::</span><span class="n">step</span><span class="p">(</span><span class="kt">bool</span> <span class="n">setup_ok</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">setup_ok</span><span class="p">)</span> <span class="p">{</span>                     <span class="c1">// this will be executed only if port setup has been received</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">is_step_rate</span><span class="p">(</span><span class="mi">1000</span><span class="p">))</span> <span class="p">{</span>      <span class="c1">// this will be executed every 1000 steps</span>
-            <span class="n">log_info</span><span class="p">(</span><span class="s">&quot;step  = &quot;</span> <span class="o">+</span> <span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">step_counter</span><span class="p">));</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
 </div>
 
 
@@ -193,10 +177,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="isample_filter_wheel_ctrl_controller.html" class="btn btn-neutral float-right" title="3.3.6. isample_filter_wheel_ctrl_controller.py" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="isample_filter_wheel_ctrl_controller.html" class="btn btn-neutral float-right" title="3.4.6. isample_filter_wheel_ctrl_controller.py" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="isample_filter_wheel_ctrl_setup.html" class="btn btn-neutral" title="3.3.4. isample_filter_wheel_ctrl_setup.cpp" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="isample_filter_wheel_ctrl_setup.html" class="btn btn-neutral" title="3.4.4. isample_filter_wheel_ctrl_setup.cpp" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3. module.mk &mdash; GMT Software And Controls documentation</title>
+  <title>3.2.3. module.mk &mdash; GMT Software And Controls documentation</title>
   
 
   
@@ -33,9 +33,9 @@
 
   
     <link rel="top" title="GMT Software And Controls documentation" href="../../../../../../index.html"/>
-        <link rel="up" title="DCS Control Package Files" href="../index.html"/>
-        <link rel="next" title="3.2. DCS Control Supervisor Files" href="../isample_ctrl_super/index.html"/>
-        <link rel="prev" title="2. isample_ctrl_pkg_main_run.cpp" href="isample_ctrl_pkg_main_run.html"/> 
+        <link rel="up" title="3.2. DCS Control Package Files" href="../index.html"/>
+        <link rel="next" title="3.3. DCS Control Supervisor Files" href="../isample_ctrl_super/index.html"/>
+        <link rel="prev" title="3.2.2. isample_ctrl_pkg_main_run.cpp" href="isample_ctrl_pkg_main_run.html"/> 
 
   
   <script src="../../../../../../_static/js/modernizr.min.js"></script>
@@ -94,23 +94,23 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../../../../index.html">Software Development</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../../../../installation.html">1. Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../isample_example.html">2. ISample Example</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../../../../../development.html">DCS Development</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../../../development.html">3. DCS Development</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../../../../introduction/introduction.html">1. Introduction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../specification/specification.html">2. DCS specification example: <em>isample_dcs</em></a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../../../codegen.html">3. DCS code generation example: <em>isample_dcs</em></a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="../../index.html">3.1. DCS Subsystem files</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="../index.html">DCS Control Package Files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../isample_ctrl_super/index.html">3.2. DCS Control Supervisor Files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../isample_filter_wheel_ctrl/index.html">3.3. DCS Filter Wheel Controller Files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../isample_hw_adapter/index.html">3.4. DCS Hardware Adapter Files</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">3.2. DCS Control Package Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../isample_ctrl_super/index.html">3.3. DCS Control Supervisor Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../isample_filter_wheel_ctrl/index.html">3.4. DCS Filter Wheel Controller Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../isample_hw_adapter/index.html">3.5. DCS Hardware Adapter Files</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../configuration.html">3. Release Software Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../services.html">4. Using the Services</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../examples.html">5. Running Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../contribute.html">6. Contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../configuration.html">4. Developer Info and Release Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../services.html">5. Using the Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../examples.html">6. Running Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../contribute.html">7. Contribute</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../data_products/index.html">Data Products</a></li>
@@ -137,7 +137,7 @@
         <div class="rst-content">
           
 
- 
+
 
 
 
@@ -147,13 +147,13 @@
       
           <li><a href="../../../../../index.html">Software Development</a> &raquo;</li>
       
-          <li><a href="../../../../../development.html">DCS Development</a> &raquo;</li>
+          <li><a href="../../../../../development.html">3. DCS Development</a> &raquo;</li>
       
           <li><a href="../../../codegen.html">3. DCS code generation example: <em>isample_dcs</em></a> &raquo;</li>
       
-          <li><a href="../index.html">DCS Control Package Files</a> &raquo;</li>
+          <li><a href="../index.html">3.2. DCS Control Package Files</a> &raquo;</li>
       
-    <li>3. <em>module.mk</em></li>
+    <li>3.2.3. <em>module.mk</em></li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -166,41 +166,8 @@
            <div itemprop="articleBody">
             
   <div class="section" id="module-mk">
-<span id="isample-ctrl-pkg-module-mk"></span><h1>3. <em>module.mk</em><a class="headerlink" href="#module-mk" title="Permalink to this headline">¶</a></h1>
+<span id="isample-ctrl-pkg-module-mk"></span><h1>3.2.3. <em>module.mk</em><a class="headerlink" href="#module-mk" title="Permalink to this headline">¶</a></h1>
 <p>This is the C++ makefile for the control package.</p>
-<div class="literal-block-wrapper container" id="code-module-mk">
-<div class="code-block-caption"><span class="caption-number">Listing 25 </span><span class="caption-text">Code: <em>module.mk</em></span><a class="headerlink" href="#code-module-mk" title="Permalink to this code">¶</a></div>
-<div class="highlight-make"><div class="highlight"><pre><span></span><span class="c">#make variables for package components:</span>
-<span class="nv">run_isample_ctrl_pkg_SRCS</span> <span class="o">+=</span> ../isample_ctrl_super/cpp/isample_ctrl_super.cpp
-<span class="nv">run_isample_ctrl_pkg_SRCS</span> <span class="o">+=</span> ../isample_ctrl_super/cpp/isample_ctrl_super_setup.cpp
-<span class="nv">run_isample_ctrl_pkg_SRCS</span> <span class="o">+=</span> ../isample_ctrl_super/cpp/isample_ctrl_super_step.cpp
-
-<span class="nv">run_isample_ctrl_pkg_SRCS</span> <span class="o">+=</span> ../isample_temp_ctrl/cpp/isample_temp_ctrl.cpp
-<span class="nv">run_isample_ctrl_pkg_SRCS</span> <span class="o">+=</span> ../isample_temp_ctrl/cpp/isample_temp_ctrl_setup.cpp
-<span class="nv">run_isample_ctrl_pkg_SRCS</span> <span class="o">+=</span> ../isample_temp_ctrl/cpp/isample_temp_ctrl_step.cpp
-
-<span class="nv">run_isample_ctrl_pkg_SRCS</span> <span class="o">+=</span> ../isample_focus_ctrl/cpp/isample_focus_ctrl.cpp
-<span class="nv">run_isample_ctrl_pkg_SRCS</span> <span class="o">+=</span> ../isample_focus_ctrl/cpp/isample_focus_ctrl_setup.cpp
-<span class="nv">run_isample_ctrl_pkg_SRCS</span> <span class="o">+=</span> ../isample_focus_ctrl/cpp/isample_focus_ctrl_step.cpp
-
-<span class="nv">run_isample_ctrl_pkg_SRCS</span> <span class="o">+=</span> ../isample_filter_wheel_ctrl/cpp/isample_filter_wheel_ctrl.cpp
-<span class="nv">run_isample_ctrl_pkg_SRCS</span> <span class="o">+=</span> ../isample_filter_wheel_ctrl/cpp/isample_filter_wheel_ctrl_setup.cpp
-<span class="nv">run_isample_ctrl_pkg_SRCS</span> <span class="o">+=</span> ../isample_filter_wheel_ctrl/cpp/isample_filter_wheel_ctrl_step.cpp
-
-<span class="nv">run_isample_ctrl_pkg_SRCS</span> <span class="o">+=</span> ../isample_hw_adapter/cpp/isample_hw_adapter.cpp
-<span class="nv">run_isample_ctrl_pkg_SRCS</span> <span class="o">+=</span> ../isample_hw_adapter/cpp/isample_hw_adapter_setup.cpp
-<span class="nv">run_isample_ctrl_pkg_SRCS</span> <span class="o">+=</span> ../isample_hw_adapter/cpp/isample_hw_adapter_step.cpp
-
-
-<span class="c">#make variables for package apps:</span>
-<span class="nv">PRODS</span> <span class="o">+=</span> run_isample_ctrl_pkg_main
-<span class="nv">run_isample_ctrl_pkg_main_CXXFLAGS</span> <span class="o">+=</span> 
-<span class="nv">run_isample_ctrl_pkg_main_SRCS</span>     <span class="o">+=</span> <span class="si">${</span><span class="nv">run_isample_ctrl_pkg_SRCS</span><span class="si">}</span>
-<span class="nv">run_isample_ctrl_pkg_main_SRCS</span>     <span class="o">+=</span> isample_ctrl_pkg_main_run.cpp
-<span class="nv">run_isample_ctrl_pkg_main_LDFLAGS</span>  <span class="o">+=</span> -lnanomsg <span class="k">$(</span>shell pkg-config --libs msgpack<span class="k">)</span> -lpthread -L<span class="si">${</span><span class="nv">GMT_ROOT</span><span class="si">}</span>/usr/lib64/ -lgmt_core_fwk -lgmt_io_fwk -lgmt_ctrl_fwk
-</pre></div>
-</div>
-</div>
 </div>
 
 
@@ -210,10 +177,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../isample_ctrl_super/index.html" class="btn btn-neutral float-right" title="3.2. DCS Control Supervisor Files" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../isample_ctrl_super/index.html" class="btn btn-neutral float-right" title="3.3. DCS Control Supervisor Files" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="isample_ctrl_pkg_main_run.html" class="btn btn-neutral" title="2. isample_ctrl_pkg_main_run.cpp" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="isample_ctrl_pkg_main_run.html" class="btn btn-neutral" title="3.2.2. isample_ctrl_pkg_main_run.cpp" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
