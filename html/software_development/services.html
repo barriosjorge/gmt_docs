@@ -32,9 +32,6 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="GMT Software And Controls documentation" href="../index.html"/>
         <link rel="up" title="Software Development" href="index.html"/>
         <link rel="next" title="6. Running Examples" href="examples.html"/>
@@ -99,7 +96,7 @@
 <li class="toctree-l2"><a class="reference internal" href="isample_example.html">2. ISample Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="development.html">3. DCS Development</a></li>
 <li class="toctree-l2"><a class="reference internal" href="configuration.html">4. Developer Info and Release Configuration</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">5. Using the Services</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="">5. Using the Services</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#starting-and-stopping-services">5.1. Starting and Stopping Services</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#checking-the-log-service">5.2. Checking the Log Service</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#starting-example-components">5.3. Starting example components</a></li>
@@ -134,7 +131,7 @@
         <div class="rst-content">
           
 
- 
+
 
 
 
@@ -166,10 +163,10 @@ $ sudo systemctl <span class="o">[</span>status<span class="p">|</span>start<spa
 </pre></div>
 </div>
 <p>This daemon is required to run the log and telemetry services.</p>
-<p>The other services can be started, stopped or checked independently as follows:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ gds log_service <span class="o">[</span>start<span class="p">|</span>stop<span class="p">|</span>status<span class="o">]</span>
+<p>The other services can be started as follows:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ gds log_service start <span class="p">&amp;</span>
 
-$ gds telemetry_service <span class="o">[</span>start<span class="p">|</span>stop<span class="p">|</span>status<span class="o">]</span>
+$ gds telemetry_service start <span class="p">&amp;</span>
 </pre></div>
 </div>
 </div>
@@ -178,10 +175,10 @@ $ gds telemetry_service <span class="o">[</span>start<span class="p">|</span>sto
 <p>In order to check if the simple communication is working the following test can be performed.</p>
 <p>Open 2 unix terminals. We will call them terminal_1 and terminal_2.</p>
 <p>In terminal_1 verify that the log_service is running:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ gds log_service status
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ ps -fea <span class="p">|</span> grep log_service
 </pre></div>
 </div>
-<p>If the status is not <em>online</em> then start the log service:</p>
+<p>If the process is not running then start the log service:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ gds log_service start
 </pre></div>
 </div>
@@ -190,8 +187,9 @@ If another error is shown please report this issue.</p>
 <p>If the log service is started with no error we&#8217;ll use terminal_1 to show the log messages that we&#8217;ll create later.
 We can run a log client with this command:</p>
 <blockquote>
-<div><em>Usage:</em>  <code class="docutils literal"><span class="pre">gds</span> <span class="pre">log_service</span> <span class="pre">client</span> <span class="pre">topic</span></code></div></blockquote>
-<p>The <em>topic</em> parameter shall be included in the command line and it will filter the content of the messages and only the messages containing the topic will be shown.</p>
+<div><em>Usage:</em>  <tt class="docutils literal"><span class="pre">gds</span> <span class="pre">log_service</span> <span class="pre">client</span> <span class="pre">[topic]</span></tt></div></blockquote>
+<p>The <em>topic</em> parameter can be included in the command line and it will filter the content of the messages and only the messages containing the topic will be shown.
+In case is not used the client will subscribe to all log messages.</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ gds log_service client gmt
 gmt<span class="o">(</span>1.0<span class="o">)</span>: Loading models...
 log client subscribed at port tcp://127.0.0.1:9995
@@ -201,7 +199,7 @@ subscription topic: gmt
 <p>This means that the log_service client is waiting for new log messages which include &#8216;gmt&#8217;. Let&#8217;s produce some log messages.
 The simplest test is this command:</p>
 <blockquote>
-<div><em>Usage:</em>  <code class="docutils literal"><span class="pre">gds</span> <span class="pre">log_service</span> <span class="pre">test</span> <span class="pre">message</span></code></div></blockquote>
+<div><em>Usage:</em>  <tt class="docutils literal"><span class="pre">gds</span> <span class="pre">log_service</span> <span class="pre">test</span> <span class="pre">message</span></tt></div></blockquote>
 <p>This command will produce 4 log messages (DEBUG, INFO, WARNING, ERROR) with the text specified in the <em>message</em> parameter:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ gds log_service <span class="nb">test</span> <span class="s2">&quot;this a log service test&quot;</span>
 </pre></div>
@@ -288,7 +286,7 @@ $ <span class="nb">kill</span> -9 15209
 <h2>5.4. Making a query to the Log Service<a class="headerlink" href="#making-a-query-to-the-log-service" title="Permalink to this headline">¶</a></h2>
 <p>The log service stores all received messages in a local database. In order to query this database the log service shall be started and then in any terminal we can use:</p>
 <blockquote>
-<div><em>Usage:</em>  <code class="docutils literal"><span class="pre">gds</span> <span class="pre">log_service</span> <span class="pre">query</span> <span class="pre">uri</span> <span class="pre">num</span></code></div></blockquote>
+<div><em>Usage:</em>  <tt class="docutils literal"><span class="pre">gds</span> <span class="pre">log_service</span> <span class="pre">query</span> <span class="pre">uri</span> <span class="pre">num</span></tt></div></blockquote>
 <p>For example, the following will show the last 10 messages (from newest to oldest) created by the test_log tool:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ gds log_service query gmt://log_sys/test_log 10
 starting log query at tcp://127.0.0.1:9994

@@ -32,9 +32,6 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="GMT Software And Controls documentation" href="../../index.html"/>
         <link rel="up" title="Software and Controls Standards" href="../index.html"/>
         <link rel="next" title="6. Non-Conformances" href="../non_conformances/non_conformances.html"/>
@@ -99,7 +96,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../references/references.html">2. References</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../reference_architecture/dcs_reference_architecture.html">3. DCS Reference Architecture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lifecycle/dcs_lifecycle.html">4. DCS Life Cycle</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">5. DCS Specifications</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="">5. DCS Specifications</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#functional-requirements">5.1. Functional Requirements</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#process-control">5.1.1. <em>Process Control</em></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#process-supervision">5.1.2. <em>Process Supervision</em></a></li>
@@ -167,7 +164,7 @@
         <div class="rst-content">
           
 
- 
+
 
 
 
@@ -306,9 +303,9 @@ service outside the DCS.</p>
 <div class="figure">
 <img alt="../../_images/state_variable_relationships.png" src="../../_images/state_variable_relationships.png" />
 </div>
-<div class="figure" id="id5">
+<div class="figure">
 <img alt="../../_images/reactive_close_control_loop.png" src="../../_images/reactive_close_control_loop.png" />
-<p class="caption"><span class="caption-number">Fig. 73 </span><span class="caption-text">Reactive Close Control Loop</span></p>
+<p class="caption">Reactive Close Control Loop</p>
 </div>
 <p>The above diagram represents an overview of the control, supervision and
 monitoring functions and their relation with state variables.</p>
@@ -319,16 +316,16 @@ monitoring functions and their relation with state variables.</p>
 and its life cycle management.  Figure 5‑1 shows the ops_state state
 machine.  Only the description of each state is shown.  Details about entry
 actions, transitions and activities are omitted in this diagram.</p>
-<div class="figure" id="id6">
+<div class="figure">
 <img alt="../../_images/controller-state-machine1.png" src="../../_images/controller-state-machine1.png" />
-<p class="caption"><span class="caption-number">Fig. 74 </span><span class="caption-text">Controller State Machine</span></p>
+<p class="caption">Controller State Machine</p>
 </div>
-<p><a class="reference internal" href="#op-state-specification"><span class="std std-numref">Table 43</span></a> provides the specification of the
+<p><a href="#id2"><span class="problematic" id="id3">:numref:`Table %s &lt;op_state_specification&gt;`</span></a> provides the specification of the
 Controller state machine.  The specification defines what actions to implement
 in every state or transition, however in some of the states each Controller
 implements its own specific logic.</p>
-<table border="1" class="docutils" id="id7">
-<span id="op-state-specification"></span><caption><span class="caption-number">Table 43 </span><span class="caption-text">Component ops_state Specification</span><a class="headerlink" href="#id7" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils" id="op-state-specification">
+<caption>Component ops_state Specification</caption>
 <colgroup>
 <col width="21%" />
 <col width="79%" />
@@ -890,7 +887,7 @@ usage or network bandwidth utilization shall be recorded.</p>
 </div>
 </div>
 <div class="section" id="non-functional-requirements">
-<span id="id2"></span><h2>5.2. Non-Functional Requirements<a class="headerlink" href="#non-functional-requirements" title="Permalink to this headline">¶</a></h2>
+<span id="id4"></span><h2>5.2. Non-Functional Requirements<a class="headerlink" href="#non-functional-requirements" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="security">
 <h3>5.2.1. <em>Security</em><a class="headerlink" href="#security" title="Permalink to this headline">¶</a></h3>
 <blockquote>
@@ -989,12 +986,12 @@ equipment.</p>
 <p><strong>SWC-DCS-0150: Use of abbreviations</strong></p>
 <blockquote>
 <div><p>Abbreviations used in the componsition of names shall be contained in the
-glossary <a class="reference internal" href="../../glossary/swc_sys_glossary.html#n-grams"><span class="std std-ref">n-grams</span></a>.</p>
-<p>Note: See <a class="reference internal" href="../../glossary/swc_sys_glossary.html#glossary"><span class="std std-ref">SWC glossary</span></a> for reference.</p>
+glossary <a class="reference internal" href="../../glossary/swc_sys_glossary.html#n-grams"><em>n-grams</em></a>.</p>
+<p>Note: See <a class="reference internal" href="../../glossary/swc_sys_glossary.html#glossary"><em>SWC glossary</em></a> for reference.</p>
 </div></blockquote>
 <p><strong>SWC-DCS-0151: DCS naming</strong></p>
 <blockquote>
-<div><p>Each <a class="reference internal" href="../reference_architecture/dcs_reference_architecture.html#dcs-reference-architecture"><span class="std std-ref">DCS</span></a> shall be named according to the following format:</p>
+<div><p>Each <a class="reference internal" href="../reference_architecture/dcs_reference_architecture.html#dcs-reference-architecture"><em>DCS</em></a> shall be named according to the following format:</p>
 <div class="highlight-coffeescript"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">SUBS</span><span class="o">&gt;</span><span class="nx">_dcs</span>    <span class="c1"># where</span>
 
 <span class="o">&lt;</span><span class="nx">SUB</span><span class="o">&gt;:</span> <span class="nx">Abbreviation</span> <span class="k">of</span> <span class="nx">the</span> <span class="nx">Subsystem</span>
@@ -1005,7 +1002,7 @@ glossary <a class="reference internal" href="../../glossary/swc_sys_glossary.htm
 </div></blockquote>
 <p><strong>SWC-DCS-0152: Package naming</strong></p>
 <blockquote>
-<div><p>Each DCS <a class="reference internal" href="../reference_architecture/dcs_reference_architecture.html#dcs-product-structure-modeling"><span class="std std-ref">Package</span></a> shall be named according to the following format</p>
+<div><p>Each DCS <a class="reference internal" href="../reference_architecture/dcs_reference_architecture.html#dcs-product-structure-modeling"><em>Package</em></a> shall be named according to the following format</p>
 <div class="highlight-coffeescript"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">SUBS</span><span class="o">&gt;</span><span class="nx">_</span><span class="o">&lt;</span><span class="nx">CAT</span><span class="o">&gt;</span><span class="nx">_</span><span class="o">&lt;</span><span class="nx">MCLASS</span><span class="o">&gt;</span>    <span class="c1"># where</span>
 
 <span class="o">&lt;</span><span class="nx">SUB</span><span class="o">&gt;:</span>     <span class="nx">Abbreviation</span> <span class="k">of</span> <span class="nx">the</span> <span class="nx">Subsystem</span>
@@ -1018,7 +1015,7 @@ glossary <a class="reference internal" href="../../glossary/swc_sys_glossary.htm
 </div></blockquote>
 <p><strong>SWC-DCS-0153: Component naming</strong></p>
 <blockquote>
-<div><p>Each DCS <a class="reference internal" href="../reference_architecture/dcs_reference_architecture.html#dcs-component-architecture"><span class="std std-ref">Component</span></a> shall be named according to the following format:</p>
+<div><p>Each DCS <a class="reference internal" href="../reference_architecture/dcs_reference_architecture.html#dcs-component-architecture"><em>Component</em></a> shall be named according to the following format:</p>
 <div class="highlight-coffeescript"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">SUBS</span><span class="o">&gt;</span><span class="nx">_</span><span class="o">&lt;</span><span class="nx">CMP</span><span class="o">&gt;</span><span class="nx">_</span><span class="o">&lt;</span><span class="nx">CAT</span><span class="o">&gt;</span>    <span class="c1"># where</span>
 
 <span class="o">&lt;</span><span class="nx">SUB</span><span class="o">&gt;:</span>     <span class="nx">Abbreviation</span> <span class="k">of</span> <span class="nx">the</span> <span class="nx">Subsystem</span>
@@ -1215,7 +1212,7 @@ diagrams).</p>
 </div>
 </div>
 <div class="section" id="hardware-requirements">
-<span id="id3"></span><h2>5.3. Hardware Requirements<a class="headerlink" href="#hardware-requirements" title="Permalink to this headline">¶</a></h2>
+<span id="id5"></span><h2>5.3. Hardware Requirements<a class="headerlink" href="#hardware-requirements" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="device-control-computer">
 <h3>5.3.1. <em>Device Control Computer</em><a class="headerlink" href="#device-control-computer" title="Permalink to this headline">¶</a></h3>
 <blockquote>
@@ -1256,9 +1253,9 @@ Master Supervisor depends on the procurement agreement and may be provided by
 GMTO if the DCS provider is not familiar with the technologies used for DCS /
 GCS integration. The Figure below shows an example of this arrangement.</p>
 <p>[review drawing to include physical interface]</p>
-<div class="figure" id="id8">
+<div class="figure">
 <img alt="../../_images/tiered_controller_architecture.png" src="../../_images/tiered_controller_architecture.png" />
-<p class="caption"><span class="caption-number">Fig. 75 </span><span class="caption-text">Single and Two Tier Controller Architecture</span></p>
+<p class="caption">Single and Two Tier Controller Architecture</p>
 </div>
 <p>The primary functions of the DCC are:</p>
 <blockquote>
@@ -1404,8 +1401,8 @@ in EtherCAT protocol.</div></blockquote>
 <blockquote>
 <div>The DCS shall use one of the recommended control deployment modes defined in
 the Table below for each individual degree of freedom.</div></blockquote>
-<table border="1" class="docutils" id="id9">
-<caption><span class="caption-number">Table 44 </span><span class="caption-text">Motion Control Deployment Mode</span><a class="headerlink" href="#id9" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils">
+<caption>Motion Control Deployment Mode</caption>
 <colgroup>
 <col width="31%" />
 <col width="69%" />
@@ -1583,13 +1580,13 @@ Standards (GMT-SE-REF-00191).</div></blockquote>
 </div>
 </div>
 <div class="section" id="interface-specification">
-<span id="id4"></span><h2>5.4. Interface Specification<a class="headerlink" href="#interface-specification" title="Permalink to this headline">¶</a></h2>
+<span id="id6"></span><h2>5.4. Interface Specification<a class="headerlink" href="#interface-specification" title="Permalink to this headline">¶</a></h2>
 <p>The main building blocks of a DCS are Components. Components may communicate
 with other Components in their own containing Package, with other Components of other
 Package of the same DCS or with Components in other Subsystems.</p>
 <p>Components use ports to connect with other components. The connection between
 two ports is represented by a connector. Connectors are grouped in connection
-maps. Connection maps are part of the <a class="reference internal" href="../../SWC_architecture/process/process_introduction.html#subsystem-specification-and-modeling"><span class="std std-ref">System Definition Files</span></a> specification</p>
+maps. Connection maps are part of the <a class="reference internal" href="../../SWC_architecture/process/process_introduction.html#subsystem-specification-and-modeling"><em>System Definition Files</em></a> specification</p>
 <blockquote>
 <div><p><strong>SWC-DCS-0160: Package connection map</strong></p>
 <blockquote>

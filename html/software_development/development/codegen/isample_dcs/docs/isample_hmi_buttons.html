@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3.3.1.3. isample_hmi_buttons.h &mdash; GMT Software And Controls documentation</title>
+  <title>3.1.3. isample_hmi_buttons.h &mdash; GMT Software And Controls documentation</title>
   
 
   
@@ -32,13 +32,10 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../../../../../genindex.html"/>
-        <link rel="search" title="Search" href="../../../../../search.html"/>
     <link rel="top" title="GMT Software And Controls documentation" href="../../../../../index.html"/>
-        <link rel="up" title="3.3.1. DCS Subsystem files" href="../index.html"/>
-        <link rel="next" title="3.3.1.4. isample_hmi_leds.h" href="isample_hmi_leds.html"/>
-        <link rel="prev" title="3.3.1.2. isample_dcs_port_types.h" href="isample_dcs_port_types.html"/> 
+        <link rel="up" title="3.1. DCS Subsystem files" href="../index.html"/>
+        <link rel="next" title="3.1.4. isample_hmi_leds.h" href="isample_hmi_leds.html"/>
+        <link rel="prev" title="3.1.2. isample_dcs_port_types.h" href="isample_dcs_port_types.html"/> 
 
   
   <script src="../../../../../_static/js/modernizr.min.js"></script>
@@ -98,14 +95,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../installation.html">1. Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../isample_example.html">2. ISample Example</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../../../development.html">3. DCS Development</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../../../introduction/introduction.html">3.1. Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../specification/specification.html">3.2. DCS specification example: <em>isample_dcs</em></a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../../codegen.html">3.3. DCS code generation example: <em>isample_dcs</em></a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="../index.html">3.3.1. DCS Subsystem files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../isample_ctrl_pkg/index.html">3.3.2. DCS Control Package Files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../isample_ctrl_pkg/isample_ctrl_super/index.html">3.3.3. DCS Control Supervisor Files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../isample_ctrl_pkg/isample_filter_wheel_ctrl/index.html">3.3.4. DCS Filter Wheel Controller Files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../isample_ctrl_pkg/isample_hw_adapter/index.html">3.3.5. DCS Hardware Adapter Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction/introduction.html">1. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../specification/specification.html">2. DCS specification example: <em>isample_dcs</em></a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../codegen.html">3. DCS code generation example: <em>isample_dcs</em></a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">3.1. DCS Subsystem files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../isample_ctrl_pkg/index.html">3.2. DCS Control Package Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../isample_ctrl_pkg/isample_ctrl_super/index.html">3.3. DCS Control Supervisor Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../isample_ctrl_pkg/isample_filter_wheel_ctrl/index.html">3.4. DCS Filter Wheel Controller Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../isample_ctrl_pkg/isample_hw_adapter/index.html">3.5. DCS Hardware Adapter Files</a></li>
 </ul>
 </li>
 </ul>
@@ -140,7 +137,7 @@
         <div class="rst-content">
           
 
- 
+
 
 
 
@@ -152,11 +149,11 @@
       
           <li><a href="../../../../development.html">3. DCS Development</a> &raquo;</li>
       
-          <li><a href="../../codegen.html">3.3. DCS code generation example: <em>isample_dcs</em></a> &raquo;</li>
+          <li><a href="../../codegen.html">3. DCS code generation example: <em>isample_dcs</em></a> &raquo;</li>
       
-          <li><a href="../index.html">3.3.1. DCS Subsystem files</a> &raquo;</li>
+          <li><a href="../index.html">3.1. DCS Subsystem files</a> &raquo;</li>
       
-    <li>3.3.1.3. <em>isample_hmi_buttons.h</em></li>
+    <li>3.1.3. <em>isample_hmi_buttons.h</em></li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -169,22 +166,8 @@
            <div itemprop="articleBody">
             
   <div class="section" id="isample-hmi-buttons-h">
-<span id="isample-hmi-buttons"></span><h1>3.3.1.3. <em>isample_hmi_buttons.h</em><a class="headerlink" href="#isample-hmi-buttons-h" title="Permalink to this headline">¶</a></h1>
+<span id="isample-hmi-buttons"></span><h1>3.1.3. <em>isample_hmi_buttons.h</em><a class="headerlink" href="#isample-hmi-buttons-h" title="Permalink to this headline">¶</a></h1>
 <p>This is the C++ msgpack struct required for the hmi_buttons data type.</p>
-<div class="literal-block-wrapper container" id="id1">
-<div class="code-block-caption"><span class="caption-number">Listing 17 </span><span class="caption-text">Code: <em>isample_hmi_buttons.h</em></span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
-<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;msgpack.hpp&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
-
-<span class="k">struct</span> <span class="n">isample_hmi_buttons</span> <span class="p">{</span>
-    <span class="kt">bool</span>             <span class="n">red_push_button</span><span class="p">;</span>         <span class="c1">// RED Push Button</span>
-    <span class="kt">bool</span>             <span class="n">green_push_button</span><span class="p">;</span>       <span class="c1">// GREEN Push Button</span>
-    <span class="kt">bool</span>             <span class="n">emergency_button</span><span class="p">;</span>        <span class="c1">// Emergency Button</span>
-    <span class="n">MSGPACK_DEFINE_MAP</span><span class="p">(</span><span class="n">red_push_button</span><span class="p">,</span> <span class="n">green_push_button</span><span class="p">,</span> <span class="n">emergency_button</span><span class="p">)</span>
-<span class="p">};</span>
-</pre></div>
-</div>
-</div>
 </div>
 
 
@@ -194,10 +177,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="isample_hmi_leds.html" class="btn btn-neutral float-right" title="3.3.1.4. isample_hmi_leds.h" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="isample_hmi_leds.html" class="btn btn-neutral float-right" title="3.1.4. isample_hmi_leds.h" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="isample_dcs_port_types.html" class="btn btn-neutral" title="3.3.1.2. isample_dcs_port_types.h" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="isample_dcs_port_types.html" class="btn btn-neutral" title="3.1.2. isample_dcs_port_types.h" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

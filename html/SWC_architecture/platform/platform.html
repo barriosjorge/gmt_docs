@@ -32,9 +32,6 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="GMT Software And Controls documentation" href="../../index.html"/>
         <link rel="up" title="Architecture and Design" href="../index.html"/>
         <link rel="next" title="7. Process" href="../process/process_introduction.html"/>
@@ -98,7 +95,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../tcs/tcs_introduction.html">3. Telescope Control System</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../services/observatory_services.html">4. Observatory Services</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../frameworks/component_frameworks.html">5. Frameworks</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">6. Platform</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="">6. Platform</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#computing-platform">6.1. Computing Platform</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#computer-hardware">6.1.1. <em>Computer Hardware</em></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#plcs">6.1.2. <em>PLCs</em></a></li>
@@ -160,7 +157,7 @@
         <div class="rst-content">
           
 
- 
+
 
 
 
@@ -251,7 +248,7 @@ The interface with field devices is done using EtherCAT, a real-time Ethernet
 based fieldbus, which only requires the availability of standard network
 ports.  This is in contrast with backplane-based systems (e.g., VME, PXI)
 where the field interface is implemented with cards connected to the
-backplane. The Section on <a class="reference internal" href="#field-device-interface"><span class="std std-ref">Field Device Interface Technology</span></a> describes with more
+backplane. The Section on <a class="reference internal" href="#field-device-interface"><em>Field Device Interface Technology</em></a> describes with more
 detail the characteristics of EtherCAT. The fact that modern motor drivers
 include embedded motion controllers and even some local logic by means of a
 PLC reduces the performance requirements on the computing platform. As a
@@ -266,8 +263,8 @@ DCCs require access to the fieldbus, but many of them do not require access to
 the low latency network. DPCs do not require access to the fieldbus, but require
 high capacity storage for quick processing of intermediate results.</p>
 <p>The table below shows the GMT Base Computer Specification:</p>
-<table border="1" class="docutils" id="id16">
-<caption><span class="caption-number">Table 32 </span><span class="caption-text">GMT Base Computer Specification</span><a class="headerlink" href="#id16" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils">
+<caption>GMT Base Computer Specification</caption>
 <colgroup>
 <col width="26%" />
 <col width="30%" />
@@ -398,9 +395,9 @@ the Mount Control System or the M1 Control System. The Enclosure Control System
 follows the Two Tier Control design as it fits the capabilities of the
 industrial companies that may procure the low-level control system integrated
 with the rest of the enclosure.</p>
-<div class="figure" id="id17">
+<div class="figure">
 <img alt="../../_images/controller-architecture.png" src="../../_images/controller-architecture.png" />
-<p class="caption"><span class="caption-number">Fig. 50 </span><span class="caption-text">Single and Two tier Controller Architecture</span></p>
+<p class="caption">Single and Two tier Controller Architecture</p>
 </div>
 </div></blockquote>
 </div>
@@ -478,17 +475,17 @@ offers different kinds of timers, depending on hardware availability. The High
 Resolution Timers introduced in kernel 2.6 provide nanosecond resolution. The
 next two Figures show the results of some of the tests performed. The tests
 include also the performance of the EtherCAT master stack.</p>
-<div class="figure" id="id18">
+<div class="figure">
 <img alt="../../_images/hi-res-timer-benchmark-2kHz.png" src="../../_images/hi-res-timer-benchmark-2kHz.png" />
-<p class="caption"><span class="caption-number">Fig. 51 </span><span class="caption-text">High Resolution Timer Benchmark &#64; 2KHz</span></p>
+<p class="caption">High Resolution Timer Benchmark &#64; 2KHz</p>
 </div>
 <p>The above Figure shows a high resolution timer benchmark at 2KHz. In this
 benchmark, a callback is scheduled to run every 500 microseconds, generating a
 square waveform using a digital output channel on the host. The waveform is
 captured on an oscilloscope where timing accuracy and jitter are measured.</p>
-<div class="figure" id="id19">
+<div class="figure">
 <img alt="../../_images/hi-res-timer-benchmark-8kHz.png" src="../../_images/hi-res-timer-benchmark-8kHz.png" />
-<p class="caption"><span class="caption-number">Fig. 52 </span><span class="caption-text">High Resolution Timer Benchmark with 3.5 Million Samples &#64; 8 kHz</span></p>
+<p class="caption">High Resolution Timer Benchmark with 3.5 Million Samples &#64; 8 kHz</p>
 </div>
 <p>The above Figure shows a high-resolution timer benchmark now at 8 kHz. A callback
 is scheduled to run every 125 microsecond. The blue curve shows the waveform.
@@ -572,9 +569,9 @@ required in the telescope enclosure, major cost reduction, and easier
 maintenance. The Figure below shows an example of how GMT will deploy the DCC,
 IOModules and field devices for the case of the Acquisition and Guiding
 Wavefront Sensor System.</p>
-<div class="figure" id="id20">
+<div class="figure">
 <img alt="../../_images/EtherCAT-AGWS.png" src="../../_images/EtherCAT-AGWS.png" />
-<p class="caption"><span class="caption-number">Fig. 53 </span><span class="caption-text">EtherCAT topology sample for the Acquisition and Guiding Wavefront Sensor System.</span></p>
+<p class="caption">EtherCAT topology sample for the Acquisition and Guiding Wavefront Sensor System.</p>
 </div>
 <p>GMT will adopt the CiA 402 CANopen device profile for drives and motion control,
 which is suitable for frequency inverters, servo controllers, and stepper
@@ -649,13 +646,13 @@ includes all of the previous features in an electronics panel housed by a
 Rittal TS8 cabinet. This is the design that drove the concept of GMT standard
 electronics cabinet (SEC). Short cycle times in the order of 100us have been
 achieved successfully with this setup.</p>
-<div class="figure" id="id21">
+<div class="figure">
 <img alt="../../_images/control-panel-prototypes.png" src="../../_images/control-panel-prototypes.png" />
-<p class="caption"><span class="caption-number">Fig. 54 </span><span class="caption-text">(Left) First and (Right) Second Generation Control Panel Prototypes</span></p>
+<p class="caption">(Left) First and (Right) Second Generation Control Panel Prototypes</p>
 </div>
-<div class="figure" id="id22">
+<div class="figure">
 <img alt="../../_images/control-panel-proto-housed.png" src="../../_images/control-panel-proto-housed.png" />
-<p class="caption"><span class="caption-number">Fig. 55 </span><span class="caption-text">Latest Control Panel Prototype Housed in a Rittal TS8 Enclosure.</span></p>
+<p class="caption">Latest Control Panel Prototype Housed in a Rittal TS8 Enclosure.</p>
 </div>
 </div></blockquote>
 </div>
@@ -710,8 +707,8 @@ timestamps are generated the higher the precision.</li>
 </div></blockquote>
 <p>The main features of the relevant time protocols are summarized in the Table
 below:</p>
-<table border="1" class="docutils" id="id23">
-<caption><span class="caption-number">Table 33 </span><span class="caption-text">Time Protocols Comparison</span><a class="headerlink" href="#id23" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils">
+<caption>Time Protocols Comparison</caption>
 <colgroup>
 <col width="10%" />
 <col width="19%" />
@@ -782,10 +779,10 @@ Linux.</div></blockquote>
 <blockquote>
 <div><p>Several PTP topologies to measure synchronization accuracy have been tested at
 the GMT lab67. A common arrangement is shown in Figure below:</p>
-<div class="figure" id="id24">
+<div class="figure">
 <img alt="../../_images/PTP-master-slaves.png" src="../../_images/PTP-master-slaves.png" />
-<p class="caption"><span class="caption-number">Fig. 56 </span><span class="caption-text">PTP Master with 2 Slaves Arrangement using a Switched Network and a Dedicated
-NIC.</span></p>
+<p class="caption">PTP Master with 2 Slaves Arrangement using a Switched Network and a Dedicated
+NIC.</p>
 </div>
 <p>Two slave computers were synchronized with PTP and each was generating a
 digital pulse over the serial communications port at 10 Hz. The test was
@@ -798,9 +795,9 @@ the Figure below. Over one million samples – which at 10 pulses per second
 translates roughly into 27 hours – the standard deviation is less than 2.5us
 and representative of PTP stability. The min/max outliers amplitude at &lt; 25us
 falls within the technology accepted published figures.</p>
-<div class="figure" id="id25">
+<div class="figure">
 <img alt="../../_images/PTP-synchronization-accuracy.png" src="../../_images/PTP-synchronization-accuracy.png" />
-<p class="caption"><span class="caption-number">Fig. 57 </span><span class="caption-text">Lab PTP Synchronization Accuracy Tests</span></p>
+<p class="caption">Lab PTP Synchronization Accuracy Tests</p>
 </div>
 <p>During the tests a couple of disturbances were introduced to evaluate the
 synchronization robustness. First some network traffic was initiated,
@@ -812,8 +809,8 @@ CPU with 100% effective load. No evident effect on timing accuracy was
 observed.</p>
 <p>A summary with all the measured quantities using a ptpd-2 implementation of
 the Linux PTP Software Stack is presented in the following Table:</p>
-<table border="1" class="docutils" id="id26">
-<caption><span class="caption-number">Table 34 </span><span class="caption-text">ptpd-2 Implementation Measured Accuracy</span><a class="headerlink" href="#id26" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils">
+<caption>ptpd-2 Implementation Measured Accuracy</caption>
 <colgroup>
 <col width="59%" />
 <col width="41%" />
@@ -840,8 +837,8 @@ using now the same NIC for PTP synchronization and general networking. The
 table below shows the statistics obtained over the common LAN case, and as
 expected, the performance is slightly worse (about 60%) than using a dedicated
 LAN.</p>
-<table border="1" class="docutils" id="id27">
-<caption><span class="caption-number">Table 35 </span><span class="caption-text">ptpd-2 Measured Accuracy over a Common LAN</span><a class="headerlink" href="#id27" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils">
+<caption>ptpd-2 Measured Accuracy over a Common LAN</caption>
 <colgroup>
 <col width="59%" />
 <col width="41%" />
@@ -936,7 +933,7 @@ the backbone that communicates with any subsystem of the Telescope. It connects
 the control room, the electronics room (where most of the computers are
 located), and all field interface modules installed on the telescope structure.
 The network is deployed using optical fiber trunk cables between the telescope
-enclosure base and the facility building. The <a class="reference internal" href="../architecture/overall_architecture.html#figure-supervisory-hierarchy"><span class="std std-ref">Supervisory Hierarchy Figure</span></a> and Figure 10-26 (TBC) illustrate the conceptual
+enclosure base and the facility building. The <a class="reference internal" href="../architecture/overall_architecture.html#figure-supervisory-hierarchy"><em>Supervisory Hierarchy Figure</em></a> and Figure 10-26 (TBC) illustrate the conceptual
 design of the control network.</p>
 <p>Networking equipment evolves rapidly, thus it is advisable to wait as close as
 possible to the deployment phase for final procurement. In this early stage of
@@ -1006,18 +1003,18 @@ bytes is shown in the Figure below. This benchmark used Reliable Connection
 single queued pairs. As advertised, the typical latency for data write, send,
 and read is 1-2 μs for payloads &lt;256 bytes, increasing to ~8 μs for payloads of
 ~16 kB, such as an ASM command vector.</p>
-<div class="figure" id="id28">
+<div class="figure">
 <img alt="../../_images/latency_vs_payload.png" src="../../_images/latency_vs_payload.png" />
-<p class="caption"><span class="caption-number">Fig. 58 </span><span class="caption-text">Measured Latency vs. Payload</span></p>
+<p class="caption">Measured Latency vs. Payload</p>
 </div>
 <p>Another benchmark test was run, this time for latency jitter using again
 Reliable Connection single queued pairs.  As shown in the Figure below, for
 small message sizes (2 bytes), &lt;0.1% of messages have a latency exceeding 3 μs.
 Both tests were run under a mainstream Linux kernel, RT_PREEMPT and RTAI, giving
 similar numbers independently of the platform.</p>
-<div class="figure" id="id29">
+<div class="figure">
 <img alt="../../_images/latency_distribution.png" src="../../_images/latency_distribution.png" />
-<p class="caption"><span class="caption-number">Fig. 59 </span><span class="caption-text">Latency Distribution</span></p>
+<p class="caption">Latency Distribution</p>
 </div>
 <p>The evaluation of Infiniband shows that the technology can be easily deployed at
 relatively low cost.  The performance measured agrees with the vendor advertised
@@ -1066,9 +1063,9 @@ TBD.</li>
 <li>The Figure below provides a summary of the GMT software development platform.</li>
 </ul>
 </div></blockquote>
-<div class="figure" id="id30">
+<div class="figure">
 <img alt="../../_images/software_platform.png" src="../../_images/software_platform.png" />
-<p class="caption"><span class="caption-number">Fig. 60 </span><span class="caption-text">GMT Software Platform Summary</span></p>
+<p class="caption">GMT Software Platform Summary</p>
 </div>
 </div>
 </div>
