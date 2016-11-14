@@ -244,7 +244,6 @@ Any component can receive its setup using:
 
     *Usage:*  ``gds setup -m [model] -e [element]``
 
-
 For example, *component_sum1* has the following configuration in:
 
 ::
@@ -270,11 +269,11 @@ To connect all the example components as described in the previous section the f
 
 .. code-block:: bash
 
-    $ gds setup -m model -e component_inc1
-    $ gds setup -m model -e component_inc2
-    $ gds setup -m model -e component_inc3
-    $ gds setup -m model -e component_sum1
-    $ gds setup -m model -e component_sum2
+    $ gds setup -m runtime -e component_inc1
+    $ gds setup -m runtime -e component_inc2
+    $ gds setup -m runtime -e component_inc3
+    $ gds setup -m runtime -e component_sum1
+    $ gds setup -m runtime -e component_sum2
 
 and in terminal two we can see that the the component A2 is num processing the other component inputs.
 
@@ -352,7 +351,7 @@ In order to run this controller open a log_service client in a different termina
 
 then send the setup using:
 
-  $ gds setup -m model -e simple_controller
+  $ gds setup -m runtime -e simple_controller
 
 Check Monitored Values
 ----------------------
@@ -374,7 +373,7 @@ For example, the following command will start sending 'temperature' data points 
 
 .. code-block:: bash
 
-  $ gds monitor start -m model -e simple_controller
+  $ gds monitor start -m runtime -e simple_controller
 
 To check the monitored values a telemetry client can be started in another unix terminal:
 
@@ -394,7 +393,7 @@ For example, the following will list the last 12 temperature values (from newest
 
 .. code-block:: bash
 
-  $ gds telemetry_service query temperature_monitor 12
+  $ gds telemetry_service query gmt://examples/simple_controller/temperature_monitor 10
 
 All telemetry queries have to be done on specific monitors.
 
@@ -410,9 +409,9 @@ For example:
 
 .. code-block:: bash
 
-  $ gds send_value temperature_setpoint 23.3 -m model -e simple_controller
+  $ gds send_value temperature_setpoint 23.2 -m runtime -e simple_controller
 
-This will send a temperature setpoint of 23.3 to the controller which should react to this change.
+This will send a temperature setpoint of 23.2 to the controller which should react to this change.
 Monitored values should change on the telemetry client.
 When the temperature values are out the the defined range the log client should show the corresponding warning messages.
 
