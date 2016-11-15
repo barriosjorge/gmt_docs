@@ -32,9 +32,6 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="GMT Software And Controls documentation" href="../index.html"/>
         <link rel="up" title="Software Development" href="index.html"/>
         <link rel="next" title="7. Contribute" href="contribute.html"/>
@@ -100,7 +97,7 @@
 <li class="toctree-l2"><a class="reference internal" href="development.html">3. DCS Development</a></li>
 <li class="toctree-l2"><a class="reference internal" href="configuration.html">4. Developer Info and Release Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="services.html">5. Using the Services</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">6. Running Examples</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="">6. Running Examples</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#gmt-components">6.1. GMT Components</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#connecting-components">6.2. Connecting Components</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#running-the-example-components">6.3. Running the example components</a></li>
@@ -137,7 +134,7 @@
         <div class="rst-content">
           
 
- 
+
 
 
 
@@ -374,32 +371,32 @@ It can receive the following component setup:</p>
 </div></blockquote>
 <p>Any component can receive its setup using:</p>
 <blockquote>
-<div><em>Usage:</em>  <code class="docutils literal"><span class="pre">gds</span> <span class="pre">setup</span> <span class="pre">-m</span> <span class="pre">[model]</span> <span class="pre">-e</span> <span class="pre">[element]</span></code></div></blockquote>
+<div><em>Usage:</em>  <tt class="docutils literal"><span class="pre">gds</span> <span class="pre">setup</span> <span class="pre">-m</span> <span class="pre">[model]</span> <span class="pre">-e</span> <span class="pre">[element]</span></tt></div></blockquote>
 <p>For example, <em>component_sum1</em> has the following configuration in:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Component</span> <span class="s2">&quot;component_inc1&quot;</span><span class="p">,</span>
-    <span class="n">default</span><span class="p">:</span>
-        <span class="n">properties</span><span class="p">:</span>
-            <span class="n">uri_path</span><span class="p">:</span> <span class="s1">&#39;gmt://examples/component_inc1&#39;</span>
-            <span class="n">host</span><span class="p">:</span> <span class="s1">&#39;127.0.0.1&#39;</span>
-            <span class="n">port</span><span class="p">:</span> <span class="mi">8001</span>
-            <span class="n">rate</span><span class="p">:</span> <span class="mi">1000000</span>
-            <span class="n">acl</span><span class="p">:</span> <span class="s1">&#39;private&#39;</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span>Component &quot;component_inc1&quot;,
+    default:
+        properties:
+            uri_path: &#39;gmt://examples/component_inc1&#39;
+            host: &#39;127.0.0.1&#39;
+            port: 8001
+            rate: 1000000
+            acl: &#39;private&#39;
 
-        <span class="n">state_vars</span><span class="p">:</span> <span class="p">[]</span>
+        state_vars: []
 
-        <span class="n">input_ports</span><span class="p">:</span> <span class="p">[]</span>
+        input_ports: []
 
-        <span class="n">output_ports</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;x1&#39;</span><span class="p">,</span> <span class="n">protocol</span><span class="p">:</span> <span class="s1">&#39;push&#39;</span><span class="p">,</span>  <span class="n">url</span><span class="p">:</span> <span class="s1">&#39;tcp://127.0.0.1:9001&#39;</span><span class="p">,</span> <span class="n">blocking_mode</span><span class="p">:</span> <span class="s1">&#39;async&#39;</span><span class="p">,</span> <span class="n">max_rate</span><span class="p">:</span> <span class="mi">1</span> <span class="p">}</span>
-        <span class="p">]</span>
+        output_ports: [
+            { name: &#39;x1&#39;, protocol: &#39;push&#39;,  url: &#39;tcp://127.0.0.1:9001&#39;, blocking_mode: &#39;async&#39;, max_rate: 1 }
+        ]
 </pre></div>
 </div>
 <p>To connect all the example components as described in the previous section the following commands can be used:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ gds setup -m model -e component_inc1
-$ gds setup -m model -e component_inc2
-$ gds setup -m model -e component_inc3
-$ gds setup -m model -e component_sum1
-$ gds setup -m model -e component_sum2
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ gds setup -m runtime -e component_inc1
+$ gds setup -m runtime -e component_inc2
+$ gds setup -m runtime -e component_inc3
+$ gds setup -m runtime -e component_sum1
+$ gds setup -m runtime -e component_sum2
 </pre></div>
 </div>
 <p>and in terminal two we can see that the the component A2 is num processing the other component inputs.</p>
@@ -469,13 +466,13 @@ This is for code generation purposes and because it&#8217;s easy to focus develo
 </div>
 <p>then send the setup using:</p>
 <blockquote>
-<div>$ gds setup -m model -e simple_controller</div></blockquote>
+<div>$ gds setup -m runtime -e simple_controller</div></blockquote>
 </div>
 <div class="section" id="check-monitored-values">
 <h2>6.6. Check Monitored Values<a class="headerlink" href="#check-monitored-values" title="Permalink to this headline">¶</a></h2>
 <p>Telemetry is a distributed service than can be started independently on each component as:</p>
 <blockquote>
-<div><em>Usage:</em>  <code class="docutils literal"><span class="pre">gds</span> <span class="pre">monitor</span> <span class="pre">start</span> <span class="pre">-m</span> <span class="pre">model</span> <span class="pre">-e</span> <span class="pre">element</span></code></div></blockquote>
+<div><em>Usage:</em>  <tt class="docutils literal"><span class="pre">gds</span> <span class="pre">monitor</span> <span class="pre">start</span> <span class="pre">-m</span> <span class="pre">model</span> <span class="pre">-e</span> <span class="pre">element</span></tt></div></blockquote>
 <p>This command will start the telemetry adapters for this component and they will send monitored values to the server.
 The telemetry service will:</p>
 <blockquote>
@@ -487,21 +484,21 @@ The telemetry service will:</p>
 </div></blockquote>
 <p>Note that monitors are the values of the output ports.</p>
 <p>For example, the following command will start sending &#8216;temperature&#8217; data points to the telemetry service.</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ gds monitor start -m model -e simple_controller
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ gds monitor start -m runtime -e simple_controller
 </pre></div>
 </div>
 <p>To check the monitored values a telemetry client can be started in another unix terminal:</p>
 <blockquote>
-<div><em>Usage:</em>  <code class="docutils literal"><span class="pre">gds</span> <span class="pre">telemetry_service</span> <span class="pre">client</span> <span class="pre">monitor_name</span></code></div></blockquote>
+<div><em>Usage:</em>  <tt class="docutils literal"><span class="pre">gds</span> <span class="pre">telemetry_service</span> <span class="pre">client</span> <span class="pre">monitor_name</span></tt></div></blockquote>
 <p>In the case will have:</p>
 <blockquote>
 <div>$ gds telemetry_service client temperature</div></blockquote>
 <p>And the monitored values shall be received on this terminal.</p>
 <p>A query can also be sent to the telemetry service like this:</p>
 <blockquote>
-<div><em>Usage:</em>  <code class="docutils literal"><span class="pre">gds</span> <span class="pre">telemetry_service</span> <span class="pre">query</span> <span class="pre">monitor_name</span> <span class="pre">num</span></code></div></blockquote>
+<div><em>Usage:</em>  <tt class="docutils literal"><span class="pre">gds</span> <span class="pre">telemetry_service</span> <span class="pre">query</span> <span class="pre">monitor_name</span> <span class="pre">num</span></tt></div></blockquote>
 <p>For example, the following will list the last 12 temperature values (from newest to oldest) from this controller:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ gds telemetry_service query temperature_monitor 12
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ gds telemetry_service query gmt://examples/simple_controller/temperature_monitor 10
 </pre></div>
 </div>
 <p>All telemetry queries have to be done on specific monitors.</p>
@@ -510,12 +507,12 @@ The telemetry service will:</p>
 <h2>6.7. Send a Command to a Controller<a class="headerlink" href="#send-a-command-to-a-controller" title="Permalink to this headline">¶</a></h2>
 <p>Some numeric values can be sent directly to ports of any controller like this:</p>
 <blockquote>
-<div><em>Usage:</em>  <code class="docutils literal"><span class="pre">gds</span> <span class="pre">send_value</span> <span class="pre">port_name</span> <span class="pre">value</span> <span class="pre">-m</span> <span class="pre">model</span> <span class="pre">-e</span> <span class="pre">element</span></code></div></blockquote>
+<div><em>Usage:</em>  <tt class="docutils literal"><span class="pre">gds</span> <span class="pre">send_value</span> <span class="pre">port_name</span> <span class="pre">value</span> <span class="pre">-m</span> <span class="pre">model</span> <span class="pre">-e</span> <span class="pre">element</span></tt></div></blockquote>
 <p>For example:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ gds send_value temperature_setpoint 23.3 -m model -e simple_controller
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ gds send_value temperature_setpoint 23.2 -m runtime -e simple_controller
 </pre></div>
 </div>
-<p>This will send a temperature setpoint of 23.3 to the controller which should react to this change.
+<p>This will send a temperature setpoint of 23.2 to the controller which should react to this change.
 Monitored values should change on the telemetry client.
 When the temperature values are out the the defined range the log client should show the corresponding warning messages.</p>
 <div class="admonition note">

@@ -14,13 +14,13 @@ The mongoDB daemon runs as a system service under *systemd*.
 
 This daemon is required to run the log and telemetry services.
 
-The other services can be started, stopped or checked independently as follows:
+The other services can be started as follows:
 
 .. code-block:: bash
 
-    $ gds log_service [start|stop|status]
+    $ gds log_service start &
 
-    $ gds telemetry_service [start|stop|status]
+    $ gds telemetry_service start &
 
 Checking the Log Service
 ------------------------
@@ -33,9 +33,9 @@ In terminal_1 verify that the log_service is running:
 
 .. code-block:: bash
 
-    $ gds log_service status
+    $ ps -fea | grep log_service
 
-If the status is not *online* then start the log service:
+If the process is not running then start the log service:
 
 .. code-block:: bash
 
@@ -47,9 +47,10 @@ If another error is shown please report this issue.
 If the log service is started with no error we'll use terminal_1 to show the log messages that we'll create later.
 We can run a log client with this command:
 
-    *Usage:*  ``gds log_service client topic``
+    *Usage:*  ``gds log_service client [topic]``
 
-The *topic* parameter shall be included in the command line and it will filter the content of the messages and only the messages containing the topic will be shown.
+The *topic* parameter can be included in the command line and it will filter the content of the messages and only the messages containing the topic will be shown.
+In case is not used the client will subscribe to all log messages.
 
 .. code-block:: bash
 

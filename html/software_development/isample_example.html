@@ -32,9 +32,6 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="GMT Software And Controls documentation" href="../index.html"/>
         <link rel="up" title="Software Development" href="index.html"/>
         <link rel="next" title="3. DCS Development" href="development.html"/>
@@ -96,7 +93,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../SWC_standards/index.html">Software and Controls Standards</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Software Development</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installation.html">1. Installation</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">2. ISample Example</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">2. ISample Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="development.html">3. DCS Development</a></li>
 <li class="toctree-l2"><a class="reference internal" href="configuration.html">4. Developer Info and Release Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="services.html">5. Using the Services</a></li>
@@ -128,7 +125,7 @@
         <div class="rst-content">
           
 
- 
+
 
 
 
@@ -152,7 +149,7 @@
             
   <div class="section" id="isample-example">
 <span id="id1"></span><h1>2. ISample Example<a class="headerlink" href="#isample-example" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference internal" href="development/specification/specification.html#dcs-spec-example"><span class="std std-ref">ISample DCS</span></a> is an instrument control system example that provides
+<p><a class="reference internal" href="development/specification/specification.html#dcs-spec-example"><em>ISample DCS</em></a> is an instrument control system example that provides
 a template that instrument developers can use as a model.</p>
 <p>Retrieve the sample model files from <a class="reference external" href="../_static/isample_dcs.tgz">here</a> or execute:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ curl -O http://52.52.46.32/_static/isample_dcs.tgz
@@ -169,12 +166,12 @@ $ gmake -C src/runtime/src/idcs/isample_dcs -j<span class="sb">`</span>nproc<spa
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">In this version isample includes the specification of a control package.
-All <a class="reference internal" href="../SWC_architecture/architecture/overall_architecture.html#table-control-packages"><span class="std std-ref">DCS Packages</span></a> follow the same development principles with the difference
+All <a class="reference internal" href="../SWC_architecture/architecture/overall_architecture.html#table-control-packages"><em>DCS Packages</em></a> follow the same development principles with the difference
 that the Component base classes add specialized interfaces (e.g. Controller vs Pipeline). The next
 incremental release of the GMT software will include examples of user interface
 and data processing packages.</p>
 </div>
-<p><a class="reference internal" href="#isample-example"><span class="std std-ref">[back to top]</span></a></p>
+<p><a class="reference internal" href="#isample-example"><em>[back to top]</em></a></p>
 </div>
 
 

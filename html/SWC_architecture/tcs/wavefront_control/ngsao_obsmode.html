@@ -32,9 +32,6 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../../../genindex.html"/>
-        <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="GMT Software And Controls documentation" href="../../../index.html"/>
         <link rel="up" title="3. Telescope Control System" href="../tcs_introduction.html"/>
         <link rel="next" title="3.5.3. Laser Tomographic Adaptive Optics (LTAO)" href="ltao_obsmode.html"/>
@@ -102,7 +99,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../tcs_introduction.html#pointing-kernel">3.4. Pointing Kernel</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../tcs_introduction.html#wavefront-control">3.5. Wavefront Control</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="ns_obsmode.html">3.5.1. <em>Natural Seeing Observing Mode</em></a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">3.5.2. <em>Natural Guide Star Adaptive Optics (NGSAO)</em></a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="">3.5.2. <em>Natural Guide Star Adaptive Optics (NGSAO)</em></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ltao_obsmode.html">3.5.3. <em>Laser Tomographic Adaptive Optics (LTAO)</em></a></li>
 <li class="toctree-l4"><a class="reference internal" href="nglao_obsmode.html">3.5.4. <em>Natural-Guidestar Ground Layer Adaptive Optics (NGLAO)</em></a></li>
 </ul>
@@ -143,7 +140,7 @@
         <div class="rst-content">
           
 
- 
+
 
 
 
@@ -169,8 +166,8 @@
             
   <div class="section" id="natural-guide-star-adaptive-optics-ngsao">
 <span id="tcs-ngsao-obsmode"></span><h1>3.5.2. <em>Natural Guide Star Adaptive Optics (NGSAO)</em><a class="headerlink" href="#natural-guide-star-adaptive-optics-ngsao" title="Permalink to this headline">¶</a></h1>
-<p>A simplified block diagram of the NGSAO WFC is presented in <a class="reference internal" href="#ngsao-wfcs-bd-simple"><span class="std std-numref">Figure
-21</span></a>. There are six main control loops operating
+<p>A simplified block diagram of the NGSAO WFC is presented in <a href="#id1"><span class="problematic" id="id2">:numref:`Figure
+%s&lt;ngsao_wfcs_bd_simple&gt;`</span></a>. There are six main control loops operating
 simultaneously:</p>
 <blockquote>
 <div><ol class="upperalpha simple">
@@ -191,19 +188,19 @@ centered on the instrument.</li>
 controllers. For example the NGSAO Wavefront Controller offloads the
 time-average segment piston and tilt to the Phasing Controller, and the average
 surface figure of the ASM to the Active Optics Wavefront Controller.</p>
-<div class="figure" id="id10">
-<span id="ngsao-wfcs-bd-simple"></span><a class="reference internal image-reference" href="../../../_images/ngsao_wfcs_block_diagram.png"><img alt="../../../_images/ngsao_wfcs_block_diagram.png" src="../../../_images/ngsao_wfcs_block_diagram.png" style="width: 918.0px; height: 488.0px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">NGSAO Wavefront Control System Simplified Block Diagram</span></p>
+<div class="figure" id="ngsao-wfcs-bd-simple">
+<a class="reference internal image-reference" href="../../../_images/ngsao_wfcs_block_diagram.png"><img alt="../../../_images/ngsao_wfcs_block_diagram.png" src="../../../_images/ngsao_wfcs_block_diagram.png" style="width: 918.0px; height: 488.0px;" /></a>
+<p class="caption">NGSAO Wavefront Control System Simplified Block Diagram</p>
 </div>
-<p><a class="reference internal" href="#ngsao-wfcs-bd-detailed"><span class="std std-numref">Figure 22</span></a> presents a more detailed block
+<p><a href="#id3"><span class="problematic" id="id4">:numref:`Figure %s&lt;ngsao_wfcs_bd_detailed&gt;`</span></a> presents a more detailed block
 diagram of the NGSAO WFC, with all of the real-time components currently
 envisioned. External components with interfaces to the WFC (e.g., sensor slope
 processors and mirror controllers) are also represented. Ports are identified
 with the input or output data type, and data flow with arrows. Telemetry is not
 explicitly shown, as it is provided as a system service to every component.</p>
-<div class="figure" id="id11">
-<span id="ngsao-wfcs-bd-detailed"></span><a class="reference internal image-reference" href="../../../_images/ngsao_wfcs_block_diagram_detailed.png"><img alt="../../../_images/ngsao_wfcs_block_diagram_detailed.png" src="../../../_images/ngsao_wfcs_block_diagram_detailed.png" style="width: 1461.0px; height: 846.0px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text">NGSAO Wavefront Control System Detailed Block Diagram</span></p>
+<div class="figure" id="ngsao-wfcs-bd-detailed">
+<a class="reference internal image-reference" href="../../../_images/ngsao_wfcs_block_diagram_detailed.png"><img alt="../../../_images/ngsao_wfcs_block_diagram_detailed.png" src="../../../_images/ngsao_wfcs_block_diagram_detailed.png" style="width: 1461.0px; height: 846.0px;" /></a>
+<p class="caption">NGSAO Wavefront Control System Detailed Block Diagram</p>
 </div>
 <p>A list of the NGSAO WFC components is provided in Table 10-23 [TBA]. A
 description of the most critical components is given below, followed by an
@@ -220,7 +217,7 @@ one optical surface.</li>
 <li>Temporal averages of an aberration are identified as aberration_av.</li>
 </ul>
 </div></blockquote>
-<p>At the present time, Zernike polynomials <a class="reference internal" href="../../bibliography/bibliography.html#noll76" id="id1">[Noll76]</a> are used as the basis set
+<p>At the present time, Zernike polynomials <a class="reference internal" href="../../bibliography/bibliography.html#noll76" id="id5">[Noll76]</a> are used as the basis set
 throughout the WFC (with the exception of ASM and M1 figure control) due to
 their simple relationship to rigid body motions. Karhunen-Loeve modes which
 replicate Zernike modes in the low orders may be considered in the future.</p>
@@ -229,7 +226,7 @@ replicate Zernike modes in the low orders may be considered in the future.</p>
 <div><p>The NGSAO Wavefront Controller (<em>wfc_ngsao_ctrl</em>) converts the pyramid WFS
 signals sent by the NGWS Slope Processor (<em>ngws_sp</em>) to an actuator command
 vector destined for the ASM Controller. The algorithms of this primary
-control loop are described in detail in Section 8.8.1 <a class="reference internal" href="../../bibliography/bibliography.html#bouc13b" id="id2">[Bouc13b]</a>. As the
+control loop are described in detail in Section 8.8.1 <a class="reference internal" href="../../bibliography/bibliography.html#bouc13b" id="id6">[Bouc13b]</a>. As the
 interface to the ASM Controller is in terms of absolute actuator position,
 the <em>wfc_ngsao_ctrl</em> component provides the integrator and must receive the
 actuator position after the previous step by the ASM. Maintaining the last
@@ -248,7 +245,7 @@ and their calibrated &#8220;flat&#8221; positions onto various modes:</p>
 guiding error.</li>
 <li>Global Zernike modes Z4, Z7, and Z8 (focus and coma) are sent to the
 Active Optics Wavefront Controller, and used to reposition the ASM.</li>
-<li>M1 segment bending modes <a class="reference internal" href="../../bibliography/bibliography.html#smit13" id="id3">[Smit13]</a> 1-45 are sent to the Active Optics
+<li>M1 segment bending modes <a class="reference internal" href="../../bibliography/bibliography.html#smit13" id="id7">[Smit13]</a> 1-45 are sent to the Active Optics
 Wavefront Controller, used to offload any M1 figure errors that have
 been compensated by the ASM.</li>
 </ul>
@@ -259,7 +256,7 @@ OIWFS Slope Processor, allowing it to compensate changing non-common path
 to perform the high-order NCP calibration in daytime, dynamic calibration
 will be necessary in the NGSAO and LTAO modes due to the rotation of the
 pupil on the Instrument Window, which will be distorted by varying
-atmospheric pressure (see Section 8.5.1.1 <a class="reference internal" href="../../bibliography/bibliography.html#bouc13b" id="id4">[Bouc13b]</a>). Observations of a
+atmospheric pressure (see Section 8.5.1.1 <a class="reference internal" href="../../bibliography/bibliography.html#bouc13b" id="id8">[Bouc13b]</a>). Observations of a
 non-sidereal science target using a nearby fixed NGS will suffer from
 additional varying NCP aberrations as the NGS footprint tracks across the
 Instrument Window.</p>
@@ -309,7 +306,7 @@ internal capacitive sensors will lead to quasi-static aberrations on the ASM
 face sheets with compensating aberrations on the M1 segments, resulting in
 field-dependent aberrations. Simulations of the WFC demonstrate that
 low-order aberrations up to Z10 can be distinguished between M1 and M2
-segments with 3 AGWS WFS (see Section 6.12.2.5 <a class="reference internal" href="../../bibliography/bibliography.html#john13" id="id5">[John13]</a>). The
+segments with 3 AGWS WFS (see Section 6.12.2.5 <a class="reference internal" href="../../bibliography/bibliography.html#john13" id="id9">[John13]</a>). The
 <em>wfc_aco_ctrl</em> component will correct these by applying a fixed offset to
 the M1 segment figure and telescope pointing. This is mathematically
 equivalent to updating the ASM reference shape and allowing the ASM to
@@ -334,7 +331,7 @@ actuators to the edge sensor setpoints.</p>
 possible to determine whether it is M1 or M2 that has caused it. Offloading
 small amounts (microns) of segment piston to the wrong mirror has no
 negative impact, but segment tilt on the wrong mirror will cause field-
-dependent segment piston (see Section 8.1.5 <a class="reference internal" href="../../bibliography/bibliography.html#bouc13b" id="id6">[Bouc13b]</a>). We expect the M2ES
+dependent segment piston (see Section 8.1.5 <a class="reference internal" href="../../bibliography/bibliography.html#bouc13b" id="id10">[Bouc13b]</a>). We expect the M2ES
 to be an order of magnitude more stable than the M1ES over long timescales,
 due to their construction of Zerodur and the lower sensitivity of capacitive
 sensors to environmental effects. The time-averaged ASM segment piston and
@@ -347,33 +344,33 @@ last column.</p>
 <p><strong>Deployment</strong></p>
 <blockquote>
 <div><p>A representation of the deployment locations of the NGSAO WFC is provided in
-<a class="reference internal" href="#ngsao-wfcs-deployment-diagram"><span class="std std-numref">Figure 23</span></a>. Most WFCS software
+<a href="#id11"><span class="problematic" id="id12">:numref:`Figure %s &lt;ngsao_wfcs_deployment_diagram&gt;`</span></a>. Most WFCS software
 components run on standardized rack-mounted servers in the Electronics Room
 of the Summit Support Building. The two exceptions which require specialized
 hardware are the ASM Master Control Unit crate on which the ASM Controller
 runs, and the AO Real-time Computer System (AORTS) which includes the NGSAO
 Wavefront Controller.</p>
 <p>The current baseline design calls for a single AORTS (identified as wfc_rts
-in <a class="reference internal" href="#ngsao-wfcs-deployment-diagram"><span class="std std-numref">Figure 23</span></a>) to be re-used for
+in <a href="#id13"><span class="problematic" id="id14">:numref:`Figure %s &lt;ngsao_wfcs_deployment_diagram&gt;`</span></a>) to be re-used for
 all the observing modes. The RTS will likely be composed of multiple server
 nodes in a small high-performance computing cluster (see Section 8.8.4
-<a class="reference internal" href="../../bibliography/bibliography.html#bouc13b" id="id7">[Bouc13b]</a>), and a smaller number of computing nodes might be used in the
+<a class="reference internal" href="../../bibliography/bibliography.html#bouc13b" id="id15">[Bouc13b]</a>), and a smaller number of computing nodes might be used in the
 less demanding modes (e.g., NGLAO).</p>
-<div class="figure" id="id12">
-<span id="ngsao-wfcs-deployment-diagram"></span><a class="reference internal image-reference" href="../../../_images/ngsao_wfcs_deployment_diagram.png"><img alt="../../../_images/ngsao_wfcs_deployment_diagram.png" src="../../../_images/ngsao_wfcs_deployment_diagram.png" style="width: 1484.0px; height: 717.0px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text">NGSAO wavefront control system deployment diagram</span></p>
+<div class="figure" id="ngsao-wfcs-deployment-diagram">
+<a class="reference internal image-reference" href="../../../_images/ngsao_wfcs_deployment_diagram.png"><img alt="../../../_images/ngsao_wfcs_deployment_diagram.png" src="../../../_images/ngsao_wfcs_deployment_diagram.png" style="width: 1484.0px; height: 717.0px;" /></a>
+<p class="caption">NGSAO wavefront control system deployment diagram</p>
 </div>
 </div></blockquote>
 <p><strong>Simulations</strong></p>
 <blockquote>
 <div>No complete simulations of the NGSAO wavefront control system with all of
 the control loops presented in this section have yet been performed.
-However, the fast NGSAO control loop (Loop A, see Section 8.8.1 <a class="reference internal" href="../../bibliography/bibliography.html#bouc13b" id="id8">[Bouc13b]</a>),
+However, the fast NGSAO control loop (Loop A, see Section 8.8.1 <a class="reference internal" href="../../bibliography/bibliography.html#bouc13b" id="id16">[Bouc13b]</a>),
 the edge sensor and Phasing Controller behavior (Loops C and D, see Section
 10.3.2.5.3.3), and the interaction between the active optics controller and
 NGSAO/LTAO on-axis wavefront compensation (Loop E) described in this section
 have been independently simulated. Active Optics Controller simulations can
-be found in Section 6.12.2.5 <a class="reference internal" href="../../bibliography/bibliography.html#john13" id="id9">[John13]</a>.</div></blockquote>
+be found in Section 6.12.2.5 <a class="reference internal" href="../../bibliography/bibliography.html#john13" id="id17">[John13]</a>.</div></blockquote>
 </div>
 
 

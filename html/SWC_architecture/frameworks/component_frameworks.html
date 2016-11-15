@@ -32,9 +32,6 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="GMT Software And Controls documentation" href="../../index.html"/>
         <link rel="up" title="Architecture and Design" href="../index.html"/>
         <link rel="next" title="6. Platform" href="../platform/platform.html"/>
@@ -97,7 +94,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../architecture/overall_architecture.html">2. Overall Architecture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tcs/tcs_introduction.html">3. Telescope Control System</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../services/observatory_services.html">4. Observatory Services</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">5. Frameworks</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="">5. Frameworks</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#domain-engineering">5.1. Domain Engineering</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#process">5.1.1. <em>Process</em></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#quantitative-results">5.1.2. <em>Quantitative Results</em></a></li>
@@ -163,7 +160,7 @@
         <div class="rst-content">
           
 
- 
+
 
 
 
@@ -280,8 +277,8 @@ categories and number of components in each SWCS subsystems. Where a large
 number of components of the same category has to be developed, a framework takes
 care of providing the implementation of a reference architecture and a set of
 common base components that are ready for use.</p>
-<table border="1" class="docutils" id="id18">
-<caption><span class="caption-number">Table 18 </span><span class="caption-text">Most Frequent Component Categories</span><a class="headerlink" href="#id18" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils">
+<caption>Most Frequent Component Categories</caption>
 <colgroup>
 <col width="50%" />
 <col width="23%" />
@@ -345,8 +342,8 @@ hardware device drivers. The implementation of a driver that allows
 communicating with EtherCAT I/O modules is included in the framework.</li>
 </ul>
 </div></blockquote>
-<table border="1" class="docutils" id="id19">
-<caption><span class="caption-number">Table 19 </span><span class="caption-text">Overview of Analysis Domains</span><a class="headerlink" href="#id19" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils">
+<caption>Overview of Analysis Domains</caption>
 <colgroup>
 <col width="26%" />
 <col width="27%" />
@@ -553,16 +550,16 @@ application components in the corresponding subsystem packages.</p>
 <span id="framework-code-generation"></span><h2>5.2. Framework Usage / Code Generation<a class="headerlink" href="#framework-usage-code-generation" title="Permalink to this headline">¶</a></h2>
 <p>GMT frameworks are intended to be extensible by specializing a set of base
 classes. A set of tools provides the capability to generate the skeleton of a
-component implementation from the specification of its interface.  <a class="reference internal" href="#figure-code-generation"><span class="std std-ref">The
-Figure below (Component Skeleton Generation)</span></a> shows the
+component implementation from the specification of its interface.  <a class="reference internal" href="#figure-code-generation"><em>The
+Figure below (Component Skeleton Generation)</em></a> shows the
 relation between generated skeletons and the GMT modeling framework.</p>
 <p>The skeleton generation tools are available for every layer of the modeling
 framework, i.e. they can generate the skeleton of a model element from the
 metamodel or generate the skeleton of a runtime component from the model
 specification.</p>
-<div class="figure" id="id20">
-<span id="figure-code-generation"></span><img alt="../../_images/component-skeleton-generation.png" src="../../_images/component-skeleton-generation.png" />
-<p class="caption"><span class="caption-number">Fig. 42 </span><span class="caption-text">Component Skeleton Generation.  The GMT modeling framework is based in the
+<div class="figure" id="figure-code-generation">
+<img alt="../../_images/component-skeleton-generation.png" src="../../_images/component-skeleton-generation.png" />
+<p class="caption">Component Skeleton Generation.  The GMT modeling framework is based in the
 <a class="reference external" href="http://www.omg.org/mof/">OMG Meta Object Facility specification</a>. The
 group on the left shows the main entities in the layered modeling
 architecture. A set of modular plugins allows one to generate skeletons and
@@ -570,12 +567,12 @@ instances from layer to layer. The gen_skeleton function (1) allows the
 generation of the skeleton of a model element. The gen_instance function (2)
 allows the capability to generate the skeleton of an instance of a model
 element. Instances are created in the next model layer and they inherit the
-behavior of some of the framework base classes.</span></p>
+behavior of some of the framework base classes.</p>
 </div>
 <p>The table below describes three common framework use cases and the functionality
 provided by the frameworks involved.</p>
-<table border="1" class="docutils" id="id21">
-<caption><span class="caption-number">Table 20 </span><span class="caption-text">Framework Typical Use Cases</span><a class="headerlink" href="#id21" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils">
+<caption>Framework Typical Use Cases</caption>
 <colgroup>
 <col width="18%" />
 <col width="21%" />
@@ -772,8 +769,8 @@ Metamodel class (MKlass). Instances of Components are used in the GMT SWCS Model
 to represent the concrete architecture of the system.  Components are used to
 represent the main elements of a system and the relations between them. A
 Component is specified and defined by a set of Features in the following Table:</p>
-<table border="1" class="docutils" id="id22">
-<caption><span class="caption-number">Table 21 </span><span class="caption-text">Component Features</span><a class="headerlink" href="#id22" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils">
+<caption>Component Features</caption>
 <colgroup>
 <col width="18%" />
 <col width="82%" />
@@ -884,18 +881,18 @@ Component is specified and defined by a set of Features in the following Table:<
 </tbody>
 </table>
 <p>The semantics of the Component Features (see example below for the
-<a class="reference internal" href="#code-property"><span class="std std-ref">Property</span></a> feature) are specified in Model Definition Files
+<a class="reference internal" href="#code-property"><em>Property</em></a> feature) are specified in Model Definition Files
 (MDF).  MDFs use the same syntax as the SDFs, but their intent is to define the
 concrete semantics of model elements. The Features of a Component define the
 component interface as they express the external view of the Component. See
-<a class="reference internal" href="../process/process_introduction.html#subsystem-specification-and-modeling"><span class="std std-ref">Subsystem Specification and Modeling</span></a> for a description of MDFs and SDFs.</p>
+<a class="reference internal" href="../process/process_introduction.html#subsystem-specification-and-modeling"><em>Subsystem Specification and Modeling</em></a> for a description of MDFs and SDFs.</p>
 <p>One of the essential aspects of components is that it provides a way to address
 <a class="reference external" href="http://en.wikipedia.org/wiki/Cross-cutting_concern">cross-cutting concerns</a>.
-The <a class="reference internal" href="../services/observatory_services.html#observatory-services"><span class="std std-ref">Observatory Services</span></a> is a <a class="reference internal" href="../architecture/overall_architecture.html#architecture-control-domains"><span class="std std-ref">domain</span></a> that interfaces multiple domains: Observatory
+The <a class="reference internal" href="../services/observatory_services.html#observatory-services"><em>Observatory Services</em></a> is a <a class="reference internal" href="../architecture/overall_architecture.html#architecture-control-domains"><em>domain</em></a> that interfaces multiple domains: Observatory
 Operations, Instrument Control System, Telescope Control System (see
-<a class="reference internal" href="../architecture/overall_architecture.html#figure-domains-of-control"><span class="std std-ref">Figure</span></a>).  There, the <em>BaseComponent</em> class
+<a class="reference internal" href="../architecture/overall_architecture.html#figure-domains-of-control"><em>Figure</em></a>).  There, the <em>BaseComponent</em> class
 addresses cross-cutting concerns by providing features to interface
-<a class="reference internal" href="../services/observatory_services.html#section-service-adapters"><span class="std std-ref">Service Adapters</span></a>.  When a new component extends
+<a class="reference internal" href="../services/observatory_services.html#section-service-adapters"><em>Service Adapters</em></a>.  When a new component extends
 the <em>BaseComponent</em> class it gains access to all the observatory services
 through a small set of inherited methods.</p>
 <div class="highlight-coffeescript" id="code-property"><div class="highlight"><pre><span></span><span class="nx">MKlass</span> <span class="s">&quot;Property&quot;</span><span class="p">,</span>
@@ -940,8 +937,8 @@ through a small set of inherited methods.</p>
 <blockquote>
 <div><p>The Core Framework supports different communication patterns, connection ports
 and transports. The following two tables provide an overview.</p>
-<table border="1" class="docutils" id="id23">
-<caption><span class="caption-number">Table 22 </span><span class="caption-text">Communication Pattern Overview</span><a class="headerlink" href="#id23" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils">
+<caption>Communication Pattern Overview</caption>
 <colgroup>
 <col width="28%" />
 <col width="72%" />
@@ -995,8 +992,8 @@ and transports. The following two tables provide an overview.</p>
 The table below shows how different features require different communication
 patterns and fault management or optimization strategies.  In the Table below,
 High Water Mark (HWM) is the size of he incoming or outgoing buffer.</p>
-<table border="1" class="docutils" id="id24">
-<caption><span class="caption-number">Table 23 </span><span class="caption-text">Communication Pattern:  Fault Management &amp; Optimization Strategies</span><a class="headerlink" href="#id24" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils">
+<caption>Communication Pattern:  Fault Management &amp; Optimization Strategies</caption>
 <colgroup>
 <col width="18%" />
 <col width="20%" />
@@ -1188,11 +1185,11 @@ software used or the transport protocol. The implementation of the framework
 is based on the ZeroMQ middleware. ZeroMQ does not include a serialization
 mechanism; this provides the flexibility to use different serialization
 formats depending on the use case (e.g., <a class="reference external" href="http://en.wikipedia.org/wiki/Protocol_Buffers">ProtocolBuffers</a>, <a class="reference external" href="http://en.wikipedia.org/wiki/MessagePack">MessagePack</a>, raw bytes, JSON, hdf5). The
-Section on <a class="reference internal" href="../platform/platform.html#platform"><span class="std std-ref">Platform</span></a> provides an overview of the ZeroMQ middleware. The
+Section on <a class="reference internal" href="../platform/platform.html#platform"><em>Platform</em></a> provides an overview of the ZeroMQ middleware. The
 table below describes several communication patterns implemented by means of
 several socket types, based on ZeroMQ Socket Types.</p>
-<table border="1" class="docutils" id="id25">
-<caption><span class="caption-number">Table 24 </span><span class="caption-text">Communication Pattern Implementation:  Socket Types</span><a class="headerlink" href="#id25" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils">
+<caption>Communication Pattern Implementation:  Socket Types</caption>
 <colgroup>
 <col width="19%" />
 <col width="81%" />
@@ -1352,8 +1349,8 @@ several socket types, based on ZeroMQ Socket Types.</p>
 multicast and has a small memory footprint, making it a good candidate to be
 used as a concurrency framework.</p>
 <p>The Table below gives an overview of available communication transports.</p>
-<table border="1" class="docutils" id="id26">
-<caption><span class="caption-number">Table 25 </span><span class="caption-text">Available Communication Transports</span><a class="headerlink" href="#id26" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils">
+<caption>Available Communication Transports</caption>
 <colgroup>
 <col width="17%" />
 <col width="83%" />
@@ -1385,7 +1382,7 @@ used as a concurrency framework.</p>
 <span id="id9"></span><h2>5.4. Device Control Framework<a class="headerlink" href="#device-control-framework" title="Permalink to this headline">¶</a></h2>
 <p>Device control subsystems (e.g., primary mirror control system, ASM control
 system) command mechanical degrees of freedom or read optical and other sensors.
-The Section on <a class="reference internal" href="../tcs/tcs_introduction.html#tcs-subsystems"><span class="std std-ref">TCS Subsystems</span></a> presents a list of the
+The Section on <a class="reference internal" href="../tcs/tcs_introduction.html#tcs-subsystems"><em>TCS Subsystems</em></a> presents a list of the
 most significant device control subsystems in the TCS. Their degrees of freedom
 are represented by a set of state variables, which define the observed and
 desired state of the system and are often updated in an arrangement of nested
@@ -1415,9 +1412,9 @@ In this case, the development of specific software run on high performance
 computing hardware may be necessary (e.g., wavefront control).</li>
 </ul>
 </div></blockquote>
-<div class="figure" id="id27">
+<div class="figure">
 <img alt="../../_images/control-loop.png" src="../../_images/control-loop.png" />
-<p class="caption"><span class="caption-number">Fig. 43 </span><span class="caption-text">General Scheme of a Control Loop Implementation</span></p>
+<p class="caption">General Scheme of a Control Loop Implementation</p>
 </div>
 <p>Although the principal function of a Device Control Subsystem is the control of
 hardware devices, an efficient and robust operation requires the development of
@@ -1453,15 +1450,15 @@ states addresses the distributed nature of the component and its life cycle
 management.  The Figure below shows the Controller state machine.  Only the
 description of each state is shown.  Details about entry actions, transitions
 and activities are omitted in this diagram.</p>
-<div class="figure" id="id28">
+<div class="figure">
 <img alt="../../_images/controller-state-machine.png" src="../../_images/controller-state-machine.png" />
-<p class="caption"><span class="caption-number">Fig. 44 </span><span class="caption-text">Controller State Machine</span></p>
+<p class="caption">Controller State Machine</p>
 </div>
 <p>The table below provides the specification of the Controller state machine.  The
 specification defines what actions to implement in every state or transition,
 however in some of the states each Controller implements its own specific logic.</p>
-<table border="1" class="docutils" id="id29">
-<caption><span class="caption-number">Table 26 </span><span class="caption-text">Component State Machine Specification</span><a class="headerlink" href="#id29" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils">
+<caption>Component State Machine Specification</caption>
 <colgroup>
 <col width="17%" />
 <col width="83%" />
@@ -1668,14 +1665,14 @@ fault management and tolerance)</li>
 <h3>5.4.3. <em>Device Controller Library</em><a class="headerlink" href="#device-controller-library" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><p>Based on the analysis of the degrees of freedom of the telescope (see
-<a class="reference internal" href="../tcs/tcs_introduction.html#tcs-degrees-of-freedom"><span class="std std-ref">TCS degrees of freedom</span></a>), a set of common device
+<a class="reference internal" href="../tcs/tcs_introduction.html#tcs-degrees-of-freedom"><em>TCS degrees of freedom</em></a>), a set of common device
 control cases have been identified. These cases are based on the motion
 profiles defined in the IEC 61800-7-201 standard <a class="reference internal" href="../bibliography/bibliography.html#iec61800-7-201" id="id11">[IEC61800-7-201]</a>.  The
 framework provides a set of Components that implement those cases. The Figure
 below shows the Controller class hierarchy.</p>
-<div class="figure" id="id30">
+<div class="figure">
 <img alt="../../_images/device-controller-class-hierarchy.png" src="../../_images/device-controller-class-hierarchy.png" />
-<p class="caption"><span class="caption-number">Fig. 45 </span><span class="caption-text">Device Controller Class Hierarchy</span></p>
+<p class="caption">Device Controller Class Hierarchy</p>
 </div>
 </div></blockquote>
 </div>
@@ -1691,7 +1688,7 @@ code skeletons and configurations used by the implementation.</p>
 <p>The mapping between process image and controller features is completely
 independent of the protocol used to access the hardware. IOModule adapters
 provide independence from the specific fieldbus (the Section on
-<a class="reference internal" href="#io-framework"><span class="std std-ref">I/O Framework</span></a> describes how the I/O Framework supports this process).
+<a class="reference internal" href="#io-framework"><em>I/O Framework</em></a> describes how the I/O Framework supports this process).
 The code-block below presents an example of the deployment specification of a
 Device Control Subsystem:</p>
 <div class="highlight-coffeescript"><div class="highlight"><pre><span></span><span class="nx">Host</span> <span class="s">&quot;agws_dcc&quot;</span><span class="p">,</span>
@@ -1714,11 +1711,11 @@ Device Control Subsystem:</p>
         <span class="nv">port: </span> <span class="nx">gmt</span><span class="p">.</span><span class="nx">agws_dcc</span><span class="p">.</span><span class="nx">ecat</span><span class="p">.</span><span class="nx">EL1011</span><span class="p">.</span><span class="nx">X001</span>
 </pre></div>
 </div>
-<div class="figure" id="id31">
+<div class="figure">
 <img alt="../../_images/device-control-subsystem-deployment.png" src="../../_images/device-control-subsystem-deployment.png" />
-<p class="caption"><span class="caption-number">Fig. 46 </span><span class="caption-text">Device Control Subsystem Deployment.  Controllers (e.g., <em>agws_arm1_ctrl</em>) are
+<p class="caption">Device Control Subsystem Deployment.  Controllers (e.g., <em>agws_arm1_ctrl</em>) are
 deployed in Device Control Computers (<em>agws_cs_dcc</em>) in the control room
-electronic cabinets.</span></p>
+electronic cabinets.</p>
 </div>
 </div></blockquote>
 </div>
@@ -1746,8 +1743,8 @@ observation.</li>
 </ul>
 </div></blockquote>
 <p>The table below shows the data persistence strategies:</p>
-<table border="1" class="docutils" id="id32">
-<caption><span class="caption-number">Table 27 </span><span class="caption-text">Data Persistence Strategies</span><a class="headerlink" href="#id32" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils">
+<caption>Data Persistence Strategies</caption>
 <colgroup>
 <col width="26%" />
 <col width="28%" />
@@ -1934,8 +1931,8 @@ goal of this approach is to reach a balance between the uniform operation and
 maintenance of the observatory and the cost of developing new pipelines that are
 successors of existing ones.</p>
 <p>The table below provides a definition of the main DPF components:</p>
-<table border="1" class="docutils" id="id33">
-<caption><span class="caption-number">Table 28 </span><span class="caption-text">Data Processing Framework Component Description</span><a class="headerlink" href="#id33" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils">
+<caption>Data Processing Framework Component Description</caption>
 <colgroup>
 <col width="21%" />
 <col width="79%" />
@@ -2009,9 +2006,9 @@ successors of existing ones.</p>
 </table>
 <p>The Figure below shows the DPF in the context of the definition of an
 observation.</p>
-<div class="figure" id="id34">
+<div class="figure">
 <img alt="../../_images/data-processing-framework-components.png" src="../../_images/data-processing-framework-components.png" />
-<p class="caption"><span class="caption-number">Fig. 47 </span><span class="caption-text">Data Processing Framework Components</span></p>
+<p class="caption">Data Processing Framework Components</p>
 </div>
 <p>Each Pipeline is specified by a set of SDFs that defines the interface of the
 Filters and Recipes components making up a pipeline. This interface enables the
@@ -2096,8 +2093,8 @@ and is thus transparent to users or applications using standard calls.</p>
 (user interface graphic elements) and Panels. Widgets and Panels are the
 building blocks used to construct the GMT user interfaces. The Table below provides
 a list of some of these components, based on <a class="reference external" href="http://d3js.org">d3.js</a>.</p>
-<table border="1" class="docutils" id="id35">
-<caption><span class="caption-number">Table 29 </span><span class="caption-text">Widget Description</span><a class="headerlink" href="#id35" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils">
+<caption>Widget Description</caption>
 <colgroup>
 <col width="23%" />
 <col width="77%" />
@@ -2298,16 +2295,16 @@ shows the main operation displays, which follow this principle.</p>
 <p>The Figure below shows an example of the design of a widget according to these
 principles. A detailed description of all the widgets is out of the scope of
 this document.</p>
-<div class="figure" id="id36">
+<div class="figure">
 <img alt="../../_images/engineering-scalar-widget-example.png" src="../../_images/engineering-scalar-widget-example.png" />
-<p class="caption"><span class="caption-number">Fig. 48 </span><span class="caption-text">Scalar Widget Design</span></p>
+<p class="caption">Scalar Widget Design</p>
 </div>
 </div>
 <div class="section" id="i-o-framework">
 <span id="io-framework"></span><h2>5.9. I/O Framework<a class="headerlink" href="#i-o-framework" title="Permalink to this headline">¶</a></h2>
 <p>The I/O Framework (IOF) provides the infrastructure to develop observatory
 compliant Device Controllers based on EtherCAT technology. The Section on
-<a class="reference internal" href="../platform/platform.html#field-device-interface"><span class="std std-ref">Field Device Interface Technology</span></a> provides a more detailed description of EtherCAT.
+<a class="reference internal" href="../platform/platform.html#field-device-interface"><em>Field Device Interface Technology</em></a> provides a more detailed description of EtherCAT.
 The IOF provides the following capabilities:</p>
 <blockquote>
 <div><ul class="simple">
@@ -2327,20 +2324,20 @@ all the steps of the development process.</li>
 <blockquote>
 <div><p>A <em>Device</em> is a real world, physical entity representing the system under
 control.  A <em>device controller</em> is a standard software component (see the
-<a class="reference internal" href="#device-control-framework"><span class="std std-ref">following section</span></a>). The device controller
+<a class="reference internal" href="#device-control-framework"><em>following section</em></a>). The device controller
 relays input and output signals to control hardware devices.  An <em>IOModule</em> is
 a hardware independent representation of an I/O module terminal whereas the
 <em>IOModuleDriver</em> provides the hardware dependent implementation, e.g., due to
 vendor specific electronics implementation. An IO module terminal is a
 real-world electronics component built into a hardware device assembly.</p>
-<div class="figure" id="id37">
+<div class="figure">
 <img alt="../../_images/framework-overview.png" src="../../_images/framework-overview.png" />
-<p class="caption"><span class="caption-number">Fig. 49 </span><span class="caption-text">Framework Overview</span></p>
+<p class="caption">Framework Overview</p>
 </div>
 <p>While particular hardware assemblies may rely on highly specialized controllers
 (e.g., cameras, deformable mirrors) a substantial number of hardware assemblies
 can be identified in the telescope design that rely on a limited set of
-fundamental generic <a class="reference internal" href="../tcs/tcs_introduction.html#tcs-degrees-of-freedom"><span class="std std-ref">building blocks</span></a>. These
+fundamental generic <a class="reference internal" href="../tcs/tcs_introduction.html#tcs-degrees-of-freedom"><em>building blocks</em></a>. These
 primitive I/O modules can be grouped into generic families:</p>
 <blockquote>
 <div><ul class="simple">
@@ -2370,7 +2367,7 @@ can be interfaced using the same architecture.</p>
 <div><p><strong>EtherCAT Master</strong></p>
 <blockquote>
 <div><p>The principles of EtherCAT fieldbus communication are presented in more
-details in Section on <a class="reference internal" href="../platform/platform.html#field-device-interface"><span class="std std-ref">Field Device Interface Technology</span></a>. The EtherCAT technology
+details in Section on <a class="reference internal" href="../platform/platform.html#field-device-interface"><em>Field Device Interface Technology</em></a>. The EtherCAT technology
 group (ETG) provides an ANSI-C reference implementation for EtherCAT master.
 The GMT I/O Framework relies on third party software to provide this
 communication layer. Different commercial and open-source implementations
@@ -2451,52 +2448,12 @@ of memory. The I/O framework generates a mapping of the PDO map to different
 target programing languages, currently C/C++ and Python.</p>
 <p>The following code blocks below together show an example of an I/O Module PDO
 Mapping in C/C++ and Python:</p>
-<div class="literal-block-wrapper container" id="id38">
-<div class="code-block-caption"><span class="caption-number">Listing 2 </span><span class="caption-text">I/O Module PDO Mapping (C/C++)</span><a class="headerlink" href="#id38" title="Permalink to this code">¶</a></div>
-<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">bh_el7041_00130000_sm3</span> <span class="p">{</span>
-    <span class="kt">uint8_t</span> <span class="nl">x1a01_6000_01</span> <span class="p">:</span><span class="mi">1</span><span class="p">;</span> <span class="c1">// (ro) ENC Status - Status__Latch C valid</span>
-    <span class="kt">uint8_t</span> <span class="nl">x1a01_6000_02</span> <span class="p">:</span><span class="mi">1</span><span class="p">;</span> <span class="c1">// (ro) ENC Status - Status__Latch extern valid</span>
-    <span class="kt">uint8_t</span> <span class="nl">x1a01_6000_03</span> <span class="p">:</span><span class="mi">1</span><span class="p">;</span> <span class="c1">// (ro) ENC Status - Status__Set counter done</span>
-    <span class="kt">uint8_t</span> <span class="nl">x1a01_6000_04</span> <span class="p">:</span><span class="mi">1</span><span class="p">;</span> <span class="c1">// (ro) ENC Status - Status__Counter underflow</span>
-    <span class="kt">uint8_t</span> <span class="nl">x1a01_6000_05</span> <span class="p">:</span><span class="mi">1</span><span class="p">;</span> <span class="c1">// (ro) ENC Status - Status__Counter overflow</span>
-    <span class="nl">uint8_t</span> <span class="p">:</span><span class="mi">2</span><span class="p">;</span>
-    <span class="kt">uint8_t</span> <span class="nl">x1a01_6000_08</span> <span class="p">:</span><span class="mi">1</span><span class="p">;</span> <span class="c1">// (ro) ENC Status - Status__Extrapolation stall</span>
-    <span class="kt">uint8_t</span> <span class="nl">x1a01_6000_09</span> <span class="p">:</span><span class="mi">1</span><span class="p">;</span> <span class="c1">// (ro) ENC Status - Status__Status of input A</span>
-    <span class="p">...</span>
-    <span class="kt">uint32_t</span> <span class="n">x1a06_6020_11</span><span class="p">;</span>   <span class="c1">// (ro) POS Status - Actual position</span>
-    <span class="kt">int16_t</span> <span class="n">x1a06_6020_21</span><span class="p">;</span>    <span class="c1">// (ro) POS Status - Actual velocity</span>
-    <span class="kt">uint32_t</span> <span class="n">x1a06_6020_22</span><span class="p">;</span>   <span class="c1">// (ro) POS Status - Actual drive time</span>
-<span class="p">}</span> <span class="n">__attribute__</span> <span class="p">((</span><span class="n">packed</span><span class="p">));</span>
-</pre></div>
-</div>
-</div>
-<div class="literal-block-wrapper container" id="id39">
-<div class="code-block-caption"><span class="caption-number">Listing 3 </span><span class="caption-text">I/O Module PDO Mapping (Python)</span><a class="headerlink" href="#id39" title="Permalink to this code">¶</a></div>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">bh_el7041_00130000_sm3</span> <span class="p">(</span><span class="n">Structure</span><span class="p">)</span> <span class="p">:</span>
-  <span class="n">_pack_</span> <span class="o">=</span> <span class="mi">1</span>
-  <span class="n">_fields_</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">(</span><span class="s1">&#39;x1a01_6000_01&#39;</span><span class="p">,</span> <span class="n">c_uint8</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="c1"># (ro) ENC Status - Status__Latch C valid</span>
-    <span class="p">(</span><span class="s1">&#39;x1a01_6000_02&#39;</span><span class="p">,</span> <span class="n">c_uint8</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="c1"># (ro) ENC Status - Status__Latch extern valid</span>
-    <span class="p">(</span><span class="s1">&#39;x1a01_6000_03&#39;</span><span class="p">,</span> <span class="n">c_uint8</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="c1"># (ro) ENC Status - Status__Set counter done</span>
-    <span class="p">(</span><span class="s1">&#39;x1a01_6000_04&#39;</span><span class="p">,</span> <span class="n">c_uint8</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="c1"># (ro) ENC Status - Status__Counter underflow</span>
-    <span class="p">(</span><span class="s1">&#39;x1a01_6000_05&#39;</span><span class="p">,</span> <span class="n">c_uint8</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="c1"># (ro) ENC Status - Status__Counter overflow</span>
-    <span class="p">(</span><span class="s1">&#39;_________pad0&#39;</span><span class="p">,</span> <span class="n">c_uint8</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;x1a01_6000_08&#39;</span><span class="p">,</span> <span class="n">c_uint8</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="c1"># (ro) ENC Status - Status__Extrapolation stall</span>
-    <span class="p">(</span><span class="s1">&#39;x1a01_6000_09&#39;</span><span class="p">,</span> <span class="n">c_uint8</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="c1"># (ro) ENC Status - Status__Status of input A</span>
-    <span class="o">...</span>
-    <span class="p">(</span><span class="s1">&#39;x1a06_6020_11&#39;</span><span class="p">,</span> <span class="n">c_uint32</span><span class="p">),</span>   <span class="c1"># (ro) POS Status - Actual position</span>
-    <span class="p">(</span><span class="s1">&#39;x1a06_6020_21&#39;</span><span class="p">,</span> <span class="n">c_int16</span><span class="p">),</span>    <span class="c1"># (ro) POS Status - Actual velocity</span>
-    <span class="p">(</span><span class="s1">&#39;x1a06_6020_22&#39;</span><span class="p">,</span> <span class="n">c_uint32</span><span class="p">),</span>   <span class="c1"># (ro) POS Status - Actual drive time</span>
-  <span class="p">]</span>
-</pre></div>
-</div>
-</div>
 </div></blockquote>
 <p>Once registered to the ECM Driver, each <em>IOModule</em> instance exposes status
 information and its PDO mapping via the sysfs file system.</p>
 <p>The Table below shows an ECG I/O Module sysfs (EL7041 at position 10):</p>
-<table border="1" class="docutils" id="id40">
-<caption><span class="caption-number">Table 30 </span><span class="caption-text">ECG I/O Module <em>sysfs</em> (EL7041 at position 10)</span><a class="headerlink" href="#id40" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils">
+<caption>ECG I/O Module <em>sysfs</em> (EL7041 at position 10)</caption>
 <colgroup>
 <col width="38%" />
 <col width="11%" />
@@ -2617,8 +2574,8 @@ Master, each ECG Domain instance exposes status information and its fraction
 of the process image via the sysfs file system.</p>
 <p>The Table below shows an example of the Process Map sysfs:</p>
 </div></blockquote>
-<table border="1" class="docutils" id="id41">
-<caption><span class="caption-number">Table 31 </span><span class="caption-text">Process Map <em>sysfs</em></span><a class="headerlink" href="#id41" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils">
+<caption>Process Map <em>sysfs</em></caption>
 <colgroup>
 <col width="30%" />
 <col width="12%" />
