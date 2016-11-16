@@ -98,22 +98,22 @@ categories that the QMS oversees the management of:
     via visualization displays that summarize the status of various subsystems.
     The QMS, however, can access data telemetry (data that are time-stamped)
     from subsystems indicating the overall states of their devices and
-    components.  Different types of data processing (Section 10.3.3.11) are
-    involved in monitoring telemetry. Most information deemed healthy will
-    simply be recorded into archive without further processing. For time
-    variable and operationally useful or sensitive data such as telemetry for
-    telescope pointing, device temperature, wind speed, seeing profile, etc.,
-    the data will be further processed or analyzed to produce visualization or
-    other useful information.  The QMS may then compare the results against
-    nominal baselines or trajectories that are established for each device or
-    for the observatory. Information on wind gust and direction may, for
-    example, be integrated graphically into the observational situation
-    awareness display (Figure 10-46). In unusual situations, large drifts in
-    telescope pointing over time may trigger warnings that get logged for
-    further analysis by the daytime engineering crew. The discovery by the
-    monitoring software that guiding corrections need to be made may trigger
-    warnings to update the telescope pointing model, and allow for temporary
-    adjustments.
+    components.  Different types of data processing
+    (:ref:`data_processing_system`) are involved in monitoring telemetry. Most
+    information deemed healthy will simply be recorded into archive without
+    further processing. For time variable and operationally useful or sensitive
+    data such as telemetry for telescope pointing, device temperature, wind
+    speed, seeing profile, etc., the data will be further processed or analyzed
+    to produce visualization or other useful information.  The QMS may then
+    compare the results against nominal baselines or trajectories that are
+    established for each device or for the observatory. Information on wind gust
+    and direction may, for example, be integrated graphically into the
+    observational situation awareness display (:numref:`Figure %s
+    <all_sky_camera>`). In unusual situations, large drifts in telescope
+    pointing over time may trigger warnings that get logged for further analysis
+    by the daytime engineering crew. The discovery by the monitoring software
+    that guiding corrections need to be made may trigger warnings to update the
+    telescope pointing model, and allow for temporary adjustments.
 
     In normal circumstances, monitoring results are time stamped and stored into
     the database for future reference. However, in critical circumstances, the
