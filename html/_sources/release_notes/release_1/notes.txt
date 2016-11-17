@@ -3,6 +3,11 @@
 Release 1
 =========
 
+Contents of the release 1.1
+---------------------------
+
+- Miscellaneous fixes and improvements. Follow the :ref:`upgrade procedure <upgrade>`.
+
 Contents of the release 1.0
 ---------------------------
 
