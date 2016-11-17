@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4. Developer Info and Release Configuration &mdash; GMT Software And Controls documentation</title>
+  <title>5. Developer Info and Release Configuration &mdash; GMT Software And Controls documentation</title>
   
 
   
@@ -32,10 +32,13 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="GMT Software And Controls documentation" href="../index.html"/>
         <link rel="up" title="Software Development" href="index.html"/>
-        <link rel="next" title="5. Using the Services" href="services.html"/>
-        <link rel="prev" title="3.5.8. module.mk" href="development/codegen/isample_dcs/isample_ctrl_pkg/isample_hw_adapter/docs/module.html"/> 
+        <link rel="next" title="6. Using the Services" href="services.html"/>
+        <link rel="prev" title="4.3.5.8. module.mk" href="development/codegen/isample_dcs/isample_ctrl_pkg/isample_hw_adapter/docs/module.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -66,7 +69,7 @@
             
             
               <div class="version">
-                1.0
+                1.1
               </div>
             
           
@@ -93,19 +96,20 @@
 <li class="toctree-l1"><a class="reference internal" href="../SWC_standards/index.html">Software and Controls Standards</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Software Development</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installation.html">1. Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="isample_example.html">2. ISample Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="development.html">3. DCS Development</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">4. Developer Info and Release Configuration</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#services-configuration">4.1. Services Configuration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#databases-and-logs">4.2. Databases and Logs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#firewall-and-network-ports">4.3. Firewall and Network Ports</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#uris-and-urls">4.4. URIs and URLs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#environment-vars">4.5. Environment vars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrade.html">2. Upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="isample_example.html">3. ISample Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html">4. DCS Development</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">5. Developer Info and Release Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#services-configuration">5.1. Services Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#databases-and-logs">5.2. Databases and Logs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#firewall-and-network-ports">5.3. Firewall and Network Ports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#uris-and-urls">5.4. URIs and URLs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#environment-vars">5.5. Environment vars</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="services.html">5. Using the Services</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples.html">6. Running Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contribute.html">7. Contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html">6. Using the Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html">7. Running Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html">8. Contribute</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../data_products/index.html">Data Products</a></li>
@@ -132,7 +136,7 @@
         <div class="rst-content">
           
 
-
+ 
 
 
 
@@ -142,7 +146,7 @@
       
           <li><a href="index.html">Software Development</a> &raquo;</li>
       
-    <li>4. Developer Info and Release Configuration</li>
+    <li>5. Developer Info and Release Configuration</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -155,7 +159,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="developer-info-and-release-configuration">
-<h1>4. Developer Info and Release Configuration<a class="headerlink" href="#developer-info-and-release-configuration" title="Permalink to this headline">¶</a></h1>
+<h1>5. Developer Info and Release Configuration<a class="headerlink" href="#developer-info-and-release-configuration" title="Permalink to this headline">¶</a></h1>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">If the installation is done via the USB drive, one can bypass the manual setup
@@ -177,7 +181,7 @@ and telemetry, are essential for controlling hardware and software.  The logging
 service uses <em>mongoDB</em> as the backend database, with each service having its
 own, independent, database.</p>
 <div class="section" id="services-configuration">
-<h2>4.1. Services Configuration<a class="headerlink" href="#services-configuration" title="Permalink to this headline">¶</a></h2>
+<h2>5.1. Services Configuration<a class="headerlink" href="#services-configuration" title="Permalink to this headline">¶</a></h2>
 <p>Currently we use only one unique server per service. Each server is a distributed component with the following ports:</p>
 <ul class="simple">
 <li>one port to receive data (logs, monitored values, etc) from external distributed components</li>
@@ -187,29 +191,29 @@ own, independent, database.</p>
 </ul>
 <p>Also, each service has an internal schedule to perform periodic checks or other tasks at certain rates.
 This is the configuration:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>log_server_1:
-    name      : &#39;log_server_1&#39;
-    rate      : 600000                                   # periodic loop rate to perform checks, stats, etc.
-    url       : &#39;tcp://127.0.0.1:9998&#39;                   # to receive log messages from components
-    pub_url   : &#39;tcp://127.0.0.1:9995&#39;                   # to publish logs to subscribers
-    query_url : &#39;tcp://127.0.0.1:9994&#39;                   # to receive querys from clients
-    db_url    : &#39;mongodb://127.0.0.1:27017/gmt_test_logs_1&#39; # db to store log messages
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">log_server_1</span><span class="p">:</span>
+    <span class="n">name</span>      <span class="p">:</span> <span class="s1">&#39;log_server_1&#39;</span>
+    <span class="n">rate</span>      <span class="p">:</span> <span class="mi">600000</span>                                   <span class="c1"># periodic loop rate to perform checks, stats, etc.</span>
+    <span class="n">url</span>       <span class="p">:</span> <span class="s1">&#39;tcp://127.0.0.1:9998&#39;</span>                   <span class="c1"># to receive log messages from components</span>
+    <span class="n">pub_url</span>   <span class="p">:</span> <span class="s1">&#39;tcp://127.0.0.1:9995&#39;</span>                   <span class="c1"># to publish logs to subscribers</span>
+    <span class="n">query_url</span> <span class="p">:</span> <span class="s1">&#39;tcp://127.0.0.1:9994&#39;</span>                   <span class="c1"># to receive querys from clients</span>
+    <span class="n">db_url</span>    <span class="p">:</span> <span class="s1">&#39;mongodb://127.0.0.1:27017/gmt_test_logs_1&#39;</span> <span class="c1"># db to store log messages</span>
 </pre></div>
 </div>
 <p>Note: The <em>pub_url</em> value shall be the same used in the GMT_LOG_URL environment var.
 This variable is only required for the C++ components.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>telemetry_server_1:
-    name      : &#39;telemetry_server_1&#39;
-    rate      : 600000                                   # periodic loop rate to perform checks, stats, etc.
-    url       : &#39;tcp://127.0.0.1:9997&#39;                   # to receive monitored values from components
-    pub_url   : &#39;tcp://127.0.0.1:9993&#39;                   # to publish monitors to subscribers
-    query_url : &#39;tcp://127.0.0.1:9992&#39;                   # to receive queries from clients
-    db_url    : &#39;mongodb://127.0.0.1:27017/gmt_test_telemetry_1&#39; # db to store monitors
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">telemetry_server_1</span><span class="p">:</span>
+    <span class="n">name</span>      <span class="p">:</span> <span class="s1">&#39;telemetry_server_1&#39;</span>
+    <span class="n">rate</span>      <span class="p">:</span> <span class="mi">600000</span>                                   <span class="c1"># periodic loop rate to perform checks, stats, etc.</span>
+    <span class="n">url</span>       <span class="p">:</span> <span class="s1">&#39;tcp://127.0.0.1:9997&#39;</span>                   <span class="c1"># to receive monitored values from components</span>
+    <span class="n">pub_url</span>   <span class="p">:</span> <span class="s1">&#39;tcp://127.0.0.1:9993&#39;</span>                   <span class="c1"># to publish monitors to subscribers</span>
+    <span class="n">query_url</span> <span class="p">:</span> <span class="s1">&#39;tcp://127.0.0.1:9992&#39;</span>                   <span class="c1"># to receive queries from clients</span>
+    <span class="n">db_url</span>    <span class="p">:</span> <span class="s1">&#39;mongodb://127.0.0.1:27017/gmt_test_telemetry_1&#39;</span> <span class="c1"># db to store monitors</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="databases-and-logs">
-<h2>4.2. Databases and Logs<a class="headerlink" href="#databases-and-logs" title="Permalink to this headline">¶</a></h2>
+<h2>5.2. Databases and Logs<a class="headerlink" href="#databases-and-logs" title="Permalink to this headline">¶</a></h2>
 <p>The Data Archive uses <em>mongoDB</em> as backend data base. Each service keeps and
 independent database.</p>
 <p>Each service daemon stores output and error messages on <cite>${GMT_ROOT}/var/log</cite>.  Please
@@ -217,36 +221,36 @@ check these files if services failed to start or an error is shown while
 checking their status</p>
 </div>
 <div class="section" id="firewall-and-network-ports">
-<h2>4.3. Firewall and Network Ports<a class="headerlink" href="#firewall-and-network-ports" title="Permalink to this headline">¶</a></h2>
+<h2>5.3. Firewall and Network Ports<a class="headerlink" href="#firewall-and-network-ports" title="Permalink to this headline">¶</a></h2>
 <p>The GMT software is networked system. The following instructions assume that the
 used ports are open for tcp/udp communications.  With root/admin permissions
 it&#8217;s possible to disable the whole firewall or specific ports can be open like
 this:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>$ sudo firewall-cmd --add-port=$PORT/tcp --permanent --zone=public
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ sudo firewall-cmd --add-port=$PORT/tcp --permanent --zone=public
 $ sudo firewall-cmd --add-port=$PORT/udp --permanent --zone=public
 </pre></div>
 </div>
 </div>
 <div class="section" id="uris-and-urls">
-<h2>4.4. URIs and URLs<a class="headerlink" href="#uris-and-urls" title="Permalink to this headline">¶</a></h2>
+<h2>5.4. URIs and URLs<a class="headerlink" href="#uris-and-urls" title="Permalink to this headline">¶</a></h2>
 <p>GMT Components use an unique URI in the following scheme</p>
 <blockquote>
-<div><em>Usage:</em> <tt class="docutils literal"><span class="pre">gmt://subsystem/component:port</span></tt></div></blockquote>
+<div><em>Usage:</em> <code class="docutils literal"><span class="pre">gmt://subsystem/component:port</span></code></div></blockquote>
 <p>The port number is used to send the component setup (rates, ports, etc).
 Example:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>gmt://examples/basic_controller:8001
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">gmt</span><span class="p">:</span><span class="o">//</span><span class="n">examples</span><span class="o">/</span><span class="n">basic_controller</span><span class="p">:</span><span class="mi">8001</span>
 </pre></div>
 </div>
 <p>GMT Ports have an url using the <em>nanomsg</em> scheme:</p>
 <blockquote>
-<div><em>Usage:</em> <tt class="docutils literal"><span class="pre">transport://host:net_port</span></tt></div></blockquote>
+<div><em>Usage:</em> <code class="docutils literal"><span class="pre">transport://host:net_port</span></code></div></blockquote>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>tcp://127.0.0.1:9001
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">tcp</span><span class="p">:</span><span class="o">//</span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="p">:</span><span class="mi">9001</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="environment-vars">
-<h2>4.5. Environment vars<a class="headerlink" href="#environment-vars" title="Permalink to this headline">¶</a></h2>
+<h2>5.5. Environment vars<a class="headerlink" href="#environment-vars" title="Permalink to this headline">¶</a></h2>
 <p>Some UNIX environment variables are required and they should be automatically applied. See this file:</p>
 <blockquote>
 <div><cite>${GMT_ROOT}/etc/gmt_env_vars</cite></div></blockquote>
@@ -260,10 +264,10 @@ Example:</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="services.html" class="btn btn-neutral float-right" title="5. Using the Services" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="services.html" class="btn btn-neutral float-right" title="6. Using the Services" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="development/codegen/isample_dcs/isample_ctrl_pkg/isample_hw_adapter/docs/module.html" class="btn btn-neutral" title="3.5.8. module.mk" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="development/codegen/isample_dcs/isample_ctrl_pkg/isample_hw_adapter/docs/module.html" class="btn btn-neutral" title="4.3.5.8. module.mk" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -294,7 +298,7 @@ Example:</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'1.0-rc1',
+            VERSION:'1.1-5',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

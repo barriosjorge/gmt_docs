@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>6. Running Examples &mdash; GMT Software And Controls documentation</title>
+  <title>7. Running Examples &mdash; GMT Software And Controls documentation</title>
   
 
   
@@ -32,10 +32,13 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="GMT Software And Controls documentation" href="../index.html"/>
         <link rel="up" title="Software Development" href="index.html"/>
-        <link rel="next" title="7. Contribute" href="contribute.html"/>
-        <link rel="prev" title="5. Using the Services" href="services.html"/> 
+        <link rel="next" title="8. Contribute" href="contribute.html"/>
+        <link rel="prev" title="6. Using the Services" href="services.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -66,7 +69,7 @@
             
             
               <div class="version">
-                1.0
+                1.1
               </div>
             
           
@@ -93,21 +96,22 @@
 <li class="toctree-l1"><a class="reference internal" href="../SWC_standards/index.html">Software and Controls Standards</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Software Development</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installation.html">1. Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="isample_example.html">2. ISample Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="development.html">3. DCS Development</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html">4. Developer Info and Release Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="services.html">5. Using the Services</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">6. Running Examples</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#gmt-components">6.1. GMT Components</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#connecting-components">6.2. Connecting Components</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#running-the-example-components">6.3. Running the example components</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#setup-components-and-ports">6.4. Setup Components and Ports</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#controllers-example">6.5. Controllers Example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#check-monitored-values">6.6. Check Monitored Values</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#send-a-command-to-a-controller">6.7. Send a Command to a Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrade.html">2. Upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="isample_example.html">3. ISample Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html">4. DCS Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">5. Developer Info and Release Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html">6. Using the Services</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">7. Running Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gmt-components">7.1. GMT Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connecting-components">7.2. Connecting Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-the-example-components">7.3. Running the example components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setup-components-and-ports">7.4. Setup Components and Ports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#controllers-example">7.5. Controllers Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#check-monitored-values">7.6. Check Monitored Values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#send-a-command-to-a-controller">7.7. Send a Command to a Controller</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="contribute.html">7. Contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html">8. Contribute</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../data_products/index.html">Data Products</a></li>
@@ -134,7 +138,7 @@
         <div class="rst-content">
           
 
-
+ 
 
 
 
@@ -144,7 +148,7 @@
       
           <li><a href="index.html">Software Development</a> &raquo;</li>
       
-    <li>6. Running Examples</li>
+    <li>7. Running Examples</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -157,9 +161,9 @@
            <div itemprop="articleBody">
             
   <div class="section" id="running-examples">
-<h1>6. Running Examples<a class="headerlink" href="#running-examples" title="Permalink to this headline">¶</a></h1>
+<h1>7. Running Examples<a class="headerlink" href="#running-examples" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="gmt-components">
-<h2>6.1. GMT Components<a class="headerlink" href="#gmt-components" title="Permalink to this headline">¶</a></h2>
+<h2>7.1. GMT Components<a class="headerlink" href="#gmt-components" title="Permalink to this headline">¶</a></h2>
 <p>Components are the simple building blocks in the GMT software architecture and they will be used extensively at all levels.
 A software component is a unit of composition with contractually specified interfaces and explicit context dependencies only.
 Ports are interaction points for components. They can be the data inputs (required interface) or the data outputs (provided interface) of our components.
@@ -234,7 +238,7 @@ The component does not need to do update the ports because, for any component, t
 </div>
 </div>
 <div class="section" id="connecting-components">
-<h2>6.2. Connecting Components<a class="headerlink" href="#connecting-components" title="Permalink to this headline">¶</a></h2>
+<h2>7.2. Connecting Components<a class="headerlink" href="#connecting-components" title="Permalink to this headline">¶</a></h2>
 <p>The great thing about components is that they can be easily connected with other components to perform a much more complex function.
 A connector is a link that enables communication between components. A connector simply means that runtime component instances can communicate using their ports.</p>
 <p>Let&#8217;s create a component type called Inc with just one output port. This component has an initial value that is incremented at every step.
@@ -294,7 +298,7 @@ Each component reads its inputs and proceeds according these values to run the s
 Components will run even when their ports are not connected to other components.</p>
 </div>
 <div class="section" id="running-the-example-components">
-<h2>6.3. Running the example components<a class="headerlink" href="#running-the-example-components" title="Permalink to this headline">¶</a></h2>
+<h2>7.3. Running the example components<a class="headerlink" href="#running-the-example-components" title="Permalink to this headline">¶</a></h2>
 <p>In one terminal open a log client so</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ gds log_service client gmt
 log client subscribed at port tcp://127.0.0.1:9995
@@ -356,7 +360,7 @@ sum2.x3 = 2</dd>
 <p>In order to receive data from other components all components ports shall be setup.</p>
 </div>
 <div class="section" id="setup-components-and-ports">
-<h2>6.4. Setup Components and Ports<a class="headerlink" href="#setup-components-and-ports" title="Permalink to this headline">¶</a></h2>
+<h2>7.4. Setup Components and Ports<a class="headerlink" href="#setup-components-and-ports" title="Permalink to this headline">¶</a></h2>
 <p>When a components starts it will automatically run its step() loop at the required rate.
 On each step() it checks its inputs, process the inputs and sets the outputs. At the init phase only the setup port is ready.
 It can receive the following component setup:</p>
@@ -371,24 +375,24 @@ It can receive the following component setup:</p>
 </div></blockquote>
 <p>Any component can receive its setup using:</p>
 <blockquote>
-<div><em>Usage:</em>  <tt class="docutils literal"><span class="pre">gds</span> <span class="pre">setup</span> <span class="pre">-m</span> <span class="pre">[model]</span> <span class="pre">-e</span> <span class="pre">[element]</span></tt></div></blockquote>
+<div><em>Usage:</em>  <code class="docutils literal"><span class="pre">gds</span> <span class="pre">setup</span> <span class="pre">-m</span> <span class="pre">[model]</span> <span class="pre">-e</span> <span class="pre">[element]</span></code></div></blockquote>
 <p>For example, <em>component_sum1</em> has the following configuration in:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>Component &quot;component_inc1&quot;,
-    default:
-        properties:
-            uri_path: &#39;gmt://examples/component_inc1&#39;
-            host: &#39;127.0.0.1&#39;
-            port: 8001
-            rate: 1000000
-            acl: &#39;private&#39;
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Component</span> <span class="s2">&quot;component_inc1&quot;</span><span class="p">,</span>
+    <span class="n">default</span><span class="p">:</span>
+        <span class="n">properties</span><span class="p">:</span>
+            <span class="n">uri_path</span><span class="p">:</span> <span class="s1">&#39;gmt://examples/component_inc1&#39;</span>
+            <span class="n">host</span><span class="p">:</span> <span class="s1">&#39;127.0.0.1&#39;</span>
+            <span class="n">port</span><span class="p">:</span> <span class="mi">8001</span>
+            <span class="n">rate</span><span class="p">:</span> <span class="mi">1000000</span>
+            <span class="n">acl</span><span class="p">:</span> <span class="s1">&#39;private&#39;</span>
 
-        state_vars: []
+        <span class="n">state_vars</span><span class="p">:</span> <span class="p">[]</span>
 
-        input_ports: []
+        <span class="n">input_ports</span><span class="p">:</span> <span class="p">[]</span>
 
-        output_ports: [
-            { name: &#39;x1&#39;, protocol: &#39;push&#39;,  url: &#39;tcp://127.0.0.1:9001&#39;, blocking_mode: &#39;async&#39;, max_rate: 1 }
-        ]
+        <span class="n">output_ports</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;x1&#39;</span><span class="p">,</span> <span class="n">protocol</span><span class="p">:</span> <span class="s1">&#39;push&#39;</span><span class="p">,</span>  <span class="n">url</span><span class="p">:</span> <span class="s1">&#39;tcp://127.0.0.1:9001&#39;</span><span class="p">,</span> <span class="n">blocking_mode</span><span class="p">:</span> <span class="s1">&#39;async&#39;</span><span class="p">,</span> <span class="n">max_rate</span><span class="p">:</span> <span class="mi">1</span> <span class="p">}</span>
+        <span class="p">]</span>
 </pre></div>
 </div>
 <p>To connect all the example components as described in the previous section the following commands can be used:</p>
@@ -430,7 +434,7 @@ subscription topic: sum2
 The application will run for 1000 steps and then will automatically finish.</p>
 </div>
 <div class="section" id="controllers-example">
-<h2>6.5. Controllers Example<a class="headerlink" href="#controllers-example" title="Permalink to this headline">¶</a></h2>
+<h2>7.5. Controllers Example<a class="headerlink" href="#controllers-example" title="Permalink to this headline">¶</a></h2>
 <p>Controllers are the components responsible to control the different telescope or instruments devices.
 Usually controllers are connected to the external sensors and actuators using the Hardware Adapters that we have seen before.
 Many different kinds of controllers will be created for the telescope depending on the type of equipment to be controlled.
@@ -469,10 +473,10 @@ This is for code generation purposes and because it&#8217;s easy to focus develo
 <div>$ gds setup -m runtime -e simple_controller</div></blockquote>
 </div>
 <div class="section" id="check-monitored-values">
-<h2>6.6. Check Monitored Values<a class="headerlink" href="#check-monitored-values" title="Permalink to this headline">¶</a></h2>
+<h2>7.6. Check Monitored Values<a class="headerlink" href="#check-monitored-values" title="Permalink to this headline">¶</a></h2>
 <p>Telemetry is a distributed service than can be started independently on each component as:</p>
 <blockquote>
-<div><em>Usage:</em>  <tt class="docutils literal"><span class="pre">gds</span> <span class="pre">monitor</span> <span class="pre">start</span> <span class="pre">-m</span> <span class="pre">model</span> <span class="pre">-e</span> <span class="pre">element</span></tt></div></blockquote>
+<div><em>Usage:</em>  <code class="docutils literal"><span class="pre">gds</span> <span class="pre">monitor</span> <span class="pre">start</span> <span class="pre">-m</span> <span class="pre">model</span> <span class="pre">-e</span> <span class="pre">element</span></code></div></blockquote>
 <p>This command will start the telemetry adapters for this component and they will send monitored values to the server.
 The telemetry service will:</p>
 <blockquote>
@@ -489,14 +493,14 @@ The telemetry service will:</p>
 </div>
 <p>To check the monitored values a telemetry client can be started in another unix terminal:</p>
 <blockquote>
-<div><em>Usage:</em>  <tt class="docutils literal"><span class="pre">gds</span> <span class="pre">telemetry_service</span> <span class="pre">client</span> <span class="pre">monitor_name</span></tt></div></blockquote>
+<div><em>Usage:</em>  <code class="docutils literal"><span class="pre">gds</span> <span class="pre">telemetry_service</span> <span class="pre">client</span> <span class="pre">monitor_name</span></code></div></blockquote>
 <p>In the case will have:</p>
 <blockquote>
 <div>$ gds telemetry_service client temperature</div></blockquote>
 <p>And the monitored values shall be received on this terminal.</p>
 <p>A query can also be sent to the telemetry service like this:</p>
 <blockquote>
-<div><em>Usage:</em>  <tt class="docutils literal"><span class="pre">gds</span> <span class="pre">telemetry_service</span> <span class="pre">query</span> <span class="pre">monitor_name</span> <span class="pre">num</span></tt></div></blockquote>
+<div><em>Usage:</em>  <code class="docutils literal"><span class="pre">gds</span> <span class="pre">telemetry_service</span> <span class="pre">query</span> <span class="pre">monitor_name</span> <span class="pre">num</span></code></div></blockquote>
 <p>For example, the following will list the last 12 temperature values (from newest to oldest) from this controller:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ gds telemetry_service query gmt://examples/simple_controller/temperature_monitor 10
 </pre></div>
@@ -504,10 +508,10 @@ The telemetry service will:</p>
 <p>All telemetry queries have to be done on specific monitors.</p>
 </div>
 <div class="section" id="send-a-command-to-a-controller">
-<h2>6.7. Send a Command to a Controller<a class="headerlink" href="#send-a-command-to-a-controller" title="Permalink to this headline">¶</a></h2>
+<h2>7.7. Send a Command to a Controller<a class="headerlink" href="#send-a-command-to-a-controller" title="Permalink to this headline">¶</a></h2>
 <p>Some numeric values can be sent directly to ports of any controller like this:</p>
 <blockquote>
-<div><em>Usage:</em>  <tt class="docutils literal"><span class="pre">gds</span> <span class="pre">send_value</span> <span class="pre">port_name</span> <span class="pre">value</span> <span class="pre">-m</span> <span class="pre">model</span> <span class="pre">-e</span> <span class="pre">element</span></tt></div></blockquote>
+<div><em>Usage:</em>  <code class="docutils literal"><span class="pre">gds</span> <span class="pre">send_value</span> <span class="pre">port_name</span> <span class="pre">value</span> <span class="pre">-m</span> <span class="pre">model</span> <span class="pre">-e</span> <span class="pre">element</span></code></div></blockquote>
 <p>For example:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ gds send_value temperature_setpoint 23.2 -m runtime -e simple_controller
 </pre></div>
@@ -529,10 +533,10 @@ When the temperature values are out the the defined range the log client should 
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="contribute.html" class="btn btn-neutral float-right" title="7. Contribute" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="contribute.html" class="btn btn-neutral float-right" title="8. Contribute" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="services.html" class="btn btn-neutral" title="5. Using the Services" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="services.html" class="btn btn-neutral" title="6. Using the Services" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -563,7 +567,7 @@ When the temperature values are out the the defined range the log client should 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'1.0-rc1',
+            VERSION:'1.1-5',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

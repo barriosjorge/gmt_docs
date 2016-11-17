@@ -14,6 +14,7 @@ Software Development
    :numbered:
 
    installation
+   upgrade
    isample_example
    development
    configuration

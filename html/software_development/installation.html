@@ -32,9 +32,12 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="GMT Software And Controls documentation" href="../index.html"/>
         <link rel="up" title="Software Development" href="index.html"/>
-        <link rel="next" title="2. ISample Example" href="isample_example.html"/>
+        <link rel="next" title="2. Upgrade" href="upgrade.html"/>
         <link rel="prev" title="Software Development" href="index.html"/> 
 
   
@@ -66,7 +69,7 @@
             
             
               <div class="version">
-                1.0
+                1.1
               </div>
             
           
@@ -92,17 +95,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../SWC_architecture/index.html">Architecture and Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../SWC_standards/index.html">Software and Controls Standards</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Software Development</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="">1. Installation</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1. Installation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#procedure">1.1. Procedure</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sanity-check">1.2. Sanity Check</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="isample_example.html">2. ISample Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="development.html">3. DCS Development</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html">4. Developer Info and Release Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="services.html">5. Using the Services</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples.html">6. Running Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contribute.html">7. Contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrade.html">2. Upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="isample_example.html">3. ISample Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html">4. DCS Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">5. Developer Info and Release Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html">6. Using the Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html">7. Running Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html">8. Contribute</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../data_products/index.html">Data Products</a></li>
@@ -129,7 +133,7 @@
         <div class="rst-content">
           
 
-
+ 
 
 
 
@@ -181,11 +185,11 @@ $ curl -O http://52.52.46.32/srv/gmt/iso/standalone.sha512
 <p class="first admonition-title">Warning</p>
 <ul class="last simple">
 <li>The drive needs a minimum 3GB capacity</li>
-<li>Properly identify your drive&#8217;s <tt class="docutils literal"><span class="pre">device</span></tt></li>
+<li>Properly identify your drive&#8217;s <code class="docutils literal"><span class="pre">device</span></code></li>
 <li>The entire drive will be erased!</li>
 </ul>
 </div>
-<p>OSX - with a drive on <tt class="docutils literal"><span class="pre">/dev/disk2</span></tt></p>
+<p>OSX - with a drive on <code class="docutils literal"><span class="pre">/dev/disk2</span></code></p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ shasum -a <span class="m">512</span> -c standalone.sha512
 standalone.iso: OK
 
@@ -194,7 +198,7 @@ $ sudo diskutil unmountDisk /dev/disk2
 $ sudo dd <span class="nv">bs</span><span class="o">=</span>4m <span class="k">if</span><span class="o">=</span>standalone.iso <span class="nv">of</span><span class="o">=</span>/dev/rdisk2
 </pre></div>
 </div>
-<p>Linux - with a drive on <tt class="docutils literal"><span class="pre">/dev/sdb</span></tt></p>
+<p>Linux - with a drive on <code class="docutils literal"><span class="pre">/dev/sdb</span></code></p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ sha512sum -c standalone.sha512
 standalone.iso: OK
 
@@ -266,7 +270,7 @@ $ ethercat slaves
 </pre></div>
 </div>
 </div></blockquote>
-<p><a class="reference internal" href="#installation"><em>[back to top]</em></a></p>
+<p><a class="reference internal" href="#installation"><span class="std std-ref">[back to top]</span></a></p>
 </div>
 </div>
 
@@ -277,7 +281,7 @@ $ ethercat slaves
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="isample_example.html" class="btn btn-neutral float-right" title="2. ISample Example" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="upgrade.html" class="btn btn-neutral float-right" title="2. Upgrade" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral" title="Software Development" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -311,7 +315,7 @@ $ ethercat slaves
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'1.0-rc1',
+            VERSION:'1.1-5',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

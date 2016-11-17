@@ -15,13 +15,19 @@ Bibliography
 
 .. [Beck10] Beck, K.; et al.: Manifesto for Agile Software Development, Agile Alliance, retrieved 14 June 2010.
 
+.. [BeAr96] Bertin, E.; Arnouts S.: A&AS, 117, 393, 1996.
+
 .. [Bouc13] Bouchez, A.: Adaptive Optics System Preliminary Design Report, GMT-AO-RVW-00407, Rev. B, 2013.
 
 .. [Bouc13b] Bouchez, A.; System Level PDR, Chapter 8: Adaptive Optics. https://docushare.gmto.org/docushare/dsweb/Get/Document-13209/GMT%20SLPDR%20Section%2008%20AO.pdf 
 
+.. [BrCh03] Bruzual, G.; Charlot, S.: MNRAS, 344, 1000, 2003.
+
 .. [Chac14] Chacon, S.: Pro Git 2014, http://git-scm.com/book
 
 .. [CuHW13] Cummings, K.; Hubbard, J.; Wampler, S.; Goodrich, B.: Common Services Framework Reference Guide, ATST Project Documentation, Document SPEC-0022-2, Rev H, 2013
+
+.. [DOrg12] D’Orgeville, C.; et al.: Gemini South multi-conjugate adaptive optics (GeMS) laser guide star facility on-sky performance results, Proc. SPIE 8447, 2012.
 
 .. [ECSS09] European Cooperation for Space Standardization, Space engineering, Software, ECSS-E-ST-40C, 2009.
 
@@ -35,9 +41,15 @@ Bibliography
 
 .. [Filg13c] Filgueira, J. M.: GMT Software and Controls Work Breakdown Structure, GMT-SWC-REF- 00648, 2013.
 
+.. [FiTa02] Fielding, Roy T.; Taylor, Richard N.: Principled Design of the Modern Web Architecture, 2002.
+
 .. [Fowl10] Fowler, M.: Domain Specific Languages, Addison-Wesley Professional, 2010.
 
 .. [Gamm94] Gamma, E.; et al.: Design Patterns: Elements of Reusable Object-Oriented Software, Addison-Wesley, p. 383, ISBN 0-201-63361-2, 1994.
+
+.. [GMTO10] GMTO Project, Science Requirements Document, GMT-SCI-REQ-00001, 2010.
+
+.. [Lang10] Lang, D.; Hogg, D. W.; Mierle, K.; Blanton, M.; Roweis, S.: AJ, 139, 1782, 2010.
 
 .. [IEC61131-3] IEC 61131-3: International Standard, Programmable Controllers, Part 3: Programming Languages, Edition 3.0, 2013-02.
 
@@ -67,6 +79,8 @@ Bibliography
 
 .. [Noll76] Noll, R. J.: Zernike polynomials and atmospheric turbulence, J. Opt. Soc. Am., 66, 207-211, 1976.
 
+.. [Peng10] Peng, C. Y.; Ho, L. C.; Impey, C. D.; Rix, H.-W.: 2010, AJ, 139, 2007.
+
 .. [Prow96] Prowell, S. J.: Sequence Based Specification, 1996.
 
 .. [Rayb13] Raybould, K.: GMT Risk Management Plan, GMT-PM-DOC-00111, Rev. 6, 2013.
@@ -82,6 +96,8 @@ Bibliography
 .. [Soto13] Soto, J. M.: OPC UA Address Space Model for GMT, GMT Technical Report, GMT-SWC-DOC- 00645, 2013.
 
 .. [Sphi13] Sphinx-doc.org – Python Documentation Generator, retrieved 2013.
+
+.. [Summ12] Summers, D.; et al.: A decade of operations with the laser traffic control system: paradigm shift and implied development directions, Proc. SPIE 8447, 2012.
 
 .. [Terr06] Terrett, D. L.: SPIE, Vol. 6274, 62740G-1, 2006.
 
@@ -99,8 +115,6 @@ Bibliography
 
 .. [Youn10] Young, P.; et al.: Proc. SPIE 7740, Software and Cyberinfrastructure for Astronomy, 77403F, 2010.
 
-
-
 .. Not yet used
 
   6 J. M. Filgueira, C. Peng, Software and Control Requirements, GMT-SWC-REQ-00612, 2013.
@@ -111,14 +125,4 @@ Bibliography
   11 D. Sawyer, GMT Electrical Power Systems, GMT-SE-REF-00019, 2012.
   12 D. Sawyer, Telescope Common Utilities and Equipment, GMT-SE-REF-00190, 2012.
   21 P. T. Wallace, Gemini Project, Gemini TCS Note (PTW) 3.12 (TN_PS_G0044) 1996.
-  32 C. Y. Peng, L. C. Ho, C. D. Impey, & H. W. Rix, 2010, AJ, 139, 2007.
-  33 G. Bruzual, & S. Charlot, MNRAS, 344, 1000, 2003.
-  34 D. W. Hogg et al., , 2008.
-  35 P. T. Wallace, SLALIB/C Programmer’s Manual, TPOINT Software, 2012.
-  36 Roy T. Fielding, Richard N. Taylor, Principled Design of the Modern Web Architecture, 2002.
-  37 Peng et al., Detailed Decomposition of Galaxy Images, 2002.
-  38 GMTO Project, Science Requirements Document, GMT-SCI-REQ-00001, 2010.
-  39 http://www.dgac.gob.cl/portalweb/dgac/acercaDeLaDGAC/sistemaAeronauticoNacional /tecnologia
-  40 D. Summers et al., A decade of operations with the laser traffic control system: paradigm shift and implied development directions, Proc. SPIE 8447, 2012.
-  41 C. D’Orgeville et al., Gemini South multi-conjugate adaptive optics (GeMS) laser guide star facility on-sky performance results, Proc. SPIE 8447, 2012.
-  42 E. Bertin, & S. Arnouts, A&AS, 117, 393, 1996.
+
