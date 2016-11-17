@@ -35,6 +35,8 @@ Bibliography
 
 .. [Filg12] Filgueira, J. M.; et al.: GMT software and controls overview, Proc. of SPIE, Vol. 8451 845111-1, 2012.
 
+.. [FiPe13] Filgueira, J. M.; Peng, C.: Software and Control Requirements, GMT-SWC-REQ-00612, 2013.
+
 .. [Filg13a] Filgueira, J. M.: GMT Software and Controls Product Breakdown Structure, GMT-SWC-REF- 00647, 2013.
 
 .. [Filg13b] Filgueira, J. M.: GMT Software and Controls Standards (SWCS Handbook) GMT-SWC-REF- 00029, 2013.
@@ -61,6 +63,8 @@ Bibliography
 
 .. [ISO12207] ISO/IEC 12207: Systems and software engineering — Software life cycle processes, 2008.
 
+.. [JoMK13] Johns, M.;  McCarthy P; Kron, R.: Science Requirements Document, GMT-SCI-REQ-00001, 2013.
+
 .. [John11] Johns, M.; et al.: System Engineering Management Plan, GMT-SE-DOC-00002, Rev. A, 2011.
 
 .. [John13] Johns, M.; System Level PDR, Chapter 12: Telescope. https://docushare.gmto.org/docushare/dsweb/Get/Document-13239/GMT%20SLPDR%20Section%2006%20Telescope.pdf
@@ -72,6 +76,8 @@ Bibliography
 .. [McCa13] McCarthy, P.: GMT Operations Concept Document, GMT-SCI-DOC-00034, 2013.
 
 .. [McLe13] McLeod, B. A.: Wavefront Control System Preliminary Design Report, SAO-TEL-DOC-00007, Rev. 2, 2013.
+
+.. [Mait13] Maiten, J.: System Level Requirements, GMT-SE-REQ-00027, 2013.
 
 .. [Meye00] Meyer, B.: Object-Oriented Software Construction, 2nd Edition, ISBN 0-13-629155-4, March 2000.
 
@@ -117,9 +123,8 @@ Bibliography
 
 .. Not yet used
 
-  6 J. M. Filgueira, C. Peng, Software and Control Requirements, GMT-SWC-REQ-00612, 2013.
-  7 J. Maiten, System Level Requirements, GMT-SE-REQ-00027, 2013.
-  8 M. Johns, P. McCarthy, R. Kron, Science Requirements Document, GMT-SCI-REQ-00001, 2013.
+
+
   9 D. Sawyer, GMT Compliance to Regulations, Codes and Standards, GMT-SE-REF-00229, 2012.
   10 J. Maiten, GMT Environmental Conditions GMT-SE-REF-00144, 2012.
   11 D. Sawyer, GMT Electrical Power Systems, GMT-SE-REF-00019, 2012.

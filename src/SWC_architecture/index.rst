@@ -14,6 +14,7 @@ Architecture and Design
    :numbered:
 
    introduction/swcs_introduction
+   requirements/requirements
    architecture/overall_architecture
    tcs/tcs_introduction
    operations/observatory_operations
