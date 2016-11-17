@@ -77,6 +77,8 @@ Bibliography
 
 .. [McLe13] McLeod, B. A.: Wavefront Control System Preliminary Design Report, SAO-TEL-DOC-00007, Rev. 2, 2013.
 
+.. [Mait12] Maiten J.: GMT Environmental Conditions GMT-SE-REF-00144, 2012.
+
 .. [Mait13] Maiten, J.: System Level Requirements, GMT-SE-REQ-00027, 2013.
 
 .. [Meye00] Meyer, B.: Object-Oriented Software Construction, 2nd Edition, ISBN 0-13-629155-4, March 2000.
@@ -90,6 +92,12 @@ Bibliography
 .. [Prow96] Prowell, S. J.: Sequence Based Specification, 1996.
 
 .. [Rayb13] Raybould, K.: GMT Risk Management Plan, GMT-PM-DOC-00111, Rev. 6, 2013.
+
+.. [Sawy12a] Sawyer, D.: GMT Compliance to Regulations, Codes and Standards, GMT-SE-REF-00229, 2012.
+
+.. [Sawy12b] Sawyer, D.: GMT Electrical Power Systems, GMT-SE-REF-00019, 2012.
+
+.. [Sawy12c] Sawyer, D.: Telescope Common Utilities and Equipment, GMT-SE-REF-00190, 2012.
 
 .. [Sawy13a] Sawyer, D.: GMT Electronics Standards, GMT-SE-REF-00191, 2013.
 
@@ -123,11 +131,5 @@ Bibliography
 
 .. Not yet used
 
-
-
-  9 D. Sawyer, GMT Compliance to Regulations, Codes and Standards, GMT-SE-REF-00229, 2012.
-  10 J. Maiten, GMT Environmental Conditions GMT-SE-REF-00144, 2012.
-  11 D. Sawyer, GMT Electrical Power Systems, GMT-SE-REF-00019, 2012.
-  12 D. Sawyer, Telescope Common Utilities and Equipment, GMT-SE-REF-00190, 2012.
   21 P. T. Wallace, Gemini Project, Gemini TCS Note (PTW) 3.12 (TN_PS_G0044) 1996.
 
