@@ -119,6 +119,8 @@ Bibliography
 
 .. [Tuft01] Tufte, E.: The Visual Display of Quantitative Information, ISBN-10: 0961392142, 2001.
 
+.. [Wall96] Wallace, P. T.: Gemini Project, Gemini TCS Note (PTW) 3.12 (TN_PS_G0044) 1996.
+
 .. [Wall12a] Wallace, P. T.: TCSpk Programmer’s Manual, Ver. 9, July 19th, 2012.
 
 .. [Wall12b] Wallace, P. T.: SLALIB/C Programmer’s Manual, TPOINT Software, 2012.
@@ -129,7 +131,4 @@ Bibliography
 
 .. [Youn10] Young, P.; et al.: Proc. SPIE 7740, Software and Cyberinfrastructure for Astronomy, 77403F, 2010.
 
-.. Not yet used
-
-  21 P. T. Wallace, Gemini Project, Gemini TCS Note (PTW) 3.12 (TN_PS_G0044) 1996.
 

@@ -97,9 +97,9 @@
        Transformation Flow
 
     The above Figure shows the transformation flow taking coordinates from one
-    reference frame to another, adapted from Wallace [Wall12b]_. All input coordinates are
-    eventually converted into FK5, J2000, current epoch, before final conversions
-    to apparent [α, δ] to point the telescope.
+    reference frame to another, adapted from Wallace [Wall96]_ [Wall12b]_. All
+    input coordinates are eventually converted into FK5, J2000, current epoch,
+    before final conversions to apparent [α, δ] to point the telescope.
 
   *Transformation of Celestial System to Mount Encoder Positions*
 

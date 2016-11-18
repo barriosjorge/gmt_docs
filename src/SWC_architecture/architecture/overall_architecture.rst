@@ -42,4 +42,6 @@ modules <architecture-modules>`.
 
 .. include:: architecture-modules_inc.rst
 
+.. include:: architecture-integration_inc.rst
+
 

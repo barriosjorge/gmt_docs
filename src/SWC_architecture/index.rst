@@ -16,8 +16,8 @@ Architecture and Design
    introduction/swcs_introduction
    requirements/requirements
    architecture/overall_architecture
-   tcs/tcs_introduction
    operations/observatory_operations
+   tcs/tcs_introduction
    services/observatory_services
    frameworks/component_frameworks
    platform/platform
