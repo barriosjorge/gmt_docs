@@ -15,7 +15,7 @@ Requirements derived from the SLR are:
 .. table:: SWCS Data Processing Requirements (Level 3)
 
   +----------------------------+------------------------------------------------------------+
-  | | Title                    | | Purpose                                                  |
+  | | Title                    | | Statement                                                |
   +============================+============================================================+
   | | Efficient Operations     | | The SWCS shall identify and define sequences for         |
   | |                          | | instruments, telescope, and science, operations to       |

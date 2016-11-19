@@ -12,7 +12,7 @@ below. The requirements that flow down to the SWCS are shown here:
 .. table:: SWCS Scheduling System Requirements
 
   +----------------------+------------------------------------------------------------------+
-  | | Title              | |  Purpose                                                       |
+  | | Title              | |  Statement                                                     |
   +======================+==================================================================+
   | | Queue Mode         | |  Support queue scheduling.                                     |
   +----------------------+------------------------------------------------------------------+

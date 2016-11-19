@@ -5,8 +5,9 @@ Operations User Interface
 
 The Operations User Interface (OPUI) provides an integrated way to support GMT
 operations.  While the engineering user interfaces provide comprehensive access
-to the functionality of any subsystem, as described in Section 10.3.4.6, the
-OPUI supports the operational workflows of the Observatory.
+to the functionality of any subsystem, as described in
+:ref:`services-engineering_UI`, the OPUI supports the operational workflows of
+the Observatory.
 
 Designed to be flexible, the OPUI can adapt to different operation scenarios,
 which may be refined or may evolve as operations are optimized over time. Its
@@ -51,6 +52,30 @@ the observatory. A carefully designed OPUI provides the following benefits:
   * Enables users early on to provide critical feedback and refinements on
     operational scenarios and procedures, which in turn feeds back requirements
     for the whole system.
+
+.. table::  SWCS User Interface Requirements (Level 3)
+
+  +-----------------------+-------------------------------------------------------------------+
+  | | Title               | | Statement                                                       |
+  +=======================+===================================================================+
+  | | Integrated User     | | The SWCS shall provide an integrated and consistent graphical   |
+  | | Interface           | | user interface.                                                 |
+  +-----------------------+-------------------------------------------------------------------+
+  | | Centralized         | | The SWCS shall provide centralized, on-line tools to inform,    |
+  | | Command             | | search, and execute, user commands, and software components.    |
+  | | Information and     | |                                                                 |
+  | | Execution           | |                                                                 |
+  +-----------------------+-------------------------------------------------------------------+
+  | | Central Control     | | Provide central control capabilities for every control          |
+  | | Functions           | | subsystem.                                                      |
+  +-----------------------+-------------------------------------------------------------------+
+  | | Software Features   | | Provide the capability to discover, navigate, and access        |
+  | | Navigation          | | efficiently any feature provided by any software component.     |
+  +-----------------------+-------------------------------------------------------------------+
+  | | Operation Console   | | Provide capability to change programs running in each           |
+  | | Mode                | | operation console depending on the operation mode.              |
+  +-----------------------+-------------------------------------------------------------------+
+ 
 
 .. figure:: _static/control_room_UI.png
 

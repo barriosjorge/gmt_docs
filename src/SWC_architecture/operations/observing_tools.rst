@@ -17,7 +17,7 @@ Observing tools provide the following capabilities shown in the following Table,
 as derived from the System Level Requirements:
 
 +-----------------------------+-----------------------------------------------------------+
-| | Capability                | | Description                                             |
+| | Title                     | | Statement                                               |
 +=============================+===========================================================+
 | | Efficient Operations      | | Identify and define sequences for instruments,          |
 | |                           | | telescope, and science, operations to optimize          |

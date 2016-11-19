@@ -13,7 +13,7 @@ observation execution, instrument switch).
 .. table:: SWCS Sequencing Requirements (Level 3)
 
   +----------------------------+------------------------------------------------------------------+
-  | | Title                    | | Purpose                                                        | 
+  | | Title                    | | Statement                                                      | 
   +============================+==================================================================+
   | | Sequence Automation      | | Provide the capability to arrange commands in a way that       |
   | |                          | | allows users to automate the execution of complex operations.  |
