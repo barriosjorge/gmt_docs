@@ -1,8 +1,8 @@
 
 .. _tcs-wavefront_control:
 
-Wavefront Control
------------------
+Wavefront Control System
+------------------------
 
 The Wavefront Control System (WFCS) is the set of TCS software components that
 implements all active and adaptive optics control for the GMT. It includes all

@@ -49,7 +49,6 @@
   .. _figure-virtual_telescope:
 
   .. figure:: _static/tcs-virtual-telescope.png
-     :align: center
 
      Virtual Telescope and Pointing Model (blue box).  Details of the target
      coordinate transformation (the first 4 items in the figure) are given in

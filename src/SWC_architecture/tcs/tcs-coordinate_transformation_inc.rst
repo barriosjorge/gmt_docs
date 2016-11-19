@@ -138,7 +138,6 @@ described below.
   .. _figure-pointing_flow:
 
   .. figure:: _static/tcs-pointing-flow.png
-     :align: center
 
      TCS/MCS Pointing Flow.  The blue box is the telescope pointing model,
      details of which are elaborated in :ref:`the Figure below on the Virtual

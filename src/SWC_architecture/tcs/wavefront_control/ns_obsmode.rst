@@ -401,7 +401,7 @@ shown).
 **Deployment**
 
     A representation of the deployment locations of the Natural Seeing WFC is
-    provided in Figure the Figure below.  All WFC software components run on standard
+    provided in the Figure below.  All WFC software components run on standard
     rack-mounted servers in the Electronics Room of the Summit Support Building.
     All of these hardware components will be connected with both a low-latency
     Infiniband network and a standard Ethernet control network.  The wavefront
