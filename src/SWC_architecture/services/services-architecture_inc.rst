@@ -26,6 +26,25 @@ that are available.
   service.  (5)  Operators can filter or cross-correlate any persistent data
   stream for further analysis.  .. _service_adapters:
 
+.. table:: SWCS Service Architecture Requirements (Level 3)
+
+  +---------------------+------------------------------------------------------------------+
+  | | Requirement       | | Statement                                                      |
+  +=====================+==================================================================+
+  | | Architecture      | | Establish an architecture for instrument software and control  |
+  | |                   | | subsystems.                                                    |
+  +---------------------+------------------------------------------------------------------+
+  | | Reference Model   | | Provide a reference model to design control subsystems in a    |
+  | |                   | | consistent way.                                                |
+  +---------------------+------------------------------------------------------------------+
+  | | Semantic Model    | | Provide a method to specify formally the features and          |
+  | |                   | | capabilities provided by every subsystem.                      |
+  +---------------------+------------------------------------------------------------------+
+  | | Software/Hardware | | Establish a set of software/hardware standards (GMT_SWC-       |
+  | | Standards         | | REF-00029) for the project.                                    |
+  +---------------------+------------------------------------------------------------------+
+
+
 *Service Adapters*
 ..................
 
