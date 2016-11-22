@@ -21,6 +21,20 @@ drive demands, where it is necessary to interpolate between time stamps; or for
 telemetry case, where uniform timestamps must be used to correlate real-time and
 archive data.
 
+.. table:: SWCS Time Distribution Requirements (Level 3)
+
+  +--------------------+-----------------------------------------------------------+
+  | | Requirement      | | Statement                                               |
+  +====================+===========================================================+
+  | | Synchronization  | | Provide the capability to coordinate the operations of  |
+  | | Time Budget      | | subsystems during operations to within time budgets     |
+  | |                  | | allotted by the SLR.                                    |
+  +--------------------+-----------------------------------------------------------+
+  | | Time Reference   | | Provide the capability to obtain and distribute a time  |
+  | |                  | | reference accurate to 1ms (TBR).                        |
+  +--------------------+-----------------------------------------------------------+
+
+
 *Time Distribution Protocols*
 .............................
 
