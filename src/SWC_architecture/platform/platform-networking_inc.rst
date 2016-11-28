@@ -44,7 +44,7 @@ technology evolution and to optimize the final network design.
 
   +----------------------------+----------------------------------------------------------------+
   | | Requirement              | | Statement                                                    |
-  +----------------------------+----------------------------------------------------------------+
+  +============================+================================================================+
   | | Communication Standards  | | SWCS shall define a set of physical communication protocols  |
   | |                          | | to integrate its different components.                       |
   +----------------------------+----------------------------------------------------------------+

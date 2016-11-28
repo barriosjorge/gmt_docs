@@ -106,7 +106,7 @@ technologies in the project is included in the Software and Controls Handbook
 
   +-----------------------------+---------------------------------------------------------------+
   | | Requirement               | | Statement                                                   |
-  +-----------------------------+---------------------------------------------------------------+
+  +=============================+===============================================================+
   | | Connections to            | | Provide standardized connections to science instruments per |
   | | Instruments               | | the SWC Standards document (GMT-SWC-DOC-00029)              |
   +-----------------------------+---------------------------------------------------------------+

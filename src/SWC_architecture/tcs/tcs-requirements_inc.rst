@@ -16,7 +16,7 @@ details to follow below.
 
   +-----------------------+------------------------------------------------------------------------------+
   | | Title               | | Statement                                                                  |
-  +-----------------------+------------------------------------------------------------------------------+
+  +=======================+==============================================================================+
   | | Initialization for  | | Provide the capability to initialize and calibrate the telescope pointing  |
   | | Target Acquisition  | | system from a cold start by acquiring a position reference star with a     |
   | |                     | | target acquisition camera.                                                 |
@@ -147,11 +147,11 @@ detector relative to the pointing origin of the telescope. Offsetting is used
 for many purposes, such as to obtain sky observations, to position objects onto
 a slit or aperture, to create mosaic observations, etc.
 
-.. table:: Offset requirements (Level 3)
+.. table:: Offset Requirements (Level 3)
 
   +-----------------------+-----------------------------------------------------------------------+
   | | Title               | | Statement                                                           |
-  +-----------------------+-----------------------------------------------------------------------+
+  +=======================+=======================================================================+
   | | Offset Distance     | | Provide the capability to perform telescope offsets, limited by     |
   | |                     | | guide star changes, and an absolute maximum radius of 3 arcmin.     |
   +-----------------------+-----------------------------------------------------------------------+
