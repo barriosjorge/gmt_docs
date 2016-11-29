@@ -128,12 +128,11 @@ requirements governing the TCS design and operations, followed by details of the
 (TBC...) briefly describes the architecture of the GMT Wavefront Control System
 (WFCS), and the specific designs of the GMT Natural and AO observing modes.
 
-.. include:: tcs-subsystems_inc.rst
+.. toctree::
+    :maxdepth: 1
 
-.. include:: tcs-degrees_of_freedom_inc.rst
-
-.. include:: tcs-requirements_inc.rst
-
-.. include:: tcs-pointing_kernel_inc.rst
-
-.. include:: tcs-wavefront_control_inc.rst
+    subsystems.rst
+    degrees_of_freedom.rst
+    requirements.rst
+    pointing_kernel.rst
+    wavefront_control.rst

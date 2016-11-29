@@ -157,7 +157,6 @@ instruments, sensors, and detectors, are performing properly during runtime.
 
 .. toctree::
     :maxdepth: 1
-    :numbered:
 
     overview
     deployment

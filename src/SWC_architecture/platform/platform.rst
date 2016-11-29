@@ -130,15 +130,12 @@ technologies in the project is included in the Software and Controls Handbook
   | |                           | | (GMT-SE-DOC-00277).                                         |
   +-----------------------------+---------------------------------------------------------------+
 
+.. toctree::
+    :maxdepth: 1
 
-.. include:: platform-computing_inc.rst
-
-.. include:: platform-field_device_interface_technology_inc.rst
-
-.. include:: platform-time_distribution_system_inc.rst
-
-.. include:: platform-distributed_communications_inc.rst
-
-.. include:: platform-networking_inc.rst
-
-.. include:: platform-software_development_inc.rst
+    computing
+    field_device_interface_technology
+    time_distribution_system
+    distributed_communications
+    networking
+    software_development

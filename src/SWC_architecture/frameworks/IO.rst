@@ -345,7 +345,7 @@ The IOF provides the following capabilities:
 
   **BaseDeviceController**
 
-    The BaseDeviceController component is part of the `device_control_framework`_
+    The BaseDeviceController component is part of the :ref:`device_control_framework`
     and provides a base implementation for all GMT components implementing a
     Device Controller. The components provide:
 

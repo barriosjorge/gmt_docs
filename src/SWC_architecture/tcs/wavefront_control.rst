@@ -50,6 +50,7 @@ mode WFC is presented here, providing an example of the interaction between the
 AO wavefront controller components and the Active Optics Wavefront Controller.
 
 .. toctree::
+    :maxdepth: 1
 
     wavefront_control/ns_obsmode
     wavefront_control/ngsao_obsmode

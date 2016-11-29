@@ -42,7 +42,6 @@ level.
 
 .. toctree::
     :maxdepth: 1
-    :numbered:
 
     document_tree_structure
     level_3_requirements

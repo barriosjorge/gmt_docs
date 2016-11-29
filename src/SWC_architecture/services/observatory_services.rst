@@ -115,10 +115,11 @@ subsystems and components being controlled include:
   | |                           | | other subsystems.                                                  |
   +-----------------------------+----------------------------------------------------------------------+
 
+.. toctree::
+    :maxdepth: 1
 
-.. include:: services-architecture_inc.rst
-
-.. include:: services-common_inc.rst
+    architecture.rst
+    common.rst
 
 
 

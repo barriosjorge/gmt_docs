@@ -12,7 +12,7 @@ layout common in High Performance Computing applications.
 
 Logical networks (e.g., in the current baseline design, Infiniband) are used
 to implement the low latency communication between components involved in the
-“Fast-Control” AO loops, while 10/40 GbE is used to transport and store AO
+"Fast-Control" AO loops, while 10/40 GbE is used to transport and store AO
 telemetry data streams independently of control data.
 
 

@@ -3,8 +3,8 @@
 Operations Subsystems
 ---------------------
 
-The entire domain of Observatory Operations is summarized in Figure 10-40 and
-consists of the following subsystems: operations user interface, observing
+The entire domain of Observatory Operations is summarized in the Figure below
+and consists of the following subsystems: operations user interface, observing
 tools, scheduling, sequencing, aircraft safety, laser traffic control safety,
 spacecraft safety, quality management, data archiving, and data processing. Each
 of the subsystems will be described in their respective sections.
