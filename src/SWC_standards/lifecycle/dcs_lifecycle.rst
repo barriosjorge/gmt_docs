@@ -18,6 +18,8 @@ with the controlled plant milestones.
 
 .. figure:: _static/lifecycle_phases.png
 
+    Lifecycle Phases
+
 The life cycle phases are:
 
   * Requirements Phase – During this phase the team performs the initial
@@ -56,21 +58,25 @@ Phasing of Systems and Software Reviews (draft)
 The  ESA Software Engineering Handbook ECSS-E-HB-40A issued in December 2013,
 identifies the relations between system and the software reviews:
 
-“The SWRR is a non-mandatory review anticipating the Software PDR addressing the
+"The SWRR is a non-mandatory review anticipating the Software PDR addressing the
 software technical specification. It takes place between the Software SRR and
-the Software PDR. If possible, it should take place before the System PDR…”
+the Software PDR. If possible, it should take place before the System PDR..."
 
-“The subs system design can only start after the complete system design has
+"The subs system design can only start after the complete system design has
 preliminarily baselined at System PDR. For this reason, the Software PDR
-follows the System PDR”.
+follows the System PDR."
 
-“In case the ground segment software development is based on the reuse of an
+"In case the ground segment software development is based on the reuse of an
 infrastructure based on a reference architecture, the SRR and the QR are not
-always conducted”
+always conducted."
 
 .. figure:: _static/reviews_stages1.png
 
+    Review Stages: Relation between Ground Segment and Ground Software Reviews
+
 .. figure:: _static/reviews_stages2.png
+
+    Review Stages: Relation between System and Flight Software Reviews
 
 
 Life Cycle Activities

@@ -195,7 +195,7 @@ htmlhelp_basename = 'GMTSoftwareAndControlsdoc'
 
 numfig = True
 
-numfig_secnum_depth = 0
+numfig_secnum_depth = 1
 
 # -- Options for LaTeX output ---------------------------------------------
 
