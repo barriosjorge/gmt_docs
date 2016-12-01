@@ -110,8 +110,8 @@ an overview of the key functional and performance :ref:`system requirements
 <requirements_overview>`, and the corresponding flow down to the SWCS.  Then we
 discuss the :ref:`main architectural principles <Overall_Architecture>` that
 provide the rationale for the architectural design.  At the highest level,
-:ref:`observatory_operations` supports users during observatory operations,
-which interacts with the :ref:`tcs_introduction` to control the telescope
+:ref:`observatory_operations` supports users during observatory operations; it
+interacts with the :ref:`tcs_introduction` to control the telescope
 optomechanical devices.  The SWCS is divided into subsystems and each subsystem
 is divided into :ref:`packages and components <architecture-modules>`.  The most
 relevant packages and components are highlighted for each subsystem. A complete

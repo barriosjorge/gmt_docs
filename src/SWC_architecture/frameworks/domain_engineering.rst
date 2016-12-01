@@ -116,38 +116,38 @@ sections describes them in more detail:
 
 .. table:: Overview of Analysis Domains
 
-  +----------------------------+-----------------------------+--------------------+-----------------------------+
-  | | Analysis Domains         | | Subsystem Packages        | | Domain Entities  | | Frameworks                |
-  +============================+=============================+====================+=============================+
-  | | Control and Data         | | Device Controller Package | | Controller       | | Device Control Framework  |
-  | | Acquisition              | | Hardware Package          | | Supervisor       | | IO Framework              |
-  | |                          | | Data Acquisition Package  | | Fieldbus         | | Core Framework            |
-  | |                          | |                           | | IOModule         | |                           |
-  | |                          | |                           | | Device           | |                           |
-  | |                          | |                           | | Pipeline         | |                           |
-  | |                          | |                           | | Host             | |                           |
-  +----------------------------+-----------------------------+--------------------+-----------------------------+
-  | | Operation Support        | | Services Package          | | Workflow         | | Data Processing Framework |
-  | | Domain                   | | Sequencing Package        | | Sequence         | | Device Control Framework  |
-  | |                          | | Diagnosis Package         | | Pipeline         | | Core framework            | 
-  | |                          | | Calibration Package       | | Server           | |                           |
-  | |                          | |                           | | Program          | |                           |
-  +----------------------------+-----------------------------+--------------------+-----------------------------+
-  | | Data Processing Domain   | | Data Processing Package   | | Sequence         | | Data Processing           |
-  | |                          | |                           | | Pipeline         | | Framework                 |
-  | |                          | |                           | | Filter           | | Storage Framework         |
-  |                            | |                           | | Workflow         | |                           |
-  +----------------------------+-----------------------------+--------------------+-----------------------------+
-  | | Visualization Domain     | | Visualzation Package      | | Panel            | | UI Framework              |
-  | |                          | |                           | | Widget           | |                           |
-  +----------------------------+-----------------------------+--------------------+-----------------------------+
-  | | Safety Domain            | | Safety Package            | | Controller       | | Device Control Framework  |
-  | |                          | |                           | | Supervisor       | | Core Framework            |
-  | |                          | |                           | | Sequence         | |                           |
-  +----------------------------+-----------------------------+--------------------+-----------------------------+
-  | | Management Domain        | | Management Package        | | Plan             |                             |
-  |                            | |                           | | Iteration        |                             |
-  +----------------------------+-----------------------------+--------------------+-----------------------------+
+  +--------------------+-----------------------------+--------------------+-----------------------------+
+  | | Analysis Domains | | Subsystem Packages        | | Domain Entities  | | Frameworks                |
+  +====================+=============================+====================+=============================+
+  | | Control and Data | | Device Controller Package | | Controller       | | Device Control Framework  |
+  | | Acquisition      | | Hardware Package          | | Supervisor       | | IO Framework              |
+  | |                  | | Data Acquisition Package  | | Fieldbus         | | Core Framework            |
+  | |                  | |                           | | IOModule         | |                           |
+  | |                  | |                           | | Device           | |                           |
+  | |                  | |                           | | Pipeline         | |                           |
+  | |                  | |                           | | Host             | |                           |
+  +--------------------+-----------------------------+--------------------+-----------------------------+
+  | | Operation Support| | Services Package          | | Workflow         | | Data Processing Framework |
+  | |                  | | Sequencing Package        | | Sequence         | | Device Control Framework  |
+  | |                  | | Diagnosis Package         | | Pipeline         | | Core framework            | 
+  | |                  | | Calibration Package       | | Server           | |                           |
+  | |                  | |                           | | Program          | |                           |
+  +--------------------+-----------------------------+--------------------+-----------------------------+
+  | | Data Processing  | | Data Processing Package   | | Sequence         | | Data Processing           |
+  | |                  | |                           | | Pipeline         | | Framework                 |
+  | |                  | |                           | | Filter           | | Storage Framework         |
+  | |                  | |                           | | Workflow         | |                           |
+  +--------------------+-----------------------------+--------------------+-----------------------------+
+  | | Visualization    | | Visualzation Package      | | Panel            | | UI Framework              |
+  | |                  | |                           | | Widget           | |                           |
+  +--------------------+-----------------------------+--------------------+-----------------------------+
+  | | Safety           | | Safety Package            | | Controller       | | Device Control Framework  |
+  | |                  | |                           | | Supervisor       | | Core Framework            |
+  | |                  | |                           | | Sequence         | |                           |
+  +--------------------+-----------------------------+--------------------+-----------------------------+
+  | | Management       | | Management Package        | | Plan             |                             |
+  | |                  | |                           | | Iteration        |                             |
+  +--------------------+-----------------------------+--------------------+-----------------------------+
 
 The above table shows the different domains identified in the GMT SWC domain
 analysis activity. The first column identifies the studied domain. The column
