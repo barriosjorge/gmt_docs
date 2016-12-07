@@ -9,6 +9,30 @@ derived from the System Level are shown in Table 10-41. All the data in the DAS
 are maintained on-site at the observatory for operations, and are backed up in
 at least one off-site location.
 
+.. table:: SWCS Data Archiving Requirements (Level 3)
+ 
+  +----------------------------+----------------------------------------------------------------+
+  | | Title                    | | Statement                                                    |
+  +============================+================================================================+
+  | | Science and Engineering  | | The SWCS shall provide archival storage for science (raw and |
+  | | data storage /archive    | | processed) and engineering data, and the capability to query |
+  | | and access               | | and retrieve data.                                           |
+  +----------------------------+----------------------------------------------------------------+
+  | | User Documentation       | | The SWCS shall provide users with online guides and manuals  |
+  | |                          | | for all equipment and facility instrumentation that is used  |
+  | |                          | | during routine operations.                                   |
+  +----------------------------+----------------------------------------------------------------+
+  | | On-Line Context          | | The SWCS shall provide help, reference and user guide        |
+  | | Documentation            | | information for users to access in a contextual manner.      |
+  +----------------------------+----------------------------------------------------------------+
+  | | On-Line documentation    | | The SWCS shall provide all the reference information and     |
+  | |                          | | operation manuals to be accessible interactively by users.   |
+  +----------------------------+----------------------------------------------------------------+
+  | | Technical Documentation  | | The SWCS shall provide technical documentation in the form   |
+  | |                          | | of manuals, drawings, and online tools to support operation, |
+  | |                          | | maintenance, and repair of all instrument subsystems.        |
+  +----------------------------+----------------------------------------------------------------+
+
 The GMT DAS architecture is based on the client-server model where a server
 maintains the data, manages their access, and performs processing needed to
 complete requests, while clients make requests to the server to access the

@@ -35,6 +35,8 @@ Bibliography
 
 .. [Filg12] Filgueira, J. M.; et al.: GMT software and controls overview, Proc. of SPIE, Vol. 8451 845111-1, 2012.
 
+.. [FiPe13] Filgueira, J. M.; Peng, C.: Software and Control Requirements, GMT-SWC-REQ-00612, 2013.
+
 .. [Filg13a] Filgueira, J. M.: GMT Software and Controls Product Breakdown Structure, GMT-SWC-REF- 00647, 2013.
 
 .. [Filg13b] Filgueira, J. M.: GMT Software and Controls Standards (SWCS Handbook) GMT-SWC-REF- 00029, 2013.
@@ -61,6 +63,8 @@ Bibliography
 
 .. [ISO12207] ISO/IEC 12207: Systems and software engineering — Software life cycle processes, 2008.
 
+.. [JoMK13] Johns, M.;  McCarthy P; Kron, R.: Science Requirements Document, GMT-SCI-REQ-00001, 2013.
+
 .. [John11] Johns, M.; et al.: System Engineering Management Plan, GMT-SE-DOC-00002, Rev. A, 2011.
 
 .. [John13] Johns, M.; System Level PDR, Chapter 12: Telescope. https://docushare.gmto.org/docushare/dsweb/Get/Document-13239/GMT%20SLPDR%20Section%2006%20Telescope.pdf
@@ -73,6 +77,10 @@ Bibliography
 
 .. [McLe13] McLeod, B. A.: Wavefront Control System Preliminary Design Report, SAO-TEL-DOC-00007, Rev. 2, 2013.
 
+.. [Mait12] Maiten J.: GMT Environmental Conditions GMT-SE-REF-00144, 2012.
+
+.. [Mait13] Maiten, J.: System Level Requirements, GMT-SE-REQ-00027, 2013.
+
 .. [Meye00] Meyer, B.: Object-Oriented Software Construction, 2nd Edition, ISBN 0-13-629155-4, March 2000.
 
 .. [NASA13] NASA Software Engineering Handbook, NASA-HDBK-2203, 2013.
@@ -84,6 +92,12 @@ Bibliography
 .. [Prow96] Prowell, S. J.: Sequence Based Specification, 1996.
 
 .. [Rayb13] Raybould, K.: GMT Risk Management Plan, GMT-PM-DOC-00111, Rev. 6, 2013.
+
+.. [Sawy12a] Sawyer, D.: GMT Compliance to Regulations, Codes and Standards, GMT-SE-REF-00229, 2012.
+
+.. [Sawy12b] Sawyer, D.: GMT Electrical Power Systems, GMT-SE-REF-00019, 2012.
+
+.. [Sawy12c] Sawyer, D.: Telescope Common Utilities and Equipment, GMT-SE-REF-00190, 2012.
 
 .. [Sawy13a] Sawyer, D.: GMT Electronics Standards, GMT-SE-REF-00191, 2013.
 
@@ -105,6 +119,8 @@ Bibliography
 
 .. [Tuft01] Tufte, E.: The Visual Display of Quantitative Information, ISBN-10: 0961392142, 2001.
 
+.. [Wall96] Wallace, P. T.: Gemini Project, Gemini TCS Note (PTW) 3.12 (TN_PS_G0044) 1996.
+
 .. [Wall12a] Wallace, P. T.: TCSpk Programmer’s Manual, Ver. 9, July 19th, 2012.
 
 .. [Wall12b] Wallace, P. T.: SLALIB/C Programmer’s Manual, TPOINT Software, 2012.
@@ -115,14 +131,4 @@ Bibliography
 
 .. [Youn10] Young, P.; et al.: Proc. SPIE 7740, Software and Cyberinfrastructure for Astronomy, 77403F, 2010.
 
-.. Not yet used
-
-  6 J. M. Filgueira, C. Peng, Software and Control Requirements, GMT-SWC-REQ-00612, 2013.
-  7 J. Maiten, System Level Requirements, GMT-SE-REQ-00027, 2013.
-  8 M. Johns, P. McCarthy, R. Kron, Science Requirements Document, GMT-SCI-REQ-00001, 2013.
-  9 D. Sawyer, GMT Compliance to Regulations, Codes and Standards, GMT-SE-REF-00229, 2012.
-  10 J. Maiten, GMT Environmental Conditions GMT-SE-REF-00144, 2012.
-  11 D. Sawyer, GMT Electrical Power Systems, GMT-SE-REF-00019, 2012.
-  12 D. Sawyer, Telescope Common Utilities and Equipment, GMT-SE-REF-00190, 2012.
-  21 P. T. Wallace, Gemini Project, Gemini TCS Note (PTW) 3.12 (TN_PS_G0044) 1996.
 

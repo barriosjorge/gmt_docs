@@ -129,7 +129,7 @@ these may automate calibration, diagnosis or other engineering Tasks.
 
     +---------------+-------------------------------------------------------------------------------+
     | | State       | | Description                                                                 |
-    +---------------+-------------------------------------------------------------------------------+
+    +===============+===============================================================================+
     | | Pending     | | This is the initial state of an Observing sequence.  Observing Sequences    |
     | |             | | are created in the Operations Database once the Phase II proposal process   |
     | |             | | is finished.  This could be well in advance of the execution of the         |

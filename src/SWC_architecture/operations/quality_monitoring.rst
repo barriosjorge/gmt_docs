@@ -23,8 +23,8 @@ The above are derived from the Science and System Level Requirements shown here:
 .. table:: SWCS Quality Monitoring Requirements (Level 3)
 
   +----------------------------+-----------------------------------------------------------+
-  | | Title                    | | Purpose                                                 |
-  +----------------------------+-----------------------------------------------------------+
+  | | Title                    | | Statement                                               |
+  +============================+===========================================================+
   | | Diagnostic Software      | | The SWCS shall provide software tools for displaying    |
   | |                          | | real- time and long term trends in the performance of   |
   | |                          | | individual components/subsystems and to correlate that  |

@@ -23,7 +23,6 @@ functions.
 
 .. toctree::
    :maxdepth: 1
-   :numbered:
 
    development/introduction/introduction
    development/specification/specification

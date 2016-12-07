@@ -25,21 +25,17 @@ layers <architecture-development>`, :ref:`software deployment layers
 :ref:`software frameworks <architecture-frameworks>`, and :ref:`the subsystem
 modules <architecture-modules>`.
 
+.. toctree::
+    :maxdepth: 1
 
-.. include:: architecture-organization_inc.rst
-
-.. include:: architecture-domains_inc.rst
-
-.. include:: architecture-development_inc.rst
-
-.. include:: architecture-deployment_inc.rst
-
-.. include:: architecture-controls_inc.rst
-
-.. include:: architecture-health_supervision_inc.rst
-
-.. include:: architecture-frameworks_inc.rst
-
-.. include:: architecture-modules_inc.rst
+    organization.rst
+    domains.rst
+    development.rst
+    deployment.rst
+    controls.rst
+    health_supervision.rst
+    frameworks.rst
+    modules.rst
+    integration.rst
 
 

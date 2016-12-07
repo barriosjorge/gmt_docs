@@ -43,6 +43,8 @@ and control the software development activities to improve the efficiency of the
 formal process.  Model Driven Development (MDD) is employed to enforce design
 consistency and to increase productivity.
 
-.. include:: process-systems_engineering_inc.rst
+.. toctree::
+    :maxdepth: 1
 
-.. include:: process-software_development_process_inc.rst
+    systems_engineering
+    software_development_process
