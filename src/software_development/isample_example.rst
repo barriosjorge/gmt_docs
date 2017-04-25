@@ -28,19 +28,19 @@ isample_ctrl_pkg/isample_ctrl_pkg.coffee
   Lists the connectors between components.
 
 isample_ctrl_pkg/isample_ctrl_super.coffee
-  Definition of the *Control Supervisor* component. State variables, input and output ports are specified here. A single instance called **isample_ctrl_super** will be created. Port 10001 (?)
+  Definition of the *Control Supervisor* component. State variables, input and output ports are specified here. A single instance called **isample_ctrl_super** will be created.
 
 isample_ctrl_pkg/isample_filter_wheel_ctrl.coffee
-  Definition of the *Filter Wheel Controller* component. State variables, input and output ports are specified here. Two instances, called **isample_fw1_ctrl** and **isample_fw2_ctrl** will be created. Port: 8002 (?)
+  Definition of the *Filter Wheel Controller* component. State variables, input and output ports are specified here. Two instances, called **isample_fw1_ctrl** and **isample_fw2_ctrl** will be created.
 
 isample_ctrl_pkg/isample_focus_ctrl.coffee
-  Definition of the *Focus Controller* component. State variables, input and output ports are specified here. A single instance called **isample_focus_ctrl** will be created. Port 8001 (?)
+  Definition of the *Focus Controller* component. State variables, input and output ports are specified here. A single instance called **isample_focus_ctrl** will be created.
 
 isample_ctrl_pkg/isample_hw_adapter.coffee
-  Definition of the *Hardware Adapter* component, used to interface with the isample Actuators and Sensors. State variables, input and output ports are specified here. A single instance called **isample_hw_ctrl** will be created. Port 91107 (?)
+  Definition of the *Hardware Adapter* component, used to interface with the isample Actuators and Sensors. State variables, input and output ports are specified here. A single instance called **isample_hw_ctrl** will be created.
 
 isample_ctrl_pkg/isample_temp_ctrl.coffee
-  Definition of the *Temperature Controller* component. State variables, input and output ports are specified here. Two instances, called **isample_cryo_internal_temp_ctrl** and **isample_cryo_external_temp_ctrl** will be created. Port: 8000 (?)
+  Definition of the *Temperature Controller* component. State variables, input and output ports are specified here. Two instances, called **isample_cryo_internal_temp_ctrl** and **isample_cryo_external_temp_ctrl** will be created.
 
 .. code-block:: bash
 
@@ -119,39 +119,88 @@ All component instances require a unique setup port, used to send configuration 
 The port on which the component instance listens for configuration parameters is defined in the corresponding *\*_run.cpp* file.
 The port to which configuration parameters will be sent (using gds) for each component is defined in the corresponding *\*_config.coffee* configuration file.
 
-For each component, ensure that the setup port specified in the *\*_config.coffee* files for each instance is unique, and matches the setup port specified in the C++ file that instantiates it.
-
-For example, for the two Filter Wheel Controller instances:
-
-.. code-block:: bash
-
-   $ cd isample_ctrl_pkg/isample_filter_wheel_ctrl/cpp/
-   $ vim isample_filter_wheel_ctrl_run.cpp
-
 .. note::
+
   The examples use the text editor *vim*, which is included in almost all Linux distributions,
   but any other text editor can be used.
 
   To edit a file while viewing it in vim, type ``i``. To save and exit, hit ``esc``, then type ``:wq``.
 
+For each component, ensure that the setup port specified in the *\*_config.coffee* files for each instance is unique, and matches the setup port specified in the C++ file that instantiates it.
+
+For example, for the two Filter Wheel Controller instances:
+
+  .. code-block:: bash
+
+    $ cd isample_ctrl_pkg/isample_filter_wheel_ctrl/cpp/
+    $ vim isample_filter_wheel_ctrl_run.cpp
+
 When executed, this file will create the two Filter Wheel controller instances.
 Ensure that they listen for configuration parameters on the correct setup ports
 by creating *isample_fw1_ctrl* on port 8000 and *isample_fw2_ctrl* on port 8001.
 
+Edit the coffee file containing the configuration for each component instance
+
+For example, for the two Filter Wheel Controller instances:
+
+  .. code-block:: bash
+
+    $ cd ../coffee/
+    $ vim isample_fw1_ctrl_config.coffee
+    $ vim isample_fw2_ctrl_config.coffee
+
+* Remove the duplicate instance configuration from each file. Both files contain configuration information for both instances. This is a known issue caused by the code generator. To clean up the files, the configuration for the *isample_fw2_ctrl* component should be removed from *isample_fw1_ctrl_config.config* and the configuration for the *isample_fw1_ctrl* component should be removed from *isample_fw2_ctrl_config.config*.
+
+* Under the **Properties** sections, set **Port** to 8000 for *isample_fw1_ctrl* and 8001 for *isample_fw2_ctrl*. This will ensure that when the component is configured during runtime, the parameters will be sent to the correct ports, as configured above.
+
+* Ensure that all input and output ports have their **max_rate** value set to 1. In some cases the max_rate value is set to *undefined*, which will cause an error when running and using the component. This is a known issue caused by the code generator and will be fixed in subsequent versions.
+
+* Assign a unique port number for all input and output ports, with the exception of connections where the port number for an output port on one component needs to correspond to the port number for the corresponding input port on another component. For example, the *motor_control* output port on *isample_fw1_ctrl* should have the same port number as the *fw1_motor_ctrl* input port on *isample_hw_adapter*.
+
+* Change port configuration to reference "127.0.0.1" instead of "localhost". This is a known issue caused by a limitation in a low-level library and will be fixed in subsequent versions.
+
+Here is an example of the port assignments for the filter wheel components (not all ports are listed):
+
 .. code-block:: bash
 
-   $ cd ../coffee/
-   $ vim isample_fw1_ctrl_config.coffee
-   $ vim isample_fw2_ctrl_config.coffee
-
-Under the `Properties` sections, set `Port` to 8000 for isample_fw1_ctrl and
-8001 for isample_fw2_ctrl. At the moment both instances in both files need to
-be edited. This will ensure that when the component is configured during runtime,
-the parameters will be sent to the correct ports, as configured above.
+                 Filter Wheel                              Hardware
+               Control 1 (8000)                           Adapter (8002)
+           +---------------------+                   +---------------------+
+      9011 |                     |                   |                     |
+  <--------| heartbeat_out       |                   |                     |
+           |                     |       8007        |                     |
+           |       motor_control |------------------>| fw1_motor_control   |
+           |                     |       8002        |                     |
+           |         motor_state |<------------------| fw1_motor_status    |
+           |                     |                   |                     |
+           |                     | 8003              |                     |
+           |       position_goal |<--------          |                     |
+      8009 |                     |                   |                     |
+  <--------| position_value      |                   |                     |
+           +---------------------+                   |                     |
+                                                9011 |                     |
+                                            <--------| heartbeat_out       |
+                 Filter Wheel                        |                     |
+               Control 2 (8001)                      |                     |
+           +---------------------+                   |                     |
+      9011 |                     |                   |                     |
+  <--------| heartbeat_out       |                   |                     |
+           |                     |       8018        |                     |
+           |       motor_control |------------------>| fw2_motor_control   |
+           |                     |       8013        |                     |
+           |         motor_state |<------------------| fw2_motor_status    |
+           |                     |                   |                     |
+           |                     | 8014              |                     |
+           |       position_goal |<--------          |                     |
+      8020 |                     |                   |                     |
+  <--------| position_value      |                   |                     |
+           +---------------------+                   +---------------------+
 
 Component Attributes
 --------------------
-Components are defined by their state variables, input ports, output ports and step function. The Filter Wheel component has the following attributes:
+Components are defined by their state variables, input ports, output ports and step function.
+
+The Filter Wheel component has the following attributes:
 
 **State Variables:**
 

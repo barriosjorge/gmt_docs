@@ -119,8 +119,7 @@ depending on how much disk space is available to the host machine and the
 hardware requirements of the Virtual Machine.
 The host machine will only be impacted by the actual size of the virtual
 machine file system because the virtual drive space is allocated dynamically.
-At this stage 20 GB is sufficient, but it can be changed after the
-Virtual Machine has been set up, if necessary.
+At this stage 20 GB is sufficient.
 The minimum capacity for the SWC development machine is 5 GB.
 
 Select *Create* to proceed.
