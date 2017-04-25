@@ -15,6 +15,8 @@
   
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
   
+  
+  
 
   
 
@@ -47,6 +49,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -90,7 +93,10 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../release_notes/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../SWC_architecture/index.html">Architecture and Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../SWC_standards/index.html">Software and Controls Standards</a></li>
@@ -123,8 +129,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">GMT Software And Controls</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GMT Software And Controls</a>
+        
       </nav>
 
 
@@ -133,23 +141,40 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="index.html">Software Development</a> &raquo;</li>
-      
-    <li>1. Installation</li>
+        
+      <li>1. Installation</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -217,7 +242,7 @@ with the Hardware Development Kit (HDK):</p>
 <p>2.1  Enter the BIOS settings by pressing the &lt;Del&gt; key.</p>
 <p>2.2  In the Boot panel, set Option #1 to [USB Stick].</p>
 <blockquote>
-<div><a class="reference internal image-reference" href="../_images/hdk-bios-usb.png"><img alt="BIOS boot configuration" class="align-center" src="../_images/hdk-bios-usb.png" style="width: 560.0px; height: 352.09999999999997px;" /></a>
+<div><a class="reference internal image-reference" href="../_images/hdk-bios-usb.png"><img alt="BIOS boot configuration" class="align-center" src="../_images/hdk-bios-usb.png" style="width: 560.0px; height: 352.1px;" /></a>
 </div></blockquote>
 <p>2.3 Select &#8216;Save &amp; Exit&#8217;; the system will reboot</p>
 </div></blockquote>
@@ -276,15 +301,18 @@ $ ethercat slaves
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="upgrade.html" class="btn btn-neutral float-right" title="2. Upgrade" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="upgrade.html" class="btn btn-neutral float-right" title="2. Upgrade" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="Software Development" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral" title="Software Development" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -316,9 +344,11 @@ $ ethercat slaves
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
             VERSION:'1.1-5',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>

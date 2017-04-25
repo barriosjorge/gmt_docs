@@ -15,10 +15,10 @@ Software Development
 
    installation
    upgrade
+   virtual_machine/virtual_machine.rst
    isample_example
    development
    configuration
    services
    examples
    contribute
-

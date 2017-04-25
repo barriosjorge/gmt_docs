@@ -15,6 +15,8 @@
   
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
   
+  
+  
 
   
 
@@ -47,6 +49,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -90,7 +93,10 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../release_notes/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../SWC_architecture/index.html">Architecture and Design</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Software and Controls Standards</a><ul class="current">
@@ -157,8 +163,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../index.html">GMT Software And Controls</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">GMT Software And Controls</a>
+        
       </nav>
 
 
@@ -167,23 +175,40 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="../index.html">Software and Controls Standards</a> &raquo;</li>
-      
-    <li>5. DCS Specifications</li>
+        
+      <li>5. DCS Specifications</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -308,7 +333,7 @@ service outside the DCS.</p>
 </div>
 <div class="figure" id="id5">
 <img alt="../../_images/reactive_close_control_loop.png" src="../../_images/reactive_close_control_loop.png" />
-<p class="caption"><span class="caption-number">Fig. 91 </span><span class="caption-text">Reactive Close Control Loop</span></p>
+<p class="caption"><span class="caption-number">Fig. 5.23 </span><span class="caption-text">Reactive Close Control Loop</span></p>
 </div>
 <p>The above diagram represents an overview of the control, supervision and
 monitoring functions and their relation with state variables.</p>
@@ -321,14 +346,14 @@ machine.  Only the description of each state is shown.  Details about entry
 actions, transitions and activities are omitted in this diagram.</p>
 <div class="figure" id="id6">
 <img alt="../../_images/controller-state-machine1.png" src="../../_images/controller-state-machine1.png" />
-<p class="caption"><span class="caption-number">Fig. 92 </span><span class="caption-text">Controller State Machine</span></p>
+<p class="caption"><span class="caption-number">Fig. 5.24 </span><span class="caption-text">Controller State Machine</span></p>
 </div>
-<p><a class="reference internal" href="#op-state-specification"><span class="std std-numref">Table 48</span></a> provides the specification of the
+<p><a class="reference internal" href="#op-state-specification"><span class="std std-numref">Table 5.22</span></a> provides the specification of the
 Controller state machine.  The specification defines what actions to implement
 in every state or transition, however in some of the states each Controller
 implements its own specific logic.</p>
 <table border="1" class="docutils" id="id7">
-<span id="op-state-specification"></span><caption><span class="caption-number">Table 48 </span><span class="caption-text">Component ops_state Specification</span><a class="headerlink" href="#id7" title="Permalink to this table">¶</a></caption>
+<span id="op-state-specification"></span><caption><span class="caption-number">Table 5.22 </span><span class="caption-text">Component ops_state Specification</span><a class="headerlink" href="#id7" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="21%" />
 <col width="79%" />
@@ -1258,7 +1283,7 @@ GCS integration. The Figure below shows an example of this arrangement.</p>
 <p>[review drawing to include physical interface]</p>
 <div class="figure" id="id8">
 <img alt="../../_images/tiered_controller_architecture.png" src="../../_images/tiered_controller_architecture.png" />
-<p class="caption"><span class="caption-number">Fig. 93 </span><span class="caption-text">Single and Two Tier Controller Architecture</span></p>
+<p class="caption"><span class="caption-number">Fig. 5.25 </span><span class="caption-text">Single and Two Tier Controller Architecture</span></p>
 </div>
 <p>The primary functions of the DCC are:</p>
 <blockquote>
@@ -1405,7 +1430,7 @@ in EtherCAT protocol.</div></blockquote>
 <div>The DCS shall use one of the recommended control deployment modes defined in
 the Table below for each individual degree of freedom.</div></blockquote>
 <table border="1" class="docutils" id="id9">
-<caption><span class="caption-number">Table 49 </span><span class="caption-text">Motion Control Deployment Mode</span><a class="headerlink" href="#id9" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 5.23 </span><span class="caption-text">Motion Control Deployment Mode</span><a class="headerlink" href="#id9" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="31%" />
 <col width="69%" />
@@ -1589,7 +1614,7 @@ with other Components in their own containing Package, with other Components of 
 Package of the same DCS or with Components in other Subsystems.</p>
 <p>Components use ports to connect with other components. The connection between
 two ports is represented by a connector. Connectors are grouped in connection
-maps. Connection maps are part of the <a class="reference internal" href="../../SWC_architecture/process/process_introduction.html#subsystem-specification-and-modeling"><span class="std std-ref">System Definition Files</span></a> specification</p>
+maps. Connection maps are part of the <a class="reference internal" href="../../SWC_architecture/process/software_development_process.html#subsystem-specification-and-modeling"><span class="std std-ref">System Definition Files</span></a> specification</p>
 <blockquote>
 <div><p><strong>SWC-DCS-0160: Package connection map</strong></p>
 <blockquote>
@@ -1700,15 +1725,18 @@ the DCC.</p>
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../non_conformances/non_conformances.html" class="btn btn-neutral float-right" title="6. Non-Conformances" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../non_conformances/non_conformances.html" class="btn btn-neutral float-right" title="6. Non-Conformances" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../lifecycle/dcs_lifecycle.html" class="btn btn-neutral" title="4. DCS Life Cycle" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../lifecycle/dcs_lifecycle.html" class="btn btn-neutral" title="4. DCS Life Cycle" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -1740,9 +1768,11 @@ the DCC.</p>
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
             VERSION:'1.1-5',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>

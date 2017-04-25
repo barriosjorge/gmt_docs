@@ -15,6 +15,8 @@
   
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
   
+  
+  
 
   
 
@@ -37,7 +39,7 @@
         <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="GMT Software And Controls documentation" href="../../index.html"/>
         <link rel="up" title="Architecture and Design" href="../index.html"/>
-        <link rel="next" title="2. Overall Architecture" href="../architecture/overall_architecture.html"/>
+        <link rel="next" title="2. Requirements Overview" href="../requirements/requirements.html"/>
         <link rel="prev" title="Architecture and Design" href="../index.html"/> 
 
   
@@ -47,6 +49,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -90,7 +93,10 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../release_notes/index.html">Release Notes</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Architecture and Design</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">1. Introduction</a><ul>
@@ -98,15 +104,16 @@
 <li class="toctree-l3"><a class="reference internal" href="#general-principles-and-guidelines">1.2. General Principles and Guidelines</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../architecture/overall_architecture.html">2. Overall Architecture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tcs/tcs_introduction.html">3. Telescope Control System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../requirements/requirements.html">2. Requirements Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture/overall_architecture.html">3. Overall Architecture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../operations/observatory_operations.html">4. Observatory Operation System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../services/observatory_services.html">5. Observatory Services</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../frameworks/component_frameworks.html">6. Frameworks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../platform/platform.html">7. Platform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../process/process_introduction.html">8. Process</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../risks/risks.html">9. Software and Control Risks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../bibliography/bibliography.html">10. Bibliography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tcs/tcs_introduction.html">5. Telescope Control System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services/observatory_services.html">6. Observatory Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frameworks/component_frameworks.html">7. Frameworks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform/platform.html">8. Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../process/process_introduction.html">9. Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../risks/risks.html">10. Software and Control Risks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bibliography/bibliography.html">11. Bibliography</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../SWC_standards/index.html">Software and Controls Standards</a></li>
@@ -125,8 +132,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../index.html">GMT Software And Controls</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">GMT Software And Controls</a>
+        
       </nav>
 
 
@@ -135,23 +144,40 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="../index.html">Architecture and Design</a> &raquo;</li>
-      
-    <li>1. Introduction</li>
+        
+      <li>1. Introduction</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -248,27 +274,32 @@ practices <a class="reference internal" href="../bibliography/bibliography.html#
 compatibility, efficiency, portability, ease of use, verifiability, integrity,
 and reparability.</p>
 <p>This documentation presents a system architecture design that identifies the
-elements of the SWCS and that meets the defined requirements.  First we discuss
-the <a class="reference internal" href="../architecture/overall_architecture.html#overall-architecture"><span class="std std-ref">main architectural principles</span></a> that provide the
-rationale for the architectural design.  The SWCS is divided into subsystems and
-each subsystem is divided into <a class="reference internal" href="../architecture/overall_architecture.html#architecture-modules"><span class="std std-ref">packages and components</span></a>. The most relevant packages and components are
-highlighted for each subsystem. A complete product definition with the detailed
-list of packages and components for each subsystem is documented in the SWCS
-Product Breakdown Structure <a class="reference internal" href="../bibliography/bibliography.html#filg13a" id="id4">[Filg13a]</a>.  The architecture enforces consistency
-and traceability between subsystem requirements and architecture design due to
-benefits of using formal specification files. The internal and external
-interfaces of each subsystem are identified and the most relevant ones are
-defined using the same formal method.  The section on
-<a class="reference internal" href="../frameworks/component_frameworks.html#component-frameworks"><span class="std std-ref">Frameworks</span></a> also describes the design of a set of common
-frameworks that improve and capitalize on software reuse and maintainability of
-the system.  The section on <a class="reference internal" href="../platform/platform.html#platform"><span class="std std-ref">Platform</span></a> presents the technological platform
-proposed for developing the SWCS and how the use of commercial and open source
-Off-The-Shelf components based on open standards provides a cost-effective
-solution that also significantly improves the maintainability of the system.
-The section on <a class="reference internal" href="../process/process_introduction.html#process"><span class="std std-ref">Process</span></a> provides an overview of the SWCS Agile development
-process and how the use of formal specification methods, based on Model-Based
-Development, helps to maintain consistency between subsystem specifications and
-their implementation, testing, and integration.</p>
+elements of the SWCS and that meets the defined requirements.  First we present
+an overview of the key functional and performance <a class="reference internal" href="../requirements/requirements.html#requirements-overview"><span class="std std-ref">system requirements</span></a>, and the corresponding flow down to the SWCS.  Then we
+discuss the <a class="reference internal" href="../architecture/overall_architecture.html#overall-architecture"><span class="std std-ref">main architectural principles</span></a> that
+provide the rationale for the architectural design.  At the highest level,
+<a class="reference internal" href="../operations/observatory_operations.html#observatory-operations"><span class="std std-ref">Observatory Operation System</span></a> supports users during observatory operations; it
+interacts with the <a class="reference internal" href="../tcs/tcs_introduction.html#tcs-introduction"><span class="std std-ref">Telescope Control System</span></a> to control the telescope
+optomechanical devices.  The SWCS is divided into subsystems and each subsystem
+is divided into <a class="reference internal" href="../architecture/modules.html#architecture-modules"><span class="std std-ref">packages and components</span></a>.  The most
+relevant packages and components are highlighted for each subsystem. A complete
+product definition with the detailed list of packages and components for each
+subsystem is documented in the SWCS Product Breakdown Structure <a class="reference internal" href="../bibliography/bibliography.html#filg13a" id="id4">[Filg13a]</a>.  The
+architecture enforces consistency and traceability between subsystem
+requirements and architecture design due to benefits of using formal
+specification files. The internal and external interfaces of each subsystem are
+identified and the most relevant ones are defined using the same formal method.
+The section on <a class="reference internal" href="../frameworks/component_frameworks.html#component-frameworks"><span class="std std-ref">Frameworks</span></a> also describes the design of a set of
+common frameworks that improve and capitalize on software reuse and
+maintainability of the system.  The section on <a class="reference internal" href="../platform/platform.html#platform"><span class="std std-ref">Platform</span></a> presents the
+technological platform proposed for developing the SWCS and how the use of
+commercial and open source Off-The-Shelf components based on open standards
+provides a cost-effective solution that also significantly improves the
+maintainability of the system.  The section on <a class="reference internal" href="../process/process_introduction.html#process"><span class="std std-ref">Process</span></a> provides an
+overview of the SWCS Agile development process and how the use of formal
+specification methods, based on Model-Based Development, helps to maintain
+consistency between subsystem specifications and their implementation, testing,
+and integration.</p>
 <p>In this documentation, the use of software-specific terminology is intentionally
 kept at a low level in the interest of a wider audience. Nevertheless,
 occasional remarks are necessary to specifically inform domain engineers or
@@ -278,15 +309,18 @@ software architects about some of the more formal approaches.</p>
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../architecture/overall_architecture.html" class="btn btn-neutral float-right" title="2. Overall Architecture" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../requirements/requirements.html" class="btn btn-neutral float-right" title="2. Requirements Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../index.html" class="btn btn-neutral" title="Architecture and Design" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../index.html" class="btn btn-neutral" title="Architecture and Design" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -318,9 +352,11 @@ software architects about some of the more formal approaches.</p>
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
             VERSION:'1.1-5',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>

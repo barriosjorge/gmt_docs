@@ -8,12 +8,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3. ISample Example &mdash; GMT Software And Controls documentation</title>
+  <title>4. ISample Example &mdash; GMT Software And Controls documentation</title>
   
 
   
   
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
   
 
   
@@ -37,8 +39,8 @@
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="GMT Software And Controls documentation" href="../index.html"/>
         <link rel="up" title="Software Development" href="index.html"/>
-        <link rel="next" title="4. DCS Development" href="development.html"/>
-        <link rel="prev" title="2. Upgrade" href="upgrade.html"/> 
+        <link rel="next" title="5. DCS Development" href="development.html"/>
+        <link rel="prev" title="3. Installing a Virtual Machine" href="virtual_machine/virtual_machine.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -47,6 +49,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -90,19 +93,32 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../release_notes/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../SWC_architecture/index.html">Architecture and Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../SWC_standards/index.html">Software and Controls Standards</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Software Development</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installation.html">1. Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="upgrade.html">2. Upgrade</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">3. ISample Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="development.html">4. DCS Development</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html">5. Developer Info and Release Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="services.html">6. Using the Services</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples.html">7. Running Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contribute.html">8. Contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtual_machine/virtual_machine.html">3. Installing a Virtual Machine</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4. ISample Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#model-files">4.1. Model Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#code-generation">4.2. Code Generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration">4.3. Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#component-attributes">4.4. Component Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#defining-component-behavior">4.5. Defining component behavior</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#compilation">4.6. Compilation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-the-example">4.7. Running the Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="development.html">5. DCS Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">6. Developer Info and Release Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html">7. Using the Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html">8. Running Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html">9. Contribute</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../data_products/index.html">Data Products</a></li>
@@ -119,8 +135,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">GMT Software And Controls</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GMT Software And Controls</a>
+        
       </nav>
 
 
@@ -129,66 +147,484 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="index.html">Software Development</a> &raquo;</li>
-      
-    <li>3. ISample Example</li>
+        
+      <li>4. ISample Example</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
   <div class="section" id="isample-example">
-<span id="id1"></span><h1>3. ISample Example<a class="headerlink" href="#isample-example" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>4. ISample Example<a class="headerlink" href="#isample-example" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference internal" href="development/specification/specification.html#dcs-spec-example"><span class="std std-ref">ISample DCS</span></a> is an instrument control system example that provides
 a template that instrument developers can use as a model.</p>
 <p>Retrieve the sample model files from <a class="reference external" href="../_static/isample_dcs.tgz">here</a> or execute:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ curl -O http://52.52.46.32/_static/isample_dcs.tgz
-</pre></div>
-</div>
-<p>Once the file has been downloaded execute:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ tar xvfz isample_dcs.tgz
+$ tar xvfz isample_dcs.tgz
 $ <span class="nb">cd</span> isample_dcs
-$ gds codegen -e isample_dcs
-$ gmake -C src/runtime/src/idcs/isample_dcs -j<span class="sb">`</span>nproc<span class="sb">`</span> install
 </pre></div>
 </div>
-<p>The executables will be installed located in <cite>src/runtime/src/idcs/isample_dcs/install</cite>.</p>
+<p>For relative and absolute paths, it will be assumed that the tar file was downloaded to the current user&#8217;s home directory (~/).</p>
+<div class="section" id="model-files">
+<h2>4.1. Model Files<a class="headerlink" href="#model-files" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>isample_def.coffee</dt>
+<dd>High-level definition file, representing the WBS for the submodule. It lists the components and how many instances of each are required.</dd>
+<dt>isample_dcs.coffee</dt>
+<dd>Lists the connectors between the supervisor layer and the component layer. For this example, these are limited to monitoring the heartbeat of each component.</dd>
+<dt>isample_ctrl_pkg/isample_ctrl_pkg.coffee</dt>
+<dd>Lists the connectors between components.</dd>
+<dt>isample_ctrl_pkg/isample_ctrl_super.coffee</dt>
+<dd>Definition of the <em>Control Supervisor</em> component. State variables, input and output ports are specified here. A single instance called <strong>isample_ctrl_super</strong> will be created. Port 10001 (?)</dd>
+<dt>isample_ctrl_pkg/isample_filter_wheel_ctrl.coffee</dt>
+<dd>Definition of the <em>Filter Wheel Controller</em> component. State variables, input and output ports are specified here. Two instances, called <strong>isample_fw1_ctrl</strong> and <strong>isample_fw2_ctrl</strong> will be created. Port: 8002 (?)</dd>
+<dt>isample_ctrl_pkg/isample_focus_ctrl.coffee</dt>
+<dd>Definition of the <em>Focus Controller</em> component. State variables, input and output ports are specified here. A single instance called <strong>isample_focus_ctrl</strong> will be created. Port 8001 (?)</dd>
+<dt>isample_ctrl_pkg/isample_hw_adapter.coffee</dt>
+<dd>Definition of the <em>Hardware Adapter</em> component, used to interface with the isample Actuators and Sensors. State variables, input and output ports are specified here. A single instance called <strong>isample_hw_ctrl</strong> will be created. Port 91107 (?)</dd>
+<dt>isample_ctrl_pkg/isample_temp_ctrl.coffee</dt>
+<dd>Definition of the <em>Temperature Controller</em> component. State variables, input and output ports are specified here. Two instances, called <strong>isample_cryo_internal_temp_ctrl</strong> and <strong>isample_cryo_external_temp_ctrl</strong> will be created. Port: 8000 (?)</dd>
+</dl>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>  Control                   Internal                     Hardware
+ Supervisor               Temp Control                    Adapter
++--------------+         +-------------+             +---------------+
+<span class="p">|</span>              <span class="p">|</span>&lt;--------<span class="p">|</span>heartbeat    <span class="p">|</span>             <span class="p">|</span>               <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>         <span class="p">|</span>             <span class="p">|</span>             <span class="p">|</span>               <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>         <span class="p">|</span>  temperature<span class="p">|</span>&lt;------------<span class="p">|</span>int temp       <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>         +-------------+             <span class="p">|</span>               <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>                                     <span class="p">|</span>               <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>             External                <span class="p">|</span>               <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>           Temp Control              <span class="p">|</span>               <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>         +-------------+             <span class="p">|</span>               <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>&lt;--------<span class="p">|</span>heartbeat    <span class="p">|</span>             <span class="p">|</span>               <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>         <span class="p">|</span>             <span class="p">|</span>             <span class="p">|</span>               <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>         <span class="p">|</span>  temperature<span class="p">|</span>&lt;------------<span class="p">|</span>ext temp       <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>         +-------------+             <span class="p">|</span>               <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>                                     <span class="p">|</span>               <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>                                     <span class="p">|</span>               <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>                                     <span class="p">|</span>               <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>           Filter Wheel              <span class="p">|</span>               <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>            Control <span class="m">1</span>                <span class="p">|</span>               <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>         +--------------+            <span class="p">|</span>               <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>&lt;--------<span class="p">|</span>heartbeat     <span class="p">|</span>            <span class="p">|</span>               <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>         <span class="p">|</span>              <span class="p">|</span>            <span class="p">|</span>               <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>         <span class="p">|</span> motor control<span class="p">|</span>-----------&gt;<span class="p">|</span>fw1 control    <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>         <span class="p">|</span>   motor state<span class="p">|</span>&lt;-----------<span class="p">|</span>fw1 state      <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>         +--------------+            <span class="p">|</span>               <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>                                     <span class="p">|</span>               <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>           Filter Wheel              <span class="p">|</span>               <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>            Control <span class="m">2</span>                <span class="p">|</span>               <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>         +--------------+            <span class="p">|</span>               <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>&lt;--------<span class="p">|</span>heartbeat     <span class="p">|</span>            <span class="p">|</span>               <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>         <span class="p">|</span>              <span class="p">|</span>            <span class="p">|</span>               <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>         <span class="p">|</span> motor control<span class="p">|</span>-----------&gt;<span class="p">|</span>fw2 control    <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>         <span class="p">|</span>   motor state<span class="p">|</span>&lt;-----------<span class="p">|</span>fw2 state      <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>         +--------------+            <span class="p">|</span>               <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>                                     <span class="p">|</span>               <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>                                     <span class="p">|</span>               <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>                                     <span class="p">|</span>               <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>           Focus Control             <span class="p">|</span>               <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>         +--------------+            <span class="p">|</span>               <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>&lt;--------<span class="p">|</span>heartbeat     <span class="p">|</span>            <span class="p">|</span>               <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>         <span class="p">|</span>              <span class="p">|</span>            <span class="p">|</span>               <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>         <span class="p">|</span>    hmi output<span class="p">|</span>-----------&gt;<span class="p">|</span>LEDs           <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>         <span class="p">|</span> motor control<span class="p">|</span>-----------&gt;<span class="p">|</span>focus control  <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>         <span class="p">|</span>     hmi input<span class="p">|</span>&lt;-----------<span class="p">|</span>buttons        <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>         <span class="p">|</span>   motor state<span class="p">|</span>&lt;-----------<span class="p">|</span>focus state    <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>         +--------------+            <span class="p">|</span>               <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>                                     <span class="p">|</span>               <span class="p">|</span>
+<span class="p">|</span>              <span class="p">|</span>&lt;------------------------------------<span class="p">|</span>heartbeat      <span class="p">|</span>
++--------------+                                     +---------------+
+</pre></div>
+</div>
+</div>
+<div class="section" id="code-generation">
+<h2>4.2. Code Generation<a class="headerlink" href="#code-generation" title="Permalink to this headline">¶</a></h2>
+<p>To generate the code skeleton from the model files, execute:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ gds codegen -e isample_dcs
+</pre></div>
+</div>
+<p>This will generate the basic framework of source code and configuration files for each component. The files will be located in the <cite>src/</cite> folder.
+To see the generated folders and files, navigate to:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> src/runtime/src/idcs/isample_dcs/
+$ ls -la
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuration">
+<h2>4.3. Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>All component instances require a unique setup port, used to send configuration parameters to the running instance.
+The port on which the component instance listens for configuration parameters is defined in the corresponding <em>*_run.cpp</em> file.
+The port to which configuration parameters will be sent (using gds) for each component is defined in the corresponding <em>*_config.coffee</em> configuration file.</p>
+<p>For each component, ensure that the setup port specified in the <em>*_config.coffee</em> files for each instance is unique, and matches the setup port specified in the C++ file that instantiates it.</p>
+<p>For example, for the two Filter Wheel Controller instances:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> isample_ctrl_pkg/isample_filter_wheel_ctrl/cpp/
+$ vim isample_filter_wheel_ctrl_run.cpp
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The examples use the text editor <em>vim</em>, which is included in almost all Linux distributions,
+but any other text editor can be used.</p>
+<p class="last">To edit a file while viewing it in vim, type <code class="docutils literal"><span class="pre">i</span></code>. To save and exit, hit <code class="docutils literal"><span class="pre">esc</span></code>, then type <code class="docutils literal"><span class="pre">:wq</span></code>.</p>
+</div>
+<p>When executed, this file will create the two Filter Wheel controller instances.
+Ensure that they listen for configuration parameters on the correct setup ports
+by creating <em>isample_fw1_ctrl</em> on port 8000 and <em>isample_fw2_ctrl</em> on port 8001.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ../coffee/
+$ vim isample_fw1_ctrl_config.coffee
+$ vim isample_fw2_ctrl_config.coffee
+</pre></div>
+</div>
+<p>Under the <cite>Properties</cite> sections, set <cite>Port</cite> to 8000 for isample_fw1_ctrl and
+8001 for isample_fw2_ctrl. At the moment both instances in both files need to
+be edited. This will ensure that when the component is configured during runtime,
+the parameters will be sent to the correct ports, as configured above.</p>
+</div>
+<div class="section" id="component-attributes">
+<h2>4.4. Component Attributes<a class="headerlink" href="#component-attributes" title="Permalink to this headline">¶</a></h2>
+<p>Components are defined by their state variables, input ports, output ports and step function. The Filter Wheel component has the following attributes:</p>
+<p><strong>State Variables:</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="20%" />
+<col width="45%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Range</th>
+<th class="head">Default</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>float</td>
+<td>position_sv</td>
+<td>min: 5, max: 40</td>
+<td>20</td>
+</tr>
+<tr class="row-odd"><td>OperationalState</td>
+<td>ops_state_sv</td>
+<td><div class="first last line-block">
+<div class="line">OFF, STARTING, ON, INITIALIZING,</div>
+<div class="line">RUN, HALTING, SHUTTING_DOWN,</div>
+<div class="line">FAULT, RESETTING, DISABLED</div>
+</div>
+</td>
+<td>OFF</td>
+</tr>
+<tr class="row-even"><td>SimulationMode</td>
+<td>sim_mode_sv</td>
+<td>SIMULATION, ON_LINE</td>
+<td>ON_LINE</td>
+</tr>
+<tr class="row-odd"><td>ControlMode</td>
+<td>control_mode_sv</td>
+<td>STANDALONE, INTEGRATED</td>
+<td>STANDALONE</td>
+</tr>
+</tbody>
+</table>
+<p><em>OperationalState, SimulationMode and ControlMode are enums with their respective values shown in the &#8220;Range&#8221; column above.</em></p>
+<p><strong>Input Ports:</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="35%" />
+<col width="30%" />
+<col width="35%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Internal variable</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>isample_motor_status</td>
+<td>motor_state</td>
+<td>motor_state</td>
+</tr>
+<tr class="row-odd"><td>float</td>
+<td>position_goal</td>
+<td>position_sv.goal</td>
+</tr>
+<tr class="row-even"><td>OperationalState</td>
+<td>ops_state_goal</td>
+<td>ops_state_sv.goal</td>
+</tr>
+<tr class="row-odd"><td>SimulationMode</td>
+<td>sim_mode_goal</td>
+<td>sim_mode_sv.goal</td>
+</tr>
+<tr class="row-even"><td>ControlMode</td>
+<td>control_mode_goal</td>
+<td>control_mode_sv.goal</td>
+</tr>
+</tbody>
+</table>
+<p>where the struct <cite>isample_motor_status</cite> is defined as:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">isample_motor_status</span> <span class="p">{</span>
+    <span class="kt">bool</span>             <span class="n">ready</span><span class="p">;</span>                   <span class="c1">// Axis Ready</span>
+    <span class="kt">bool</span>             <span class="n">enabled</span><span class="p">;</span>                 <span class="c1">// Axis Enabled</span>
+    <span class="kt">bool</span>             <span class="n">warning</span><span class="p">;</span>                 <span class="c1">// Axis Warning</span>
+    <span class="kt">bool</span>             <span class="n">error</span><span class="p">;</span>                   <span class="c1">// Axis Error</span>
+    <span class="kt">bool</span>             <span class="n">moving_positive</span><span class="p">;</span>         <span class="c1">// Axis Moving +</span>
+    <span class="kt">bool</span>             <span class="n">moving_negative</span><span class="p">;</span>         <span class="c1">// Axis Moving -</span>
+    <span class="n">MSGPACK_DEFINE_MAP</span><span class="p">(</span><span class="n">ready</span><span class="p">,</span> <span class="n">enabled</span><span class="p">,</span> <span class="n">warning</span><span class="p">,</span> <span class="n">error</span><span class="p">,</span> <span class="n">moving_positive</span><span class="p">,</span> <span class="n">moving_negative</span><span class="p">)</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p><strong>Output Ports:</strong></p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="35%" />
+<col width="30%" />
+<col width="35%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Internal Variable</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>isample_motor_control</td>
+<td>motor_control</td>
+<td>motor_control</td>
+</tr>
+<tr class="row-odd"><td>HeartBeatEvent</td>
+<td>heartbeat_out</td>
+<td>heartbeat_out</td>
+</tr>
+<tr class="row-even"><td>float</td>
+<td>position_value</td>
+<td>position_sv.value</td>
+</tr>
+<tr class="row-odd"><td>OperationalState</td>
+<td>ops_state_value</td>
+<td>ops_state_sv.value</td>
+</tr>
+<tr class="row-even"><td>SimulationMode</td>
+<td>sim_mode_value</td>
+<td>sim_mode_sv.value</td>
+</tr>
+<tr class="row-odd"><td>ControlMode</td>
+<td>control_mode_value</td>
+<td>control_mode_sv.value</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>where the struct <cite>isample_motor_control</cite> is defined as:</p>
+<blockquote>
+<div><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">isample_motor_control</span> <span class="p">{</span>
+    <span class="kt">bool</span>             <span class="n">enable</span><span class="p">;</span>                  <span class="c1">// Axis Enable</span>
+    <span class="kt">bool</span>             <span class="n">reset</span><span class="p">;</span>                   <span class="c1">// Axis Reset</span>
+    <span class="kt">int16_t</span>          <span class="n">velocity</span><span class="p">;</span>                <span class="c1">// Velocity</span>
+    <span class="n">MSGPACK_DEFINE_MAP</span><span class="p">(</span><span class="n">enable</span><span class="p">,</span> <span class="n">reset</span><span class="p">,</span> <span class="n">velocity</span><span class="p">)</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>and the struct <cite>HeartBeatEvent</cite> is defined as:</p>
+<blockquote>
+<div><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">HeartBeatEvent</span> <span class="p">{</span>
+    <span class="k">struct</span> <span class="n">timeval</span>   <span class="n">timestamp</span><span class="p">;</span>               <span class="c1">// Time stamp</span>
+    <span class="n">MSGPACK_DEFINE_MAP</span><span class="p">(</span><span class="n">timestamp</span><span class="p">)</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="defining-component-behavior">
+<h2>4.5. Defining component behavior<a class="headerlink" href="#defining-component-behavior" title="Permalink to this headline">¶</a></h2>
+<p>The core component behavior is specified in the *_step.cpp file. The component has a periodic thread that reads input from the input ports, runs the step function and then writes output to the output ports. Initially, the generated step function will check whether the component is correctly configured and if so, will log the current step counter value.</p>
+<p>For more information, and in relation to a simpler example, see <a class="reference internal" href="examples.html#running-examples"><span class="std std-ref">Running Examples</span></a></p>
+<p>In the following examples we will replace the basic step functionality with common controller commands.</p>
+<p>To edit the <em>Filter Wheel Controller</em> step file:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~/isample_dcs/src/runtime/src/idcs/isample_dcs/
+$ <span class="nb">cd</span> isample_ctrl_pkg/isample_filter_wheel_ctrl/cpp/
+$ vim isample_filter_wheel_ctrl_step.cpp
+</pre></div>
+</div>
+<p>The following example step function for the filter wheel controller validates positional input, sends the command to the Hardware Adapter and monitors the motor status.</p>
+<blockquote>
+<div><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="n">IsampleFilterWheelCtrl</span><span class="o">::</span><span class="n">step</span><span class="p">(</span><span class="kt">bool</span> <span class="n">setup_ok</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">setup_ok</span><span class="p">)</span> <span class="p">{</span>                     <span class="c1">// this will be executed only if port setup has been received</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">is_step_rate</span><span class="p">(</span><span class="mi">1000</span><span class="p">))</span> <span class="p">{</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">position_sv</span><span class="p">.</span><span class="n">value</span> <span class="o">&lt;</span> <span class="n">position_sv</span><span class="p">.</span><span class="n">goal</span><span class="p">)</span> <span class="p">{</span>
+                <span class="c1">// check range</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">position_sv</span><span class="p">.</span><span class="n">value</span> <span class="o">&gt;=</span> <span class="n">position_sv</span><span class="p">.</span><span class="n">max</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">log_warning</span><span class="p">(</span><span class="s">&quot;Position is at or exceeding maximum value: &quot;</span> <span class="o">+</span> <span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">position_sv</span><span class="p">.</span><span class="n">max</span><span class="p">));</span>
+                    <span class="c1">// prevent further movement</span>
+                    <span class="n">position_sv</span><span class="p">.</span><span class="n">goal</span> <span class="o">=</span> <span class="n">position_sv</span><span class="p">.</span><span class="n">max</span><span class="p">;</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                    <span class="c1">// move in positive direction</span>
+                    <span class="n">position_sv</span><span class="p">.</span><span class="n">value</span> <span class="o">+=</span> <span class="mf">0.1</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">position_sv</span><span class="p">.</span><span class="n">value</span> <span class="o">&gt;</span> <span class="n">position_sv</span><span class="p">.</span><span class="n">goal</span><span class="p">)</span> <span class="p">{</span>
+                <span class="c1">// check range</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">position_sv</span><span class="p">.</span><span class="n">value</span> <span class="o">&lt;=</span> <span class="n">position_sv</span><span class="p">.</span><span class="n">min</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">log_warning</span><span class="p">(</span><span class="s">&quot;Position is at or exceeding minimum value: &quot;</span> <span class="o">+</span> <span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">position_sv</span><span class="p">.</span><span class="n">min</span><span class="p">));</span>
+                    <span class="c1">// prevent further movement</span>
+                    <span class="n">position_sv</span><span class="p">.</span><span class="n">goal</span> <span class="o">=</span> <span class="n">position_sv</span><span class="p">.</span><span class="n">min</span><span class="p">;</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                    <span class="c1">// move in negative direction</span>
+                    <span class="n">position_sv</span><span class="p">.</span><span class="n">value</span> <span class="o">-=</span> <span class="mf">0.1</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+
+            <span class="c1">// report value</span>
+            <span class="n">log_info</span><span class="p">(</span><span class="n">position_sv</span><span class="p">.</span><span class="n">name</span> <span class="o">+</span> <span class="s">&quot; = &quot;</span> <span class="o">+</span> <span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">position_sv</span><span class="p">.</span><span class="n">value</span><span class="p">)</span>
+                     <span class="o">+</span> <span class="s">&quot; -&gt; &quot;</span> <span class="o">+</span> <span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">position_sv</span><span class="p">.</span><span class="n">goal</span><span class="p">));</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="compilation">
+<h2>4.6. Compilation<a class="headerlink" href="#compilation" title="Permalink to this headline">¶</a></h2>
+<p>To compile the code, run gmake:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~/isample_dcs/src/runtime/src/idcs/isample_dcs/
+$ gmake -j<span class="sb">`</span>nproc<span class="sb">`</span> install
+$ ls install/bin
+</pre></div>
+</div>
+<p>The executables will be located in <cite>src/runtime/src/idcs/isample_dcs/install/bin</cite>.</p>
+</div>
+<div class="section" id="running-the-example">
+<h2>4.7. Running the Example<a class="headerlink" href="#running-the-example" title="Permalink to this headline">¶</a></h2>
+<p>First, ensure that the GMT_LOG_POLICY and GMT_LOG_URL environment variables have been set. For quick testing, the following commands can be used to set the variables for the current session:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">export</span> <span class="nv">GMT_LOG_POLICY</span><span class="o">=</span><span class="m">1</span>
+$ <span class="nb">export</span> <span class="nv">GMT_LOG_URL</span><span class="o">=</span>tcp://127.0.0.1:9998
+</pre></div>
+</div>
+<p>This may need to be done in all open sessions, if multiple sessions are used, for example to monitor logging.</p>
+<p>To permanently set the environment variables, edit the gmt.sh file with admin privileges:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ sudo vim /etc/profile.d/gmt.sh
+</pre></div>
+</div>
+<p>Add the two variables at the bottom of the file, save and exit. Log out and back in to load the new environment variables.</p>
+<p>Start the logging and telemetry services:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ gds log_service start <span class="p">&amp;</span>
+$ gds telemetry_service start <span class="p">&amp;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>If there is an issue starting the logging service, check that the mongo DB process is running
+and try to restart the service.</p>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre><span></span>$ systemctl status -l mongod
+$ sudo service mongod restart
+</pre></div>
+</div>
+</div></blockquote>
+<p>If the problem persists, check the log file for information on why the service is unable to start</p>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre><span></span>$ sudo less /var/log/mongodb/mongod.log
+</pre></div>
+</div>
+</div></blockquote>
+<p>If, for example, the error <em>Insufficient free space for journal files</em> is shown in the log,
+it can be fixed by editing the mongod configuration file to set <em>smallfiles = true</em>.
+This may be the case if a smaller hard drive size was selected for a virtual machine.</p>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre><span></span>$ sudo vim /etc/mongod.conf
+</pre></div>
+</div>
+</div></blockquote>
+<p>Restart the service and check the status again.</p>
+<blockquote class="last">
+<div><div class="highlight-bash"><div class="highlight"><pre><span></span>$ sudo service mongod restart
+$ systemctl status -l mongod
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<p>In a separate terminal (for example <cite>tty2</cite>), start the logging service client from within the isample_dcs folder.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~/isample_dcs/src/runtime/src/idcs/isample_dcs/isample_ctrl_pkg/coffee
+$ gds log_service client gmt
+</pre></div>
+</div>
+<p>In the first terminal (<cite>tty1</cite>), run the Filter Wheel Controller application</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ ./install/bin/run_isample_filter_wheel_ctrl <span class="p">&amp;</span>
+</pre></div>
+</div>
+<p>The application is running in the background and will not provide any console output. All output will be directed to the logging service after the components have been successfully set up.</p>
+<p>To initialize the Filter Wheel Controllers, run <cite>gds setup</cite> from within the isample_dcs folder.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> isample_ctrl_pkg/coffee
+$ gds setup -m runtime -e isample_fw1_ctrl
+$ gds setup -m runtime -e isample_fw2_ctrl
+</pre></div>
+</div>
+<p>Switch to the session running the logging service client (<cite>tty2</cite>), and confirm that the component is logging step info.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">In this version isample includes the specification of a control package.
-All <a class="reference internal" href="../SWC_architecture/architecture/overall_architecture.html#table-control-packages"><span class="std std-ref">DCS Packages</span></a> follow the same development principles with the difference
+All <a class="reference internal" href="../SWC_architecture/architecture/modules.html#table-control-packages"><span class="std std-ref">DCS Packages</span></a> follow the same development principles with the difference
 that the Component base classes add specialized interfaces (e.g. Controller vs Pipeline). The next
 incremental release of the GMT software will include examples of user interface
 and data processing packages.</p>
 </div>
 <p><a class="reference internal" href="#isample-example"><span class="std std-ref">[back to top]</span></a></p>
 </div>
+</div>
 
 
+           </div>
+           <div class="articleComments">
+            
            </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="development.html" class="btn btn-neutral float-right" title="4. DCS Development" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="development.html" class="btn btn-neutral float-right" title="5. DCS Development" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="upgrade.html" class="btn btn-neutral" title="2. Upgrade" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="virtual_machine/virtual_machine.html" class="btn btn-neutral" title="3. Installing a Virtual Machine" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -220,9 +656,11 @@ and data processing packages.</p>
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
             VERSION:'1.1-5',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>

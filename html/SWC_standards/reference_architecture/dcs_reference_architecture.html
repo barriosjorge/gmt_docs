@@ -15,6 +15,8 @@
   
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
   
+  
+  
 
   
 
@@ -47,6 +49,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -90,7 +93,10 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../release_notes/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../SWC_architecture/index.html">Architecture and Design</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Software and Controls Standards</a><ul class="current">
@@ -126,8 +132,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../index.html">GMT Software And Controls</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">GMT Software And Controls</a>
+        
       </nav>
 
 
@@ -136,23 +144,40 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="../index.html">Software and Controls Standards</a> &raquo;</li>
-      
-    <li>3. DCS Reference Architecture</li>
+        
+      <li>3. DCS Reference Architecture</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -194,7 +219,7 @@ non-nominal scenarios.</li>
 the context of the overall GMT software:</p>
 <div class="figure" id="id4">
 <span id="figure-dcs-context"></span><img alt="../../_images/dcs_context.png" src="../../_images/dcs_context.png" />
-<p class="caption"><span class="caption-number">Fig. 85 </span><span class="caption-text">DCS Context</span></p>
+<p class="caption"><span class="caption-number">Fig. 3.11 </span><span class="caption-text">DCS Context</span></p>
 </div>
 <p>The DCS Reference Architecture elements:</p>
 <blockquote>
@@ -248,7 +273,7 @@ Science Instruments.</li>
 </div></blockquote>
 <div class="figure" id="id5">
 <img alt="../../_images/dcs_reference_architecture.png" src="../../_images/dcs_reference_architecture.png" />
-<p class="caption"><span class="caption-number">Fig. 86 </span><span class="caption-text">Device Control Subsystem Reference Architecture</span></p>
+<p class="caption"><span class="caption-number">Fig. 3.12 </span><span class="caption-text">Device Control Subsystem Reference Architecture</span></p>
 </div>
 </div>
 <div class="section" id="component-architecture">
@@ -266,7 +291,7 @@ making any assumption of the underlying middleware used by the platform-specific
 implementation.</p>
 <div class="figure" id="id6">
 <img alt="../../_images/component_port_connector.png" src="../../_images/component_port_connector.png" />
-<p class="caption"><span class="caption-number">Fig. 87 </span><span class="caption-text">Component, Port, and Connector</span></p>
+<p class="caption"><span class="caption-number">Fig. 3.13 </span><span class="caption-text">Component, Port, and Connector</span></p>
 </div>
 <p>Components, Ports and Connectors are used to model both physical and logical
 systems. SysML internal block diagrams (<em>ibd</em>) are used to represent how
@@ -306,7 +331,7 @@ control subsystems.</li>
 </div></blockquote>
 </div></blockquote>
 <table border="1" class="docutils" id="id7">
-<caption><span class="caption-number">Table 45 </span><span class="caption-text">SWC Functional Packages:  Device Control</span><a class="headerlink" href="#id7" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 3.3 </span><span class="caption-text">SWC Functional Packages:  Device Control</span><a class="headerlink" href="#id7" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="22%" />
 <col width="58%" />
@@ -406,7 +431,7 @@ control subsystems.</li>
 </tbody>
 </table>
 <table border="1" class="docutils" id="id8">
-<caption><span class="caption-number">Table 46 </span><span class="caption-text">SWC Functional Packages:  Operation Support</span><a class="headerlink" href="#id8" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 3.4 </span><span class="caption-text">SWC Functional Packages:  Operation Support</span><a class="headerlink" href="#id8" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="22%" />
 <col width="58%" />
@@ -656,7 +681,7 @@ and adapted to the specific CSS. The Figure below gives three examples of
 possible DCS physical architectures.</p>
 <div class="figure" id="id9">
 <img alt="../../_images/dcp_reference_architecture.png" src="../../_images/dcp_reference_architecture.png" />
-<p class="caption"><span class="caption-number">Fig. 88 </span><span class="caption-text">DCP Reference Architecture</span></p>
+<p class="caption"><span class="caption-number">Fig. 3.14 </span><span class="caption-text">DCP Reference Architecture</span></p>
 </div>
 <p>A DCS consists on a set of Device Control Packages (DCP) and a set of Operation
 Support Packages (OSP).</p>
@@ -678,15 +703,18 @@ order to meet this architecture.</p>
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../lifecycle/dcs_lifecycle.html" class="btn btn-neutral float-right" title="4. DCS Life Cycle" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../lifecycle/dcs_lifecycle.html" class="btn btn-neutral float-right" title="4. DCS Life Cycle" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../references/references.html" class="btn btn-neutral" title="2. References" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../references/references.html" class="btn btn-neutral" title="2. References" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -718,9 +746,11 @@ order to meet this architecture.</p>
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
             VERSION:'1.1-5',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>

@@ -15,6 +15,8 @@
   
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
   
+  
+  
 
   
 
@@ -47,6 +49,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -90,7 +93,10 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../release_notes/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../SWC_architecture/index.html">Architecture and Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../SWC_standards/index.html">Software and Controls Standards</a></li>
@@ -120,8 +126,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">GMT Software And Controls</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GMT Software And Controls</a>
+        
       </nav>
 
 
@@ -130,23 +138,40 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="index.html">Data Products</a> &raquo;</li>
-      
-    <li>2. Software and Controls FITS Keyword Dictionary</li>
+        
+      <li>2. Software and Controls FITS Keyword Dictionary</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -168,7 +193,7 @@
 <dd>Keywords for a basic FITS standard header.  In many cases, the keywords and descriptions are taken verbatim from &#8216;Definition of the Flexible Image Transport System (FITS), Version 3.0&#8217;.</dd>
 </dl>
 <table border="1" class="docutils" id="id1">
-<caption><span class="caption-number">Table 81 </span><span class="caption-text">Standard FITS Keywords Dictionary</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 2.3 </span><span class="caption-text">Standard FITS Keywords Dictionary</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="17%" />
 <col width="17%" />
@@ -207,7 +232,7 @@ in computing the sizes of data structures.  It shall specify the
 number of bits that represent a data value.</td>
 </tr>
 <tr class="row-even"><td><em>blankkey</em></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>Descriptive comment</td>
 <td>String</td>
 <td>any</td>
@@ -330,7 +355,7 @@ pixel list alike.</td>
 <tr class="row-odd"><td><em>end</em></td>
 <td>END</td>
 <td>Marks the end of the header keywords</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>any</td>
 <td>No associated value.  Marks the logical end of the header.  Columns
 9-80 shall be filled with ASCII blanks.</td>
@@ -1153,7 +1178,7 @@ must not be used, and m may have only values in the range 0 through
 <tr class="row-even"><td><em>ivn_m</em></td>
 <td>iVn_ma</td>
 <td>Value for intermediate WCS axis i</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>extension</td>
 <td>This is equivalent to iPVn_ma.</td>
 </tr>
@@ -1526,7 +1551,7 @@ list alike.</td>
 <tr class="row-even"><td><em>ssysobs</em></td>
 <td>SSYSOBSa</td>
 <td>Constant spectral reference frame over the range of non-spectral WCS</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>any</td>
 <td>[character; default: TOPOCENT]. The spectral reference frame that is
 constant over the range of the non-spectral world coordinates. Valid
@@ -1682,7 +1707,7 @@ pixel list alike.</td>
 <dd>Supplemental keywords for FITS headers.  These keywords are not found the FITS Standard.  The keywords and descriptions in some cases are derived, sometimes inherited verbatim, from the &#8216;Introduction to the HST Data Handbooks&#8217;, Data Handbooks from WFC3, STIS, etc., &#8216;ESO Data Interface Control Document (GEN-SPE-ESO-19400-0794)&#8217;, and Chandra&#8217;s &#8216;ASC FITS Designers&#8217; Guide ASC-FITS-2.1.0&#8217;</dd>
 </dl>
 <table border="1" class="docutils" id="id2">
-<caption><span class="caption-number">Table 82 </span><span class="caption-text">Supplemental FITS Keywords Dictionary</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 2.4 </span><span class="caption-text">Supplemental FITS Keywords Dictionary</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="17%" />
 <col width="17%" />
@@ -1848,7 +1873,7 @@ calculation of image statistics.</td>
 <td>INSTITUT</td>
 <td>Institutions of the PI/Co-I</td>
 <td>String</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>Institutions of the PI/Co-I</td>
 </tr>
 <tr class="row-even"><td><em>targname</em></td>
@@ -3046,7 +3071,7 @@ reference pixels (IR)</td>
 <tr class="row-even"><td><em>mdrizsky</em></td>
 <td>MDRIZSKY</td>
 <td>Sky value computed by MultiDrizzle</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>any</td>
 <td>Sky value computed by MultiDrizzle</td>
 </tr>
@@ -4007,7 +4032,7 @@ into one final exposure.</td>
 <tr class="row-odd"><td><em>platesc</em></td>
 <td>PLATESC</td>
 <td>Detector plate scale [arcsec]</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>any</td>
 <td>Detector plate scale [arcsec]</td>
 </tr>
@@ -4245,15 +4270,18 @@ reference tables.</td>
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../glossary/swc_sys_glossary.html" class="btn btn-neutral float-right" title="Software and Controls Acronyms and Definitions" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../glossary/swc_sys_glossary.html" class="btn btn-neutral float-right" title="Software and Controls Acronyms and Definitions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="swc_sys_dp_filedef.html" class="btn btn-neutral" title="1. Software and Controls Data Product Specifications II" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="swc_sys_dp_filedef.html" class="btn btn-neutral" title="1. Software and Controls Data Product Specifications II" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -4285,9 +4313,11 @@ reference tables.</td>
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
             VERSION:'1.1-5',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>

@@ -8,12 +8,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3.5.2. Natural Guide Star Adaptive Optics (NGSAO) &mdash; GMT Software And Controls documentation</title>
+  <title>5.5.2. Natural Guide Star Adaptive Optics (NGSAO) &mdash; GMT Software And Controls documentation</title>
   
 
   
   
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
   
 
   
@@ -36,9 +38,9 @@
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="GMT Software And Controls documentation" href="../../../index.html"/>
-        <link rel="up" title="3. Telescope Control System" href="../tcs_introduction.html"/>
-        <link rel="next" title="3.5.3. Laser Tomographic Adaptive Optics (LTAO)" href="ltao_obsmode.html"/>
-        <link rel="prev" title="3.5.1. Natural Seeing Observing Mode" href="ns_obsmode.html"/> 
+        <link rel="up" title="5.5. Wavefront Control System" href="../wavefront_control.html"/>
+        <link rel="next" title="5.5.3. Laser Tomographic Adaptive Optics (LTAO)" href="ltao_obsmode.html"/>
+        <link rel="prev" title="5.5.1. Natural Seeing Observing Mode" href="ns_obsmode.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -47,6 +49,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -90,32 +93,36 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../release_notes/index.html">Release Notes</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Architecture and Design</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../introduction/swcs_introduction.html">1. Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../architecture/overall_architecture.html">2. Overall Architecture</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../tcs_introduction.html">3. Telescope Control System</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../tcs_introduction.html#subsystems">3.1. Subsystems</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../tcs_introduction.html#degrees-of-freedom">3.2. Degrees of Freedom</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../tcs_introduction.html#requirements-on-tcs-pointing-tracking-guiding">3.3. Requirements on TCS, Pointing, Tracking &amp; Guiding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../tcs_introduction.html#pointing-kernel">3.4. Pointing Kernel</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../tcs_introduction.html#wavefront-control">3.5. Wavefront Control</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="ns_obsmode.html">3.5.1. <em>Natural Seeing Observing Mode</em></a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">3.5.2. <em>Natural Guide Star Adaptive Optics (NGSAO)</em></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ltao_obsmode.html">3.5.3. <em>Laser Tomographic Adaptive Optics (LTAO)</em></a></li>
-<li class="toctree-l4"><a class="reference internal" href="nglao_obsmode.html">3.5.4. <em>Natural-Guidestar Ground Layer Adaptive Optics (NGLAO)</em></a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../../requirements/requirements.html">2. Requirements Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture/overall_architecture.html">3. Overall Architecture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../operations/observatory_operations.html">4. Observatory Operation System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../services/observatory_services.html">5. Observatory Services</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../frameworks/component_frameworks.html">6. Frameworks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../platform/platform.html">7. Platform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../process/process_introduction.html">8. Process</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../risks/risks.html">9. Software and Control Risks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../bibliography/bibliography.html">10. Bibliography</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../tcs_introduction.html">5. Telescope Control System</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../subsystems.html">5.1. Subsystems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../degrees_of_freedom.html">5.2. Degrees of Freedom</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../requirements.html">5.3. Requirements on TCS, Pointing, Tracking &amp; Guiding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pointing_kernel.html">5.4. Pointing Kernel</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../wavefront_control.html">5.5. Wavefront Control System</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="ns_obsmode.html">5.5.1. <em>Natural Seeing Observing Mode</em></a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">5.5.2. <em>Natural Guide Star Adaptive Optics (NGSAO)</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ltao_obsmode.html">5.5.3. <em>Laser Tomographic Adaptive Optics (LTAO)</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nglao_obsmode.html">5.5.4. <em>Natural-Guidestar Ground Layer Adaptive Optics (NGLAO)</em></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../services/observatory_services.html">6. Observatory Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../frameworks/component_frameworks.html">7. Frameworks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../platform/platform.html">8. Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../process/process_introduction.html">9. Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../risks/risks.html">10. Software and Control Risks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bibliography/bibliography.html">11. Bibliography</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../SWC_standards/index.html">Software and Controls Standards</a></li>
@@ -134,8 +141,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../../index.html">GMT Software And Controls</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">GMT Software And Controls</a>
+        
       </nav>
 
 
@@ -144,34 +153,53 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="../../index.html">Architecture and Design</a> &raquo;</li>
-      
-          <li><a href="../tcs_introduction.html">3. Telescope Control System</a> &raquo;</li>
-      
-    <li>3.5.2. <em>Natural Guide Star Adaptive Optics (NGSAO)</em></li>
+        
+          <li><a href="../tcs_introduction.html">5. Telescope Control System</a> &raquo;</li>
+        
+          <li><a href="../wavefront_control.html">5.5. Wavefront Control System</a> &raquo;</li>
+        
+      <li>5.5.2. <em>Natural Guide Star Adaptive Optics (NGSAO)</em></li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
   <div class="section" id="natural-guide-star-adaptive-optics-ngsao">
-<span id="tcs-ngsao-obsmode"></span><h1>3.5.2. <em>Natural Guide Star Adaptive Optics (NGSAO)</em><a class="headerlink" href="#natural-guide-star-adaptive-optics-ngsao" title="Permalink to this headline">¶</a></h1>
+<span id="tcs-ngsao-obsmode"></span><h1>5.5.2. <em>Natural Guide Star Adaptive Optics (NGSAO)</em><a class="headerlink" href="#natural-guide-star-adaptive-optics-ngsao" title="Permalink to this headline">¶</a></h1>
 <p>A simplified block diagram of the NGSAO WFC is presented in <a class="reference internal" href="#ngsao-wfcs-bd-simple"><span class="std std-numref">Figure
-21</span></a>. There are six main control loops operating
+5.11</span></a>. There are six main control loops operating
 simultaneously:</p>
 <blockquote>
 <div><ol class="upperalpha simple">
@@ -194,19 +222,21 @@ time-average segment piston and tilt to the Phasing Controller, and the average
 surface figure of the ASM to the Active Optics Wavefront Controller.</p>
 <div class="figure" id="id10">
 <span id="ngsao-wfcs-bd-simple"></span><a class="reference internal image-reference" href="../../../_images/ngsao_wfcs_block_diagram.png"><img alt="../../../_images/ngsao_wfcs_block_diagram.png" src="../../../_images/ngsao_wfcs_block_diagram.png" style="width: 918.0px; height: 488.0px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">NGSAO Wavefront Control System Simplified Block Diagram</span></p>
+<p class="caption"><span class="caption-number">Fig. 5.11 </span><span class="caption-text">NGSAO Wavefront Control System Simplified Block Diagram</span></p>
 </div>
-<p><a class="reference internal" href="#ngsao-wfcs-bd-detailed"><span class="std std-numref">Figure 22</span></a> presents a more detailed block
+<p><a class="reference internal" href="#ngsao-wfcs-bd-detailed"><span class="std std-numref">Figure 5.12</span></a> presents a more detailed block
 diagram of the NGSAO WFC, with all of the real-time components currently
 envisioned. External components with interfaces to the WFC (e.g., sensor slope
 processors and mirror controllers) are also represented. Ports are identified
 with the input or output data type, and data flow with arrows. Telemetry is not
 explicitly shown, as it is provided as a system service to every component.</p>
-<div class="figure" id="id11">
+<p><strong>Component Descriptions</strong></p>
+<blockquote>
+<div><div class="figure" id="id11">
 <span id="ngsao-wfcs-bd-detailed"></span><a class="reference internal image-reference" href="../../../_images/ngsao_wfcs_block_diagram_detailed.png"><img alt="../../../_images/ngsao_wfcs_block_diagram_detailed.png" src="../../../_images/ngsao_wfcs_block_diagram_detailed.png" style="width: 1461.0px; height: 846.0px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text">NGSAO Wavefront Control System Detailed Block Diagram</span></p>
+<p class="caption"><span class="caption-number">Fig. 5.12 </span><span class="caption-text">NGSAO Wavefront Control System Detailed Block Diagram</span></p>
 </div>
-<p>A list of the NGSAO WFC components is provided in Table 10-23 [TBA]. A
+<p>A list of the NGSAO WFC components is provided in the Table below. A
 description of the most critical components is given below, followed by an
 identification of the connections between them.</p>
 <p>Note that wavefront aberrations have been identified using the following
@@ -225,6 +255,149 @@ one optical surface.</li>
 throughout the WFC (with the exception of ASM and M1 figure control) due to
 their simple relationship to rigid body motions. Karhunen-Loeve modes which
 replicate Zernike modes in the low orders may be considered in the future.</p>
+<table border="1" class="docutils" id="id12">
+<caption><span class="caption-number">Table 5.18 </span><span class="caption-text">NGSAO Wavefront Control System Components</span><a class="headerlink" href="#id12" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="31%" />
+<col width="45%" />
+<col width="23%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><div class="first last line-block">
+<div class="line">Component Name</div>
+</div>
+</th>
+<th class="head"><div class="first last line-block">
+<div class="line">Description</div>
+</div>
+</th>
+<th class="head"><div class="first last line-block">
+<div class="line">Software Package</div>
+</div>
+</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">wfc_ngsao_ctrl</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">NGSAO Wavefront Controller</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">wfc_ngsao_pkg</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">wfc_aco_ctrl</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Active Optics Controller</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">wfc_common_pkg</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">wfc_ao_pupil_ctrl</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">AO Pupil Motion Controller</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">wfc_common_pkg</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">wfc_phasing_ctrl</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">AO Phasing Controller</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">wfc_common_pkg</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">wfc_ngsao_recon_srv</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">NGSAO Reconstructor Server</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">wfc_ngsao_pkg</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">wfc_aco_recon_srv</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Active Optics Reconstructor Server</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">wfc_common_pkg</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">m1_optics_ctrl</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">M1 Optics Controller</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">wfc_common_pkg</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">m2_optics_ctrl</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">M2 Optics Controller</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">wfc_common_pkg</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">m3_optics_ctrl</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">M3 Optics Controller</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">wfc_common_pkg</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
 <p><strong>NGSAO Wavefront Controller</strong></p>
 <blockquote>
 <div><p>The NGSAO Wavefront Controller (<em>wfc_ngsao_ctrl</em>) converts the pyramid WFS
@@ -273,7 +446,531 @@ the NGWS reference frame, and convert them to an offset in the Sx and Sy
 signals. This offset is then added to an offset buffer in the ngws_sp
 component.</p>
 <p>The input and output ports of the wfc_ngsao_ctrl component are listed in
-Table 10-24 [TBA].</p>
+the following Table:</p>
+<table border="1" class="docutils" id="id13">
+<caption><span class="caption-number">Table 5.19 </span><span class="caption-text">NGSAO Wavefront Controller Ports</span><a class="headerlink" href="#id13" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="16%" />
+<col width="45%" />
+<col width="8%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><div class="first last line-block">
+<div class="line">Port Name</div>
+<div class="line"><br /></div>
+</div>
+</th>
+<th class="head"><div class="first last line-block">
+<div class="line">Description</div>
+<div class="line"><br /></div>
+</div>
+</th>
+<th class="head"><div class="first last line-block">
+<div class="line">Unit</div>
+<div class="line"><br /></div>
+</div>
+</th>
+<th class="head"><div class="first last line-block">
+<div class="line">Size</div>
+<div class="line">(kB)</div>
+</div>
+</th>
+<th class="head"><div class="first last line-block">
+<div class="line">Rate</div>
+<div class="line">(Hz)</div>
+</div>
+</th>
+<th class="head"><div class="first last line-block">
+<div class="line">Type</div>
+<div class="line"><br /></div>
+</div>
+</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">ngws fast wfs</div>
+<div class="line">slopes</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">NGWS AO camera Sx and Sy signals.</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">pixel</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">43.5</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">2000</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Input</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">ngws slow wfs</div>
+<div class="line">slopes</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">NGWS 2nd WL camera Sx and Sy signals.</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">pixel</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">43.5</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">100</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Input</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">oiws system</div>
+<div class="line">global tilt</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">System global tip-tilt error measured by</div>
+<div class="line">an OIWFS, in instrument reference frame.</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">mas</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">0.008</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">1000</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Input</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">oiws system</div>
+<div class="line">global focus</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">System global focus error measured by</div>
+<div class="line">an OIWFS, in instrument reference frame.</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">nm</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">0.004</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">100</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Input</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">oiws system</div>
+<div class="line">global lo</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">System global residual Zernike modes Z4-Z200</div>
+<div class="line">(approx.), in instrument reference frame.</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">nm</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">0.800</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">10</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Input</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">asm pos</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">ASM actuator actual positions.</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">nm</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">18.8</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">2000</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">ngsao recon</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">NGSAO wavefront reconstructor matrix.</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">n/a</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">102227</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">0.02</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">asm segment</div>
+<div class="line">piston av</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Time-averaged ASM segment piston, to offload</div>
+<div class="line">to M1 Positioner.</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">nm</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">0.028</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">1</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Output</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">asm segment</div>
+<div class="line">tilt av</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Time-averaged ASM segment tilt, to offload</div>
+<div class="line">to M1 Positioner.</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">μrad</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">0.056</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">1</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Output</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">asm global</div>
+<div class="line">tilt av</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Time-averaged ASM global tilt, to offload to</div>
+<div class="line">the Mount.</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">μrad</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">0.008</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">1</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Output</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">asm global</div>
+<div class="line">lo av</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Time-averaged ASM global Zernike modes Z4-6.</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">μm</div>
+<div class="line">RMS</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">0.012</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">1</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Output</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">asm segment</div>
+<div class="line">lo av</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Time-average of ASM actuators, projected</div>
+<div class="line">onto M1 segment bending modes 1-45.</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">μm</div>
+<div class="line">RMS</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">1.26</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">1</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Output</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">ngws pos err</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Position update for NGWS patrol stages or</div>
+<div class="line">modulation mirror.</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">mas</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">0.012</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">1</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Output</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">ngws fast</div>
+<div class="line">slope ref err</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Update of NGWS fast channel slope zero-points</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">pixel</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">43.5</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">1</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Output</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">ngws slow</div>
+<div class="line">slope ref err</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Update of NGWS slow channel slope zero-</div>
+<div class="line">points.</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">pixel</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">43.5</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">1</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Output</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">asm cmds</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">ASM actuator commands.</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">nm</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">18.8</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">2000</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Output</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
 </div></blockquote>
 <p><strong>Active Optics Wavefront Controller (NGSAO Mode)</strong></p>
 <blockquote>
@@ -348,21 +1045,21 @@ last column.</p>
 <p><strong>Deployment</strong></p>
 <blockquote>
 <div><p>A representation of the deployment locations of the NGSAO WFC is provided in
-<a class="reference internal" href="#ngsao-wfcs-deployment-diagram"><span class="std std-numref">Figure 23</span></a>. Most WFCS software
+<a class="reference internal" href="#ngsao-wfcs-deployment-diagram"><span class="std std-numref">Figure 5.13</span></a>. Most WFCS software
 components run on standardized rack-mounted servers in the Electronics Room
 of the Summit Support Building. The two exceptions which require specialized
 hardware are the ASM Master Control Unit crate on which the ASM Controller
 runs, and the AO Real-time Computer System (AORTS) which includes the NGSAO
 Wavefront Controller.</p>
 <p>The current baseline design calls for a single AORTS (identified as wfc_rts
-in <a class="reference internal" href="#ngsao-wfcs-deployment-diagram"><span class="std std-numref">Figure 23</span></a>) to be re-used for
+in <a class="reference internal" href="#ngsao-wfcs-deployment-diagram"><span class="std std-numref">Figure 5.13</span></a>) to be re-used for
 all the observing modes. The RTS will likely be composed of multiple server
 nodes in a small high-performance computing cluster (see Section 8.8.4
 <a class="reference internal" href="../../bibliography/bibliography.html#bouc13b" id="id7">[Bouc13b]</a>), and a smaller number of computing nodes might be used in the
 less demanding modes (e.g., NGLAO).</p>
-<div class="figure" id="id12">
+<div class="figure" id="id14">
 <span id="ngsao-wfcs-deployment-diagram"></span><a class="reference internal image-reference" href="../../../_images/ngsao_wfcs_deployment_diagram.png"><img alt="../../../_images/ngsao_wfcs_deployment_diagram.png" src="../../../_images/ngsao_wfcs_deployment_diagram.png" style="width: 1484.0px; height: 717.0px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text">NGSAO wavefront control system deployment diagram</span></p>
+<p class="caption"><span class="caption-number">Fig. 5.13 </span><span class="caption-text">NGSAO wavefront control system deployment diagram</span></p>
 </div>
 </div></blockquote>
 <p><strong>Simulations</strong></p>
@@ -379,15 +1076,18 @@ be found in Section 6.12.2.5 <a class="reference internal" href="../../bibliogra
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="ltao_obsmode.html" class="btn btn-neutral float-right" title="3.5.3. Laser Tomographic Adaptive Optics (LTAO)" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="ltao_obsmode.html" class="btn btn-neutral float-right" title="5.5.3. Laser Tomographic Adaptive Optics (LTAO)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="ns_obsmode.html" class="btn btn-neutral" title="3.5.1. Natural Seeing Observing Mode" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="ns_obsmode.html" class="btn btn-neutral" title="5.5.1. Natural Seeing Observing Mode" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -419,9 +1119,11 @@ be found in Section 6.12.2.5 <a class="reference internal" href="../../bibliogra
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
             VERSION:'1.1-5',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../../_static/jquery.js"></script>

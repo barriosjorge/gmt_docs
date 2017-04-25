@@ -15,6 +15,8 @@
   
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
   
+  
+  
 
   
 
@@ -47,6 +49,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -90,7 +93,10 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Release Notes</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Release 1</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#contents-of-the-release-1-1">Contents of the release 1.1</a></li>
@@ -116,8 +122,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../index.html">GMT Software And Controls</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">GMT Software And Controls</a>
+        
       </nav>
 
 
@@ -126,23 +134,40 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="../index.html">Release Notes</a> &raquo;</li>
-      
-    <li>Release 1</li>
+        
+      <li>Release 1</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -165,17 +190,17 @@ details allowing the developers to focus in the solving the domain specific prog
 These release includes a first implementation of the following frameworks:</p>
 <blockquote>
 <div><ul class="simple">
-<li>The <a class="reference internal" href="../../SWC_architecture/frameworks/component_frameworks.html#core-framework"><span class="std std-ref">Core Framework</span></a> implements a component model and distributed
+<li>The <a class="reference internal" href="../../SWC_architecture/frameworks/core.html#core-framework"><span class="std std-ref">Core Framework</span></a> implements a component model and distributed
 real-time communication protocols between components. Software components
 may be deployed in the same execution thread, different processes or different machines.</li>
-<li>The <a class="reference internal" href="../../SWC_architecture/frameworks/component_frameworks.html#io-framework"><span class="std std-ref">IO framework</span></a> provides adapter components that enable GMT software components
+<li>The <a class="reference internal" href="../../SWC_architecture/frameworks/IO.html#io-framework"><span class="std std-ref">IO framework</span></a> provides adapter components that enable GMT software components
 to communicate with external control and data acquisition hardware.
 In this release the IO framework provides adapters for EtherCAT and OPC UA.</li>
-<li>The <a class="reference internal" href="../../SWC_architecture/frameworks/component_frameworks.html#device-control-framework"><span class="std std-ref">Control Framework</span></a> includes the main building blocks of a control system.
+<li>The <a class="reference internal" href="../../SWC_architecture/frameworks/device_control.html#device-control-framework"><span class="std std-ref">Control Framework</span></a> includes the main building blocks of a control system.
 These real-time control components address the problems of state estimation,
 goal estimation and state control and define a set of standard state variables
 and associated state machines (e.g. operation state, simulation mode and control mode).</li>
-<li>The <a class="reference internal" href="../../SWC_architecture/frameworks/component_frameworks.html#persistence-framework"><span class="std std-ref">Persistence Framework</span></a> provides a way to store telemetry data streams. The
+<li>The <a class="reference internal" href="../../SWC_architecture/frameworks/persistence.html#persistence-framework"><span class="std std-ref">Persistence Framework</span></a> provides a way to store telemetry data streams. The
 current implementation uses MongoDB.</li>
 </ul>
 </div></blockquote>
@@ -216,15 +241,18 @@ other information as the development progresses.</p>
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../SWC_architecture/index.html" class="btn btn-neutral float-right" title="Architecture and Design" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../SWC_architecture/index.html" class="btn btn-neutral float-right" title="Architecture and Design" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../index.html" class="btn btn-neutral" title="Release Notes" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../index.html" class="btn btn-neutral" title="Release Notes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -256,9 +284,11 @@ other information as the development progresses.</p>
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
             VERSION:'1.1-5',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>

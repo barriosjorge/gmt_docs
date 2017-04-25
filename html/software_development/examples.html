@@ -8,12 +8,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>7. Running Examples &mdash; GMT Software And Controls documentation</title>
+  <title>8. Running Examples &mdash; GMT Software And Controls documentation</title>
   
 
   
   
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
   
 
   
@@ -37,8 +39,8 @@
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="GMT Software And Controls documentation" href="../index.html"/>
         <link rel="up" title="Software Development" href="index.html"/>
-        <link rel="next" title="8. Contribute" href="contribute.html"/>
-        <link rel="prev" title="6. Using the Services" href="services.html"/> 
+        <link rel="next" title="9. Contribute" href="contribute.html"/>
+        <link rel="prev" title="7. Using the Services" href="services.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -47,6 +49,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -90,28 +93,32 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../release_notes/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../SWC_architecture/index.html">Architecture and Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../SWC_standards/index.html">Software and Controls Standards</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Software Development</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installation.html">1. Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="upgrade.html">2. Upgrade</a></li>
-<li class="toctree-l2"><a class="reference internal" href="isample_example.html">3. ISample Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="development.html">4. DCS Development</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html">5. Developer Info and Release Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="services.html">6. Using the Services</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">7. Running Examples</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#gmt-components">7.1. GMT Components</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#connecting-components">7.2. Connecting Components</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#running-the-example-components">7.3. Running the example components</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#setup-components-and-ports">7.4. Setup Components and Ports</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#controllers-example">7.5. Controllers Example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#check-monitored-values">7.6. Check Monitored Values</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#send-a-command-to-a-controller">7.7. Send a Command to a Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtual_machine/virtual_machine.html">3. Installing a Virtual Machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="isample_example.html">4. ISample Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html">5. DCS Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">6. Developer Info and Release Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html">7. Using the Services</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">8. Running Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gmt-components">8.1. GMT Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connecting-components">8.2. Connecting Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-the-example-components">8.3. Running the example components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setup-components-and-ports">8.4. Setup Components and Ports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#controllers-example">8.5. Controllers Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#check-monitored-values">8.6. Check Monitored Values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#send-a-command-to-a-controller">8.7. Send a Command to a Controller</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="contribute.html">8. Contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html">9. Contribute</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../data_products/index.html">Data Products</a></li>
@@ -128,8 +135,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">GMT Software And Controls</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GMT Software And Controls</a>
+        
       </nav>
 
 
@@ -138,32 +147,49 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="index.html">Software Development</a> &raquo;</li>
-      
-    <li>7. Running Examples</li>
+        
+      <li>8. Running Examples</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
   <div class="section" id="running-examples">
-<h1>7. Running Examples<a class="headerlink" href="#running-examples" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>8. Running Examples<a class="headerlink" href="#running-examples" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="gmt-components">
-<h2>7.1. GMT Components<a class="headerlink" href="#gmt-components" title="Permalink to this headline">¶</a></h2>
+<h2>8.1. GMT Components<a class="headerlink" href="#gmt-components" title="Permalink to this headline">¶</a></h2>
 <p>Components are the simple building blocks in the GMT software architecture and they will be used extensively at all levels.
 A software component is a unit of composition with contractually specified interfaces and explicit context dependencies only.
 Ports are interaction points for components. They can be the data inputs (required interface) or the data outputs (provided interface) of our components.
@@ -238,7 +264,7 @@ The component does not need to do update the ports because, for any component, t
 </div>
 </div>
 <div class="section" id="connecting-components">
-<h2>7.2. Connecting Components<a class="headerlink" href="#connecting-components" title="Permalink to this headline">¶</a></h2>
+<h2>8.2. Connecting Components<a class="headerlink" href="#connecting-components" title="Permalink to this headline">¶</a></h2>
 <p>The great thing about components is that they can be easily connected with other components to perform a much more complex function.
 A connector is a link that enables communication between components. A connector simply means that runtime component instances can communicate using their ports.</p>
 <p>Let&#8217;s create a component type called Inc with just one output port. This component has an initial value that is incremented at every step.
@@ -298,7 +324,7 @@ Each component reads its inputs and proceeds according these values to run the s
 Components will run even when their ports are not connected to other components.</p>
 </div>
 <div class="section" id="running-the-example-components">
-<h2>7.3. Running the example components<a class="headerlink" href="#running-the-example-components" title="Permalink to this headline">¶</a></h2>
+<h2>8.3. Running the example components<a class="headerlink" href="#running-the-example-components" title="Permalink to this headline">¶</a></h2>
 <p>In one terminal open a log client so</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ gds log_service client gmt
 log client subscribed at port tcp://127.0.0.1:9995
@@ -313,23 +339,23 @@ subscription topic: gmt
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ gds log_service client gmt
 log client subscribed at port tcp://127.0.0.1:9995
 subscription topic: gmt
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T16:24:38.730Z <span class="o">[</span>gmt://examples/my_app:7000<span class="o">]</span> starting
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T16:24:38.731Z <span class="o">[</span>gmt://examples/my_app:7000<span class="o">]</span> init
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T16:24:38.731Z <span class="o">[</span>gmt://examples/simple_component:8000<span class="o">]</span> starting
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T16:24:38.731Z <span class="o">[</span>gmt://examples/component_inc1:8001<span class="o">]</span> starting
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T16:24:38.731Z <span class="o">[</span>gmt://examples/component_inc2:8002<span class="o">]</span> starting
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T16:24:38.731Z <span class="o">[</span>gmt://examples/component_inc3:8003<span class="o">]</span> starting
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T16:24:38.731Z <span class="o">[</span>gmt://examples/component_sum1:8004<span class="o">]</span> starting
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T16:24:38.731Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> starting
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T16:24:38.732Z <span class="o">[</span>gmt://examples/component_inc2:8002<span class="o">]</span> <span class="nv">x1</span> <span class="o">=</span> 1
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T16:24:38.732Z <span class="o">[</span>gmt://examples/simple_component:8000<span class="o">]</span> hello, component world
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T16:24:38.732Z <span class="o">[</span>gmt://examples/component_inc3:8003<span class="o">]</span> <span class="nv">x1</span> <span class="o">=</span> 1
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T16:24:38.732Z <span class="o">[</span>gmt://examples/component_inc1:8001<span class="o">]</span> <span class="nv">x1</span> <span class="o">=</span> 1
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T16:24:38.732Z <span class="o">[</span>gmt://examples/my_app:7000<span class="o">]</span> app step <span class="nv">num</span> <span class="o">=</span> 0
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T16:24:38.732Z <span class="o">[</span>gmt://examples/component_sum1:8004<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 3
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T16:24:38.732Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 3
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T16:24:39.732Z <span class="o">[</span>gmt://examples/component_inc2:8002<span class="o">]</span> <span class="nv">x1</span> <span class="o">=</span> 2
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T16:24:39.732Z <span class="o">[</span>gmt://examples/simple_component:8000<span class="o">]</span> hello, component world
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T16:24:38.730Z <span class="o">[</span>gmt://examples/my_app:7000<span class="o">]</span> starting
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T16:24:38.731Z <span class="o">[</span>gmt://examples/my_app:7000<span class="o">]</span> init
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T16:24:38.731Z <span class="o">[</span>gmt://examples/simple_component:8000<span class="o">]</span> starting
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T16:24:38.731Z <span class="o">[</span>gmt://examples/component_inc1:8001<span class="o">]</span> starting
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T16:24:38.731Z <span class="o">[</span>gmt://examples/component_inc2:8002<span class="o">]</span> starting
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T16:24:38.731Z <span class="o">[</span>gmt://examples/component_inc3:8003<span class="o">]</span> starting
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T16:24:38.731Z <span class="o">[</span>gmt://examples/component_sum1:8004<span class="o">]</span> starting
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T16:24:38.731Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> starting
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T16:24:38.732Z <span class="o">[</span>gmt://examples/component_inc2:8002<span class="o">]</span> <span class="nv">x1</span> <span class="o">=</span> <span class="m">1</span>
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T16:24:38.732Z <span class="o">[</span>gmt://examples/simple_component:8000<span class="o">]</span> hello, component world
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T16:24:38.732Z <span class="o">[</span>gmt://examples/component_inc3:8003<span class="o">]</span> <span class="nv">x1</span> <span class="o">=</span> <span class="m">1</span>
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T16:24:38.732Z <span class="o">[</span>gmt://examples/component_inc1:8001<span class="o">]</span> <span class="nv">x1</span> <span class="o">=</span> <span class="m">1</span>
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T16:24:38.732Z <span class="o">[</span>gmt://examples/my_app:7000<span class="o">]</span> app step <span class="nv">num</span> <span class="o">=</span> <span class="m">0</span>
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T16:24:38.732Z <span class="o">[</span>gmt://examples/component_sum1:8004<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> <span class="m">3</span>
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T16:24:38.732Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> <span class="m">3</span>
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T16:24:39.732Z <span class="o">[</span>gmt://examples/component_inc2:8002<span class="o">]</span> <span class="nv">x1</span> <span class="o">=</span> <span class="m">2</span>
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T16:24:39.732Z <span class="o">[</span>gmt://examples/simple_component:8000<span class="o">]</span> hello, component world
 </pre></div>
 </div>
 <p>At the startup the components are not setup and ports can&#8217;t be connected so each component is running alone.
@@ -337,12 +363,12 @@ For example, let&#8217;s see what the component sum2 is doing:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ gds log_service client sum2
 log client subscribed at port tcp://127.0.0.1:9995
 subscription topic: sum2
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T16:34:57.300Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> starting
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T16:34:57.301Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 3
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T16:34:58.301Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 3
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T16:34:59.301Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 3
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T16:35:00.301Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 3
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T16:35:01.301Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 3
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T16:34:57.300Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> starting
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T16:34:57.301Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> <span class="m">3</span>
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T16:34:58.301Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> <span class="m">3</span>
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T16:34:59.301Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> <span class="m">3</span>
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T16:35:00.301Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> <span class="m">3</span>
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T16:35:01.301Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> <span class="m">3</span>
 </pre></div>
 </div>
 <p>In this case the component sum2 is still not receiving values from other components so it&#8217;s only processing the default inputs.
@@ -360,7 +386,7 @@ sum2.x3 = 2</dd>
 <p>In order to receive data from other components all components ports shall be setup.</p>
 </div>
 <div class="section" id="setup-components-and-ports">
-<h2>7.4. Setup Components and Ports<a class="headerlink" href="#setup-components-and-ports" title="Permalink to this headline">¶</a></h2>
+<h2>8.4. Setup Components and Ports<a class="headerlink" href="#setup-components-and-ports" title="Permalink to this headline">¶</a></h2>
 <p>When a components starts it will automatically run its step() loop at the required rate.
 On each step() it checks its inputs, process the inputs and sets the outputs. At the init phase only the setup port is ready.
 It can receive the following component setup:</p>
@@ -407,34 +433,34 @@ $ gds setup -m runtime -e component_sum2
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ gds log_service client sum2
 log client subscribed at port tcp://127.0.0.1:9995
 subscription topic: sum2
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T17:21:57.385Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 3
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T17:21:58.385Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 3
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T17:21:59.385Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 3
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T17:22:00.386Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> new setup received
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T17:22:00.386Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> new port <span class="o">[</span>x1 -&gt; tcp://127.0.0.1:9005/push~async@1<span class="o">]</span>
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T17:22:00.386Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> new port <span class="o">[</span>x2 -&gt; tcp://127.0.0.1:9004/pull~async@1<span class="o">]</span>
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T17:22:00.386Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> new port <span class="o">[</span>x3 -&gt; tcp://127.0.0.1:9003/pull~async@1<span class="o">]</span>
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T17:22:00.386Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 3
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T17:22:01.386Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 22
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T17:22:02.386Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 63
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T17:22:03.386Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 63
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T17:22:04.386Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 63
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T17:22:05.386Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 63
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T17:22:06.386Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 63
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T17:22:07.386Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 63
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T17:22:08.386Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 63
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T17:22:09.386Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 63
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T17:22:10.386Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 63
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T17:22:11.386Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 73
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T17:22:12.386Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 93
-<span class="o">[</span>INF<span class="o">]</span> 2016-09-06T17:22:13.386Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> 93
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T17:21:57.385Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> <span class="m">3</span>
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T17:21:58.385Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> <span class="m">3</span>
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T17:21:59.385Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> <span class="m">3</span>
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T17:22:00.386Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> new setup received
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T17:22:00.386Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> new port <span class="o">[</span>x1 -&gt; tcp://127.0.0.1:9005/push~async@1<span class="o">]</span>
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T17:22:00.386Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> new port <span class="o">[</span>x2 -&gt; tcp://127.0.0.1:9004/pull~async@1<span class="o">]</span>
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T17:22:00.386Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> new port <span class="o">[</span>x3 -&gt; tcp://127.0.0.1:9003/pull~async@1<span class="o">]</span>
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T17:22:00.386Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> <span class="m">3</span>
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T17:22:01.386Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> <span class="m">22</span>
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T17:22:02.386Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> <span class="m">63</span>
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T17:22:03.386Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> <span class="m">63</span>
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T17:22:04.386Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> <span class="m">63</span>
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T17:22:05.386Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> <span class="m">63</span>
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T17:22:06.386Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> <span class="m">63</span>
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T17:22:07.386Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> <span class="m">63</span>
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T17:22:08.386Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> <span class="m">63</span>
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T17:22:09.386Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> <span class="m">63</span>
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T17:22:10.386Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> <span class="m">63</span>
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T17:22:11.386Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> <span class="m">73</span>
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T17:22:12.386Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> <span class="m">93</span>
+<span class="o">[</span>INF<span class="o">]</span> <span class="m">2016</span>-09-06T17:22:13.386Z <span class="o">[</span>gmt://examples/component_sum2:8005<span class="o">]</span> <span class="nv">sum</span> <span class="o">=</span> <span class="m">93</span>
 </pre></div>
 </div>
 <p>All components, except the application, run at the 1s rate. The application has a 3s step rate.
 The application will run for 1000 steps and then will automatically finish.</p>
 </div>
 <div class="section" id="controllers-example">
-<h2>7.5. Controllers Example<a class="headerlink" href="#controllers-example" title="Permalink to this headline">¶</a></h2>
+<h2>8.5. Controllers Example<a class="headerlink" href="#controllers-example" title="Permalink to this headline">¶</a></h2>
 <p>Controllers are the components responsible to control the different telescope or instruments devices.
 Usually controllers are connected to the external sensors and actuators using the Hardware Adapters that we have seen before.
 Many different kinds of controllers will be created for the telescope depending on the type of equipment to be controlled.
@@ -448,12 +474,12 @@ This is for code generation purposes and because it&#8217;s easy to focus develo
         properties:
             uri_path: <span class="s1">&#39;gmt://examples/simple_controller&#39;</span>
             host: <span class="s1">&#39;127.0.0.1&#39;</span>
-            port: 8001
-            rate: 1000000
+            port: <span class="m">8001</span>
+            rate: <span class="m">1000000</span>
             acl: <span class="s1">&#39;private&#39;</span>
 
         state_vars: <span class="o">[</span>
-            <span class="o">{</span> type: <span class="s1">&#39;float&#39;</span>, init: 23.4, min: 2.0, max: 26.1, url: <span class="s1">&#39;tcp://127.0.0.1:9011&#39;</span> <span class="o">}</span>
+            <span class="o">{</span> type: <span class="s1">&#39;float&#39;</span>, init: <span class="m">23</span>.4, min: <span class="m">2</span>.0, max: <span class="m">26</span>.1, url: <span class="s1">&#39;tcp://127.0.0.1:9011&#39;</span> <span class="o">}</span>
         <span class="o">]</span>
 
         input_ports: <span class="o">[</span>
@@ -473,7 +499,7 @@ This is for code generation purposes and because it&#8217;s easy to focus develo
 <div>$ gds setup -m runtime -e simple_controller</div></blockquote>
 </div>
 <div class="section" id="check-monitored-values">
-<h2>7.6. Check Monitored Values<a class="headerlink" href="#check-monitored-values" title="Permalink to this headline">¶</a></h2>
+<h2>8.6. Check Monitored Values<a class="headerlink" href="#check-monitored-values" title="Permalink to this headline">¶</a></h2>
 <p>Telemetry is a distributed service than can be started independently on each component as:</p>
 <blockquote>
 <div><em>Usage:</em>  <code class="docutils literal"><span class="pre">gds</span> <span class="pre">monitor</span> <span class="pre">start</span> <span class="pre">-m</span> <span class="pre">model</span> <span class="pre">-e</span> <span class="pre">element</span></code></div></blockquote>
@@ -502,18 +528,18 @@ The telemetry service will:</p>
 <blockquote>
 <div><em>Usage:</em>  <code class="docutils literal"><span class="pre">gds</span> <span class="pre">telemetry_service</span> <span class="pre">query</span> <span class="pre">monitor_name</span> <span class="pre">num</span></code></div></blockquote>
 <p>For example, the following will list the last 12 temperature values (from newest to oldest) from this controller:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ gds telemetry_service query gmt://examples/simple_controller/temperature_monitor 10
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ gds telemetry_service query gmt://examples/simple_controller/temperature_monitor <span class="m">10</span>
 </pre></div>
 </div>
 <p>All telemetry queries have to be done on specific monitors.</p>
 </div>
 <div class="section" id="send-a-command-to-a-controller">
-<h2>7.7. Send a Command to a Controller<a class="headerlink" href="#send-a-command-to-a-controller" title="Permalink to this headline">¶</a></h2>
+<h2>8.7. Send a Command to a Controller<a class="headerlink" href="#send-a-command-to-a-controller" title="Permalink to this headline">¶</a></h2>
 <p>Some numeric values can be sent directly to ports of any controller like this:</p>
 <blockquote>
 <div><em>Usage:</em>  <code class="docutils literal"><span class="pre">gds</span> <span class="pre">send_value</span> <span class="pre">port_name</span> <span class="pre">value</span> <span class="pre">-m</span> <span class="pre">model</span> <span class="pre">-e</span> <span class="pre">element</span></code></div></blockquote>
 <p>For example:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ gds send_value temperature_setpoint 23.2 -m runtime -e simple_controller
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ gds send_value temperature_setpoint <span class="m">23</span>.2 -m runtime -e simple_controller
 </pre></div>
 </div>
 <p>This will send a temperature setpoint of 23.2 to the controller which should react to this change.
@@ -528,15 +554,18 @@ When the temperature values are out the the defined range the log client should 
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="contribute.html" class="btn btn-neutral float-right" title="8. Contribute" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="contribute.html" class="btn btn-neutral float-right" title="9. Contribute" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="services.html" class="btn btn-neutral" title="6. Using the Services" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="services.html" class="btn btn-neutral" title="7. Using the Services" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -568,9 +597,11 @@ When the temperature values are out the the defined range the log client should 
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
             VERSION:'1.1-5',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>

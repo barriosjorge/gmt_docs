@@ -8,12 +8,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3.5.3. Laser Tomographic Adaptive Optics (LTAO) &mdash; GMT Software And Controls documentation</title>
+  <title>5.5.3. Laser Tomographic Adaptive Optics (LTAO) &mdash; GMT Software And Controls documentation</title>
   
 
   
   
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
   
 
   
@@ -36,9 +38,9 @@
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="GMT Software And Controls documentation" href="../../../index.html"/>
-        <link rel="up" title="3. Telescope Control System" href="../tcs_introduction.html"/>
-        <link rel="next" title="3.5.4. Natural-Guidestar Ground Layer Adaptive Optics (NGLAO)" href="nglao_obsmode.html"/>
-        <link rel="prev" title="3.5.2. Natural Guide Star Adaptive Optics (NGSAO)" href="ngsao_obsmode.html"/> 
+        <link rel="up" title="5.5. Wavefront Control System" href="../wavefront_control.html"/>
+        <link rel="next" title="5.5.4. Natural-Guidestar Ground Layer Adaptive Optics (NGLAO)" href="nglao_obsmode.html"/>
+        <link rel="prev" title="5.5.2. Natural Guide Star Adaptive Optics (NGSAO)" href="ngsao_obsmode.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -47,6 +49,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -90,32 +93,36 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../release_notes/index.html">Release Notes</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Architecture and Design</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../introduction/swcs_introduction.html">1. Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../architecture/overall_architecture.html">2. Overall Architecture</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../tcs_introduction.html">3. Telescope Control System</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../tcs_introduction.html#subsystems">3.1. Subsystems</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../tcs_introduction.html#degrees-of-freedom">3.2. Degrees of Freedom</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../tcs_introduction.html#requirements-on-tcs-pointing-tracking-guiding">3.3. Requirements on TCS, Pointing, Tracking &amp; Guiding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../tcs_introduction.html#pointing-kernel">3.4. Pointing Kernel</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../tcs_introduction.html#wavefront-control">3.5. Wavefront Control</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="ns_obsmode.html">3.5.1. <em>Natural Seeing Observing Mode</em></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ngsao_obsmode.html">3.5.2. <em>Natural Guide Star Adaptive Optics (NGSAO)</em></a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">3.5.3. <em>Laser Tomographic Adaptive Optics (LTAO)</em></a></li>
-<li class="toctree-l4"><a class="reference internal" href="nglao_obsmode.html">3.5.4. <em>Natural-Guidestar Ground Layer Adaptive Optics (NGLAO)</em></a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../../requirements/requirements.html">2. Requirements Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture/overall_architecture.html">3. Overall Architecture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../operations/observatory_operations.html">4. Observatory Operation System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../services/observatory_services.html">5. Observatory Services</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../frameworks/component_frameworks.html">6. Frameworks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../platform/platform.html">7. Platform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../process/process_introduction.html">8. Process</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../risks/risks.html">9. Software and Control Risks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../bibliography/bibliography.html">10. Bibliography</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../tcs_introduction.html">5. Telescope Control System</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../subsystems.html">5.1. Subsystems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../degrees_of_freedom.html">5.2. Degrees of Freedom</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../requirements.html">5.3. Requirements on TCS, Pointing, Tracking &amp; Guiding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pointing_kernel.html">5.4. Pointing Kernel</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../wavefront_control.html">5.5. Wavefront Control System</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="ns_obsmode.html">5.5.1. <em>Natural Seeing Observing Mode</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ngsao_obsmode.html">5.5.2. <em>Natural Guide Star Adaptive Optics (NGSAO)</em></a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">5.5.3. <em>Laser Tomographic Adaptive Optics (LTAO)</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nglao_obsmode.html">5.5.4. <em>Natural-Guidestar Ground Layer Adaptive Optics (NGLAO)</em></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../services/observatory_services.html">6. Observatory Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../frameworks/component_frameworks.html">7. Frameworks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../platform/platform.html">8. Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../process/process_introduction.html">9. Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../risks/risks.html">10. Software and Control Risks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bibliography/bibliography.html">11. Bibliography</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../SWC_standards/index.html">Software and Controls Standards</a></li>
@@ -134,8 +141,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../../index.html">GMT Software And Controls</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">GMT Software And Controls</a>
+        
       </nav>
 
 
@@ -144,33 +153,52 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="../../index.html">Architecture and Design</a> &raquo;</li>
-      
-          <li><a href="../tcs_introduction.html">3. Telescope Control System</a> &raquo;</li>
-      
-    <li>3.5.3. <em>Laser Tomographic Adaptive Optics (LTAO)</em></li>
+        
+          <li><a href="../tcs_introduction.html">5. Telescope Control System</a> &raquo;</li>
+        
+          <li><a href="../wavefront_control.html">5.5. Wavefront Control System</a> &raquo;</li>
+        
+      <li>5.5.3. <em>Laser Tomographic Adaptive Optics (LTAO)</em></li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
   <div class="section" id="laser-tomographic-adaptive-optics-ltao">
-<span id="tcs-ltao-obsmode"></span><h1>3.5.3. <em>Laser Tomographic Adaptive Optics (LTAO)</em><a class="headerlink" href="#laser-tomographic-adaptive-optics-ltao" title="Permalink to this headline">¶</a></h1>
-<p>A simplified block diagram of the LTAO WFC is presented in <a class="reference internal" href="#ltao-wfcs-block-diagram"><span class="std std-numref">Figure 24</span></a>. There are strong similarities to the NGSAO WFC, with
+<span id="tcs-ltao-obsmode"></span><h1>5.5.3. <em>Laser Tomographic Adaptive Optics (LTAO)</em><a class="headerlink" href="#laser-tomographic-adaptive-optics-ltao" title="Permalink to this headline">¶</a></h1>
+<p>A simplified block diagram of the LTAO WFC is presented in <a class="reference internal" href="#ltao-wfcs-block-diagram"><span class="std std-numref">Figure 5.14</span></a>. There are strong similarities to the NGSAO WFC, with
 the LTWS taking the place of the NGWS. The LTAO Wavefront Controller has three
 additional outputs controlling the OIWFS DM, the LTWS focus stage, and the LGSF
 steering mirrors.  At this level of detail, the additional NGS tip-tilt and
@@ -181,7 +209,7 @@ Edge Sensors.  The operation of the Active Optics Wavefront Controller is
 identical to the NGSAO mode.</p>
 <div class="figure" id="id7">
 <span id="ltao-wfcs-block-diagram"></span><a class="reference internal image-reference" href="../../../_images/ltao_wfcs_block_diagram.png"><img alt="../../../_images/ltao_wfcs_block_diagram.png" src="../../../_images/ltao_wfcs_block_diagram.png" style="width: 880.0px; height: 555.0px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 24 </span><span class="caption-text">LTAO wavefront control system simplified block diagram</span></p>
+<p class="caption"><span class="caption-number">Fig. 5.14 </span><span class="caption-text">LTAO wavefront control system simplified block diagram</span></p>
 </div>
 <p>Thirteen wavefront control loops operate simultaneously in the LTAO mode, a
 number similar to that of present-generation state-of-the art AO system (e.g.,
@@ -220,13 +248,13 @@ are also many offloads between controllers, some of which are described in the
 next section.</p>
 <p><strong>Component Descriptions</strong></p>
 <blockquote>
-<div><p><a class="reference internal" href="#ltao-wfcs-block-diagram-detailed"><span class="std std-numref">Figure 25</span></a> is a more detailed
+<div><p><a class="reference internal" href="#ltao-wfcs-block-diagram-detailed"><span class="std std-numref">Figure 5.15</span></a> is a more detailed
 block diagram of the LTAO WFC, with all of the real-time components
 currently envisioned. A list of the components is provided in Table 10-27
 [TBA].  A description of the most critical components is given below,
 followed by an identification of the connections between them.</p>
 <table border="1" class="docutils" id="id8">
-<caption><span class="caption-number">Table 11 </span><span class="caption-text">LTAO Wavefront Control System Components</span><a class="headerlink" href="#id8" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 5.20 </span><span class="caption-text">LTAO Wavefront Control System Components</span><a class="headerlink" href="#id8" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="27%" />
 <col width="48%" />
@@ -279,7 +307,7 @@ followed by an identification of the connections between them.</p>
 </table>
 <div class="figure" id="id9">
 <span id="ltao-wfcs-block-diagram-detailed"></span><a class="reference internal image-reference" href="../../../_images/ltao_wfcs_block_diagram_detailed.png"><img alt="../../../_images/ltao_wfcs_block_diagram_detailed.png" src="../../../_images/ltao_wfcs_block_diagram_detailed.png" style="width: 1454.0px; height: 923.0px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 25 </span><span class="caption-text">LTAO wavefront control system detailed block diagram</span></p>
+<p class="caption"><span class="caption-number">Fig. 5.15 </span><span class="caption-text">LTAO wavefront control system detailed block diagram</span></p>
 </div>
 </div></blockquote>
 <p><strong>LTAO Wavefront Controller</strong></p>
@@ -293,7 +321,7 @@ LTWS measurements (loops A and B), described in detail in Section 8.8.2
 <a class="reference internal" href="../../bibliography/bibliography.html#bouc13b" id="id1">[Bouc13b]</a>.</p>
 <div class="figure" id="id10">
 <img alt="../../../_images/ltao_wfc_block_diagram.png" src="../../../_images/ltao_wfc_block_diagram.png" />
-<p class="caption"><span class="caption-number">Fig. 26 </span><span class="caption-text">LTAO wavefront controller block diagram (input from the phasing
+<p class="caption"><span class="caption-number">Fig. 5.16 </span><span class="caption-text">LTAO wavefront controller block diagram (input from the phasing
 controller and active optics controller are not shown). Control loops
 A-H are identified.</span></p>
 </div>
@@ -321,7 +349,7 @@ used to drive the LTWS focus stage at 10 Hz.</li>
 </div></blockquote>
 <div class="figure" id="id11">
 <img alt="../../../_images/ltao_dynamic_calibration_control_loop.png" src="../../../_images/ltao_dynamic_calibration_control_loop.png" />
-<p class="caption"><span class="caption-number">Fig. 27 </span><span class="caption-text">Detail of the LTAO dynamic calibration control loops</span></p>
+<p class="caption"><span class="caption-number">Fig. 5.17 </span><span class="caption-text">Detail of the LTAO dynamic calibration control loops</span></p>
 </div>
 <p>The other key inputs to the <em>wfc_ltao_ctrl</em> component are the segment piston
 error fed forward by the Phasing Controller from the M1 and M2 edge sensors,
@@ -345,7 +373,7 @@ the NGSAO mode.</div></blockquote>
 updates to the M1 edge sensor control points, and feeds forward the sum of
 the M1 and M2 reconstructed segment piston to the LTAO Wavefront Controller.
 These control loops are illustrated in <a class="reference internal" href="#ltao-phasing-block-diagram"><span class="std std-numref">Figure
-28</span></a>. The LTAO functions are a superset of the
+5.18</span></a>. The LTAO functions are a superset of the
 NGSAO functions, so they have been designed as a single component, using a
 different set of ports in each mode. These are identified in Table 10-26
 [TBA].</p>
@@ -366,7 +394,7 @@ Wavefront Controller at 500 Hz. This allows the ASM to compensate for wind
 disturbances or vibrations at up to ~70 Hz.</p>
 <div class="figure" id="id12">
 <span id="ltao-phasing-block-diagram"></span><img alt="../../../_images/ltao_phasing_block_diagram.png" src="../../../_images/ltao_phasing_block_diagram.png" />
-<p class="caption"><span class="caption-number">Fig. 28 </span><span class="caption-text">LTAO Phasing Controller Block Diagram. Other software components are
+<p class="caption"><span class="caption-number">Fig. 5.18 </span><span class="caption-text">LTAO Phasing Controller Block Diagram. Other software components are
 shown with dashed lines. Control loops I-K are identified.</span></p>
 </div>
 </div></blockquote>
@@ -374,7 +402,7 @@ shown with dashed lines. Control loops I-K are identified.</span></p>
 <blockquote>
 <div><p>The LTAO Reconstructor Server (<em>wfc_ltao_recon_srv</em>) is another key component
 in this mode. Its relationship to other components is illustrated in Figure
-<a class="reference internal" href="#ltao-wfcs-block-diagram"><span class="std std-numref">Figure 24</span></a>.</p>
+<a class="reference internal" href="#ltao-wfcs-block-diagram"><span class="std std-numref">Figure 5.14</span></a>.</p>
 <p>The LTAO wavefront reconstructor matrices A and B (see Section 8.8.2.3
 <a class="reference internal" href="../../bibliography/bibliography.html#bouc13b" id="id2">[Bouc13b]</a>) depend on the atmosphere parameters: r0, L0 and the Cn2 profile.
 The values of these parameters evolve with time so the matrices must be
@@ -425,7 +453,7 @@ analytically in Section 4.7.4.1 of the LTAO System Design Manual <a class="refer
 <blockquote>
 <div><p>A numerical simulation of the LTAO mode Phasing Controller was run to verify
 the performance of the control loops illustrated in <a class="reference internal" href="#ltao-phasing-simulation"><span class="std std-numref">Figure
-29</span></a>. The parameters used in the simulation are
+5.19</span></a>. The parameters used in the simulation are
 summarized in Table 10-30 [TBA]. They are based on the requirements of the
 various sensor and actuators in the control system, rather than the
 as-designed performance.</p>
@@ -433,7 +461,7 @@ as-designed performance.</p>
 the M1 and ASM Reference Body (RB) segments, the measurement error and
 sampling rates of all sensors, and the finite precision and slew time of the
 actuators. A typical time history of a single M1-M2 segment pair is shown in
-<a class="reference internal" href="#residual-segment-piston"><span class="std std-numref">Figure 30</span></a>. The simulation tracks the
+<a class="reference internal" href="#residual-segment-piston"><span class="std std-numref">Figure 5.20</span></a>. The simulation tracks the
 positions of the segments and the measurements made by all sensors with a
 time step of 1 ms.</p>
 <p>If uncorrected, M1 and the ASM reference body are each expected to drift in
@@ -448,7 +476,7 @@ this simulation, the slow drifts are corrected by OIWFS measurements every
 10 s (Loop J).</p>
 <div class="figure" id="id13">
 <span id="ltao-phasing-simulation"></span><img alt="../../../_images/ltao_phasing_simulation.png" src="../../../_images/ltao_phasing_simulation.png" />
-<p class="caption"><span class="caption-number">Fig. 29 </span><span class="caption-text">Phasing simulation, showing a typical time-history of one segment pair
+<p class="caption"><span class="caption-number">Fig. 5.19 </span><span class="caption-text">Phasing simulation, showing a typical time-history of one segment pair
 over 10 minutes. The sum of the piston error due to M1, the ASM
 reference body (RB) and the ASM face sheet is the total piston error.</span></p>
 </div>
@@ -464,7 +492,7 @@ difference is likely due to finite latency of the system when compensating
 errors (see Table 8-13 [TBA]), the final piston error is 32.0 nm RMS.</p>
 <div class="figure" id="id14">
 <span id="residual-segment-piston"></span><img alt="../../../_images/residual_segment_piston.png" src="../../../_images/residual_segment_piston.png" />
-<p class="caption"><span class="caption-number">Fig. 30 </span><span class="caption-text">Residual segment piston for the first 100 s of the simulation shown in
+<p class="caption"><span class="caption-number">Fig. 5.20 </span><span class="caption-text">Residual segment piston for the first 100 s of the simulation shown in
 Figure 10-32. The high frequency error is due primarily to edge sensor
 measurement error. The jumps every 10 s are due to error in the OIWFS
 measurement. The piston error is 50.4 nm RMS.</span></p>
@@ -474,15 +502,18 @@ measurement. The piston error is 50.4 nm RMS.</span></p>
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="nglao_obsmode.html" class="btn btn-neutral float-right" title="3.5.4. Natural-Guidestar Ground Layer Adaptive Optics (NGLAO)" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="nglao_obsmode.html" class="btn btn-neutral float-right" title="5.5.4. Natural-Guidestar Ground Layer Adaptive Optics (NGLAO)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="ngsao_obsmode.html" class="btn btn-neutral" title="3.5.2. Natural Guide Star Adaptive Optics (NGSAO)" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="ngsao_obsmode.html" class="btn btn-neutral" title="5.5.2. Natural Guide Star Adaptive Optics (NGSAO)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -514,9 +545,11 @@ measurement. The piston error is 50.4 nm RMS.</span></p>
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
             VERSION:'1.1-5',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../../_static/jquery.js"></script>

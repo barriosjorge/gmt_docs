@@ -15,6 +15,8 @@
   
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
   
+  
+  
 
   
 
@@ -46,6 +48,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -89,19 +92,23 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../release_notes/index.html">Release Notes</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Architecture and Design</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="introduction/swcs_introduction.html">1. Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="architecture/overall_architecture.html">2. Overall Architecture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tcs/tcs_introduction.html">3. Telescope Control System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="requirements/requirements.html">2. Requirements Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture/overall_architecture.html">3. Overall Architecture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="operations/observatory_operations.html">4. Observatory Operation System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="services/observatory_services.html">4. Observatory Services</a></li>
-<li class="toctree-l2"><a class="reference internal" href="frameworks/component_frameworks.html">5. Frameworks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="platform/platform.html">6. Platform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="process/process_introduction.html">7. Process</a></li>
-<li class="toctree-l2"><a class="reference internal" href="risks/risks.html">8. Software and Control Risks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bibliography/bibliography.html">9. Bibliography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tcs/tcs_introduction.html">5. Telescope Control System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services/observatory_services.html">6. Observatory Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frameworks/component_frameworks.html">7. Frameworks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="platform/platform.html">8. Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="process/process_introduction.html">9. Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="risks/risks.html">10. Software and Control Risks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bibliography/bibliography.html">11. Bibliography</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../SWC_standards/index.html">Software and Controls Standards</a></li>
@@ -120,8 +127,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">GMT Software And Controls</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GMT Software And Controls</a>
+        
       </nav>
 
 
@@ -130,21 +139,38 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Docs</a> &raquo;</li>
-      
-    <li>Architecture and Design</li>
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Architecture and Design</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -160,30 +186,34 @@ Architecture and Design.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="introduction/swcs_introduction.html">1. Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="architecture/overall_architecture.html">2. Overall Architecture</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tcs/tcs_introduction.html">3. Telescope Control System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="requirements/requirements.html">2. Requirements Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture/overall_architecture.html">3. Overall Architecture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="operations/observatory_operations.html">4. Observatory Operation System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="services/observatory_services.html">4. Observatory Services</a></li>
-<li class="toctree-l1"><a class="reference internal" href="frameworks/component_frameworks.html">5. Frameworks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="platform/platform.html">6. Platform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="process/process_introduction.html">7. Process</a></li>
-<li class="toctree-l1"><a class="reference internal" href="risks/risks.html">8. Software and Control Risks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bibliography/bibliography.html">9. Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tcs/tcs_introduction.html">5. Telescope Control System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="services/observatory_services.html">6. Observatory Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frameworks/component_frameworks.html">7. Frameworks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="platform/platform.html">8. Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="process/process_introduction.html">9. Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="risks/risks.html">10. Software and Control Risks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography/bibliography.html">11. Bibliography</a></li>
 </ul>
 </div>
 </div>
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="introduction/swcs_introduction.html" class="btn btn-neutral float-right" title="1. Introduction" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="introduction/swcs_introduction.html" class="btn btn-neutral float-right" title="1. Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../release_notes/release_1/notes.html" class="btn btn-neutral" title="Release 1" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../release_notes/release_1/notes.html" class="btn btn-neutral" title="Release 1" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -215,9 +245,11 @@ Architecture and Design.</p>
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
             VERSION:'1.1-5',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>

@@ -8,12 +8,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3.5.1. Natural Seeing Observing Mode &mdash; GMT Software And Controls documentation</title>
+  <title>5.5.1. Natural Seeing Observing Mode &mdash; GMT Software And Controls documentation</title>
   
 
   
   
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
   
 
   
@@ -36,9 +38,9 @@
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="GMT Software And Controls documentation" href="../../../index.html"/>
-        <link rel="up" title="3. Telescope Control System" href="../tcs_introduction.html"/>
-        <link rel="next" title="3.5.2. Natural Guide Star Adaptive Optics (NGSAO)" href="ngsao_obsmode.html"/>
-        <link rel="prev" title="3. Telescope Control System" href="../tcs_introduction.html"/> 
+        <link rel="up" title="5.5. Wavefront Control System" href="../wavefront_control.html"/>
+        <link rel="next" title="5.5.2. Natural Guide Star Adaptive Optics (NGSAO)" href="ngsao_obsmode.html"/>
+        <link rel="prev" title="5.5. Wavefront Control System" href="../wavefront_control.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -47,6 +49,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -90,32 +93,36 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../release_notes/index.html">Release Notes</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Architecture and Design</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../introduction/swcs_introduction.html">1. Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../architecture/overall_architecture.html">2. Overall Architecture</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../tcs_introduction.html">3. Telescope Control System</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../tcs_introduction.html#subsystems">3.1. Subsystems</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../tcs_introduction.html#degrees-of-freedom">3.2. Degrees of Freedom</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../tcs_introduction.html#requirements-on-tcs-pointing-tracking-guiding">3.3. Requirements on TCS, Pointing, Tracking &amp; Guiding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../tcs_introduction.html#pointing-kernel">3.4. Pointing Kernel</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../tcs_introduction.html#wavefront-control">3.5. Wavefront Control</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">3.5.1. <em>Natural Seeing Observing Mode</em></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ngsao_obsmode.html">3.5.2. <em>Natural Guide Star Adaptive Optics (NGSAO)</em></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ltao_obsmode.html">3.5.3. <em>Laser Tomographic Adaptive Optics (LTAO)</em></a></li>
-<li class="toctree-l4"><a class="reference internal" href="nglao_obsmode.html">3.5.4. <em>Natural-Guidestar Ground Layer Adaptive Optics (NGLAO)</em></a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../../requirements/requirements.html">2. Requirements Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture/overall_architecture.html">3. Overall Architecture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../operations/observatory_operations.html">4. Observatory Operation System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../services/observatory_services.html">5. Observatory Services</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../frameworks/component_frameworks.html">6. Frameworks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../platform/platform.html">7. Platform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../process/process_introduction.html">8. Process</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../risks/risks.html">9. Software and Control Risks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../bibliography/bibliography.html">10. Bibliography</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../tcs_introduction.html">5. Telescope Control System</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../subsystems.html">5.1. Subsystems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../degrees_of_freedom.html">5.2. Degrees of Freedom</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../requirements.html">5.3. Requirements on TCS, Pointing, Tracking &amp; Guiding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pointing_kernel.html">5.4. Pointing Kernel</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../wavefront_control.html">5.5. Wavefront Control System</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">5.5.1. <em>Natural Seeing Observing Mode</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ngsao_obsmode.html">5.5.2. <em>Natural Guide Star Adaptive Optics (NGSAO)</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ltao_obsmode.html">5.5.3. <em>Laser Tomographic Adaptive Optics (LTAO)</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nglao_obsmode.html">5.5.4. <em>Natural-Guidestar Ground Layer Adaptive Optics (NGLAO)</em></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../services/observatory_services.html">6. Observatory Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../frameworks/component_frameworks.html">7. Frameworks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../platform/platform.html">8. Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../process/process_introduction.html">9. Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../risks/risks.html">10. Software and Control Risks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bibliography/bibliography.html">11. Bibliography</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../SWC_standards/index.html">Software and Controls Standards</a></li>
@@ -134,8 +141,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../../index.html">GMT Software And Controls</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">GMT Software And Controls</a>
+        
       </nav>
 
 
@@ -144,32 +153,51 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="../../index.html">Architecture and Design</a> &raquo;</li>
-      
-          <li><a href="../tcs_introduction.html">3. Telescope Control System</a> &raquo;</li>
-      
-    <li>3.5.1. <em>Natural Seeing Observing Mode</em></li>
+        
+          <li><a href="../tcs_introduction.html">5. Telescope Control System</a> &raquo;</li>
+        
+          <li><a href="../wavefront_control.html">5.5. Wavefront Control System</a> &raquo;</li>
+        
+      <li>5.5.1. <em>Natural Seeing Observing Mode</em></li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
   <div class="section" id="natural-seeing-observing-mode">
-<span id="tcs-ns-obsmode"></span><h1>3.5.1. <em>Natural Seeing Observing Mode</em><a class="headerlink" href="#natural-seeing-observing-mode" title="Permalink to this headline">¶</a></h1>
+<span id="tcs-ns-obsmode"></span><h1>5.5.1. <em>Natural Seeing Observing Mode</em><a class="headerlink" href="#natural-seeing-observing-mode" title="Permalink to this headline">¶</a></h1>
 <p>The simplest observing mode is natural seeing. A simplified control block
 diagram of the Natural Seeing (NS) WFC is shown in the Figure below. Software
 components associated with sensors are shown in orange, WFC components in grey,
@@ -181,7 +209,7 @@ to residual wavefront, and optics controllers which convert those wavefronts to
 mechanical degrees of freedom.</p>
 <div class="figure" id="id6">
 <img alt="../../../_images/natural_seeing_wcs_block_diagram.png" src="../../../_images/natural_seeing_wcs_block_diagram.png" />
-<p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text">Natural Seeing wavefront control system simplified block diagram</span></p>
+<p class="caption"><span class="caption-number">Fig. 5.9 </span><span class="caption-text">Natural Seeing wavefront control system simplified block diagram</span></p>
 </div>
 <p>The NS wavefront control functionality is split between two controllers: The NS
 Fast Guiding controller and the Active Optics Wavefront Controller. The Active
@@ -238,7 +266,7 @@ contribution of one optical surface.</li>
 </ul>
 </div></blockquote>
 <table border="1" class="docutils" id="id7">
-<caption><span class="caption-number">Table 5 </span><span class="caption-text">Natural Seeing Wavefront Control System Components</span><a class="headerlink" href="#id7" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 5.12 </span><span class="caption-text">Natural Seeing Wavefront Control System Components</span><a class="headerlink" href="#id7" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="29%" />
 <col width="49%" />
@@ -294,7 +322,7 @@ SH-WFS mode.  New images may be available as rapidly as 206 Hz in WFS mode,
 camera will control the output port to which its wavefront slopes are
 provided.</p>
 <table border="1" class="docutils" id="id8">
-<caption><span class="caption-number">Table 6 </span><span class="caption-text">AGWS Slope Processor Ports</span><a class="headerlink" href="#id8" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 5.13 </span><span class="caption-text">AGWS Slope Processor Ports</span><a class="headerlink" href="#id8" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="17%" />
 <col width="47%" />
@@ -836,7 +864,7 @@ Server to correctly weight the measurements and verify pupil mapping.</p>
 will be sent to either the FSM or ASM controller, depending on the M2
 assembly installed. Its data interfaces are listed in the following Table:</p>
 <table border="1" class="docutils" id="id9">
-<caption><span class="caption-number">Table 7 </span><span class="caption-text">Fast Guiding Controller Ports</span><a class="headerlink" href="#id9" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 5.14 </span><span class="caption-text">Fast Guiding Controller Ports</span><a class="headerlink" href="#id9" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="17%" />
 <col width="50%" />
@@ -1070,7 +1098,7 @@ M1 and M2 optics controllers, as shown in Figure 10-22. The optics
 controllers enforce the stroke and force limits, and may therefore convert
 low-order bending modes into segment rigid body motion as required.</p>
 <table border="1" class="docutils" id="id10">
-<span id="aco-reconstructor-output-terms"></span><caption><span class="caption-number">Table 8 </span><span class="caption-text">Active Optics Reconstructor Output Terms</span><a class="headerlink" href="#id10" title="Permalink to this table">¶</a></caption>
+<span id="aco-reconstructor-output-terms"></span><caption><span class="caption-number">Table 5.15 </span><span class="caption-text">Active Optics Reconstructor Output Terms</span><a class="headerlink" href="#id10" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="39%" />
 <col width="16%" />
@@ -1129,7 +1157,7 @@ the residual tip-tilt errors after the rotation is subtracted are
 interpreted as differential position errors of the WFS probes. GIR rotation
 error and differential probe position error are sent to the pointing kernel.</p>
 <p>A complete list of the Active Optics Wavefront Controller data interfaces is
-given in Table <a class="reference internal" href="#aco-wfc-ports"><span class="std std-numref">Table 9</span></a>. This component is common to all
+given in Table <a class="reference internal" href="#aco-wfc-ports"><span class="std std-numref">Table 5.16</span></a>. This component is common to all
 observing modes, but the reconstructor is different for each mode. The
 observing modes for which the ports are active are indicated in the last
 column.</p>
@@ -1140,7 +1168,7 @@ column.</p>
 for fast guiding and active optics correction. Each of these depends on the
 observing mode, the configuration of the AGWS probes, their positions in the
 DG focal plane, and the angle of the GIR. The component’s data interfaces
-are listed in <a class="reference internal" href="#aco-reconstructor-server-ports"><span class="std std-numref">Table 10</span></a>.</p>
+are listed in <a class="reference internal" href="#aco-reconstructor-server-ports"><span class="std std-numref">Table 5.17</span></a>.</p>
 <p>The reconstructor matrix for fast guiding simply average and rotate
 wavefront slope vectors and can be computed analytically. The active optics
 reconstructor matrix is more complex, and the strategy followed to date (see
@@ -1148,7 +1176,7 @@ Section 6.12.2.5 <a class="reference internal" href="../../bibliography/bibliogr
 camera using Zemax. An unperturbed model of the telescope and AGWS wavefront
 sensors is first traced to provide reference spot positions. The model is
 then perturbed in each of the 319 degrees of freedom listed in
-<a class="reference internal" href="#aco-reconstructor-output-terms"><span class="std std-numref">Table 8</span></a>, and the difference
+<a class="reference internal" href="#aco-reconstructor-output-terms"><span class="std std-numref">Table 5.15</span></a>, and the difference
 between the centroids and their reference positions provides a column in the
 system matrix.  Finally, the reconstructor is computed by taking the
 pseudo-inverse of this system matrix.</p>
@@ -1159,7 +1187,7 @@ reduction in the delivered image quality due to the rapid rotation of the
 GIR <a class="reference internal" href="../../bibliography/bibliography.html#mcle13" id="id5">[McLe13]</a>. Active optics updates may have to be interrupted during a
 transit near zenith when the pupil rotation rate exceeds 6 deg/min.</p>
 <table border="1" class="docutils" id="id11">
-<span id="aco-wfc-ports"></span><caption><span class="caption-number">Table 9 </span><span class="caption-text">Active Optics Wavefront Controller Ports</span><a class="headerlink" href="#id11" title="Permalink to this table">¶</a></caption>
+<span id="aco-wfc-ports"></span><caption><span class="caption-number">Table 5.16 </span><span class="caption-text">Active Optics Wavefront Controller Ports</span><a class="headerlink" href="#id11" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="16%" />
 <col width="41%" />
@@ -1836,7 +1864,7 @@ transit near zenith when the pupil rotation rate exceeds 6 deg/min.</p>
 </tbody>
 </table>
 <table border="1" class="docutils" id="id12">
-<span id="aco-reconstructor-server-ports"></span><caption><span class="caption-number">Table 10 </span><span class="caption-text">Active Optics Reconstructor Server Ports</span><a class="headerlink" href="#id12" title="Permalink to this table">¶</a></caption>
+<span id="aco-reconstructor-server-ports"></span><caption><span class="caption-number">Table 5.17 </span><span class="caption-text">Active Optics Reconstructor Server Ports</span><a class="headerlink" href="#id12" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="19%" />
 <col width="47%" />
@@ -2015,7 +2043,7 @@ transit near zenith when the pupil rotation rate exceeds 6 deg/min.</p>
 <p><strong>Deployment</strong></p>
 <blockquote>
 <div><p>A representation of the deployment locations of the Natural Seeing WFC is
-provided in Figure the Figure below.  All WFC software components run on standard
+provided in the Figure below.  All WFC software components run on standard
 rack-mounted servers in the Electronics Room of the Summit Support Building.
 All of these hardware components will be connected with both a low-latency
 Infiniband network and a standard Ethernet control network.  The wavefront
@@ -2025,22 +2053,25 @@ located in the Electronics Room.  Thus the only data connections onto the
 telescope are via fiber optics.</p>
 <div class="figure" id="id13">
 <a class="reference internal image-reference" href="../../../_images/ns_wfcs_deployment.png"><img alt="../../../_images/ns_wfcs_deployment.png" src="../../../_images/ns_wfcs_deployment.png" style="width: 1506.0px; height: 848.0px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text">Natural Seeing Wavefront Control System Deployment Schematic</span></p>
+<p class="caption"><span class="caption-number">Fig. 5.10 </span><span class="caption-text">Natural Seeing Wavefront Control System Deployment Schematic</span></p>
 </div>
 </div></blockquote>
 </div>
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="ngsao_obsmode.html" class="btn btn-neutral float-right" title="3.5.2. Natural Guide Star Adaptive Optics (NGSAO)" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="ngsao_obsmode.html" class="btn btn-neutral float-right" title="5.5.2. Natural Guide Star Adaptive Optics (NGSAO)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../tcs_introduction.html" class="btn btn-neutral" title="3. Telescope Control System" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../wavefront_control.html" class="btn btn-neutral" title="5.5. Wavefront Control System" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -2072,9 +2103,11 @@ telescope are via fiber optics.</p>
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
             VERSION:'1.1-5',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../../_static/jquery.js"></script>

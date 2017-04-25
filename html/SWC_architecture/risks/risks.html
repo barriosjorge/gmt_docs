@@ -8,12 +8,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>8. Software and Control Risks &mdash; GMT Software And Controls documentation</title>
+  <title>10. Software and Control Risks &mdash; GMT Software And Controls documentation</title>
   
 
   
   
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
   
 
   
@@ -37,8 +39,8 @@
         <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="GMT Software And Controls documentation" href="../../index.html"/>
         <link rel="up" title="Architecture and Design" href="../index.html"/>
-        <link rel="next" title="9. Bibliography" href="../bibliography/bibliography.html"/>
-        <link rel="prev" title="7. Process" href="../process/process_introduction.html"/> 
+        <link rel="next" title="11. Bibliography" href="../bibliography/bibliography.html"/>
+        <link rel="prev" title="9.2. Software Development Process" href="../process/software_development_process.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -47,6 +49,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -90,33 +93,37 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../release_notes/index.html">Release Notes</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Architecture and Design</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../introduction/swcs_introduction.html">1. Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../architecture/overall_architecture.html">2. Overall Architecture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tcs/tcs_introduction.html">3. Telescope Control System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../requirements/requirements.html">2. Requirements Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture/overall_architecture.html">3. Overall Architecture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../operations/observatory_operations.html">4. Observatory Operation System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../services/observatory_services.html">4. Observatory Services</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../frameworks/component_frameworks.html">5. Frameworks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../platform/platform.html">6. Platform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../process/process_introduction.html">7. Process</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">8. Software and Control Risks</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#risk-mitigation-plans">8.1. Risk Mitigation Plans</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#agile-development">8.2. Agile Development</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#prototyping-and-simulation">8.3. Prototyping and Simulation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#continuous-integration-and-delivery">8.4. Continuous Integration and Delivery</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#interfaces">8.5. Interfaces</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#user-involvement">8.6. User Involvement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#development-and-operations-staff">8.7. Development and Operations Staff</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#de-scope-design-or-relax-requirements">8.8. De-scope Design or Relax Requirements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#standard-software-practices">8.9. Standard Software Practices</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#collaboration">8.10. Collaboration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#standards-adoption">8.11. Standards Adoption</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#risk-register">8.12. Risk Register</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tcs/tcs_introduction.html">5. Telescope Control System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services/observatory_services.html">6. Observatory Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frameworks/component_frameworks.html">7. Frameworks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform/platform.html">8. Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../process/process_introduction.html">9. Process</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">10. Software and Control Risks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#risk-mitigation-plans">10.1. Risk Mitigation Plans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#agile-development">10.2. Agile Development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prototyping-and-simulation">10.3. Prototyping and Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#continuous-integration-and-delivery">10.4. Continuous Integration and Delivery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interfaces">10.5. Interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#user-involvement">10.6. User Involvement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#development-and-operations-staff">10.7. Development and Operations Staff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#de-scope-design-or-relax-requirements">10.8. De-scope Design or Relax Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#standard-software-practices">10.9. Standard Software Practices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#collaboration">10.10. Collaboration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#standards-adoption">10.11. Standards Adoption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#risk-register">10.12. Risk Register</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../bibliography/bibliography.html">9. Bibliography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bibliography/bibliography.html">11. Bibliography</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../SWC_standards/index.html">Software and Controls Standards</a></li>
@@ -135,8 +142,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../index.html">GMT Software And Controls</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">GMT Software And Controls</a>
+        
       </nav>
 
 
@@ -145,37 +154,54 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="../index.html">Architecture and Design</a> &raquo;</li>
-      
-    <li>8. Software and Control Risks</li>
+        
+      <li>10. Software and Control Risks</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
   <div class="section" id="software-and-control-risks">
-<span id="risks"></span><h1>8. Software and Control Risks<a class="headerlink" href="#software-and-control-risks" title="Permalink to this headline">¶</a></h1>
+<span id="risks"></span><h1>10. Software and Control Risks<a class="headerlink" href="#software-and-control-risks" title="Permalink to this headline">¶</a></h1>
 <p>The GMTO Risk Management Plan <a class="reference internal" href="../bibliography/bibliography.html#rayb13" id="id1">[Rayb13]</a> identifies how the project identifies,
 evaluates and tracks risks to ensure that the project handles them in an
 appropriate manner. The Risk Management Plan does not include risks associated
 with safety concerning personnel or equipment that is covered by the Design
 Safety Process Plan[Sawy13b]_ being executed by the Systems Engineering Group.</p>
 <div class="section" id="risk-mitigation-plans">
-<h2>8.1. Risk Mitigation Plans<a class="headerlink" href="#risk-mitigation-plans" title="Permalink to this headline">¶</a></h2>
+<h2>10.1. Risk Mitigation Plans<a class="headerlink" href="#risk-mitigation-plans" title="Permalink to this headline">¶</a></h2>
 <p>The risk mitigations identified in the risk register generally fall under
 categories that include: Agile development, prototyping, simulation, continuous
 integration and delivery, scenarios, interfaces, user involvement, development
@@ -184,7 +210,7 @@ collaboration. Examples of how some of the SWC risks will be mitigated are
 listed for these categories in the following sections.</p>
 </div>
 <div class="section" id="agile-development">
-<h2>8.2. Agile Development<a class="headerlink" href="#agile-development" title="Permalink to this headline">¶</a></h2>
+<h2>10.2. Agile Development<a class="headerlink" href="#agile-development" title="Permalink to this headline">¶</a></h2>
 <p>A continuous stream of requirement changes could delay the development of some
 subsystems. Agile techniques provide an efficient way to adapt projects to
 changes in the requirements.</p>
@@ -198,7 +224,7 @@ Therefore user scenarios need to be prioritized according to realistic
 end-values so that critical scenarios are implemented first.</p>
 </div>
 <div class="section" id="prototyping-and-simulation">
-<h2>8.3. Prototyping and Simulation<a class="headerlink" href="#prototyping-and-simulation" title="Permalink to this headline">¶</a></h2>
+<h2>10.3. Prototyping and Simulation<a class="headerlink" href="#prototyping-and-simulation" title="Permalink to this headline">¶</a></h2>
 <p>Sometimes an incorrect requirement can lead to the development of a wrong
 functionality that then wastes observatory resources, or may lead to unforeseen
 risks. Activities like prototyping, early integration and simulations are ways
@@ -212,7 +238,7 @@ essential to prototype the hardware-software combination early on and to conduct
 a thorough analysis on the performance.</p>
 </div>
 <div class="section" id="continuous-integration-and-delivery">
-<h2>8.4. Continuous Integration and Delivery<a class="headerlink" href="#continuous-integration-and-delivery" title="Permalink to this headline">¶</a></h2>
+<h2>10.4. Continuous Integration and Delivery<a class="headerlink" href="#continuous-integration-and-delivery" title="Permalink to this headline">¶</a></h2>
 <p>The M1 Control System is a complex software component that needs to be fully
 tested under realistic conditions. Performing the integration with a dummy
 primary mirror, and implementing a safety system independently and in parallel
@@ -233,19 +259,19 @@ the Semantic Model, so that it may stay current at all times. It is also
 necessary to require external contractors to provide quality documentation.</p>
 </div>
 <div class="section" id="interfaces">
-<h2>8.5. Interfaces<a class="headerlink" href="#interfaces" title="Permalink to this headline">¶</a></h2>
+<h2>10.5. Interfaces<a class="headerlink" href="#interfaces" title="Permalink to this headline">¶</a></h2>
 <p>Large/complex interfaces require significant effort to define and manage. The
 number of interfaces must be optimized to be as few as necessary and be short in
 breadth.</p>
 </div>
 <div class="section" id="user-involvement">
-<h2>8.6. User Involvement<a class="headerlink" href="#user-involvement" title="Permalink to this headline">¶</a></h2>
+<h2>10.6. User Involvement<a class="headerlink" href="#user-involvement" title="Permalink to this headline">¶</a></h2>
 <p>Early integration of stakeholders into the development team reduces the
 likelihood for producing incorrect or unstable requirements, wrong
 functionalities, or delays in the subsystem development.</p>
 </div>
 <div class="section" id="development-and-operations-staff">
-<h2>8.7. Development and Operations Staff<a class="headerlink" href="#development-and-operations-staff" title="Permalink to this headline">¶</a></h2>
+<h2>10.7. Development and Operations Staff<a class="headerlink" href="#development-and-operations-staff" title="Permalink to this headline">¶</a></h2>
 <p>The departure of key staff members affects team productivity, so competitive
 employment conditions need to be provided. For the same reason, some level of
 redundancy between members of the development team must be allowed and to avoid
@@ -258,12 +284,12 @@ operation phases. To counteract those inefficiencies operation staff must be
 involved early on in the project.</p>
 </div>
 <div class="section" id="de-scope-design-or-relax-requirements">
-<h2>8.8. De-scope Design or Relax Requirements<a class="headerlink" href="#de-scope-design-or-relax-requirements" title="Permalink to this headline">¶</a></h2>
+<h2>10.8. De-scope Design or Relax Requirements<a class="headerlink" href="#de-scope-design-or-relax-requirements" title="Permalink to this headline">¶</a></h2>
 <p>Incorrect priorities exhaust resources and deplete the contingency budget. Low
 priority scenarios ought to be de-scoped in those cases.</p>
 </div>
 <div class="section" id="standard-software-practices">
-<h2>8.9. Standard Software Practices<a class="headerlink" href="#standard-software-practices" title="Permalink to this headline">¶</a></h2>
+<h2>10.9. Standard Software Practices<a class="headerlink" href="#standard-software-practices" title="Permalink to this headline">¶</a></h2>
 <p>Peer review of software code is common in software development, especially in
 critical areas. The GMT primary mirror control system is an area that can
 benefit from peer reviews. A project of this scale must have configuration
@@ -274,13 +300,13 @@ throughout to correct poor maintainability, which results in efficiency losses
 during design and operation phases.</p>
 </div>
 <div class="section" id="collaboration">
-<h2>8.10. Collaboration<a class="headerlink" href="#collaboration" title="Permalink to this headline">¶</a></h2>
+<h2>10.10. Collaboration<a class="headerlink" href="#collaboration" title="Permalink to this headline">¶</a></h2>
 <p>Establishing a strong software community for the project plays an important role
 to remedy the lack of support to external groups, which results in poor
 implementation and delays.</p>
 </div>
 <div class="section" id="standards-adoption">
-<h2>8.11. Standards Adoption<a class="headerlink" href="#standards-adoption" title="Permalink to this headline">¶</a></h2>
+<h2>10.11. Standards Adoption<a class="headerlink" href="#standards-adoption" title="Permalink to this headline">¶</a></h2>
 <p>The platform technologies, when acquired from a single vendor, can end up
 placing the project in a lock-in situation, which may result in a lack of
 support and eventually may require the cleanroom implementation of some
@@ -295,14 +321,14 @@ community support. Finally, it is necessary to keep enough backup spares to
 allow the observatory to operate for the duration of its lifecycle.</p>
 </div>
 <div class="section" id="risk-register">
-<h2>8.12. Risk Register<a class="headerlink" href="#risk-register" title="Permalink to this headline">¶</a></h2>
+<h2>10.12. Risk Register<a class="headerlink" href="#risk-register" title="Permalink to this headline">¶</a></h2>
 <p>The Software and Controls risks currently maintained in the risk register are
 summarized in the following tables. The tables below show <a class="reference internal" href="#medium-risks"><span class="std std-ref">medium exposure
 risks</span></a> for the SWC Design and Development Phase, and <a class="reference internal" href="#low-risks"><span class="std std-ref">low
 exposure risks</span></a>.  Note that the SWCS does not have high exposure
 risks.</p>
 <table border="1" class="docutils" id="id2">
-<span id="medium-risks"></span><caption><span class="caption-number">Table 43 </span><span class="caption-text">Medium Exposure SWC Risks</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<span id="medium-risks"></span><caption><span class="caption-number">Table 10.1 </span><span class="caption-text">Medium Exposure SWC Risks</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="10%" />
 <col width="19%" />
@@ -661,7 +687,7 @@ risks.</p>
 </tbody>
 </table>
 <table border="1" class="docutils" id="id3">
-<span id="low-risks"></span><caption><span class="caption-number">Table 44 </span><span class="caption-text">Low Exposure SWC Risks</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<span id="low-risks"></span><caption><span class="caption-number">Table 10.2 </span><span class="caption-text">Low Exposure SWC Risks</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="12%" />
 <col width="20%" />
@@ -1873,15 +1899,18 @@ risks.</p>
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../bibliography/bibliography.html" class="btn btn-neutral float-right" title="9. Bibliography" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../bibliography/bibliography.html" class="btn btn-neutral float-right" title="11. Bibliography" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../process/process_introduction.html" class="btn btn-neutral" title="7. Process" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../process/software_development_process.html" class="btn btn-neutral" title="9.2. Software Development Process" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -1913,9 +1942,11 @@ risks.</p>
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
             VERSION:'1.1-5',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>

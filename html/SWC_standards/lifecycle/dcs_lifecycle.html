@@ -15,6 +15,8 @@
   
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
   
+  
+  
 
   
 
@@ -47,6 +49,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -90,7 +93,10 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../release_notes/index.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../SWC_architecture/index.html">Architecture and Design</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Software and Controls Standards</a><ul class="current">
@@ -128,8 +134,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../index.html">GMT Software And Controls</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">GMT Software And Controls</a>
+        
       </nav>
 
 
@@ -138,23 +146,40 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="../index.html">Software and Controls Standards</a> &raquo;</li>
-      
-    <li>4. DCS Life Cycle</li>
+        
+      <li>4. DCS Life Cycle</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -165,12 +190,13 @@
 <div class="section" id="system-life-cycle-view">
 <h2>4.1. System Life Cycle View<a class="headerlink" href="#system-life-cycle-view" title="Permalink to this headline">¶</a></h2>
 <p>This chapter specifies the DCS life cycle and development process. The DCS
-lifecycle is divided in four main phases as illustrated in <a class="reference internal" href="#lifecycle-phases"><span class="std std-numref">Figure 89</span></a>. Each phase is characterized by the definition of its inputs
+lifecycle is divided in four main phases as illustrated in <a class="reference internal" href="#lifecycle-phases"><span class="std std-numref">Figure 4.19</span></a>. Each phase is characterized by the definition of its inputs
 and outputs. The outputs for one phase are used as inputs to the next phase with
 the addition of other applicable GMTO documents. These phases shall be connected
 with the controlled plant milestones.</p>
-<div class="figure" id="lifecycle-phases">
-<img alt="../../_images/lifecycle_phases.png" src="../../_images/lifecycle_phases.png" />
+<div class="figure" id="id3">
+<span id="lifecycle-phases"></span><img alt="../../_images/lifecycle_phases.png" src="../../_images/lifecycle_phases.png" />
+<p class="caption"><span class="caption-number">Fig. 4.19 </span><span class="caption-text">Lifecycle Phases</span></p>
 </div>
 <p>The life cycle phases are:</p>
 <blockquote>
@@ -208,20 +234,22 @@ and integrated commissioning.</li>
 <h2>4.2. Phasing of Systems and Software Reviews (draft)<a class="headerlink" href="#phasing-of-systems-and-software-reviews-draft" title="Permalink to this headline">¶</a></h2>
 <p>The  ESA Software Engineering Handbook ECSS-E-HB-40A issued in December 2013,
 identifies the relations between system and the software reviews:</p>
-<p>“The SWRR is a non-mandatory review anticipating the Software PDR addressing the
+<p>&#8220;The SWRR is a non-mandatory review anticipating the Software PDR addressing the
 software technical specification. It takes place between the Software SRR and
-the Software PDR. If possible, it should take place before the System PDR…”</p>
-<p>“The subs system design can only start after the complete system design has
+the Software PDR. If possible, it should take place before the System PDR...&#8221;</p>
+<p>&#8220;The subs system design can only start after the complete system design has
 preliminarily baselined at System PDR. For this reason, the Software PDR
-follows the System PDR”.</p>
-<p>“In case the ground segment software development is based on the reuse of an
+follows the System PDR.&#8221;</p>
+<p>&#8220;In case the ground segment software development is based on the reuse of an
 infrastructure based on a reference architecture, the SRR and the QR are not
-always conducted”</p>
-<div class="figure">
+always conducted.&#8221;</p>
+<div class="figure" id="id4">
 <img alt="../../_images/reviews_stages1.png" src="../../_images/reviews_stages1.png" />
+<p class="caption"><span class="caption-number">Fig. 4.20 </span><span class="caption-text">Review Stages: Relation between Ground Segment and Ground Software Reviews</span></p>
 </div>
-<div class="figure">
+<div class="figure" id="id5">
 <img alt="../../_images/reviews_stages2.png" src="../../_images/reviews_stages2.png" />
+<p class="caption"><span class="caption-number">Fig. 4.21 </span><span class="caption-text">Review Stages: Relation between System and Flight Software Reviews</span></p>
 </div>
 </div>
 <div class="section" id="life-cycle-activities">
@@ -264,8 +292,8 @@ a set of base classes. A set of tools provides the capability to generate the
 skeleton o a component implementation from the specification of its interface.</p>
 <p>Table 4‑1 describes three common framework use cases and the functionality
 provided by the frameworks involved.</p>
-<table border="1" class="docutils" id="id3">
-<span id="framework-use-cases"></span><caption><span class="caption-number">Table 47 </span><span class="caption-text">Framework Typical Use Cases</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils" id="id6">
+<span id="framework-use-cases"></span><caption><span class="caption-number">Table 4.9 </span><span class="caption-text">Framework Typical Use Cases</span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="20%" />
 <col width="22%" />
@@ -556,31 +584,34 @@ documentation shall be delivered.</div></blockquote>
 </div>
 <div class="section" id="system-definition-files">
 <span id="id2"></span><h2>4.7. System Definition Files<a class="headerlink" href="#system-definition-files" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference internal" href="../../SWC_architecture/process/process_introduction.html#subsystem-specification-and-modeling"><span class="std std-ref">System Definition Files</span></a> (SDF) capture
+<p><a class="reference internal" href="../../SWC_architecture/process/software_development_process.html#subsystem-specification-and-modeling"><span class="std std-ref">System Definition Files</span></a> (SDF) capture
 the formal specification of a DCS. SDF are writen in a Domain Specific Language.
 The GMT Software and Controls documenation contains an <a class="reference internal" href="../../software_development/development/specification/specification.html#dcs-spec-example"><span class="std std-ref">example</span></a>
 of a DCS specification.</p>
 <p><strong>SWC-DCS-0078: SDF lifecycle</strong></p>
 <blockquote>
 <div>The following diagram describes the DCS implementation strategy:</div></blockquote>
-<div class="figure" id="id4">
+<div class="figure" id="id7">
 <img alt="../../_images/dcs_implementation_strategy.png" src="../../_images/dcs_implementation_strategy.png" />
-<p class="caption"><span class="caption-number">Fig. 90 </span><span class="caption-text">DCS Implementation Strategy</span></p>
+<p class="caption"><span class="caption-number">Fig. 4.22 </span><span class="caption-text">DCS Implementation Strategy</span></p>
 </div>
 </div>
 </div>
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../specifications/dcs_specifications.html" class="btn btn-neutral float-right" title="5. DCS Specifications" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../specifications/dcs_specifications.html" class="btn btn-neutral float-right" title="5. DCS Specifications" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../reference_architecture/dcs_reference_architecture.html" class="btn btn-neutral" title="3. DCS Reference Architecture" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../reference_architecture/dcs_reference_architecture.html" class="btn btn-neutral" title="3. DCS Reference Architecture" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -612,9 +643,11 @@ of a DCS specification.</p>
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
             VERSION:'1.1-5',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
