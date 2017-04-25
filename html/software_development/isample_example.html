@@ -107,8 +107,17 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">4. ISample Example</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#model-files">4.1. Model Files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#code-generation">4.2. Code Generation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#configuration">4.3. Configuration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#component-attributes">4.4. Component Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#component-attributes">4.3. Component Attributes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#state-variables">4.3.1. State Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#input-ports">4.3.2. Input Ports</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#output-ports">4.3.3. Output Ports</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration">4.4. Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#c-executables">4.4.1. C++ Executables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#coffee-config-files">4.4.2. Coffee Config Files</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#defining-component-behavior">4.5. Defining component behavior</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#compilation">4.6. Compilation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#running-the-example">4.7. Running the Example</a></li>
@@ -283,86 +292,14 @@ $ ls -la
 </pre></div>
 </div>
 </div>
-<div class="section" id="configuration">
-<h2>4.3. Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
-<p>All component instances require a unique setup port, used to send configuration parameters to the running instance.
-The port on which the component instance listens for configuration parameters is defined in the corresponding <em>*_run.cpp</em> file.
-The port to which configuration parameters will be sent (using gds) for each component is defined in the corresponding <em>*_config.coffee</em> configuration file.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p>The examples use the text editor <em>vim</em>, which is included in almost all Linux distributions,
-but any other text editor can be used.</p>
-<p class="last">To edit a file while viewing it in vim, type <code class="docutils literal"><span class="pre">i</span></code>. To save and exit, hit <code class="docutils literal"><span class="pre">esc</span></code>, then type <code class="docutils literal"><span class="pre">:wq</span></code>.</p>
-</div>
-<p>For each component, ensure that the setup port specified in the <em>*_config.coffee</em> files for each instance is unique, and matches the setup port specified in the C++ file that instantiates it.</p>
-<p>For example, for the two Filter Wheel Controller instances:</p>
-<blockquote>
-<div><div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> isample_ctrl_pkg/isample_filter_wheel_ctrl/cpp/
-$ vim isample_filter_wheel_ctrl_run.cpp
-</pre></div>
-</div>
-</div></blockquote>
-<p>When executed, this file will create the two Filter Wheel controller instances.
-Ensure that they listen for configuration parameters on the correct setup ports
-by creating <em>isample_fw1_ctrl</em> on port 8000 and <em>isample_fw2_ctrl</em> on port 8001.</p>
-<p>Edit the coffee file containing the configuration for each component instance</p>
-<p>For example, for the two Filter Wheel Controller instances:</p>
-<blockquote>
-<div><div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ../coffee/
-$ vim isample_fw1_ctrl_config.coffee
-$ vim isample_fw2_ctrl_config.coffee
-</pre></div>
-</div>
-</div></blockquote>
-<ul class="simple">
-<li>Remove the duplicate instance configuration from each file. Both files contain configuration information for both instances. This is a known issue caused by the code generator. To clean up the files, the configuration for the <em>isample_fw2_ctrl</em> component should be removed from <em>isample_fw1_ctrl_config.config</em> and the configuration for the <em>isample_fw1_ctrl</em> component should be removed from <em>isample_fw2_ctrl_config.config</em>.</li>
-<li>Under the <strong>Properties</strong> sections, set <strong>Port</strong> to 8000 for <em>isample_fw1_ctrl</em> and 8001 for <em>isample_fw2_ctrl</em>. This will ensure that when the component is configured during runtime, the parameters will be sent to the correct ports, as configured above.</li>
-<li>Ensure that all input and output ports have their <strong>max_rate</strong> value set to 1. In some cases the max_rate value is set to <em>undefined</em>, which will cause an error when running and using the component. This is a known issue caused by the code generator and will be fixed in subsequent versions.</li>
-<li>Assign a unique port number for all input and output ports, with the exception of connections where the port number for an output port on one component needs to correspond to the port number for the corresponding input port on another component. For example, the <em>motor_control</em> output port on <em>isample_fw1_ctrl</em> should have the same port number as the <em>fw1_motor_ctrl</em> input port on <em>isample_hw_adapter</em>.</li>
-<li>Change port configuration to reference &#8220;127.0.0.1&#8221; instead of &#8220;localhost&#8221;. This is a known issue caused by a limitation in a low-level library and will be fixed in subsequent versions.</li>
-</ul>
-<p>Here is an example of the port assignments for the filter wheel components (not all ports are listed):</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>               Filter Wheel                              Hardware
-             Control <span class="m">1</span> <span class="o">(</span><span class="m">8000</span><span class="o">)</span>                           Adapter <span class="o">(</span><span class="m">8002</span><span class="o">)</span>
-         +---------------------+                   +---------------------+
-    <span class="m">9011</span> <span class="p">|</span>                     <span class="p">|</span>                   <span class="p">|</span>                     <span class="p">|</span>
-&lt;--------<span class="p">|</span> heartbeat_out       <span class="p">|</span>                   <span class="p">|</span>                     <span class="p">|</span>
-         <span class="p">|</span>                     <span class="p">|</span>       <span class="m">8007</span>        <span class="p">|</span>                     <span class="p">|</span>
-         <span class="p">|</span>       motor_control <span class="p">|</span>------------------&gt;<span class="p">|</span> fw1_motor_control   <span class="p">|</span>
-         <span class="p">|</span>                     <span class="p">|</span>       <span class="m">8002</span>        <span class="p">|</span>                     <span class="p">|</span>
-         <span class="p">|</span>         motor_state <span class="p">|</span>&lt;------------------<span class="p">|</span> fw1_motor_status    <span class="p">|</span>
-         <span class="p">|</span>                     <span class="p">|</span>                   <span class="p">|</span>                     <span class="p">|</span>
-         <span class="p">|</span>                     <span class="p">|</span> <span class="m">8003</span>              <span class="p">|</span>                     <span class="p">|</span>
-         <span class="p">|</span>       position_goal <span class="p">|</span>&lt;--------          <span class="p">|</span>                     <span class="p">|</span>
-    <span class="m">8009</span> <span class="p">|</span>                     <span class="p">|</span>                   <span class="p">|</span>                     <span class="p">|</span>
-&lt;--------<span class="p">|</span> position_value      <span class="p">|</span>                   <span class="p">|</span>                     <span class="p">|</span>
-         +---------------------+                   <span class="p">|</span>                     <span class="p">|</span>
-                                              <span class="m">9011</span> <span class="p">|</span>                     <span class="p">|</span>
-                                          &lt;--------<span class="p">|</span> heartbeat_out       <span class="p">|</span>
-               Filter Wheel                        <span class="p">|</span>                     <span class="p">|</span>
-             Control <span class="m">2</span> <span class="o">(</span><span class="m">8001</span><span class="o">)</span>                      <span class="p">|</span>                     <span class="p">|</span>
-         +---------------------+                   <span class="p">|</span>                     <span class="p">|</span>
-    <span class="m">9011</span> <span class="p">|</span>                     <span class="p">|</span>                   <span class="p">|</span>                     <span class="p">|</span>
-&lt;--------<span class="p">|</span> heartbeat_out       <span class="p">|</span>                   <span class="p">|</span>                     <span class="p">|</span>
-         <span class="p">|</span>                     <span class="p">|</span>       <span class="m">8018</span>        <span class="p">|</span>                     <span class="p">|</span>
-         <span class="p">|</span>       motor_control <span class="p">|</span>------------------&gt;<span class="p">|</span> fw2_motor_control   <span class="p">|</span>
-         <span class="p">|</span>                     <span class="p">|</span>       <span class="m">8013</span>        <span class="p">|</span>                     <span class="p">|</span>
-         <span class="p">|</span>         motor_state <span class="p">|</span>&lt;------------------<span class="p">|</span> fw2_motor_status    <span class="p">|</span>
-         <span class="p">|</span>                     <span class="p">|</span>                   <span class="p">|</span>                     <span class="p">|</span>
-         <span class="p">|</span>                     <span class="p">|</span> <span class="m">8014</span>              <span class="p">|</span>                     <span class="p">|</span>
-         <span class="p">|</span>       position_goal <span class="p">|</span>&lt;--------          <span class="p">|</span>                     <span class="p">|</span>
-    <span class="m">8020</span> <span class="p">|</span>                     <span class="p">|</span>                   <span class="p">|</span>                     <span class="p">|</span>
-&lt;--------<span class="p">|</span> position_value      <span class="p">|</span>                   <span class="p">|</span>                     <span class="p">|</span>
-         +---------------------+                   +---------------------+
-</pre></div>
-</div>
-</div>
 <div class="section" id="component-attributes">
-<h2>4.4. Component Attributes<a class="headerlink" href="#component-attributes" title="Permalink to this headline">¶</a></h2>
+<h2>4.3. Component Attributes<a class="headerlink" href="#component-attributes" title="Permalink to this headline">¶</a></h2>
 <p>Components are defined by their state variables, input ports, output ports and step function.</p>
 <p>The Filter Wheel component has the following attributes:</p>
-<p><strong>State Variables:</strong></p>
-<table border="1" class="docutils">
+<div class="section" id="state-variables">
+<h3>4.3.1. State Variables<a class="headerlink" href="#state-variables" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><table border="1" class="docutils">
 <colgroup>
 <col width="21%" />
 <col width="20%" />
@@ -404,9 +341,13 @@ $ vim isample_fw2_ctrl_config.coffee
 </tr>
 </tbody>
 </table>
+</div></blockquote>
 <p><em>OperationalState, SimulationMode and ControlMode are enums with their respective values shown in the &#8220;Range&#8221; column above.</em></p>
-<p><strong>Input Ports:</strong></p>
-<table border="1" class="docutils">
+</div>
+<div class="section" id="input-ports">
+<h3>4.3.2. Input Ports<a class="headerlink" href="#input-ports" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><table border="1" class="docutils">
 <colgroup>
 <col width="35%" />
 <col width="30%" />
@@ -441,8 +382,10 @@ $ vim isample_fw2_ctrl_config.coffee
 </tr>
 </tbody>
 </table>
+</div></blockquote>
 <p>where the struct <cite>isample_motor_status</cite> is defined as:</p>
-<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">isample_motor_status</span> <span class="p">{</span>
+<blockquote>
+<div><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">isample_motor_status</span> <span class="p">{</span>
     <span class="kt">bool</span>             <span class="n">ready</span><span class="p">;</span>                   <span class="c1">// Axis Ready</span>
     <span class="kt">bool</span>             <span class="n">enabled</span><span class="p">;</span>                 <span class="c1">// Axis Enabled</span>
     <span class="kt">bool</span>             <span class="n">warning</span><span class="p">;</span>                 <span class="c1">// Axis Warning</span>
@@ -453,7 +396,10 @@ $ vim isample_fw2_ctrl_config.coffee
 <span class="p">};</span>
 </pre></div>
 </div>
-<p><strong>Output Ports:</strong></p>
+</div></blockquote>
+</div>
+<div class="section" id="output-ports">
+<h3>4.3.3. Output Ports<a class="headerlink" href="#output-ports" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><table border="1" class="docutils">
 <colgroup>
@@ -516,6 +462,126 @@ $ vim isample_fw2_ctrl_config.coffee
 </div>
 </div></blockquote>
 </div>
+</div>
+<div class="section" id="configuration">
+<h2>4.4. Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>All component instances require a unique setup port, used to send configuration parameters to the running instance.
+The port on which the component instance listens for configuration parameters is defined in the corresponding <em>*_run.cpp</em> file.
+The port to which configuration parameters will be sent (using gds) for each component is defined in the corresponding <em>*_config.coffee</em> configuration file.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The examples use the text editor <em>vim</em>, which is included in almost all Linux distributions,
+but any other text editor can be used.</p>
+<p class="last">To edit a file while viewing it in vim, type <code class="docutils literal"><span class="pre">i</span></code>. To save and exit, hit <code class="docutils literal"><span class="pre">esc</span></code>, then type <code class="docutils literal"><span class="pre">:wq</span></code>.</p>
+</div>
+<div class="section" id="c-executables">
+<h3>4.4.1. C++ Executables<a class="headerlink" href="#c-executables" title="Permalink to this headline">¶</a></h3>
+<p>For each component, ensure that the setup ports specified in the C++ files that instantiates components are unique, and matches the setup port specified in the corresponding <em>*_config.coffee</em> files.</p>
+<p>For example, the file <em>isample_filter_wheel_ctrl_run.cpp</em> instantiates the two filter wheel controllers, each on its own setup port.
+These setup ports need to be unique within the executable and match the setup port numbers defined in the <em>*_config.coffee</em> files, which we&#8217;ll edit next.</p>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> isample_ctrl_pkg/isample_filter_wheel_ctrl/cpp/
+$ vim isample_filter_wheel_ctrl_run.cpp
+</pre></div>
+</div>
+</div></blockquote>
+<p>When executed, this file will create the two Filter Wheel controller instances.
+Ensure that they listen for configuration parameters on the correct setup ports
+by creating <em>isample_fw1_ctrl</em> on port 8000 and <em>isample_fw2_ctrl</em> on port 8001.</p>
+<p>At first, we&#8217;ll use the <em>run_isample_filter_wheel_ctrl</em> executable (created
+using the isample_filter_wheel_ctrl_run.cpp file) to test the Filter Wheel controllers
+in isolation. To run all components at the same time, the same concept applies
+to the <em>run_isample_ctrl_pkg_main</em> executable using <em>isample_ctrl_pkg_main_run.cpp</em>.</p>
+</div>
+<div class="section" id="coffee-config-files">
+<h3>4.4.2. Coffee Config Files<a class="headerlink" href="#coffee-config-files" title="Permalink to this headline">¶</a></h3>
+<p>Edit the coffee file containing the configuration for each component instance</p>
+<p>For example, for the two Filter Wheel Controller instances:</p>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ../coffee/
+$ vim isample_fw1_ctrl_config.coffee
+$ vim isample_fw2_ctrl_config.coffee
+</pre></div>
+</div>
+</div></blockquote>
+<div class="section" id="instance-duplicates">
+<h4>4.4.2.1. Instance duplicates<a class="headerlink" href="#instance-duplicates" title="Permalink to this headline">¶</a></h4>
+<p>For components with multiple instances, such as the filter wheel controller and
+the temperature controller, the <em>*_config.coffee</em> files contain all instances
+in all files. Remove the duplicate instance configurations from each file.</p>
+<p>This is a known issue caused by the code generator.</p>
+<p>To clean up the files, the configuration for the <em>isample_fw2_ctrl</em> component
+should be removed from <em>isample_fw1_ctrl_config.coffee</em> and the configuration
+for the <em>isample_fw1_ctrl</em> component should be removed from
+<em>isample_fw2_ctrl_config.coffee</em>.</p>
+</div>
+<div class="section" id="setup-ports">
+<h4>4.4.2.2. Setup Ports<a class="headerlink" href="#setup-ports" title="Permalink to this headline">¶</a></h4>
+<p>Under the <strong>Properties</strong> sections, set <strong>Port</strong> to 8000 for <em>isample_fw1_ctrl</em>
+and 8001 for <em>isample_fw2_ctrl</em>. This will ensure that when the component is
+configured during runtime, the parameters will be sent to the correct ports,
+as configured above.</p>
+</div>
+<div class="section" id="max-rate-value">
+<h4>4.4.2.3. Max Rate Value<a class="headerlink" href="#max-rate-value" title="Permalink to this headline">¶</a></h4>
+<p>Ensure that all input and output ports have their <strong>max_rate</strong> value set to 1.
+In some cases the max_rate value is set to <em>undefined</em>, which will cause an
+error when running and using the component.</p>
+<p>This is a known issue caused by the code generator and will be fixed in
+subsequent versions.</p>
+</div>
+<div class="section" id="localhost-vs-127-0-0-1">
+<h4>4.4.2.4. Localhost vs 127.0.0.1<a class="headerlink" href="#localhost-vs-127-0-0-1" title="Permalink to this headline">¶</a></h4>
+<p>Change port configuration to reference &#8220;127.0.0.1&#8221; instead of &#8220;localhost&#8221;.</p>
+<p>This is a known issue caused by a limitation in a low-level library and will
+be fixed in subsequent versions.</p>
+</div>
+<div class="section" id="input-and-output-port-assignments">
+<h4>4.4.2.5. Input and Output Port Assignments<a class="headerlink" href="#input-and-output-port-assignments" title="Permalink to this headline">¶</a></h4>
+<p>Assign a unique port number for all input and output ports, with the exception
+of connections where the port number for an output port on one component needs
+to correspond to the port number for the corresponding input port on another
+component.</p>
+<p>For example, the <em>motor_control</em> output port on <em>isample_fw1_ctrl</em> should have
+the same port number as the <em>fw1_motor_control</em> input port on <em>isample_hw_adapter</em>.</p>
+<p>Here is an example of the port assignments for the filter wheel components (not all ports are listed):</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>               Filter Wheel                              Hardware
+             Control <span class="m">1</span> <span class="o">(</span><span class="m">8000</span><span class="o">)</span>                           Adapter <span class="o">(</span><span class="m">8002</span><span class="o">)</span>
+         +---------------------+                   +---------------------+
+    <span class="m">9011</span> <span class="p">|</span>                     <span class="p">|</span>                   <span class="p">|</span>                     <span class="p">|</span>
+&lt;--------<span class="p">|</span> heartbeat_out       <span class="p">|</span>                   <span class="p">|</span>                     <span class="p">|</span>
+         <span class="p">|</span>                     <span class="p">|</span>       <span class="m">8007</span>        <span class="p">|</span>                     <span class="p">|</span>
+         <span class="p">|</span>       motor_control <span class="p">|</span>------------------&gt;<span class="p">|</span> fw1_motor_control   <span class="p">|</span>
+         <span class="p">|</span>                     <span class="p">|</span>       <span class="m">8002</span>        <span class="p">|</span>                     <span class="p">|</span>
+         <span class="p">|</span>         motor_state <span class="p">|</span>&lt;------------------<span class="p">|</span> fw1_motor_status    <span class="p">|</span>
+         <span class="p">|</span>                     <span class="p">|</span>                   <span class="p">|</span>                     <span class="p">|</span>
+         <span class="p">|</span>                     <span class="p">|</span> <span class="m">8003</span>              <span class="p">|</span>                     <span class="p">|</span>
+         <span class="p">|</span>       position_goal <span class="p">|</span>&lt;--------          <span class="p">|</span>                     <span class="p">|</span>
+    <span class="m">8009</span> <span class="p">|</span>                     <span class="p">|</span>                   <span class="p">|</span>                     <span class="p">|</span>
+&lt;--------<span class="p">|</span> position_value      <span class="p">|</span>                   <span class="p">|</span>                     <span class="p">|</span>
+         +---------------------+                   <span class="p">|</span>                     <span class="p">|</span>
+                                              <span class="m">9011</span> <span class="p">|</span>                     <span class="p">|</span>
+                                          &lt;--------<span class="p">|</span> heartbeat_out       <span class="p">|</span>
+               Filter Wheel                        <span class="p">|</span>                     <span class="p">|</span>
+             Control <span class="m">2</span> <span class="o">(</span><span class="m">8001</span><span class="o">)</span>                      <span class="p">|</span>                     <span class="p">|</span>
+         +---------------------+                   <span class="p">|</span>                     <span class="p">|</span>
+    <span class="m">9011</span> <span class="p">|</span>                     <span class="p">|</span>                   <span class="p">|</span>                     <span class="p">|</span>
+&lt;--------<span class="p">|</span> heartbeat_out       <span class="p">|</span>                   <span class="p">|</span>                     <span class="p">|</span>
+         <span class="p">|</span>                     <span class="p">|</span>       <span class="m">8018</span>        <span class="p">|</span>                     <span class="p">|</span>
+         <span class="p">|</span>       motor_control <span class="p">|</span>------------------&gt;<span class="p">|</span> fw2_motor_control   <span class="p">|</span>
+         <span class="p">|</span>                     <span class="p">|</span>       <span class="m">8013</span>        <span class="p">|</span>                     <span class="p">|</span>
+         <span class="p">|</span>         motor_state <span class="p">|</span>&lt;------------------<span class="p">|</span> fw2_motor_status    <span class="p">|</span>
+         <span class="p">|</span>                     <span class="p">|</span>                   <span class="p">|</span>                     <span class="p">|</span>
+         <span class="p">|</span>                     <span class="p">|</span> <span class="m">8014</span>              <span class="p">|</span>                     <span class="p">|</span>
+         <span class="p">|</span>       position_goal <span class="p">|</span>&lt;--------          <span class="p">|</span>                     <span class="p">|</span>
+    <span class="m">8020</span> <span class="p">|</span>                     <span class="p">|</span>                   <span class="p">|</span>                     <span class="p">|</span>
+&lt;--------<span class="p">|</span> position_value      <span class="p">|</span>                   <span class="p">|</span>                     <span class="p">|</span>
+         +---------------------+                   +---------------------+
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="section" id="defining-component-behavior">
 <h2>4.5. Defining component behavior<a class="headerlink" href="#defining-component-behavior" title="Permalink to this headline">¶</a></h2>
 <p>The core component behavior is specified in the *_step.cpp file. The component has a periodic thread that reads input from the input ports, runs the step function and then writes output to the output ports. Initially, the generated step function will check whether the component is correctly configured and if so, will log the current step counter value.</p>
@@ -527,7 +593,7 @@ $ <span class="nb">cd</span> isample_ctrl_pkg/isample_filter_wheel_ctrl/cpp/
 $ vim isample_filter_wheel_ctrl_step.cpp
 </pre></div>
 </div>
-<p>The following example step function for the filter wheel controller validates positional input, sends the command to the Hardware Adapter and monitors the motor status.</p>
+<p>The following example step function for the filter wheel controller validates positional input and increments or decrements the position value.</p>
 <blockquote>
 <div><div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="n">IsampleFilterWheelCtrl</span><span class="o">::</span><span class="n">step</span><span class="p">(</span><span class="kt">bool</span> <span class="n">setup_ok</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span><span class="p">(</span><span class="n">setup_ok</span><span class="p">)</span> <span class="p">{</span>                     <span class="c1">// this will be executed only if port setup has been received</span>
@@ -594,38 +660,6 @@ $ <span class="nb">export</span> <span class="nv">GMT_LOG_URL</span><span class=
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ gds log_service start <span class="p">&amp;</span>
 $ gds telemetry_service start <span class="p">&amp;</span>
 </pre></div>
-</div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p>If there is an issue starting the logging service, check that the mongo DB process is running
-and try to restart the service.</p>
-<blockquote>
-<div><div class="highlight-bash"><div class="highlight"><pre><span></span>$ systemctl status -l mongod
-$ sudo service mongod restart
-</pre></div>
-</div>
-</div></blockquote>
-<p>If the problem persists, check the log file for information on why the service is unable to start</p>
-<blockquote>
-<div><div class="highlight-bash"><div class="highlight"><pre><span></span>$ sudo less /var/log/mongodb/mongod.log
-</pre></div>
-</div>
-</div></blockquote>
-<p>If, for example, the error <em>Insufficient free space for journal files</em> is shown in the log,
-it can be fixed by editing the mongod configuration file to set <em>smallfiles = true</em>.
-This may be the case if a smaller hard drive size was selected for a virtual machine.</p>
-<blockquote>
-<div><div class="highlight-bash"><div class="highlight"><pre><span></span>$ sudo vim /etc/mongod.conf
-</pre></div>
-</div>
-</div></blockquote>
-<p>Restart the service and check the status again.</p>
-<blockquote class="last">
-<div><div class="highlight-bash"><div class="highlight"><pre><span></span>$ sudo service mongod restart
-$ systemctl status -l mongod
-</pre></div>
-</div>
-</div></blockquote>
 </div>
 <p>In a separate terminal (for example <cite>tty2</cite>), start the logging service client from within the isample_dcs folder.</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~/isample_dcs/src/runtime/src/idcs/isample_dcs/isample_ctrl_pkg/coffee

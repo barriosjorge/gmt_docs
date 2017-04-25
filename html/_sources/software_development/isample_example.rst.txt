@@ -113,6 +113,102 @@ To see the generated folders and files, navigate to:
   $ cd src/runtime/src/idcs/isample_dcs/
   $ ls -la
 
+Component Attributes
+--------------------
+
+Components are defined by their state variables, input ports, output ports and step function.
+
+The Filter Wheel component has the following attributes:
+
+State Variables
+~~~~~~~~~~~~~~~
+
+  +------------------+-----------------+--------------------------------------+------------+
+  | Type             | Name            | Range                                | Default    |
+  +==================+=================+======================================+============+
+  | float            | position_sv     | min: 5, max: 40                      | 20         |
+  +------------------+-----------------+--------------------------------------+------------+
+  | OperationalState | ops_state_sv    | | OFF, STARTING, ON, INITIALIZING,   | OFF        |
+  |                  |                 | | RUN, HALTING, SHUTTING_DOWN,       |            |
+  |                  |                 | | FAULT, RESETTING, DISABLED         |            |
+  +------------------+-----------------+--------------------------------------+------------+
+  | SimulationMode   | sim_mode_sv     | SIMULATION, ON_LINE                  | ON_LINE    |
+  +------------------+-----------------+--------------------------------------+------------+
+  | ControlMode      | control_mode_sv | STANDALONE, INTEGRATED               | STANDALONE |
+  +------------------+-----------------+--------------------------------------+------------+
+
+*OperationalState, SimulationMode and ControlMode are enums with their respective values shown in the "Range" column above.*
+
+Input Ports
+~~~~~~~~~~~
+
+  +----------------------+-------------------+----------------------+
+  | Type                 | Name              | Internal variable    |
+  +======================+===================+======================+
+  | isample_motor_status | motor_state       | motor_state          |
+  +----------------------+-------------------+----------------------+
+  | float                | position_goal     | position_sv.goal     |
+  +----------------------+-------------------+----------------------+
+  | OperationalState     | ops_state_goal    | ops_state_sv.goal    |
+  +----------------------+-------------------+----------------------+
+  | SimulationMode       | sim_mode_goal     | sim_mode_sv.goal     |
+  +----------------------+-------------------+----------------------+
+  | ControlMode          | control_mode_goal | control_mode_sv.goal |
+  +----------------------+-------------------+----------------------+
+
+where the struct `isample_motor_status` is defined as:
+
+  .. code-block:: cpp
+
+    struct isample_motor_status {
+        bool             ready;                   // Axis Ready
+        bool             enabled;                 // Axis Enabled
+        bool             warning;                 // Axis Warning
+        bool             error;                   // Axis Error
+        bool             moving_positive;         // Axis Moving +
+        bool             moving_negative;         // Axis Moving -
+        MSGPACK_DEFINE_MAP(ready, enabled, warning, error, moving_positive, moving_negative)
+    };
+
+Output Ports
+~~~~~~~~~~~~
+
+    +-----------------------+--------------------+-----------------------+
+    | Type                  | Name               | Internal Variable     |
+    +=======================+====================+=======================+
+    | isample_motor_control | motor_control      | motor_control         |
+    +-----------------------+--------------------+-----------------------+
+    | HeartBeatEvent        | heartbeat_out      | heartbeat_out         |
+    +-----------------------+--------------------+-----------------------+
+    | float                 | position_value     | position_sv.value     |
+    +-----------------------+--------------------+-----------------------+
+    | OperationalState      | ops_state_value    | ops_state_sv.value    |
+    +-----------------------+--------------------+-----------------------+
+    | SimulationMode        | sim_mode_value     | sim_mode_sv.value     |
+    +-----------------------+--------------------+-----------------------+
+    | ControlMode           | control_mode_value | control_mode_sv.value |
+    +-----------------------+--------------------+-----------------------+
+
+where the struct `isample_motor_control` is defined as:
+
+    .. code-block:: cpp
+
+      struct isample_motor_control {
+          bool             enable;                  // Axis Enable
+          bool             reset;                   // Axis Reset
+          int16_t          velocity;                // Velocity
+          MSGPACK_DEFINE_MAP(enable, reset, velocity)
+      };
+
+and the struct `HeartBeatEvent` is defined as:
+
+    .. code-block:: cpp
+
+      struct HeartBeatEvent {
+          struct timeval   timestamp;               // Time stamp
+          MSGPACK_DEFINE_MAP(timestamp)
+      };
+
 Configuration
 -------------
 All component instances require a unique setup port, used to send configuration parameters to the running instance.
@@ -126,9 +222,13 @@ The port to which configuration parameters will be sent (using gds) for each com
 
   To edit a file while viewing it in vim, type ``i``. To save and exit, hit ``esc``, then type ``:wq``.
 
-For each component, ensure that the setup port specified in the *\*_config.coffee* files for each instance is unique, and matches the setup port specified in the C++ file that instantiates it.
+C++ Executables
+~~~~~~~~~~~~~~~
 
-For example, for the two Filter Wheel Controller instances:
+For each component, ensure that the setup ports specified in the C++ files that instantiates components are unique, and matches the setup port specified in the corresponding *\*_config.coffee* files.
+
+For example, the file *isample_filter_wheel_ctrl_run.cpp* instantiates the two filter wheel controllers, each on its own setup port.
+These setup ports need to be unique within the executable and match the setup port numbers defined in the *\*_config.coffee* files, which we'll edit next.
 
   .. code-block:: bash
 
@@ -138,6 +238,14 @@ For example, for the two Filter Wheel Controller instances:
 When executed, this file will create the two Filter Wheel controller instances.
 Ensure that they listen for configuration parameters on the correct setup ports
 by creating *isample_fw1_ctrl* on port 8000 and *isample_fw2_ctrl* on port 8001.
+
+At first, we'll use the *run_isample_filter_wheel_ctrl* executable (created
+using the isample_filter_wheel_ctrl_run.cpp file) to test the Filter Wheel controllers
+in isolation. To run all components at the same time, the same concept applies
+to the *run_isample_ctrl_pkg_main* executable using *isample_ctrl_pkg_main_run.cpp*.
+
+Coffee Config Files
+~~~~~~~~~~~~~~~~~~~
 
 Edit the coffee file containing the configuration for each component instance
 
@@ -149,15 +257,51 @@ For example, for the two Filter Wheel Controller instances:
     $ vim isample_fw1_ctrl_config.coffee
     $ vim isample_fw2_ctrl_config.coffee
 
-* Remove the duplicate instance configuration from each file. Both files contain configuration information for both instances. This is a known issue caused by the code generator. To clean up the files, the configuration for the *isample_fw2_ctrl* component should be removed from *isample_fw1_ctrl_config.config* and the configuration for the *isample_fw1_ctrl* component should be removed from *isample_fw2_ctrl_config.config*.
+Instance duplicates
+```````````````````
+For components with multiple instances, such as the filter wheel controller and
+the temperature controller, the *\*_config.coffee* files contain all instances
+in all files. Remove the duplicate instance configurations from each file.
 
-* Under the **Properties** sections, set **Port** to 8000 for *isample_fw1_ctrl* and 8001 for *isample_fw2_ctrl*. This will ensure that when the component is configured during runtime, the parameters will be sent to the correct ports, as configured above.
+This is a known issue caused by the code generator.
 
-* Ensure that all input and output ports have their **max_rate** value set to 1. In some cases the max_rate value is set to *undefined*, which will cause an error when running and using the component. This is a known issue caused by the code generator and will be fixed in subsequent versions.
+To clean up the files, the configuration for the *isample_fw2_ctrl* component
+should be removed from *isample_fw1_ctrl_config.coffee* and the configuration
+for the *isample_fw1_ctrl* component should be removed from
+*isample_fw2_ctrl_config.coffee*.
 
-* Assign a unique port number for all input and output ports, with the exception of connections where the port number for an output port on one component needs to correspond to the port number for the corresponding input port on another component. For example, the *motor_control* output port on *isample_fw1_ctrl* should have the same port number as the *fw1_motor_ctrl* input port on *isample_hw_adapter*.
+Setup Ports
+```````````
+Under the **Properties** sections, set **Port** to 8000 for *isample_fw1_ctrl*
+and 8001 for *isample_fw2_ctrl*. This will ensure that when the component is
+configured during runtime, the parameters will be sent to the correct ports,
+as configured above.
 
-* Change port configuration to reference "127.0.0.1" instead of "localhost". This is a known issue caused by a limitation in a low-level library and will be fixed in subsequent versions.
+Max Rate Value
+``````````````
+Ensure that all input and output ports have their **max_rate** value set to 1.
+In some cases the max_rate value is set to *undefined*, which will cause an
+error when running and using the component.
+
+This is a known issue caused by the code generator and will be fixed in
+subsequent versions.
+
+Localhost vs 127.0.0.1
+``````````````````````
+Change port configuration to reference "127.0.0.1" instead of "localhost".
+
+This is a known issue caused by a limitation in a low-level library and will
+be fixed in subsequent versions.
+
+Input and Output Port Assignments
+`````````````````````````````````
+Assign a unique port number for all input and output ports, with the exception
+of connections where the port number for an output port on one component needs
+to correspond to the port number for the corresponding input port on another
+component.
+
+For example, the *motor_control* output port on *isample_fw1_ctrl* should have
+the same port number as the *fw1_motor_control* input port on *isample_hw_adapter*.
 
 Here is an example of the port assignments for the filter wheel components (not all ports are listed):
 
@@ -196,98 +340,6 @@ Here is an example of the port assignments for the filter wheel components (not 
   <--------| position_value      |                   |                     |
            +---------------------+                   +---------------------+
 
-Component Attributes
---------------------
-Components are defined by their state variables, input ports, output ports and step function.
-
-The Filter Wheel component has the following attributes:
-
-**State Variables:**
-
-+------------------+-----------------+--------------------------------------+------------+
-| Type             | Name            | Range                                | Default    |
-+==================+=================+======================================+============+
-| float            | position_sv     | min: 5, max: 40                      | 20         |
-+------------------+-----------------+--------------------------------------+------------+
-| OperationalState | ops_state_sv    | | OFF, STARTING, ON, INITIALIZING,   | OFF        |
-|                  |                 | | RUN, HALTING, SHUTTING_DOWN,       |            |
-|                  |                 | | FAULT, RESETTING, DISABLED         |            |
-+------------------+-----------------+--------------------------------------+------------+
-| SimulationMode   | sim_mode_sv     | SIMULATION, ON_LINE                  | ON_LINE    |
-+------------------+-----------------+--------------------------------------+------------+
-| ControlMode      | control_mode_sv | STANDALONE, INTEGRATED               | STANDALONE |
-+------------------+-----------------+--------------------------------------+------------+
-
-*OperationalState, SimulationMode and ControlMode are enums with their respective values shown in the "Range" column above.*
-
-**Input Ports:**
-
-+----------------------+-------------------+----------------------+
-| Type                 | Name              | Internal variable    |
-+======================+===================+======================+
-| isample_motor_status | motor_state       | motor_state          |
-+----------------------+-------------------+----------------------+
-| float                | position_goal     | position_sv.goal     |
-+----------------------+-------------------+----------------------+
-| OperationalState     | ops_state_goal    | ops_state_sv.goal    |
-+----------------------+-------------------+----------------------+
-| SimulationMode       | sim_mode_goal     | sim_mode_sv.goal     |
-+----------------------+-------------------+----------------------+
-| ControlMode          | control_mode_goal | control_mode_sv.goal |
-+----------------------+-------------------+----------------------+
-
-where the struct `isample_motor_status` is defined as:
-
-.. code-block:: cpp
-
-  struct isample_motor_status {
-      bool             ready;                   // Axis Ready
-      bool             enabled;                 // Axis Enabled
-      bool             warning;                 // Axis Warning
-      bool             error;                   // Axis Error
-      bool             moving_positive;         // Axis Moving +
-      bool             moving_negative;         // Axis Moving -
-      MSGPACK_DEFINE_MAP(ready, enabled, warning, error, moving_positive, moving_negative)
-  };
-
-**Output Ports:**
-
-  +-----------------------+--------------------+-----------------------+
-  | Type                  | Name               | Internal Variable     |
-  +=======================+====================+=======================+
-  | isample_motor_control | motor_control      | motor_control         |
-  +-----------------------+--------------------+-----------------------+
-  | HeartBeatEvent        | heartbeat_out      | heartbeat_out         |
-  +-----------------------+--------------------+-----------------------+
-  | float                 | position_value     | position_sv.value     |
-  +-----------------------+--------------------+-----------------------+
-  | OperationalState      | ops_state_value    | ops_state_sv.value    |
-  +-----------------------+--------------------+-----------------------+
-  | SimulationMode        | sim_mode_value     | sim_mode_sv.value     |
-  +-----------------------+--------------------+-----------------------+
-  | ControlMode           | control_mode_value | control_mode_sv.value |
-  +-----------------------+--------------------+-----------------------+
-
-where the struct `isample_motor_control` is defined as:
-
-  .. code-block:: cpp
-
-    struct isample_motor_control {
-        bool             enable;                  // Axis Enable
-        bool             reset;                   // Axis Reset
-        int16_t          velocity;                // Velocity
-        MSGPACK_DEFINE_MAP(enable, reset, velocity)
-    };
-
-and the struct `HeartBeatEvent` is defined as:
-
-  .. code-block:: cpp
-
-    struct HeartBeatEvent {
-        struct timeval   timestamp;               // Time stamp
-        MSGPACK_DEFINE_MAP(timestamp)
-    };
-
 Defining component behavior
 ----------------------------
 The core component behavior is specified in the \*_step.cpp file. The component has a periodic thread that reads input from the input ports, runs the step function and then writes output to the output ports. Initially, the generated step function will check whether the component is correctly configured and if so, will log the current step counter value.
@@ -304,7 +356,7 @@ To edit the *Filter Wheel Controller* step file:
    $ cd isample_ctrl_pkg/isample_filter_wheel_ctrl/cpp/
    $ vim isample_filter_wheel_ctrl_step.cpp
 
-The following example step function for the filter wheel controller validates positional input, sends the command to the Hardware Adapter and monitors the motor status.
+The following example step function for the filter wheel controller validates positional input and increments or decrements the position value.
 
    .. code-block:: cpp
 
@@ -381,36 +433,6 @@ Start the logging and telemetry services:
 
    $ gds log_service start &
    $ gds telemetry_service start &
-
-.. note::
-  If there is an issue starting the logging service, check that the mongo DB process is running
-  and try to restart the service.
-
-    .. code-block:: bash
-
-      $ systemctl status -l mongod
-      $ sudo service mongod restart
-
-  If the problem persists, check the log file for information on why the service is unable to start
-
-    .. code-block:: bash
-
-      $ sudo less /var/log/mongodb/mongod.log
-
-  If, for example, the error *Insufficient free space for journal files* is shown in the log,
-  it can be fixed by editing the mongod configuration file to set *smallfiles = true*.
-  This may be the case if a smaller hard drive size was selected for a virtual machine.
-
-    .. code-block:: bash
-
-      $ sudo vim /etc/mongod.conf
-
-  Restart the service and check the status again.
-
-    .. code-block:: bash
-
-      $ sudo service mongod restart
-      $ systemctl status -l mongod
 
 In a separate terminal (for example `tty2`), start the logging service client from within the isample_dcs folder.
 
