@@ -119,8 +119,7 @@ depending on how much disk space is available to the host machine and the
 hardware requirements of the Virtual Machine.
 The host machine will only be impacted by the actual size of the virtual
 machine file system because the virtual drive space is allocated dynamically.
-At this stage 20 GB is sufficient, but it can be changed after the
-Virtual Machine has been set up, if necessary.
+At this stage 20 GB is sufficient.
 The minimum capacity for the SWC development machine is 5 GB.
 
 Select *Create* to proceed.
@@ -408,6 +407,41 @@ location of the folder on the virtual machine.
 
 In this case, the gmto user does not need to be added to the vboxsf group to
 allow full access to the folder.
+
+Troubleshooting
+---------------
+
+Logging Service
+~~~~~~~~~~~~~~~
+
+If there is an issue starting the logging service, check that the mongo DB
+process is running and try to restart the service.
+
+    .. code-block:: bash
+
+      $ systemctl status -l mongod
+      $ sudo service mongod restart
+
+If the problem persists, check the log file for information on why the service is unable to start
+
+    .. code-block:: bash
+
+      $ sudo less /var/log/mongodb/mongod.log
+
+If, for example, the error *Insufficient free space for journal files* is shown in the log,
+it can be fixed by editing the mongod configuration file to set *smallfiles = true*.
+This may be the case if a smaller hard drive size was selected for a virtual machine.
+
+    .. code-block:: bash
+
+      $ sudo vim /etc/mongod.conf
+
+Restart the service and check the status again.
+
+    .. code-block:: bash
+
+      $ sudo service mongod restart
+      $ systemctl status -l mongod
 
 
 :ref:`[back to top] <virtual_machine>`

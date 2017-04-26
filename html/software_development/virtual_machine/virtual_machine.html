@@ -113,6 +113,10 @@
 <li class="toctree-l3"><a class="reference internal" href="#upgrade-the-packages">3.7. Upgrade the Packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#helpful-tips-using-virtualbox">3.8. Helpful Tips using VirtualBox</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#virtualbox-guest-additions-optional">3.9. VirtualBox Guest Additions (Optional)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#troubleshooting">3.10. Troubleshooting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#logging-service">3.10.1. Logging Service</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../isample_example.html">4. ISample Example</a></li>
@@ -250,8 +254,7 @@ depending on how much disk space is available to the host machine and the
 hardware requirements of the Virtual Machine.
 The host machine will only be impacted by the actual size of the virtual
 machine file system because the virtual drive space is allocated dynamically.
-At this stage 20 GB is sufficient, but it can be changed after the
-Virtual Machine has been set up, if necessary.
+At this stage 20 GB is sufficient.
 The minimum capacity for the SWC development machine is 5 GB.</p>
 <p>Select <em>Create</em> to proceed.</p>
 <a class="reference internal image-reference" href="../../_images/ss11_virtualbox_main_window.png"><img alt="VirtualBox Main Window" class="align-center" src="../../_images/ss11_virtualbox_main_window.png" style="width: 1234.8px; height: 957.6px;" /></a>
@@ -451,7 +454,42 @@ potentially matching the folder name on the host and &#8220;~/share&#8221; is th
 location of the folder on the virtual machine.</p>
 <p>In this case, the gmto user does not need to be added to the vboxsf group to
 allow full access to the folder.</p>
+</div>
+<div class="section" id="troubleshooting">
+<h2>3.10. Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="logging-service">
+<h3>3.10.1. Logging Service<a class="headerlink" href="#logging-service" title="Permalink to this headline">¶</a></h3>
+<p>If there is an issue starting the logging service, check that the mongo DB
+process is running and try to restart the service.</p>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre><span></span>$ systemctl status -l mongod
+$ sudo service mongod restart
+</pre></div>
+</div>
+</div></blockquote>
+<p>If the problem persists, check the log file for information on why the service is unable to start</p>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre><span></span>$ sudo less /var/log/mongodb/mongod.log
+</pre></div>
+</div>
+</div></blockquote>
+<p>If, for example, the error <em>Insufficient free space for journal files</em> is shown in the log,
+it can be fixed by editing the mongod configuration file to set <em>smallfiles = true</em>.
+This may be the case if a smaller hard drive size was selected for a virtual machine.</p>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre><span></span>$ sudo vim /etc/mongod.conf
+</pre></div>
+</div>
+</div></blockquote>
+<p>Restart the service and check the status again.</p>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre><span></span>$ sudo service mongod restart
+$ systemctl status -l mongod
+</pre></div>
+</div>
+</div></blockquote>
 <p><a class="reference internal" href="#virtual-machine"><span class="std std-ref">[back to top]</span></a></p>
+</div>
 </div>
 </div>
 
