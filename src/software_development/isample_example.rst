@@ -460,6 +460,19 @@ Switch to the session running the logging service client (`tty2`), and confirm t
   incremental release of the GMT software will include examples of user interface
   and data processing packages.
 
+Sending a Value to the Input Port
+--------------------------------
+In order to see the step function in action, we can write a value to an input port and see the component react to it.
+While using the step function defined above, run 'gds send_value' with a port name and new value.
 
+For example:
+
+.. code-block:: bash
+
+   $ gds send_value position_goal 23 -m runtime -e isample_fw1_ctrl
+
+where **position_goal** is the name of the input port, **23** is the new value to send and **isample_fw1_ctrl** is the component instance to send it to.
+
+The log client should show messages indicating that the component is stepping from its current position to the new goal value.
 
 :ref:`[back to top] <isample_example>`

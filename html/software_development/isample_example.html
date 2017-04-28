@@ -121,6 +121,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#defining-component-behavior">4.5. Defining component behavior</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#compilation">4.6. Compilation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#running-the-example">4.7. Running the Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sending-a-value-to-the-input-port">4.8. Sending a Value to the Input Port</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="development.html">5. DCS Development</a></li>
@@ -530,14 +531,8 @@ error when running and using the component.</p>
 <p>This is a known issue caused by the code generator and will be fixed in
 subsequent versions.</p>
 </div>
-<div class="section" id="localhost-vs-127-0-0-1">
-<h4>4.4.2.4. Localhost vs 127.0.0.1<a class="headerlink" href="#localhost-vs-127-0-0-1" title="Permalink to this headline">¶</a></h4>
-<p>Change port configuration to reference &#8220;127.0.0.1&#8221; instead of &#8220;localhost&#8221;.</p>
-<p>This is a known issue caused by a limitation in a low-level library and will
-be fixed in subsequent versions.</p>
-</div>
 <div class="section" id="input-and-output-port-assignments">
-<h4>4.4.2.5. Input and Output Port Assignments<a class="headerlink" href="#input-and-output-port-assignments" title="Permalink to this headline">¶</a></h4>
+<h4>4.4.2.4. Input and Output Port Assignments<a class="headerlink" href="#input-and-output-port-assignments" title="Permalink to this headline">¶</a></h4>
 <p>Assign a unique port number for all input and output ports, with the exception
 of connections where the port number for an output port on one component needs
 to correspond to the port number for the corresponding input port on another
@@ -686,6 +681,17 @@ that the Component base classes add specialized interfaces (e.g. Controller vs P
 incremental release of the GMT software will include examples of user interface
 and data processing packages.</p>
 </div>
+</div>
+<div class="section" id="sending-a-value-to-the-input-port">
+<h2>4.8. Sending a Value to the Input Port<a class="headerlink" href="#sending-a-value-to-the-input-port" title="Permalink to this headline">¶</a></h2>
+<p>In order to see the step function in action, we can write a value to an input port and see the component react to it.
+While using the step function defined above, run &#8216;gds send_value&#8217; with a port name and new value.</p>
+<p>For example:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ gds send_value position_goal <span class="m">23</span> -m runtime -e isample_fw1_ctrl
+</pre></div>
+</div>
+<p>where <strong>position_goal</strong> is the name of the input port, <strong>23</strong> is the new value to send and <strong>isample_fw1_ctrl</strong> is the component instance to send it to.</p>
+<p>The log client should show messages indicating that the component is stepping from its current position to the new goal value.</p>
 <p><a class="reference internal" href="#isample-example"><span class="std std-ref">[back to top]</span></a></p>
 </div>
 </div>
