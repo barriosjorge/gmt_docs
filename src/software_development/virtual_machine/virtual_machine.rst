@@ -415,14 +415,14 @@ Logging Service
 ~~~~~~~~~~~~~~~
 
 If there is an issue starting the logging service, check that the mongo DB
-process is running and try to restart the service.
+process is running and try to restart it.
 
     .. code-block:: bash
 
       $ systemctl status -l mongod
-      $ sudo service mongod restart
+      $ sudo systemctl restart mongod
 
-If the problem persists, check the log file for information on why the service is unable to start
+If the problem persists, check the log file for information on why mongod is unable to start
 
     .. code-block:: bash
 
@@ -436,11 +436,11 @@ This may be the case if a smaller hard drive size was selected for a virtual mac
 
       $ sudo vim /etc/mongod.conf
 
-Restart the service and check the status again.
+Restart the server and check the status again.
 
     .. code-block:: bash
 
-      $ sudo service mongod restart
+      $ sudo systemctl restart mongod
       $ systemctl status -l mongod
 
 

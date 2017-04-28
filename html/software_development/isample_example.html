@@ -72,7 +72,7 @@
             
             
               <div class="version">
-                1.1
+                1.2
               </div>
             
           
@@ -546,7 +546,7 @@ component.</p>
 the same port number as the <em>fw1_motor_control</em> input port on <em>isample_hw_adapter</em>.</p>
 <p>Here is an example of the port assignments for the filter wheel components (not all ports are listed):</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>               Filter Wheel                              Hardware
-             Control <span class="m">1</span> <span class="o">(</span><span class="m">8000</span><span class="o">)</span>                           Adapter <span class="o">(</span><span class="m">8002</span><span class="o">)</span>
+             Control <span class="m">1</span> <span class="o">(</span><span class="m">8000</span><span class="o">)</span>                           Adapter <span class="o">(</span><span class="m">8030</span><span class="o">)</span>
          +---------------------+                   +---------------------+
     <span class="m">9011</span> <span class="p">|</span>                     <span class="p">|</span>                   <span class="p">|</span>                     <span class="p">|</span>
 &lt;--------<span class="p">|</span> heartbeat_out       <span class="p">|</span>                   <span class="p">|</span>                     <span class="p">|</span>
@@ -651,8 +651,8 @@ $ <span class="nb">export</span> <span class="nv">GMT_LOG_URL</span><span class=
 </pre></div>
 </div>
 <p>This may need to be done in all open sessions, if multiple sessions are used, for example to monitor logging.</p>
-<p>To permanently set the environment variables, edit the gmt.sh file with admin privileges:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ sudo vim /etc/profile.d/gmt.sh
+<p>To permanently set the environment variables, edit the ~/.bash_profile file:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ vim ~/.bash_profile
 </pre></div>
 </div>
 <p>Add the two variables at the bottom of the file, save and exit. Log out and back in to load the new environment variables.</p>
@@ -734,7 +734,7 @@ and data processing packages.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'1.1-5',
+            VERSION:'1.2-6',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

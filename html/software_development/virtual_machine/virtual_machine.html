@@ -72,7 +72,7 @@
             
             
               <div class="version">
-                1.1
+                1.2
               </div>
             
           
@@ -460,14 +460,14 @@ allow full access to the folder.</p>
 <div class="section" id="logging-service">
 <h3>3.10.1. Logging Service<a class="headerlink" href="#logging-service" title="Permalink to this headline">¶</a></h3>
 <p>If there is an issue starting the logging service, check that the mongo DB
-process is running and try to restart the service.</p>
+process is running and try to restart it.</p>
 <blockquote>
 <div><div class="highlight-bash"><div class="highlight"><pre><span></span>$ systemctl status -l mongod
-$ sudo service mongod restart
+$ sudo systemctl restart mongod
 </pre></div>
 </div>
 </div></blockquote>
-<p>If the problem persists, check the log file for information on why the service is unable to start</p>
+<p>If the problem persists, check the log file for information on why mongod is unable to start</p>
 <blockquote>
 <div><div class="highlight-bash"><div class="highlight"><pre><span></span>$ sudo less /var/log/mongodb/mongod.log
 </pre></div>
@@ -481,9 +481,9 @@ This may be the case if a smaller hard drive size was selected for a virtual mac
 </pre></div>
 </div>
 </div></blockquote>
-<p>Restart the service and check the status again.</p>
+<p>Restart the server and check the status again.</p>
 <blockquote>
-<div><div class="highlight-bash"><div class="highlight"><pre><span></span>$ sudo service mongod restart
+<div><div class="highlight-bash"><div class="highlight"><pre><span></span>$ sudo systemctl restart mongod
 $ systemctl status -l mongod
 </pre></div>
 </div>
@@ -537,7 +537,7 @@ $ systemctl status -l mongod
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'1.1-5',
+            VERSION:'1.2-6',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

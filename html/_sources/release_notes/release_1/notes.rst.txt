@@ -3,13 +3,23 @@
 Release 1
 =========
 
-Contents of the release 1.1
----------------------------
+Contents of release 1.2
+-----------------------
+
+- Minor bug fixes.
+- The code generation tools now support c++14.
+- Improved :ref:`ISample Example <Isample_example>` documentation.
+- New guide on setting up a :ref:`Virtual Machine <virtual_machine>` development environment.
+
+Follow the :ref:`upgrade procedure <upgrade>`.
+
+Contents of release 1.1
+-----------------------
 
 - Miscellaneous fixes and improvements. Follow the :ref:`upgrade procedure <upgrade>`.
 
-Contents of the release 1.0
----------------------------
+Contents of release 1.0
+-----------------------
 
 - A set of common frameworks that provide software components that address similar
   problems with a :ref:`unified architecture <dcs_reference_architecture>`. The common frameworks encapsulate the implementation

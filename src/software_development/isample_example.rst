@@ -308,7 +308,7 @@ Here is an example of the port assignments for the filter wheel components (not 
 .. code-block:: bash
 
                  Filter Wheel                              Hardware
-               Control 1 (8000)                           Adapter (8002)
+               Control 1 (8000)                           Adapter (8030)
            +---------------------+                   +---------------------+
       9011 |                     |                   |                     |
   <--------| heartbeat_out       |                   |                     |
@@ -419,11 +419,11 @@ First, ensure that the GMT_LOG_POLICY and GMT_LOG_URL environment variables have
 
 This may need to be done in all open sessions, if multiple sessions are used, for example to monitor logging.
 
-To permanently set the environment variables, edit the gmt.sh file with admin privileges:
+To permanently set the environment variables, edit the ~/.bash_profile file:
 
 .. code-block:: bash
 
-   $ sudo vim /etc/profile.d/gmt.sh
+   $ vim ~/.bash_profile
 
 Add the two variables at the bottom of the file, save and exit. Log out and back in to load the new environment variables.
 
