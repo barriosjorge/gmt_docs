@@ -286,13 +286,6 @@ error when running and using the component.
 This is a known issue caused by the code generator and will be fixed in
 subsequent versions.
 
-Localhost vs 127.0.0.1
-``````````````````````
-Change port configuration to reference "127.0.0.1" instead of "localhost".
-
-This is a known issue caused by a limitation in a low-level library and will
-be fixed in subsequent versions.
-
 Input and Output Port Assignments
 `````````````````````````````````
 Assign a unique port number for all input and output ports, with the exception
