@@ -1,5 +1,5 @@
-The `gh-pages` branch contains the project's GitHub Pages located at
-https://gmt-ci.github.io/gmt_model/
+This repository contains the project's GitHub Pages located at
+https://gmto.github.io/gmt_docs/html/
 
 Requires `python3-sphinx` to build.
 
