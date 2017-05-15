@@ -1,6 +1,10 @@
+This repository contains the project's GitHub Pages located at
+https://gmto.github.io/gmt_docs/html/
+
 Software & Controls Documentation
 =================================
 Over the lifetime of the GMT Project, the SWC team will generate various forms of documentation for various different audiences. We follow [Agile principles](https://www.agilealliance.org/agile101/12-principles-behind-the-agile-manifesto/) and therefore value working code over comprehensive documentation, but we also recognize the power of efficient collaboration, knowledge sharing and transparency. 
+
 
 ## Locations
 
