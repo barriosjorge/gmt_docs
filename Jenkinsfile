@@ -7,99 +7,116 @@ properties([[$class: 'BuildDiscarderProperty',
                           daysToKeepStr: '',
                           numToKeepStr: '10']]]);
 
-// Perform build on docker container running fedora25
+// Perform build on special docker container set up for documentation, running fedora25
 node('gmt-jenkins-doc') {
 
-  stage('Build Model') {
-    echo "Checking out gmt_model"
-    dir('gmt_model') {
-      git url: 'https://github.com/GMTO/gmt_model.git'
-    }
-    echo "Building Model..."
-    sh '''
-      sudo dnf builddep --nogpgcheck -y gmt-base.spec
-      NISAMPLE=1 NHDK=1 NHDKTC3OPCUA=1 NPIPELINE=1 make -j`nproc` all
-      NISAMPLE=1 NHDK=1 NHDKTC3OPCUA=1 NPIPELINE=1 make -j`nproc` install
-    '''
+  stage('Checkout') {
+    // This is primarily done to access the version.json file
+    // The source files will be checked out again into a subfolder for
+    // the build process to work.
+    echo "Checking out source code"
+    checkout scm
   }
 
-  // Build parameters from job
-  def module = env.JOB_NAME.split('/')[0]
-  def build = env.JOB_NAME.split('/')[1]
+  // Read build parameters from job
   def buildnr = VersionNumber versionNumberString:'${BUILDS_ALL_TIME}', skipFailedBuilds:true//, overrideBuildsAllTime:'1'
-  def dir = module.substring(4)
-  def rpm = module.replace('_', '-')
 
-  // Build parameters from file
+  // Read build parameters from file
   def props = readJSON file: 'version.json'
   def pkgversion = props["version"]["major"] + '.' + props["version"]["minor"]
   def git_commit = props["git_commit"]
   def yum_release = props["yum_release"]
-  def yum_repo = props["yum_repo"]
 
-  // Define the package release name
-  def pkgrelease
-  // Pull Requests on any branch
-  if (env.BRANCH_NAME.startsWith("PR-")) {
-    def pr = build.replace('-', '')
-    pkgrelease = pr + '.' + buildnr
-  // Official master builds get a clean version number
-  } else if (env.BRANCH_NAME.contains('master')) {
-    pkgrelease = buildnr
-  // Builds from the Release branch are flagged as release candidates
-  } else if (env.BRANCH_NAME.contains('release')) {
-    pkgrelease = 'rc' + buildnr
-  // Builds from the Development branch simply get the current build tag appended
-  } else {
-    pkgrelease = env.BRANCH_NAME + '.' + env.BUILD_NUMBER
+  stage('Prepare') {
+      withEnv(["YUM=$yum_release"]) {
+        sh '''
+            sudo dnf install -y http://${GMTYUMHOST}/${GMTYUMDIR}/gmt-release-${YUM}.noarch.rpm
+            sudo dnf install -y gmt-build-fwk gmt-base
+        '''
+      }
   }
-  echo "Package: $rpm-$pkgversion-$pkgrelease"
 
-  stage('Build') {
-    echo "Checking out gmt_docs:gh-pages for generated content"
-    // dir('gmt_docs_build') {
-    //   checkout([$class: 'GitSCM', branches: [[name: 'refs/remotes/origin/gh-pages']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'html']], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/GMTO/gmt_docs.git']]])
-    //   sh '''
-    //     pwd
-    //     ls html/
-    //     cd html
-    //     git status
-    //   '''
-    // }
-    sh '''
-      mkdir gmt_docs_build
-      cd gmt_docs_build
-      git clone git@github.com:mariannecx/gmt_docs.git html
-      cd html
-      git checkout -b gh-pages remotes/origin/gh-pages
-    '''
-    echo "Checking out gmt_docs for source files"
-    dir('gmt_docs') {
-      checkout scm
-      sh '''
-        make jenkins
-      '''
+  stage('Build Model') {
+    dir('workspace') {
+        dir('gmt_model') {
+          echo "Checking out gmt_model"
+          git credentialsId: 'bc9ee133-98fd-43e3-a094-30ce521a3fca', url: 'https://github.com/GMTO/gmt_model.git'
+
+          echo "Building Model..."
+          sh '''
+            sudo dnf builddep --nogpgcheck -y gmt-base.spec
+            NISAMPLE=1 NHDK=1 NHDKTC3OPCUA=1 NPIPELINE=1 make -j`nproc` all
+            NISAMPLE=1 NHDK=1 NHDKTC3OPCUA=1 NPIPELINE=1 make -j`nproc` install
+          '''
+        }
+      }
+  }
+
+  stage('Build Docs') {
+    dir('workspace') {
+      echo "Checking out gmt_docs:gh-pages for generated content"
+      dir('gmt_docs_build') {
+        checkout([$class: 'GitSCM',
+                   branches: [[name: 'refs/remotes/origin/gh-pages']],
+                   doGenerateSubmoduleConfigurations: false,
+                   extensions: [[$class: 'RelativeTargetDirectory',
+                                  relativeTargetDir: 'html']],
+                   submoduleCfg: [],
+                   userRemoteConfigs: [[credentialsId: 'bc9ee133-98fd-43e3-a094-30ce521a3fca',
+                                        url: 'https://github.com/GMTO/gmt_docs.git']]])
+      }
+      echo "Checking out gmt_docs for source files"
+      dir('gmt_docs') {
+        checkout scm //TODO: checkout specific git_commit specified in version.json file
+        sh 'make jenkins'
+      }
+      echo "Stashing html files for later use"
+      dir('gmt_docs_build/html') {
+        stash includes: "**/*", name: 'html', useDefaultExcludes:true
+      }
     }
-    // withEnv(["DIR=$dir", "RPM=$rpm", "VER=$pkgversion", "REL=$pkgrelease", "GIT=$git_commit"]) {
-    //     sh '''
-    //       sudo dnf builddep --nogpgcheck -y ${RPM}.spec
-    //       sudo npm install -g browserify
-    //       sudo npm install -g uglifyjs
-    //       git archive --format=tgz --prefix=${RPM}/ -o ~/rpmbuild/SOURCES/${RPM}-${VER}.tgz ${GIT}
-    //       rpmbuild --define="pkgversion ${VER}"  --define="pkgrelease ${REL}" -ba ${RPM}.spec
-    //    '''
-    // }
-  }
-
-  stage('Test') {
-    echo "Testing..."
-  }
-
-  stage('Deploy') {
-    echo "Deploying..."
   }
 
   stage('Upload') {
-    echo "Uploading..."
+    if (BRANCH_NAME.contains("master")) {
+        echo "Updating gh-pages branch"
+        dir('workspace/gmt_docs_build/html') {
+          withEnv(["VER=$pkgversion", "BUILD=$buildnr"]) {
+            sh '''
+              CHANGED=$(git status -s)
+              if [ ! -z "${CHANGED:0:40}" ]; then
+              git add . && git commit -m "Jenkins build ${VER} ($BUILD)"
+              fi
+              git push origin gh-pages
+            '''
+          }
+        }
+    }
   }
+}
+
+node {
+    stage('Deploy Test') {
+      def apache_root = ''
+      if (BRANCH_NAME.startsWith("PR-")) {
+        apache_root = env.BRANCH_NAME
+      }
+      dir('temp') {
+        unstash "html"
+        withEnv(["ROOT_DIR=$apache_root"]) {
+          sh '''
+            if [ ! -d "/var/www/html/${ROOT_DIR}" ]; then mkdir /var/www/html/${ROOT_DIR}; fi
+            scp -r ./* /var/www/html/${ROOT_DIR}/
+          '''
+        }
+      }
+      if (BRANCH_NAME.startsWith("PR-")) {
+        def message = "<a href=\"http://172.16.10.22/$BRANCH_NAME\">Preview $BRANCH_NAME Web pages</a>"
+        currentBuild.description = message
+        githubNotify context: 'jenkins/build-pages',
+                     description: 'To preview documentation, click on Details.',
+                     status: 'SUCCESS',
+                     targetUrl: "http://172.16.10.22/$BRANCH_NAME"
+      }
+    }
 }
