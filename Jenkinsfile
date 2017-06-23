@@ -79,18 +79,22 @@ node('gmt-jenkins-doc') {
 
   stage('Upload') {
     if (BRANCH_NAME.contains("master")) {
-        echo "Updating gh-pages branch"
-        dir('workspace/gmt_docs_build/html') {
-          withEnv(["VER=$pkgversion", "BUILD=$buildnr"]) {
+      echo "Updating gh-pages branch"
+      dir('workspace/gmt_docs_build/html') {
+        def commit_msg = "Jenkins build $BUILD_NAME $pkgversion-$buildnr ($BUILD_NUMBER)"
+        withEnv(["MSG=$commit_msg"]) {
+          withCredentials([usernamePassword(credentialsId: 'bc9ee133-98fd-43e3-a094-30ce521a3fca', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
             sh '''
+              git remote set-url origin git@github.com:GMTO/gmt_docs.git
+              git checkout gh-pages
               CHANGED=$(git status -s)
               if [ ! -z "${CHANGED:0:40}" ]; then
-              git add . && git commit -m "Jenkins build ${VER} ($BUILD)"
+              git add . && git commit -m "${MSG}" && git push origin gh-pages
               fi
-              git push origin gh-pages
             '''
           }
         }
+      }
     }
   }
 }
