@@ -24,7 +24,7 @@ generate the source code from the model and compile the code:
   $ cd isample_dcs
   $ gds codegen -e isample_dcs
   $ cd src
-  $ make install
+  $ make -j`nproc` install
 
 Below, each step is explained in more detail.
 
@@ -339,14 +339,14 @@ positional input and immediately sets the position value to the new goal, if pos
 Compilation
 -----------
 
-To compile the code, run gmake:
+To compile the code, run make:
 
 .. code-block:: bash
 
    $ cd $GMT_LOCAL/isample_dcs/src
-   $ gmake -j`nproc` install
+   $ make -j`nproc` install
 
-The executables will be located in `src/build/`.
+The executables will be located in `src/install/bin/`.
 
 Running the Example
 -------------------
@@ -361,7 +361,7 @@ Start the ISample Control Package application in the background
 
 .. code-block:: bash
 
-   $ build/isample_ctrl_pkg/cpp/run_isample_ctrl_pkg_main &
+   $ install/bin/run_isample_ctrl_pkg_main &
 
 The application is running in the background and will not provide any console output.
 All output will be directed to the logging service after the components have been successfully set up.
