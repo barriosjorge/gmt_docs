@@ -18,7 +18,11 @@ Over the lifetime of the GMT Project, the SWC team will generate various forms o
     
     While the website served on GitHub will contain the latest documentation changes, stable documentation related to the current software release can be found on the [AWS Mirror](http://52.52.46.32/).
 
-3. **[Wiki](https://github.com/GMTO/gmt_docs/wiki)**
+3. **[System Administration Documentation](https://gmto.github.io/sys_admin/)**
+
+    Descriptions of the GMT Lab cluster and the services they provide can be found at the link above. The documentation is currently hosted in the gh-pages branch of the [sys_admin](https://www.github.com/GMTO/sys_admin) repository. The repository is only accessible by system administrators, but the documentation is currently open to all.
+
+4. **[Wiki](https://github.com/GMTO/gmt_docs/wiki)**
 
     The Wiki contains quick links to important locations, meeting notes and other useful tips and tricks. Information that is central to the design, development or maintenance of GMT software or project management should NOT be documented in the wiki, but rather in [DocuShare](https://docushare.gmto.org/docushare/dsweb/View/Collection-7787).
 
