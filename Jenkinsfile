@@ -81,7 +81,7 @@ node('gmt-jenkins-doc') {
     if (BRANCH_NAME.contains("master")) {
       echo "Updating gh-pages branch"
       dir('workspace/gmt_docs_build/html') {
-        def commit_msg = "Jenkins build $BUILD_NAME $pkgversion-$buildnr ($BUILD_NUMBER)"
+        def commit_msg = "Jenkins build $JOB_NAME $pkgversion-$buildnr ($BUILD_NUMBER)"
         withEnv(["MSG=$commit_msg"]) {
           withCredentials([usernamePassword(credentialsId: 'bc9ee133-98fd-43e3-a094-30ce521a3fca', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
             sh '''
