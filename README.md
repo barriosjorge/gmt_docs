@@ -181,12 +181,10 @@ The following packages and libraries are required to generate HTML and/or PDF fi
 * Run 
     ```
     sudo dnf install nodejs texlive latexmk
-    sudo -H npm install
-    sudo -H pip install --upgrade pip 
-    sudo -H python -m pip install sphinx
-    sudo -H python -m pip install sphinx-autobuild
-    sudo -H python -m pip install sphinx_rtd_theme
-    sudo -H python -m pip install sphinxcontrib-blockdiag
-    sudo -H python -m pip install sphinxcontrib-websupport
-    sudo -H python -m pip install vulcanize
+    sudo dnf install python3-sphinx
+    sudo dnf install python3-sphinx-autobuild
+    sudo dnf install python3-sphinx_rtd_theme
+    sudo dnf install python3-sphinxcontrib-blockdiag
+    sudo dnf install python3-sphinxcontrib-websupport
+    sudo -H npm install vulcanize
     ```
