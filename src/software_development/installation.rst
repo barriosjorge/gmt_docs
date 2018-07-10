@@ -35,7 +35,7 @@ Operating System
 
 The SDK is currently configured to run on the **Fedora 26 Server** Linux Operating System.
 
-  1. The ISO file can be downloaded from the Fedora website: https://dl.fedoraproject.org/pub/fedora/linux/releases/26/Server/x86_64/iso/. 
+  1. The ISO file can be downloaded from the Fedora website: https://dl.fedoraproject.org/pub/fedora/linux/releases/26/Server/x86_64/iso/.
 
     Alternatively, download the file directly from the terminal:
 
@@ -59,7 +59,7 @@ The SDK is currently configured to run on the **Fedora 26 Server** Linux Operati
 Repository Configuration
 ........................
 
-Some required RPMs are built by GMTO and need to be downloaded from the GMTO Yum Repository, currently hosted on Amazon Web Services. 
+Some required RPMs are built by GMTO and need to be downloaded from the GMTO Yum Repository, currently hosted on Amazon Web Services.
 
 To add the GMT repositories:
 
@@ -91,7 +91,7 @@ In a distributed computing environment, used by multiple developers, it is very 
   .. note::
 
     This configuration is currently optional. The alternative is to add users manually and manage permissions locally on each development machine.
-    
+
   .. toctree::
      :maxdepth: 1
 
@@ -107,16 +107,16 @@ The following RPM packages should be installed by an Administrative user for use
 
   .. code-block:: bash
 
-    $ sudo dnf install -y xorg-x11-xauth urw-fonts wget net-tools pciutils 
-    $ sudo dnf install -y strace rpl bash-completion sed  
+    $ sudo dnf install -y xorg-x11-xauth urw-fonts wget net-tools pciutils
+    $ sudo dnf install -y strace rpl bash-completion sed
 
 2. Install Development Tools
 
   .. code-block:: bash
-  
+
     $ sudo dnf install -y autoconf automake cmake elfutils gcc gdb libtool
-    $ sudo dnf install -y cpp cscope ctags gc gcc-c++ gcc-gdb-plugin glibc-devel 
-    $ sudo dnf install -y glibc-headers kernel-headers libstdc++-devel 
+    $ sudo dnf install -y cpp cscope ctags gc gcc-c++ gcc-gdb-plugin glibc-devel
+    $ sudo dnf install -y glibc-headers kernel-headers libstdc++-devel
     $ sudo dnf install -y flex git libcurl-devel
     $ sudo dnf install -y python3-sphinx python3-sphinx_rtd_theme
 
@@ -174,7 +174,7 @@ MongoDB Configuration
 Infiniband Configuration (optional)
 ...................................
 
-Infiniband is a low-latency networking communications protocol that requires specialized hardware. The following configuration steps should be used as a guide when configuring Infiniband communications. 
+Infiniband is a low-latency networking communications protocol that requires specialized hardware. The following configuration steps should be used as a guide when configuring Infiniband communications.
 
 1. Install the neccessary packages
 
@@ -229,7 +229,7 @@ EtherCAT is a high-speed fieldbus communication system used for real-time contro
 3. Check the Hardware Address of the selected EtherCAT network interface
 
   .. code-block:: bash
-    
+
     $ ifconfig
 
 4. Edit ``/etc/ethercat.conf`` and set the following configuration option:
@@ -297,7 +297,7 @@ For general network timekeeping, use NTP, unless Precision Time Protocol is requ
   .. code-block:: bash
 
     $ systemctl enable chronyd
- 
+
 
 Precision Time Protocol Configuration (optional)
 ................................................
@@ -349,7 +349,7 @@ where ``[enp3s0]`` should be set to the interface to use for PTP.
 Software Development Kit (SDK)
 ------------------------------
 
-The Software Development Kit is distributed as a TAR file and can be downloaded from the GMTO release server. 
+The Software Development Kit is distributed as a TAR file and can be downloaded from the GMTO release server.
 
 The SDK should be installed in a **Global GMT Software Location**, defined by the GMT_GLOBAL environment variable (default value: /opt/gmt). A **Local Working Directory**, unique for each individual developer (GMT_LOCAL). The local working directory typically resides underneath the /home/<username> directory.
 
@@ -357,13 +357,13 @@ The SDK should be installed in a **Global GMT Software Location**, defined by th
 
   .. code-block:: bash
 
-    $ mkdir /opt/gmt
+    $ sudo mkdir /opt/gmt
 
 2. Download the latest SDK distribution and install in the **Global GMT Software Location**:
 
   .. code-block:: bash
 
-    $ wget -P /opt/gmt http://52.52.46.32/srv/gmt/releases/sdk/linux/gmt-sdk-1.4-0.tar.gz
+    $ sudo wget -P /opt/gmt http://52.52.46.32/srv/gmt/releases/sdk/linux/gmt-sdk-1.4.0.tar.gz
     $ cd /opt/gmt
     $ sudo tar -xvzf gmt-sdk-1.4.0.tar.gz
 
@@ -399,5 +399,38 @@ This will ensure that the environment variables are correctly configured when op
     $ gds init
 
 The correct folders will be created in the $GMT_LOCAL directory for use when compiling and running modules.
+
+Ensure that the **bundles.coffee** and **ocs_local_bundle.coffee** files exist, copying them from $GMT_GLOBAL if need be.
+
+.. code-block:: bash
+
+  $ mkdir $GMT_LOCAL/etc/bundles
+  $ cp $GMT_GLOBAL/etc/bundles/bundles.coffee $GMT_LOCAL/etc/bundles/
+  $ cp $GMT_GLOBAL/etc/bundles/ocs_local_bundle.coffee $GMT_LOCAL/etc/bundles/
+
+Edit bundles.coffee to point to the ocs_local_bundle.coffee file
+
+.. code-block:: bash
+
+  module.exports =
+    ocs_local_bundle:   {scope: "local",  desc: "GMT iSample and HDK bundle"}
+
+Edit ocs_local_bundle.coffee to include the isample and HDK modules
+
+.. code-block:: bash
+
+    module.exports =
+    name:      "local"
+    desc:      "List of local development modules"
+    elements:
+        isample_dcs: { active: true, test: false, developer: 'gmto', domain: 'idcs' }
+        hdk_dcs:     { active: true, test: false, developer: 'gmto', domain: 'idcs' }
+
+Finally, create the **modules** directory
+
+.. code-block:: bash
+
+    $ cd $GMT_LOCAL
+    $ mkdir modules
 
 :ref:`[back to top] <installation>`
