@@ -11,38 +11,12 @@ a template that instrument developers can use as a model.
 
 Clone the isample_dcs repository
 --------------------------------
-Ensure that the **bundles.coffee** and **ocs_local_bundle.coffee** files exist, copying them from $GMT_GLOBAL if need be.
-
-.. code-block:: bash
-
-  $ mkdir $GMT_LOCAL/etc/bundles
-  $ cp $GMT_GLOBAL/etc/bundles/bundles.coffee $GMT_LOCAL/etc/bundles/
-  $ cp $GMT_GLOBAL/etc/bundles/ocs_local_bundle.coffee $GMT_LOCAL/etc/bundles/
-
-Edit bundles.coffee to point to the ocs_local_bundle.coffee file
-
-.. code-block:: bash
-
-  module.exports =
-    ocs_local_bundle:   {scope: "local",  desc: "GMT iSample and HDK bundle"}
-
-Edit ocs_local_bundle.coffee to include the isample and HDK modules
-
-.. code-block:: bash
-
-    module.exports =
-    name:      "local"
-    desc:      "List of local development modules"
-    elements:
-        isample_dcs: { active: true, test: false, developer: 'gmto', domain: 'idcs' }
-        hdk_dcs:     { active: true, test: false, developer: 'gmto', domain: 'idcs' }
 
 On the development machine, clone the repository in the development folder:
 
 .. code-block:: bash
 
-  $ cd $GMT_LOCAL
-  $ mkdir modules
+  $ cd $GMT_LOCAL/modules
   $ gds clone isample_dcs -d gmto
 
 where the ``-d option`` defines the git repository owner.
@@ -359,23 +333,22 @@ All output will be directed to the logging service after the components have bee
 Log Service
 ~~~~~~~~~~~
 
-In a separate terminal (for example `tty2`), **start the logging service client**.
+In a separate terminal (for example, `tty2`), **start the logging service client**.
 
 .. code-block:: bash
 
    $ log_client
 
-In the first terminal (`tty1`), **initialize all components** by running ``gds setup``.
+
+Component setup
+~~~~~~~~~~~~~~~
+
+In the first terminal (`tty1`), **initialize all components**
 
 .. code-block:: bash
 
-   $ gds setup -m runtime -e isample_ctrl_super
-   $ gds setup -m runtime -e isample_fw1_ctrl
-   $ gds setup -m runtime -e isample_fw2_ctrl
-   $ gds setup -m runtime -e isample_focus1_ctrl
-   $ gds setup -m runtime -e isample_cryo_external_temp_ctrl
-   $ gds setup -m runtime -e isample_cryo_internal_temp_ctrl
-   $ gds setup -m runtime -e isample_hw1_adapter
+   $ cd $GMT_LOCAL/modules/ocs_isample_dcs/src/etc
+   $ ./send_config.coffee
 
 Switch to the session running the logging service client (`tty2`), and confirm
 that the expected components are logging step info.
@@ -387,28 +360,19 @@ In a separate terminal (for example `tty3`), **start the telemetry service clien
 
 .. code-block:: bash
 
-   $ gds telemetry_service client gmt
+   $ tele_client
 
-In this example, we use the topic ``gmt`` to show data for all monitors.
+In this example, we don't filter, to show data for all monitors.
 The output can be filtered on substrings of the monitor name by specifying the
 topic to be a specific component type (``filter_wheel_ctrl``) or an output port
-name, such as ``position`` or ``heartbeat``.
-
-In the first terminal (`tty1`), **start the monitors** on all components by
-running ``gds telemetry_service monitor``.
+name, such as ``position`` or ``heartbeat``. For example,
 
 .. code-block:: bash
 
-   $ gds telemetry_service monitor -m runtime -e isample_ctrl_super
-   $ gds telemetry_service monitor -m runtime -e isample_fw1_ctrl
-   $ gds telemetry_service monitor -m runtime -e isample_fw2_ctrl
-   $ gds telemetry_service monitor -m runtime -e isample_focus1_ctrl
-   $ gds telemetry_service monitor -m runtime -e isample_cryo_external_temp_ctrl
-   $ gds telemetry_service monitor -m runtime -e isample_cryo_internal_temp_ctrl
-   $ gds telemetry_service monitor -m runtime -e isample_hw1_adapter
+    tele_client --topic=gmt://isample_dcs/isample_focus_ctrl/isample_focus1_ctrl/hmi_outputs
 
-Switch to the session running the logging service client (`tty3`), and confirm
-that the expected telemetry output is shown.
+will show only the values of the ``hmi_outputs`` monitor from ``isample_focus1_ctrl``.
+
 
 A query can also be sent to the telemetry service:
 
