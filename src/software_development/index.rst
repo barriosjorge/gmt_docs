@@ -23,5 +23,5 @@ The Observatory Control System (OCS) includes a Software Development Kit (SDK) t
    model_language_mapping/index
    core_services_user_guide
    io_fwk_guide
- ..  hdk_example
+   hdk_example
    isample_example
