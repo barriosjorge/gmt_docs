@@ -352,8 +352,127 @@ then the generated C++ class would be:
     #endif   // _my_component_h_
 
 As we can see, the contents of the class definition are: the overridden methods from the base class,
-the State Variables definition, the Input Ports definition, the Output Ports
-definition and the Properties definition.
+the *State Variables* definition, the *Input Ports* definition, the *Output Ports*
+definition and the *Properties* definition.
+
+In the class definition there will be only
+the State Variables, Properties and Ports from the model that are owned (first defined by) by
+this class. Please note that there is a set of other class members that will be
+inherited from the base classes. The list of class members inherited from the most
+common superclasses are listed in the following table:
+
+    ===============  ============  ==================
+    Class member     Kind          Inherited from
+    ===============  ============  ==================
+    ops_state        state_vars    Component
+    heartbeat_out    output_ports  Component
+    uri              properties    Component
+    name             properties    Component
+    host             properties    Component
+    port             properties    Component
+    acl              properties    Component
+    scan_rate        properties    Component
+    ecat_bus         input_ports   EthercatAdapter
+    sim_mode         state_vars    BaseController
+    control_mode     state_vars    BaseController
+    ===============  ============  ==================
+
+**Includes**
+
+The first section of the component header file is  a set of
+*#include* directives. This list is composed by:
+* The include to the DCS types header, ```../../include/my_subsystem_port_types.h```
+* The includes to the header of each of the frameworks listed in the ```uses```
+element of the model
+
+**Typedefs**
+
+The class definition always contains a *typedef* directive for the
+component setup class. Therefore, one can always refer to the component
+configuration class as ```MyComponent::Setup```.
+
+**Methods**
+
+The  class definition contains the declarations of the constructor and
+the overridden methods from the base class.
+
+**State Variables**
+
+The start of the State Variables section is marked by
+the comment ``// Create state variables``. For each component State Variable
+:code:`my_statevar` of :code:`my_type`, a class member variable will be created, with
+the form :code:`StateVar<my_type> my_statevar_sv;` (note that  the
+suffix ```_sv``` has been added to the variable name). The type of the State
+Variable is mapped to the C++ equivalent one, if needed.
+
+The
+```StateVar<my_type>``` template is a struct that contains the fields
+
+.. code-block:: cpp
+
+        std::string  name;
+        bool         is_controlable;
+        my_type      value;
+        my_type      goal;
+        my_type      max;
+        my_type      min;
+
+
+Therefore, the goal and the current value of the :code:`my_statevar_sv`
+State Variable are accessible by means of :code:`my_statevar_sv.goal`
+and :code:`my_statevar_sv.value`.
+
+**Input Ports**
+
+The Input Port definition section is marked with the comment
+``// Input port declaration``. A class member variable will be generated
+for each Input Port defined in the model. For example, if the component
+model file contains
+
+.. code-block:: coffeescript
+
+    input_ports:
+        my_input_port:
+            desc:            'One input port'
+            type:            'my_type'
+            protocol:        'pull'
+            max_rate:        1000
+            blocking_mode:   'async'
+
+then the C++ counterpart will be a member variable defined as:
+
+.. code-block:: cpp
+
+    my_type   my_input_port;
+
+The type of the port declared in the model file is mapped to its C++ equivalent,
+if needed.
+
+**Output Ports**
+
+The Output Port definition section is marked with the comment
+``// Output port declaration``. A class member variable will be generated
+for each Output Port defined in the model. For example, if the component
+model file contains
+
+.. code-block:: coffeescript
+
+    output_ports:
+        my_output_port:
+            desc:            'One output port'
+            type:            'my_type'
+            protocol:        'push'
+            max_rate:        1000
+            blocking_mode:   'async'
+
+then the C++ counterpart will be a member variable defined as:
+
+.. code-block:: cpp
+
+    my_type   my_output_port;  // One output port
+
+The type of the port declared in the model file is mapped to its C++ equivalent,
+if needed.
 
 Supervisor specific mapping
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
