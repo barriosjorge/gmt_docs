@@ -100,7 +100,7 @@ Hardware Requirements
     Each DCS DCCs shall use an Intel compatible processor.
 
     Note: The GMT DCS Product Catalog (GMT-SWC-REF-00000) provides a list of
-    standardized 
+    standardized
 
   **SWC-DCS-0092: DCC physical environment**
 
@@ -221,24 +221,24 @@ Hardware Requirements
   .. table:: Motion Control Deployment Mode
 
      +--------------------------+-----------------------------------------------------------+
-     | | Control Deployment     | | Description                                             |
-     | | Mode                   | |                                                         |
+     |   Control Deployment     |   Description                                             |
+     |   Mode                   |                                                           |
      +==========================+===========================================================+
-     | | PVT                    | | Position, Velocity and Torque control loops are         |
-     | |                        | | implemented on a motion drive. This mode is recommended |
-     | |                        | | for single degree of freedom controllers with single or |
-     | |                        | | dual encoder feedback. In this mode encoder feedback is |
-     | |                        | | connected to the drive.                                 |
+     |   PVT                    |   Position, Velocity and Torque control loops are         |
+     |                          |   implemented on a motion drive. This mode is recommended |
+     |                          |   for single degree of freedom controllers with single or |
+     |                          |   dual encoder feedback. In this mode encoder feedback is |
+     |                          |   connected to the drive.                                 |
      +--------------------------+-----------------------------------------------------------+
-     | | P-VT                   | | The Position control loop is implemented in the DCC,    |
-     | |                        | | while the Velocity and Torque loops are implemented in  |
-     | |                        | | the drive. This mode is recommended when the position   |
-     | |                        | | feedback cannot be connected directly to the drive.     |
+     |   P-VT                   |   The Position control loop is implemented in the DCC,    |
+     |                          |   while the Velocity and Torque loops are implemented in  |
+     |                          |   the drive. This mode is recommended when the position   |
+     |                          |   feedback cannot be connected directly to the drive.     |
      +--------------------------+-----------------------------------------------------------+
-     | | PV-T                   | | The Position and Velocity control loops are implemented |
-     | |                        | | in the DCC, while the Torque control loops is           |
-     | |                        | | implemented in the drive. This mode is necessary when   |
-     | |                        | | several actuators act on the same axis.                 |
+     |   PV-T                   |   The Position and Velocity control loops are implemented |
+     |                          |   in the DCC, while the Torque control loops is           |
+     |                          |   implemented in the drive. This mode is necessary when   |
+     |                          |   several actuators act on the same axis.                 |
      +--------------------------+-----------------------------------------------------------+
 
 Note: Motion drives are assumed to comply the IEC 61800-7-201 and IEC61800-7-301
@@ -358,8 +358,3 @@ mapping to EtherCAT.
 
     Signals ranges and types shall be compliant with the GMT Electronic
     Standards (GMT-SE-REF-00191).
-
-
-
-
-

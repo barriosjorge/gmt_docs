@@ -2,10 +2,10 @@
 #
 
 # You can set these variables from the command line.
-SPHINXOPTS    =
+SPHINXOPTS    = 
 SPHINXBUILD   ?= sphinx-build
 PAPER         =
-SOURCEDIR     = ../docs/source
+SOURCEDIR     = .
 BUILDDIR      = ../docs/build
 HTMLSOURCEDIR = .
 HTMLBUILDDIR  = ../html
