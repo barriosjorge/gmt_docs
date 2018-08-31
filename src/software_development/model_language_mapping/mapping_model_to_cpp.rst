@@ -292,7 +292,10 @@ As an example, if we have the following component in the model definition:
                 blocking_mode:   'async'
 
         properties:
-            my_prop1:  {type: 'float32',  default: 30.0, desc: 'One property'}
+            my_prop1:
+                desc:     'One property
+                type:     'float32'
+                default:  30.0
 
 then the generated C++ class would be:
 
@@ -381,6 +384,7 @@ common superclasses are listed in the following table:
 
 The first section of the component header file is  a set of
 *#include* directives. This list is composed by:
+
 * The include to the DCS types header, ```../../include/my_subsystem_port_types.h```
 * The includes to the header of each of the frameworks listed in the ```uses```
 element of the model
@@ -394,7 +398,29 @@ configuration class as ```MyComponent::Setup```.
 **Methods**
 
 The  class definition contains the declarations of the constructor and
-the overridden methods from the base class.
+the overridden methods from the base class:
+
+* Constructor and destructor:
+    Constructor and virtual destructor for the class. The definition
+    is in the ```my_component.cpp``` source file.
+
+* step() method:
+    The :code:`step()` method is one of the most important methods of any
+    component. This is the place where the developer must insert the code
+    for the component step function, which implements the main functionality
+    of the component. A basic version of this method is generated in the
+    ```my_component_step.cpp``` source file, which must be updated by the
+    module developer to add the component specific code.
+
+* setup() method:
+    Contains the code that handles the component configuration, and that
+    creates the links between class member variables and the corresponding
+    ports, state variables or properties. The definition of the :code:`setup()`
+    method is generated in the ```my_component_setup.cpp``` source file.
+
+* create_config():
+    This is an auxiliary method called by :code:`my_component::setup()` in
+    order to polymorphically create the configuration member variable.
 
 **State Variables**
 
@@ -448,6 +474,27 @@ then the C++ counterpart will be a member variable defined as:
 The type of the port declared in the model file is mapped to its C++ equivalent,
 if needed.
 
+In addition, the ```Commponent``` base class provides an ```inputs``` member variable,
+which has the collection of all the inputs ports. This collection can be
+indexed by the port name, for example :code:`inputs["my_input_port"].
+The object returned contains the actual structure that supports
+the port functionality. In particular, the port parameters (nominal rate, etc)
+are stored in the ```config``` field (e.g.: :code:`inputs["my_input_port"].config`),
+of type :code:`PortConfig`:
+
+ .. code-block:: cpp
+
+    struct Port_config
+    {
+        std::string name;
+        std::string protocol;
+        std::string url;
+        std::string blocking_mode;
+        float max_rate;
+        float nom_rate;
+        Transport_config_ifce& transport_config;
+    };
+
 **Output Ports**
 
 The Output Port definition section is marked with the comment
@@ -473,6 +520,43 @@ then the C++ counterpart will be a member variable defined as:
 
 The type of the port declared in the model file is mapped to its C++ equivalent,
 if needed.
+
+Similarly to the Input Ports case, the Output Ports can be navigated using the
+```outputs``` member variable, which is inherited from the ```Component``` base class.
+
+**Configuration Properties**
+
+The Configuration Properties section is marked with the comment
+``// Configuration properties``. A class member variable will be generated
+for each Property defined in the model. As the previous cases, the type
+of the properties member variables will be the C++ mapping of the Property
+model type.
+
+As an example, if the component model file contains
+
+.. code-block: coffeescript
+
+    properties:
+        my_prop1:
+            desc:     'One property
+            type:     'float32'
+            default:  30.0
+
+then the C++ class will have:
+
+.. code-block:: cpp
+
+    float   my_prop1;  // One property
+
+The type of the port declared in the model file is mapped to its C++ equivalent,
+if needed.
+
+The Properties of a component are also navigable, using the ```properties```
+member variable, which is inherited from the base class.
+
+Component setup header file
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ 
 
 Supervisor specific mapping
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
