@@ -131,6 +131,7 @@ The SWCS requirements on Configuration Services are shown in the following Table
         +---------------------------+-----------------------------------------------------------------------------------+
         |   Analytics Panel         |   Provides access to the runtime statistics of the configuration service.         |
         |                           |   These should include at least.                                                  |
+        |                           |                                                                                   |
         |                           |     * Number and state (running/stopped/fault)                                    |
         |                           |     * Instant throughput of the system                                            |
         |                           |     * Configuration changes/sec                                                   |

@@ -165,17 +165,18 @@ as to be able to recover from faults quickly and efficiently.
         |   Global Panel            |   Provides an overall view of the status of the supervisor system. The following  |
         |                           |   information will be displayed:                                                  |
         |                           |                                                                                   |
-        |                           |     * State of each telemetry server component                                    |
-        |                           |       (e.g., RUNNING, STOPPED, FAULT)                                             |
-        |                           |     * State of each telemetry adapter component                                   |
-        |                           |       (e.g., RUNNING, STOPPED, FAULT)                                             |
-        |                           |     * List of active monitors                                                     |
-        |                           |     * Overall view of the system health, one box per subsystem color coded:       |
+        |                           |   * State of each telemetry server component (e.g., RUNNING, STOPPED, FAULT)      |
+        |                           |   * State of each telemetry adapter component  (e.g., RUNNING, STOPPED, FAULT)    |
+        |                           |   * List of active monitors                                                       |
+        |                           |   * Overall view of the system health, one box per subsystem color coded:         |
+        |                           |                                                                                   |
         |                           |       - green: No active monitors in fault state                                  |
         |                           |       - yellow: No serious active alarms                                          |
         |                           |       - red: The monitor system is not working                                    |
-        |                           |     * Global life-cycle actions (global start and stop of the system, switching   |
-        |                           |       modes)                                                                      |
+        |                           |                                                                                   |
+        |                           |   * Global life-cycle actions (global start and stop of the system, switching     |
+        |                           |     modes)                                                                        |
+        |                           |                                                                                   |
         |                           |   Note: State information shall be color-coded.                                   |
         +---------------------------+-----------------------------------------------------------------------------------+
         |   Navigation Panel        |   Provides a way to navigate all the monitor servers and adapters. From the       |
@@ -188,6 +189,7 @@ as to be able to recover from faults quickly and efficiently.
         +---------------------------+-----------------------------------------------------------------------------------+
         |   Analytics Panel         |   Provides access to the runtime statistics of the supervisor service.            |
         |                           |   These should include at least.                                                  |
+        |                           |                                                                                   |
         |                           |     * Number and state (running/stopped/fault)                                    |
         |                           |     * Instant throughput of the system                                            |
         |                           |     * Total and Subsystem Monitor samples/sec                                     |

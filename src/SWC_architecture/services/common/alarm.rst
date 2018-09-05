@@ -114,11 +114,12 @@ the problem, or else eventually up to the operations staff.
         +---------------------------+-----------------------------------------------------------------------------------+
         |   Analytics Panel         |   Provides access to the runtime statistics of the alarm service.                 |
         |                           |   These should include at least.                                                  |
-        |                           |     * Number and state (running/stopped/fault)                                    |
-        |                           |     * Instant throughput of the system                                            |
-        |                           |     * Alarms/sec                                                                  |
-        |                           |     * Total data bandwidth                                                        |
-        |                           |     * Persistence capacity (used/available)                                       |
+        |                           |                                                                                   |   
+        |                           |    * Number and state (running/stopped/fault)                                     |
+        |                           |    * Instant throughput of the system                                             |
+        |                           |    * Alarms/sec                                                                   |
+        |                           |    * Total data bandwidth                                                         |
+        |                           |    * Persistence capacity (used/available)                                        |
         +---------------------------+-----------------------------------------------------------------------------------+
 
 **Service Deployment**
