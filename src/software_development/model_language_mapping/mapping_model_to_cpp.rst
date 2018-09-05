@@ -70,12 +70,37 @@ The structure inside the package directories is as follows::
 
 <a_i>_app.cpp
     For each application defined in the model for the current package there
-    is a C++ file which contains the source of the application. See :numref:`map-cpp-map-application` for more details.
+    is a C++ file which contains the source of the application.
 
 module.mk
     The ```module.mk``` file contains all the directives that are needed
     to compile and link the current package. See :numref:`map-cpp-map-makefiles` for
     more details.
+
+.. _map-cpp-map-makefiles:
+
+Makefiles
+^^^^^^^^^
+
+As seen above, there is one ```Makefile``` in the ```src/cpp/``` directory
+of each module, which only the system level Makefile
+rules. This Makefile should not be modified by the user, unless necessary.
+
+In each package directory there is a ```module.mk``` file. This file is included
+by *make* when the package is built, and it is the place where the user must
+add the needed compiler and linker directives to build the module.
+
+In general, the set of Makefile rules defined globally in the SDK are sufficient
+to build any package, so the user must not add any rule. However, the libraries
+used by each package are not known by the make system, and therefore the user
+must specify them. In the auto-generated version of the ```module.mk``` files
+there is an example of such directives.
+
+The user must specify the compiler and linker directives in the
+```MOD_BUILD_CFLAGS```, ```MOD_BUILD_CXXFLAGS```, ```MOD_BUILD_LDFLAGS```, ```MOD_SHRLIBS_CFLAGS```,
+```MOD_SHRLIBS_CXXFLAGS``` and ```MOD_SHRLIBS_LDFLAGS``` macros, in the
+```module.mk``` file of each package.
+
 
 Data types mapping
 ..................
@@ -232,6 +257,8 @@ directory will have the following contents::
 The name of the Component directory and the prefix of all the generated
 source files inside it is equal to the Component name.
 
+.. _map-cpp-model-example:
+
 Component header file
 ^^^^^^^^^^^^^^^^^^^^^
 
@@ -293,7 +320,7 @@ As an example, if we have the following component in the model definition:
 
         properties:
             my_prop1:
-                desc:     'One property
+                desc:     'One property'
                 type:     'float32'
                 default:  30.0
 
@@ -342,17 +369,16 @@ then the generated C++ class would be:
             int   my_input_port1;     // One input port
 
             // Output port declaration
-            float my_output_port1;  // One output port
+            double my_output_port1;   // One output port
 
             // Configuration properties
-            double my_prop1;  //One property
-
-
+            float  my_prop1;          // One property
     };
 
     } // namespace gmt
 
     #endif   // _my_component_h_
+
 
 As we can see, the contents of the class definition are: the overridden methods from the base class,
 the *State Variables* definition, the *Input Ports* definition, the *Output Ports*
@@ -386,8 +412,7 @@ The first section of the component header file is  a set of
 *#include* directives. This list is composed by:
 
 * The include to the DCS types header, ```../../include/my_subsystem_port_types.h```
-* The includes to the header of each of the frameworks listed in the ```uses```
-element of the model
+* The includes to the header of each of the frameworks listed in the ```uses``` element of the model
 
 **Typedefs**
 
@@ -476,7 +501,7 @@ if needed.
 
 In addition, the ```Commponent``` base class provides an ```inputs``` member variable,
 which has the collection of all the inputs ports. This collection can be
-indexed by the port name, for example :code:`inputs["my_input_port"].
+indexed by the port name, for example :code:`inputs["my_input_port"]`.
 The object returned contains the actual structure that supports
 the port functionality. In particular, the port parameters (nominal rate, etc)
 are stored in the ```config``` field (e.g.: :code:`inputs["my_input_port"].config`),
@@ -554,25 +579,147 @@ if needed.
 The Properties of a component are also navigable, using the ```properties```
 member variable, which is inherited from the base class.
 
-Component setup header file
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
- 
-
-Supervisor specific mapping
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Hardware Adapter specific mapping
+Component setup class header file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Controller specific mapping
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The configuration of any component (values of the properties and setup
+information for the state variables and ports) is stored in a class
+named ```<ComponentName>Setup```, and as stated above, the component
+class has an alias for this setup class which always has the name
+:code:`<ComponentName>::Setup`.
 
-.. _map-cpp-map-application:
+The ```<ComponentName>Setup``` inherits from the base class Setup class.
+The root of the setup classes hierarchy is the :code:`BaseComponent::Setup`
+class.
 
-Applications mapping
-....................
+The Setup class definition is generated in the file ```<component_name>_msgpack.h```.
+The generated code for the example component of :numref:`map-cpp-model-example`
+would be in the file ```my_component_msgpack.h```, with the following content:
 
-.. _map-cpp-map-makefiles:
+.. code-block:: cpp
 
-Makefiles
-.........
+    #ifndef _my_component_msgpack_h_
+    #define _my_component_msgpack_h_
+
+    #include <msgpack.hpp>
+    #include "ocs_core_fwk.h"
+    #include "ocs_ctrl_fwk.h"
+    #include "../../include/hdk_dcs_port_types.h"
+
+    struct MyComponentSetup : public  BaseComponentSetup {
+
+        struct PropertyConf : public  BaseComponentSetup::PropertyConf {
+            PropertyDef<float>             my_prop1;
+            MSGPACK_DEFINE_MAP(my_prop1, uri, name, host, port, acl, scan_rate)
+        };
+
+        struct StateVarConf : public  BaseComponentSetup::StateVarConf {
+            StateVarDef<my_custom_type>    my_state1;
+            MSGPACK_DEFINE_MAP(my_state1, ops_state)
+        };
+
+        struct InputPortConf : public BaseComponentSetup::InputPortConf {
+            PortDef<int>                   my_input_port1;
+            PortDef<my_custom_type>        my_state1_goal;
+            MSGPACK_DEFINE_MAP(my_input_port1, my_state1_goal, ops_state_goal)
+        };
+
+        struct OutputPortConf : public BaseComponentSetup::OutputPortConf {
+            PortDef<double>                my_output_port1;
+            PortDef<my_custom_type>        my_state1_value;
+            MSGPACK_DEFINE_MAP(my_output_port1, heartbeat_out, my_state1_value, ops_state_value)
+        };
+
+        PropertyConf     properties;
+        StateVarConf     state_vars;
+        InputPortConf    input_ports;
+        OutputPortConf   output_ports;
+
+        MSGPACK_DEFINE_MAP(properties, state_vars, input_ports, output_ports)
+    };
+
+    #endif // _my_component_msgpack_h_
+
+Here we can see 5 main blocks:
+
+:code:`struct PropertyConf` definition:
+    This is the definition for the inner struct where all the configuration
+    properties will be stored. There is one entry :code:`PropertyDef<type> prop`
+    for each configuration property defined in the component model. In addition,
+    there is the :code:`MSGPACK` clause that allows the struct to be serialized
+    automatically by msgpack. Note that although the properties defined in the
+    base class are inherited from :code:`BaseComponentSetup::PropertyConf` and,
+    therefore, they are not re-defined here, they are explicitly listed in
+    the :code:`MSGPACK` directive.
+
+:code:`struct StateVarConf` definition:
+    This is the definition for the inner struct where all the state variables
+    meta-information will be stored. There is one entry :code:`StateVarDef<type> state_var`
+    for each state variable defined in the component model. In addition,
+    there is the :code:`MSGPACK` clause that allows the struct to be serialized
+    automatically by msgpack. Note that although the state variables defined in the
+    base class are inherited from :code:`BaseComponentSetup::StateVarConf` and,
+    therefore, they are not re-defined here, they are explicitly listed in
+    the :code:`MSGPACK` directive.
+
+:code:`struct InputPortConf` definition:
+    This is the definition for the inner struct where all the input ports
+    meta-information will be stored. There is one entry :code:`PortDef<type> port`
+    for each input port defined in the component model, and also one entry for
+    the goal of each state variable. The suffix ```_goal``` is added automatically
+    to the state variable names. In addition,
+    there is the :code:`MSGPACK` clause that allows the struct to be serialized
+    automatically by msgpack. Note that although the input ports defined in the
+    base class are inherited from :code:`BaseComponentSetup::InputPortConf` and,
+    therefore, they are not re-defined here, they are explicitly listed in
+    the :code:`MSGPACK` directive.
+
+:code:`struct OutputPortConf` definition:
+    This is the definition for the inner struct where all the output ports
+    meta-information will be stored. There is one entry :code:`PortDef<type> port`
+    for each output port defined in the component model, and also one entry for
+    the value of each state variable. The suffix ```_value``` is added automatically
+    to the state variable names. In addition,
+    there is the :code:`MSGPACK` clause that allows the struct to be serialized
+    automatically by msgpack. Note that although the output ports defined in the
+    base class are inherited from :code:`BaseComponentSetup::OutputPortConf` and,
+    therefore, they are not re-defined here, they are explicitly listed in
+    the :code:`MSGPACK` directive.
+
+Setup class fields definition:
+    The previous sections were only type definitions. After these sections,
+    the following setup class member variables are defined:
+
+        * The ```properties``` member variable, of type ```PropertyConf```
+        * The ```state_vars``` member variable, of type ```StateVarConf```
+        * The ```input_ports``` member variable, of type ```InputPortConf```
+        * The ```output_ports``` member variable, of type ```OutputPortConf```
+
+    Analogously to the previous sections, the ```MSGPACK``` directive
+    allows the component Setup class to be serialized automatically.
+
+Component setup method definition file
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The code for the :code:`<component_name>::setup()` and :code:`<component_name>::create_config()`
+methods is automatically generated from the model to the file ```<component_name>_setup.cpp```.
+
+The code generated for the :code:`create_config()` method
+creates polymorphically the ```config``` pointer.
+
+The code generated for the :code:`setup()` method creates the structures for the input ports,
+output ports and properties, initializes them and creates the links between the
+ports and properties to the actual member variables of the component class.
+
+Component step method definition file
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The :code:`<component_name>::step()` method is the one that defines the
+behavior of the component. Hence, it is one of the most important methods
+of any component, and the only one from the auto-generated methods that
+the user should change.
+
+The code of the `step` method is in the  ```<component_name>_step.cpp```
+file. When the component code is auto-generated from the model, the code
+generator places a skeleton of the `step` method in this file. The developer
+must overwrite it with the actual implementation for the current component.
