@@ -253,12 +253,14 @@ latex_elements = {
 # (source start file, target name, title, author, documentclass [howto/manual]).
 
 latex_documents = [
-  ('index',                              'swc_all_doc.tex',      u'GMT Software and Controls Documentation',               u'Software and Controls Group', 'manual'),
+#  ('index',                              'swc_all_doc.tex',      u'GMT Software and Controls Documentation',               u'Software and Controls Group', 'manual'),
   ('software_development/installation',  'swc_installation.tex', u'SDK Installation',                        u'Software and Controls Group', 'manual'),
-  ('software_development/model_language_mapping/mapping_model_to_cpp',  'swc_map_model_cpp.tex', u'Mapping between the Model Definition Files and C++ source code', u'Software and Controls Group', 'manual'),
   ('software_development/core_services_user_guide',  'swc_core_services_user_guide.tex', u'Core Services user guide', u'Software and Controls Group', 'manual'),
   ('software_development/gds_guide',  'swc_gds_documentation.tex', u'gds documentation', u'Software and Controls Group', 'manual'),
   ('software_development/modeling_guidelines',  'swc_modeling_guidelines.tex', u'Model specification guide document', u'Software and Controls Group', 'manual'),
+  ('software_development/model_language_mapping/mapping_model_to_cpp',  'swc_map_model_cpp.tex', u'Mapping between the Model Definition Files and C++ source code', u'Software and Controls Group', 'manual'),
+  ('software_development/isample_example',  'swc_isample_example.tex', u'ISample example', u'Software and Controls Group', 'manual'),
+  ('software_development/hdk_example',  'swc_hdk_example.tex', u'HDK example', u'Software and Controls Group', 'manual'),
 
   #('swc_sys_stds',               'swc_sys_stds.tex',    u'GMT Software and Controls Standards',                   u'Jose M. Filgueira', 'manual'),
   # ('swc_sys_doc',                'swc_sys_doc.tex',      u'GMT Software and Controls Documentation',               u'Jose M. Filgueira', 'manual'),
