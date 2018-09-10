@@ -3,8 +3,38 @@
 Release 1
 =========
 
-Contents of release 1.4
------------------------
+Contents of release 1.4.1
+-------------------------
+
+- Release distribution and installation
+
+  - A new folder ```doc``` has been created in $GMT_GLOBAL with the PDF version of the documentation.
+
+- Development Framework
+
+  - Updated configuration files
+  - Improvements in the C++ code generation:
+
+    - Properties-related code is now generated.
+    - Inherited class member variables are not re-defined in the generated
+      code for derived classes.
+    - Type mapping improvements.
+    - Fixes to handle correctly some rare cases in code generation.
+
+- Core Frameworks
+
+  - Add database support for logging and telemetry.
+  - Changed C++ BaseComponent class member variables according the model.
+  - Component scan_rate is now a frequency (in Hz), not a period.
+  - Port rates are now true frequencies, not cycle counts.
+  - Fixed instabilities in the EtherCAT IO framework.
+
+- Implementation examples
+
+  - Documentation for the HDK example has been added.
+
+Contents of release 1.4.0
+-------------------------
 
 - Release distribution and installation
 
