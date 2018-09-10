@@ -84,7 +84,7 @@ Functional Requirements
 
     Note: Units, name, Quality of Service parameters and description of the
     state variable are not required in the sampled data as they are defined in
-    the DSC SDF. 
+    the DSC SDF.
 
   **SWC-DCS-0020: Raw data conversion**
 
@@ -152,90 +152,90 @@ monitoring functions and their relation with state variables.
   .. table:: Component ops_state Specification
 
      +-------------------+-------------------------------------------------------------------------+
-     | | State           | | State Description                                                     |
+     |   State           |   State Description                                                     |
      +===================+=========================================================================+
-     | | INITIAL         | | Initial pseudo state.  The Controller is not operational because it   |
-     | |                 | | has not been created yet.  The Controller cannot inform this state    |
-     | |                 | | as it is not running.  In this state the software is not running and  |
-     | |                 | | controlled equipment is not available.                                |
+     |   INITIAL         |   Initial pseudo state.  The Controller is not operational because it   |
+     |                   |   has not been created yet.  The Controller cannot inform this state    |
+     |                   |   as it is not running.  In this state the software is not running and  |
+     |                   |   controlled equipment is not available.                                |
      +-------------------+-------------------------------------------------------------------------+
-     | | TERMINAL        | | Final pseudo state of any Controller.  It is equivalent to the        |
-     | |                 | | initial state.  A final state cannot have any outgoing transitions.   |
+     |   TERMINAL        |   Final pseudo state of any Controller.  It is equivalent to the        |
+     |                   |   initial state.  A final state cannot have any outgoing transitions.   |
      +-------------------+-------------------------------------------------------------------------+
-     | | PREVIOUS STATE  | | This pseudo state is a UML formalism that, within a composite         |
-     | |                 | | state, memorizes the previous sub-state that was active prior to      |
-     | |                 | | leaving the composite state.  This is used when a Controller          |
-     | |                 | | enters the FAULT or DISABLED states.                                  |
+     |   PREVIOUS STATE  |   This pseudo state is a UML formalism that, within a composite         |
+     |                   |   state, memorizes the previous sub-state that was active prior to      |
+     |                   |   leaving the composite state.  This is used when a Controller          |
+     |                   |   enters the FAULT or DISABLED states.                                  |
      +-------------------+-------------------------------------------------------------------------+
-     | | OFF             | | The Controller is created, loaded and initialized with the            |
-     | |                 | | default properties, but part of the software and hardware is not      |
-     | |                 | | initialized and configured yet.  All the external Devices             |
-     | |                 | | controlled by the Controller shall be switched-off.  In this          |
-     | |                 | | state the Controller is not ready for operation, but it is            |
-     | |                 | | possible to perform tests and diagnostics activities, specially       |
-     | |                 | | related to the communication capabilities.  The Controller is in      |
-     | |                 | | a static state waiting for events.                                    |
+     |   OFF             |   The Controller is created, loaded and initialized with the            |
+     |                   |   default properties, but part of the software and hardware is not      |
+     |                   |   initialized and configured yet.  All the external Devices             |
+     |                   |   controlled by the Controller shall be switched-off.  In this          |
+     |                   |   state the Controller is not ready for operation, but it is            |
+     |                   |   possible to perform tests and diagnostics activities, specially       |
+     |                   |   related to the communication capabilities.  The Controller is in      |
+     |                   |   a static state waiting for events.                                    |
      +-------------------+-------------------------------------------------------------------------+
-     | | STARTING        | | The Controller is being started.  Any external equipment              |
-     | |                 | | controlled by the Controller is being switched on.  In some           |
-     | |                 | | cases, the power supply is shared with other Controllers.  It         |
-     | |                 | | also performs the starting procedure which can include:               |
-     | |                 | |                                                                       |
-     | |                 | |     • Obtaining configuration properties from the configuration       |
-     | |                 | |       system                                                          |
-     | |                 | |                                                                       |
-     | |                 | |     • Obtaining references to the required device or bus drivers      |
-     | |                 | |                                                                       |
-     | |                 | |     • Starting telemetry samplers, alarm rules, etc.                  |
-     | |                 | |                                                                       |
-     | |                 | |     • Checking communication with the connected Devices (e.g., a      |
-     | |                 | |       motion drive)                                                   |
-     | |                 | |                                                                       |
-     | |                 | | Other activities that depend on the specific Controllers and          |
-     | |                 | | Devices connected to it.                                              |
+     |   STARTING        |   The Controller is being started.  Any external equipment              |
+     |                   |   controlled by the Controller is being switched on.  In some           |
+     |                   |   cases, the power supply is shared with other Controllers.  It         |
+     |                   |   also performs the starting procedure which can include:               |
+     |                   |                                                                         |
+     |                   |       • Obtaining configuration properties from the configuration       |
+     |                   |         system                                                          |
+     |                   |                                                                         |
+     |                   |       • Obtaining references to the required device or bus drivers      |
+     |                   |                                                                         |
+     |                   |       • Starting telemetry samplers, alarm rules, etc.                  |
+     |                   |                                                                         |
+     |                   |       • Checking communication with the connected Devices (e.g., a      |
+     |                   |         motion drive)                                                   |
+     |                   |                                                                         |
+     |                   |   Other activities that depend on the specific Controllers and          |
+     |                   |   Devices connected to it.                                              |
      +-------------------+-------------------------------------------------------------------------+
-     | | ON              | | The Controller and the connected Devices are already properly         |
-     | |                 | | initialized and configured.  When connected, and depending on         |
-     | |                 | | the Controller, external equipment shall be in safe state (e.g.,      |
-     | |                 | | brake engaged, motion drives disabled, locking pins inserted).        |
-     | |                 | | This state can be the final state after a reset or after a power      |
-     | |                 | | failure.                                                              |
+     |   ON              |   The Controller and the connected Devices are already properly         |
+     |                   |   initialized and configured.  When connected, and depending on         |
+     |                   |   the Controller, external equipment shall be in safe state (e.g.,      |
+     |                   |   brake engaged, motion drives disabled, locking pins inserted).        |
+     |                   |   This state can be the final state after a reset or after a power      |
+     |                   |   failure.                                                              |
      +-------------------+-------------------------------------------------------------------------+
-     | | INITIALIZING    | | While the Controller is in this state the necessary procedures        |
-     | |                 | | required to make the controller ready to receive operation            |
-     | |                 | | requests (e.g., find fiducial marks) are executed.                    |
+     |   INITIALIZING    |   While the Controller is in this state the necessary procedures        |
+     |                   |   required to make the controller ready to receive operation            |
+     |                   |   requests (e.g., find fiducial marks) are executed.                    |
      +-------------------+-------------------------------------------------------------------------+
-     | | RUNNING         | | The Controller is running and can be idle or serving an               |
-     | |                 | | operation request.  In this state the Controller can receive new      |
-     | |                 | | commands or is accepting data in its data inputs and sending          |
-     | |                 | | data through its data outputs.                                        |
+     |   RUNNING         |   The Controller is running and can be idle or serving an               |
+     |                   |   operation request.  In this state the Controller can receive new      |
+     |                   |   commands or is accepting data in its data inputs and sending          |
+     |                   |   data through its data outputs.                                        |
      +-------------------+-------------------------------------------------------------------------+
-     | | SHUTTING DOWN   | | Back to OFF state (different for each Controller: power off           |
-     | |                 | | Devices)                                                              |
+     |   SHUTTING DOWN   |   Back to OFF state (different for each Controller: power off           |
+     |                   |   Devices)                                                              |
      +-------------------+-------------------------------------------------------------------------+
-     | | HALTING         | | Back to ON state (different for each Controller: Engage brakes,       |
-     | |                 | | disable drives)                                                       |
+     |   HALTING         |   Back to ON state (different for each Controller: Engage brakes,       |
+     |                   |   disable drives)                                                       |
      +-------------------+-------------------------------------------------------------------------+
-     | | FAULT           | | The Controller has detected a severe failure and is waiting for       |
-     | |                 | | an event to occur  (e.g., operator input) to correct such             |
-     | |                 | | situation.                                                            |
+     |   FAULT           |   The Controller has detected a severe failure and is waiting for       |
+     |                   |   an event to occur  (e.g., operator input) to correct such             |
+     |                   |   situation.                                                            |
      +-------------------+-------------------------------------------------------------------------+
-     | | RESETTING       | | Return to a safe and known state.  For example, when the              |
-     | |                 | | Controller has entered into a FAULT state, due to the ISS             |
-     | |                 | | triggering an interlock condition (which can disable drives,          |
-     | |                 | | remove power, etc.), a reset command must be sent to the              |
-     | |                 | | Controller.                                                           |
+     |   RESETTING       |   Return to a safe and known state.  For example, when the              |
+     |                   |   Controller has entered into a FAULT state, due to the ISS             |
+     |                   |   triggering an interlock condition (which can disable drives,          |
+     |                   |   remove power, etc.), a reset command must be sent to the              |
+     |                   |   Controller.                                                           |
      +-------------------+-------------------------------------------------------------------------+
-     | | DISABLED        | | In this state the Controller rejects attempts to perform any          |
-     | |                 | | control action.  This is especially important with Controllers        |
-     | |                 | | connected to Devices.  In this state the Controller does not          |
-     | |                 | | send demands to the equipment requesting motion or a change (a        |
-     | |                 | | message is sent to the client indicating that the Controller is       |
-     | |                 | | disabled).  Note that the Controller is ready and it will answer      |
-     | |                 | | requests that ask for some status, but it will not execute any        |
-     | |                 | | commands that lead to actions on connected Devices.  This state       |
-     | |                 | | can be reached from any state, and when enabled, will return to       |
-     | |                 | | the previous state.                                                   |
+     |   DISABLED        |   In this state the Controller rejects attempts to perform any          |
+     |                   |   control action.  This is especially important with Controllers        |
+     |                   |   connected to Devices.  In this state the Controller does not          |
+     |                   |   send demands to the equipment requesting motion or a change (a        |
+     |                   |   message is sent to the client indicating that the Controller is       |
+     |                   |   disabled).  Note that the Controller is ready and it will answer      |
+     |                   |   requests that ask for some status, but it will not execute any        |
+     |                   |   commands that lead to actions on connected Devices.  This state       |
+     |                   |   can be reached from any state, and when enabled, will return to       |
+     |                   |   the previous state.                                                   |
      +-------------------+-------------------------------------------------------------------------+
 
   **SWC-DCS-0079: DCS State Machines**
@@ -288,7 +288,7 @@ monitoring functions and their relation with state variables.
     In *standalone mode*, components do not try to connect to the observatory
     services (e.g., log and alarms send their messages to the console or a
     file).  This operation mode is intended to be used during initial component
-    development or when network services are not available. 
+    development or when network services are not available.
 
   **SWC-DCS-0083: Normal operation**
 
@@ -323,7 +323,7 @@ monitoring functions and their relation with state variables.
 
     The DCS shall implement the data processing functions required to operate
     the system under control.
-  
+
 * **High-Level Operations (draft)**
 
   **SWC-DCS-0027: Sequencing**
@@ -406,7 +406,7 @@ monitoring functions and their relation with state variables.
     The DCS shall provide descriptions of the devices under its control. These
     descriptions should capture the information relevant to perform the control
     functions and to operate the Devices. The metamodel specifies the features
-    (e.g. vendor, model, location) necessary to model a Device. 
+    (e.g. vendor, model, location) necessary to model a Device.
 
   **SWC-DCS-0039: Device calibration data provenance**
 
@@ -451,7 +451,7 @@ monitoring functions and their relation with state variables.
 
   The logging function enables to record the history of events, whether normal
   or abnormal, surrounding the GMT operations. Log events are intended for view
-  and access on an operation console, and stored in a persistent database. 
+  and access on an operation console, and stored in a persistent database.
 
   **SWC-DCS-0029: Log event information**
 
@@ -495,7 +495,7 @@ monitoring functions and their relation with state variables.
   SWC-DCS-0032: Configuration parameters
 
     The DCS shall provide the capability to modify any configuration property
-    with minimum disturbance to the correct operation of the CSS 
+    with minimum disturbance to the correct operation of the CSS
 
   **SWC-DCS-0033: Properties Configuration**
 
@@ -508,7 +508,7 @@ monitoring functions and their relation with state variables.
   **SWC-DCS-0034: Remote control functions**
 
     The DCS shall provide remote control functions (e.g. reboot, configure,
-    start, stop, switch to standalone/integrated control mode). 
+    start, stop, switch to standalone/integrated control mode).
 
     Note: Remote control functions shall comply with the safety rules of the GMT
     site.
@@ -542,5 +542,3 @@ monitoring functions and their relation with state variables.
   **SWC-DCS-0039: Monitoring function health**
 
     The monitoring function shall include self-tests and live tests.
-
-

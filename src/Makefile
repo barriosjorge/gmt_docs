@@ -2,13 +2,13 @@
 #
 
 # You can set these variables from the command line.
-SPHINXOPTS    =
+SPHINXOPTS    = 
 SPHINXBUILD   ?= sphinx-build
 PAPER         =
-SOURCEDIR     = ../docs/source
+SOURCEDIR     = .
 BUILDDIR      = ../docs/build
 HTMLSOURCEDIR = .
-HTMLBUILDDIR  = ../html
+HTMLBUILDDIR  = ../../gmt_docs_build/html
 PDFBUILDDIR   = ../pdf
 TOP           = .
 RELEASEDIR    = ../../gmt_docs_build/html
@@ -24,8 +24,8 @@ PAPEROPT_a4     = -D latex_paper_size=a4
 PAPEROPT_letter = -D latex_paper_size=letter
 LATEXSPHINXOPTS	=	-c . -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS)
 ALLSPHINXOPTS   = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS)
-JENKINSLATEXSPHINXOPTS	=	-c . -d $(RELEASEDIR)/../doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS)
-JENKINSSPHINXOPTS   = -d $(RELEASEDIR)/../doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS)
+JENKINSLATEXSPHINXOPTS	=	-a -E -c . -d $(RELEASEDIR)/../doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS)
+JENKINSSPHINXOPTS   = -a -E -d $(RELEASEDIR)/../doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS)
 # the i18n builder cannot share the environment and doctrees with the others
 I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) ${TOP}
 

@@ -154,6 +154,12 @@ html_favicon = '_static/favicon.ico'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
+html_context = {
+    'css_files': [
+        '_static/theme_overrides.css',  # override wide tables in RTD theme
+        ],
+     }
+
 # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied
 # directly to the root of the documentation.
@@ -247,14 +253,23 @@ latex_elements = {
 # (source start file, target name, title, author, documentclass [howto/manual]).
 
 latex_documents = [
+#  ('index',                              'swc_all_doc.tex',      u'GMT Software and Controls Documentation',               u'Software and Controls Group', 'manual'),
+  ('software_development/installation',  'swc_installation.tex', u'SDK Installation',                        u'Software and Controls Group', 'manual'),
+  ('software_development/core_services_user_guide',  'swc_core_services_user_guide.tex', u'Core Services user guide', u'Software and Controls Group', 'manual'),
+  ('software_development/gds_guide',  'swc_gds_documentation.tex', u'gds documentation', u'Software and Controls Group', 'manual'),
+  ('software_development/modeling_guidelines',  'swc_modeling_guidelines.tex', u'Model specification guide document', u'Software and Controls Group', 'manual'),
+  ('software_development/model_language_mapping/mapping_model_to_cpp',  'swc_map_model_cpp.tex', u'Mapping between the Model Definition Files and C++ source code', u'Software and Controls Group', 'manual'),
+  ('software_development/isample_example',  'swc_isample_example.tex', u'ISample example', u'Software and Controls Group', 'manual'),
+  ('software_development/hdk_example',  'swc_hdk_example.tex', u'HDK example', u'Software and Controls Group', 'manual'),
+
   #('swc_sys_stds',               'swc_sys_stds.tex',    u'GMT Software and Controls Standards',                   u'Jose M. Filgueira', 'manual'),
-  ('swc_sys_doc',                'swc_sys_doc.tex',      u'GMT Software and Controls Documentation',               u'Jose M. Filgueira', 'manual'),
-  ('swc_sys_glossary',           'swc_sys_glossary.tex',    u'GMT Software and Controls Acronyms and Definitions',  u'Jose M. Filgueira', 'manual'),
-  ('swc_sys_dp_filedef',         'swc_sys_dp_filedef.tex',  u'GMT Software and Controls Data Product Files',        u'Chien Y. Peng',     'manual'),
-  ('swc_sys_dp_kwd_dict',        'swc_sys_dp_kwd_dict.tex', u'GMT Software and Controls FITS Keyword Dictionary',   u'Chien Y. Peng',     'manual'),
-  ('swc_sys_wbs',                'swc_sys_wbs.tex',      u'GMT Software and Controls Work Breakdown Structure',    u'Jose M. Filgueira', 'manual'),
-  ('swc_sys_pbs',                'swc_sys_pbs.tex',      u'GMT Software and Controls Product Breakdown Structure', u'Jose M. Filgueira', 'manual'),
-  ('swc_workflow_rpt',           'swc_workflow_rpt.tex', u'GMT Software and Controls Workflows',                   u'Jose M. Filgueira', 'manual'),
+  # ('swc_sys_doc',                'swc_sys_doc.tex',      u'GMT Software and Controls Documentation',               u'Jose M. Filgueira', 'manual'),
+  # ('swc_sys_glossary',           'swc_sys_glossary.tex',    u'GMT Software and Controls Acronyms and Definitions',  u'Jose M. Filgueira', 'manual'),
+  # ('swc_sys_dp_filedef',         'swc_sys_dp_filedef.tex',  u'GMT Software and Controls Data Product Files',        u'Chien Y. Peng',     'manual'),
+  # ('swc_sys_dp_kwd_dict',        'swc_sys_dp_kwd_dict.tex', u'GMT Software and Controls FITS Keyword Dictionary',   u'Chien Y. Peng',     'manual'),
+  # ('swc_sys_wbs',                'swc_sys_wbs.tex',      u'GMT Software and Controls Work Breakdown Structure',    u'Jose M. Filgueira', 'manual'),
+  # ('swc_sys_pbs',                'swc_sys_pbs.tex',      u'GMT Software and Controls Product Breakdown Structure', u'Jose M. Filgueira', 'manual'),
+  # ('swc_workflow_rpt',           'swc_workflow_rpt.tex', u'GMT Software and Controls Workflows',                   u'Jose M. Filgueira', 'manual'),
   #('swc_ao_pbs',                 'swc_ao_pbs.tex',      u'GMT Adaptive Optics Software and Controls Packages (DRAFT)',    u'Jose M. Filgueira', 'manual'),
   #('swc_sys_plan',               'swc_sys_plan.tex',    u'GMT Software and Controls Development Plan',            u'Jose M. Filgueira', 'manual'),
   #('swc_sys_process',            'swc_sys_process.tex', u'GMT Software and Controls Development Process',         u'Jose M. Filgueira', 'manual'),
@@ -264,7 +279,7 @@ latex_documents = [
   #('tdcs/m1_cs/m1_cs_plan',      'm1_cs_plan.tex',      u'GMT M1 Control System Development Plan',                u'jmf', 'manual')
   #('tdcs/m1_cs/m1_cs_sdd',       'm1_cs_sdd.tex',       u'GMT M1 Control System Design Report',                   u'jmf', 'manual')
   #('tcs/mount_cs/mount_cs_drd',  'mount_cs_drd.tex',    u'GMT Mount Control System Requirements',                 u'jmf', 'manual'),
-  ('tdcs/agws_cs/agws_cs_drd',     'agws_cs_drd.tex',      u'GMT AGWS Control System Requirements',                  u'jmf', 'manual')
+  # ('tdcs/agws_cs/agws_cs_drd',     'agws_cs_drd.tex',      u'GMT AGWS Control System Requirements',                  u'jmf', 'manual')
   #('tcs/agws_cs/agws_cs_icd',    'agws_cs_icd.tex',     u'GMT AGWS Control System ICD',                           u'jmf', 'manual'),
   #('tcs/agws_cs/agws_cs_plan',   'agws_cs_plan.tex',    u'GMT AGWS Control System Development Plan',              u'jmf', 'manual'),
   #('tcs/agws_cs/agws_cs_sdd,     'agws_cs_sdd.tex',     u'GMT AGWS Control System Design Report',                 u'jmf', 'manual'),
