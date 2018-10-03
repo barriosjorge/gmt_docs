@@ -246,9 +246,9 @@ EtherCAT is a high-speed fieldbus communication system used for real-time contro
 
     Before=network.service
 
-7. Reboot into the RT Kernel, if you're not in it already.
+6. Reboot into the RT Kernel, if you're not in it already.
 
-6. Enable the Ethercat service
+7. Enable the Ethercat service
 
   .. code-block:: bash
 
