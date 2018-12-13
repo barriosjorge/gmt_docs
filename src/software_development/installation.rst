@@ -400,22 +400,16 @@ Node Installation
 
     $ node --version
 
-2. If Node is not installed, install **nvm** and use it to install **Node 8**
+2. If Node is not installed or you are using a different version of Node, install **nvm** and use it to install **Node 8**
 
   .. code-block:: bash
 
     $ touch ~/.bash_profile
     $ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
-    $ nvm --version
     $ nvm use 8.12.0
 
   More information can be found on the nvm GitHub site: <https://github.com/creationix/nvm>
 
-2. If Node is installed already, but using a different version, configure the system to use version 8:
-
-  .. code-block:: bash
-
-    $ nvm use 8.12.0
 
 
 Software Development Kit (SDK)
