@@ -496,15 +496,17 @@ The SDK should be installed in a **Global GMT Software Location**, defined by th
     $ cd $GMT_LOCAL
     $ mkdir modules
 
-10. Download or clone the HDK and isample modules
+10. Clone the HDK and isample modules
 
-  This step is relevant for any module that the developer will be working on. Existing modules can be cloned from the GitHub repositories with the command ``gds clone`` and new modules can be created with the command ``gds new``.
+  This step is relevant for any module that the developer will be working on. It is recommended to fork the central repository in GitHub and cloning your personal fork, instead of working with the GMTO repositories. Any modifications should be submitted through a Pull Request, to be approved and merged after peer review.
 
   .. code-block:: bash
 
-    $ cd $GMT_LOCAL
-    $ gds clone hdk_dcs -d gmto
-    $ gds clone isample_dcs -d gmto
+    $ cd $GMT_LOCAL/modules
+    $ git clone https://github.com/<username>/ocs_hdk_dcs
+    $ git clone https://github.com/<username>/ocs_isample_dcs
+
+  Where <username> is your GitHub username, assuming you've forked from the GMTO repository. Alternatively, use ``GMTO`` to clone from the central repository.
 
 11. Create the **bundles.coffee** and **ocs_local_bundle.coffee** files, defining the local modules under development 
 
