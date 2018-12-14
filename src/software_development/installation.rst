@@ -343,8 +343,8 @@ where ``[enp3s0]`` should be set to the interface to use for PTP.
     $ sudo systemctl enable ptp4l
 
 
-User Interface Configuration
-----------------------------
+Operations Workstation Configuration
+------------------------------------
 
 The OCS User Interface needs to be run on a system with sufficient graphical rendering capability. At the moment, the Real-time kernel used for device control systems running EtherCAT does not contain the graphics modules necessary to support the user interface. It is recommended to run the user interface in a Mac, connected to the DCS via the network. Future releases will include support for Linux workstations (Fedora). 
 
@@ -487,7 +487,34 @@ The SDK should be installed in a **Global GMT Software Location**, defined by th
 
   The correct folders will be created in the $GMT_LOCAL directory for use when compiling and running modules.
 
-8. Ensure that the **bundles.coffee** and **ocs_local_bundle.coffee** files exist, copying them from $GMT_GLOBAL if need be.
+8. Install local Node Modules
+
+  .. code-block:: bash
+
+    $ cd $GMT_LOCAL
+    $ cp $GMT_GLOBAL/package.json ./
+    $ npm install
+
+9. Create a **modules** directory in $GMT_LOCAL
+
+  .. code-block:: bash
+
+    $ cd $GMT_LOCAL
+    $ mkdir modules
+
+10. Download or clone the HDK and isample modules
+
+  This step is relevant for any module that the developer will be working on. Existing modules can be cloned from the GitHub repositories with the command ``gds clone`` and new modules can be created with the command ``gds new``.
+
+  .. code-block:: bash
+
+    $ cd $GMT_LOCAL
+    $ gds clone hdk_dcs -d gmto
+    $ gds clone isample_dcs -d gmto
+
+11. Create the **bundles.coffee** and **ocs_local_bundle.coffee** files, defining the local modules under development 
+
+  These files may be copied from $GMT_GLOBAL and then edited to reflect the developer's configuration.
 
   .. code-block:: bash
 
@@ -495,14 +522,14 @@ The SDK should be installed in a **Global GMT Software Location**, defined by th
     $ cp $GMT_GLOBAL/etc/bundles/bundles.coffee $GMT_LOCAL/etc/bundles/
     $ cp $GMT_GLOBAL/etc/bundles/ocs_local_bundle.coffee $GMT_LOCAL/etc/bundles/
 
-  Edit bundles.coffee to point to the ocs_local_bundle.coffee file
+  Edit **bundles.coffee** to point to the ocs_local_bundle.coffee file
 
   .. code-block:: bash
 
     module.exports =
         ocs_local_bundle:   {scope: "local",  desc: "GMT iSample and HDK bundle"}
 
-  Edit ocs_local_bundle.coffee to include the isample and HDK modules, or other modules that you are working on
+  Edit **ocs_local_bundle.coffee** to include the isample and HDK modules, or other modules that you are working on
 
   .. code-block:: bash
 
@@ -512,20 +539,5 @@ The SDK should be installed in a **Global GMT Software Location**, defined by th
      elements:
          isample_dcs: { active: true, test: false, developer: 'gmto', domain: 'idcs' }
          hdk_dcs:     { active: true, test: false, developer: 'gmto', domain: 'idcs' }
-
-9. Install local Node Modules
-
-  .. code-block:: bash
-
-    $ cd $GMT_LOCAL
-    $ cp $GMT_GLOBAL/package.json ./
-    $ npm install
-
-10. Finally, create the **modules** directory
-
-  .. code-block:: bash
-
-    $ cd $GMT_LOCAL
-    $ mkdir modules
 
 :ref:`[back to top] <installation>`
