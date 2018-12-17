@@ -446,7 +446,7 @@ The SDK should be installed in a **Global GMT Software Location**, defined by th
 
   .. code-block:: bash
 
-    $ sudo ln -s gmt_release_1.5.0 /opt/gmt
+    $ sudo ln -sfn gmt_release_1.5.0 /opt/gmt
 
 4. Create a **Local Working Directory**
 
