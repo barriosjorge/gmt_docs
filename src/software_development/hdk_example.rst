@@ -62,7 +62,7 @@ Connection to the DCC
 ^^^^^^^^^^^^^^^^^^^^^
 
 The HDK can be controlled using its embedded PC, or using a Real Time
-Linux DCC. In this example we will use the later option.
+Linux DCC. In this example we will use the latter option.
 
 .. note::
     The following instructions assume that the Linux Real Time kernel
@@ -453,7 +453,7 @@ Ensure that the following lines are defined:
 
    # Add in this file the compile flags for the package, eg:
    MOD_BUILD_LDFLAGS += -lcore_core_pkg -lio_core_pkg -lctrl_core_pkg -lio_ethercat_pkg
-   MOD_BUILD_LDFLAGS += -lethercat -lopcuacore -lopcuaclient
+   MOD_BUILD_LDFLAGS += -lethercat
 
 Run **make** to compile the code:
 
