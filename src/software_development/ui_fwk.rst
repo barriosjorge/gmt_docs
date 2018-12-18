@@ -41,4 +41,6 @@ The engineering app reserves port ``9199``.  Custom panel launches of the applic
 Troubleshooting
 ^^^^^^^^^^^^^^^
 
-Refreshing the UI: in some case if the UI becomes unresponsive, press `CMD+R` to refresh.
+* Unresponsive UI: in some case if the UI becomes unresponsive, press ``CMD+R`` to refresh.  If that fails to solve the problem, restart the CLI app.  You can stop the CLI app with ``CTRL+C``.
+* No navigation tree: the navigation tree is rendered off the local bundles in ``$GMT_LOCAL\etc\bundles``.  The bundles described there need to have been built with webpack.
+
