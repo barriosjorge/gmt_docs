@@ -496,7 +496,7 @@ The SDK should be installed in a **Global GMT Software Location**, defined by th
     $ cp $GMT_GLOBAL/package.json ./
     $ npm install
 
-  If you did not install the global `Webpack` and `Coffeescript` npm modules, you will also need to install them.
+  Install global node modules for `Webpack` and `Coffeescript`.
 
   .. code-block:: bash
 

@@ -38,4 +38,7 @@ The ``--panel`` flag specifies an exported panel in some vis package.  The ``--p
 
 The engineering app reserves port ``9199``.  Custom panel launches of the application need to specify a different port for each instance.
 
+Troubleshooting
+^^^^^^^^^^^^^^^
 
+Refreshing the UI: in some case if the UI becomes unresponsive, press `CMD+R` to refresh.
