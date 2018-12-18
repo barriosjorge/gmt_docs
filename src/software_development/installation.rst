@@ -566,4 +566,17 @@ You should now have a `$GMT_LOCAL\lib\js` folder.
          isample_dcs: { active: true, test: false, developer: 'gmto', domain: 'idcs' }
          hdk_dcs:     { active: true, test: false, developer: 'gmto', domain: 'idcs' }
 
+12.  Build the model files
+
+  You can build the model files described above using webpack.
+
+  .. code-block:: bash
+
+    $ cd $GMT_LOCAL/modules/ocs_hdk_dcs/model
+    $ webpack
+    $ cd $GMT_LOCAL/modules/ocs_isample_dcs/model
+    $ webpack
+
+  Build any other model files you include the same way.
+
 :ref:`[back to top] <installation>`
