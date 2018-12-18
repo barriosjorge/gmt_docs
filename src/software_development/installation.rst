@@ -406,10 +406,26 @@ Node Installation
 
     $ touch ~/.bash_profile
     $ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
-    $ nvm use 8.12.0
 
   More information can be found on the nvm GitHub site: <https://github.com/creationix/nvm>
 
+.. warning::
+  NVM will likely not update your `.bash_profile`, so you will need to update it manually to export the NVM path.
+
+To add NVM to your `~/.bash_profile`, edit and append the following:
+
+  .. code-block:: bash
+
+    export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+After you've saved those edits.  Close and restart your console session to finish installing Node through NVM
+  
+  .. code-block:: bash
+
+    $ nvm install 8.12.0
+    $ node --version
+    v8.12.0
 
 
 Software Development Kit (SDK)
@@ -456,7 +472,7 @@ The SDK should be installed in a **Global GMT Software Location**, defined by th
 
   where ``<local_working_dir>`` is in the current users' home directory, for example ~/work. The GMT software modules developed by the user are created in this folder.
 
-5. Add the following lines to your .profile (or .kshrc or .bashrc depending on your preferred shell)
+5. Add the following lines to your .bash_profile (or .kshrc or .bashrc depending on your preferred shell)
 
   .. code-block:: bash
 
@@ -472,22 +488,36 @@ The SDK should be installed in a **Global GMT Software Location**, defined by th
 
     $ gmt_env
 
-7. Initialize the Development Environment:
-
-  .. code-block:: bash
-
-    $ cd $GMT_LOCAL
-    $ gds init
-
-  The correct folders will be created in the $GMT_LOCAL directory for use when compiling and running modules.
-
-8. Install local Node Modules
+7. Install local Node Modules
 
   .. code-block:: bash
 
     $ cd $GMT_LOCAL
     $ cp $GMT_GLOBAL/package.json ./
     $ npm install
+
+  If you did not install the global `Webpack` and `Coffeescript` npm modules, you will also need to install them.
+
+  .. code-block:: bash
+
+    $ npm install -g coffeescript webpack webpack-cli
+
+8. Initialize the Development Environment:
+
+  .. code-block:: bash
+
+    $ cd $GMT_LOCAL
+    $ gds init
+
+  The correct folders will be created in the $GMT_LOCAL directory for use when compiling and running modules.  However, you will need to additional a `js` folder.
+
+  .. code-block:: bash
+
+    $ cd $GMT_LOCAL
+    $ cd lib
+    $ mdkir js
+
+You should now have a `$GMT_LOCAL\lib\js` folder.
 
 9. Create a **modules** directory in $GMT_LOCAL
 
