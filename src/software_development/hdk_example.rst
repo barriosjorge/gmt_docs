@@ -685,7 +685,7 @@ This creates the step render function, but you'll need to write a separate view 
 .. note::
     This loads the configuration file that's usually auto-generated when you build your model.  The configuration needs to have accessible url definitions.  In some cases that means having opened firewall ports when you're component is running on a separate machine.  The navigator app reads those url's to receive and render data.
 
-    To open a firewall port in Fedora, you can run ``sudo firewall-offline-cmd --direct --add-rule ipv4 filter INPUT 0 -p tcp --dport 27017 -j ACCEPT`` where ``27017`` is the port you want to open.
+    To open a firewall port in Fedora, you can run ``sudo firewall-cmd --add-port=8122-8124/tcp`` where ``8122-8124`` is a port range you want to open.
 
 The `Step.Render` function maps the model declared in `hdk_main_ctrl` to a renderable `View`.  The function exposes ``input_ports``, ``output_ports`` and ``state_vars`` declared in the model.  Note that a combination of the ``hdk_main_ctrl_config`` and ``hdk_main_ctrl`` model is used to generate this function.  To see an example of this in use, we'll need to create a separate view.
 
