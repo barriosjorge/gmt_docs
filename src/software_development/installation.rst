@@ -406,27 +406,12 @@ Node Installation
 
     $ touch ~/.bash_profile
     $ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
-
-  More information can be found on the nvm GitHub site: <https://github.com/creationix/nvm>
-
-.. warning::
-  NVM will likely not update your `.bash_profile`, so you will need to update it manually to export the NVM path.
-
-To add NVM to your `~/.bash_profile`, edit and append the following:
-
-  .. code-block:: bash
-
-    export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-
-After you've saved those edits.  Close and restart your console session to finish installing Node through NVM
-  
-  .. code-block:: bash
-
+    $ source ~/.bash_profile
     $ nvm install 8.12.0
     $ node --version
     v8.12.0
 
+  More information can be found on the nvm GitHub site: <https://github.com/creationix/nvm>
 
 Software Development Kit (SDK)
 ------------------------------
@@ -509,15 +494,13 @@ The SDK should be installed in a **Global GMT Software Location**, defined by th
     $ cd $GMT_LOCAL
     $ gds init
 
-  The correct folders will be created in the $GMT_LOCAL directory for use when compiling and running modules.  However, you will need to additional a `js` folder.
+  The correct folders will be created in the $GMT_LOCAL directory for use when compiling and running modules.  
+
+  When running the User Interface, create a **local javascript library folder**.
 
   .. code-block:: bash
 
-    $ cd $GMT_LOCAL
-    $ cd lib
-    $ mdkir js
-
-You should now have a `$GMT_LOCAL\lib\js` folder.
+    $ mkdir -p $GMT_LOCAL/lib/js
 
 9. Create a **modules** directory in $GMT_LOCAL
 
@@ -536,7 +519,9 @@ You should now have a `$GMT_LOCAL\lib\js` folder.
     $ git clone https://github.com/<username>/ocs_hdk_dcs
     $ git clone https://github.com/<username>/ocs_isample_dcs
 
-  Where <username> is your GitHub username, assuming you've forked from the GMTO repository. Alternatively, use ``GMTO`` to clone from the central repository.
+  Where <username> is your GitHub username, assuming you've forked from the GMTO repository. 
+
+  Alternatively, use ``git clone https://github.com/GMTO/ocs_hdk_dcs`` to clone from the central repository.
 
 11. Create the **bundles.coffee** and **ocs_local_bundle.coffee** files, defining the local modules under development 
 
@@ -566,9 +551,9 @@ You should now have a `$GMT_LOCAL\lib\js` folder.
          isample_dcs: { active: true, test: false, developer: 'gmto', domain: 'idcs' }
          hdk_dcs:     { active: true, test: false, developer: 'gmto', domain: 'idcs' }
 
-12.  Build the model files
+12. Systems that run the User Interface require compiled model files to be used by the Navigator application.
 
-  You can build the model files described above using webpack.
+  Build all model files from modules in your ocs_local_bundles definition using webpack. For example:
 
   .. code-block:: bash
 
@@ -577,6 +562,11 @@ You should now have a `$GMT_LOCAL\lib\js` folder.
     $ cd $GMT_LOCAL/modules/ocs_isample_dcs/model
     $ webpack
 
-  Build any other model files you include the same way.
+
+Next Steps
+----------
+To start using the SDK with the Hardware Development Kit (HDK), instructions can be found here: :ref:`hdk_example`.
+
+To run the Navigator application and start using the UI framework, see the UI Framework guide: :ref:`ui_fwk`.
 
 :ref:`[back to top] <installation>`
