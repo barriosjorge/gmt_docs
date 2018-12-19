@@ -709,7 +709,7 @@ Now edit ``hdk_main_ctrl_view.coffee`` with the following boilerplate:
     View = () =>
         <Panel>
             <HDKMain.Render>
-                {({output_ports}) =>
+                {({state_vars}) =>
                     #...rendered views go here
                     <Panel>This is rendered from the HDKMain.Render step function</Panel>
                 }
@@ -718,17 +718,17 @@ Now edit ``hdk_main_ctrl_view.coffee`` with the following boilerplate:
 
     export default View
 
-In the above example, you get a ``Render`` function from the imported ``hdk_main_ctrl_step`` that we declared earlier.  The ``Render`` function gives you ``output_ports`` as an input, and expects a renderable `View` as an output.  The ``output_ports`` map directly to the model, so we can expect the ``hmi_outputs`` data to be included as part of the ``output_ports`` data.  For example, if we wanted to get the value of the pilot light, we can use the safe access operator ``output_ports.hmi_outputs.pilot`` to retrieve that value.
+In the above example, you get a ``Render`` function from the imported ``hdk_main_ctrl_step`` that we declared earlier.  The ``Render`` function gives you ``state_vars`` as an input, and expects a renderable `View` as an output.  The ``state_vars`` map directly to the model, so we can expect the ``hmi`` data to be included as part of the ``state_vars`` data.  For example, if we wanted to get the value of the pilot light, we can use the safe access operator ``state_vars?.hmi?.output?.pilot`` to retrieve that value.
 
 .. code-block:: coffee
 
     <HDKMain.Render>
-        {({output_ports}) =>
+        {({state_vars}) =>
             #...rendered views go here
             <Panel>
                 <Box>Pilot light</Box>
                 <Box> 
-                    {output_ports?.hmi_outputs?.pilot.toString()}
+                    {state_vars?.hmi?.output?.pilot.toString()}
                 </Box>
             </Panel>
         }
@@ -764,4 +764,4 @@ You can now run it with the ``--panel`` flag on the ``navigator`` cli app, with 
 
     The navigator app allows you to run instances of multiple panels at the same time.  However, you will need to specify a different ``--port`` for each instance to avoid port collision errors.  Also, note that the navigator app will reuse the internal data server for multiple instances, so if you close the initial instance, the data server may become unavailable for the other panels.
 
-You should now get a beautiful `true` or `false` rendered on the screen indicating the pilot light status.
+You should now see `true` or `false` string rendered on the screen indicating the pilot light status.  But the UI can render more than strings.  A more extensive example that shows the status of the motor and LED lights can be found in the HDK vis package ``https://github.com/GMTO/ocs_hdk_dcs``.
