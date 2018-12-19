@@ -62,7 +62,10 @@ The navigator application contains four regions.
 4. **Developer tools** This area is reserved for developer tools.  The `Toggle Console` button will show the developer console.
 
 .. note::
-    The **Context** area will optimistically render your model.  Not all model data can be currently rendered. Some items like `properties` and detailed port views are currently not supported. 
+    The **Context** area will optimistically render your model.  Not all model data can be currently rendered. Some items like `properties` and detailed port views are currently not supported.
+
+.. warning:: 
+    Input ports are rendered as data inputs based on the type data encoded in your model.  The `StructType` input is not yet supported.   When you press the ``Send Value`` button the app will attempt send the data in *all* the input fields to each respective port defined.  
 
 Launching Custom panels
 ^^^^^^^^^^^^^^^^^^^^^^^
