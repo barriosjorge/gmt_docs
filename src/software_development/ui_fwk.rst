@@ -27,6 +27,27 @@ To launch the application, run this in the command line
 
 This will launch the GUI as a child process of the CLI application.  To stop the GUI, stop the CLI app with ``CTRL + C``.
 
+Configuration
+^^^^^^^^^^^^^
+
+The User Interface needs to be configured to connect to the correct control components to receive data. Without proper configuration, the application may look like this:
+
+.. image:: navigator_images/Navigator_HDK_noconnection.png
+  :align: center
+  :scale: 70 %
+  :alt: Navigator application - No connection to HDK components
+
+Edit the appropriate config files in the ``src/etc/conf`` folder to point to the correct IP address for input and output ports. For example,
+
+.. code-block:: bash
+
+    $ cd $GMT_LOCAL/modules/ocs_hdk_dcs/src/etc/conf/hdk_ctrl_pkg/hdk_main_ctrl/
+    $ sed -i '' "s/172.0.0.1/172.16.10.31/g" hdk_main_ctrl_config.coffee
+
+See the Troubleshooting section below for more help with connection issues.
+
+Restart the Navigator application for changes to take affect.
+
 Launching Custom panels
 ^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -47,7 +68,7 @@ UI Guide
 Troubleshooting
 ^^^^^^^^^^^^^^^
 
-The engineering app loads the local bundles defined in ``$GMT_LOCAL/etc/bundles``.  It currently uses the model generated config files to read data for your package.  Those config files are created in ``$GMT_LOCAL/modules/<your_project>_dcs/src/etc/conf/<your_package>_pkg/<component>_config.coffee``; it's useful to see what's in those configs when troubleshooting data availability issues.  The availability of data to the UI largely depends on those config file.  The values generated will depend on how you write your model, but a sample of a config file might look like 
+The engineering app loads the local bundles defined in ``$GMT_LOCAL/etc/bundles``.  It currently uses the model generated config files to read data for your package.  Those config files are created in ``$GMT_LOCAL/modules/<your_module>/src/etc/conf/<your_package>_pkg/<component>_config.coffee``; it's useful to see what's in those configs when troubleshooting data availability issues.  The availability of data to the UI largely depends on those config files.  The values generated will depend on how you write your model, but a sample of a config file might look like 
 
     .. code-block:: coffee
 
@@ -73,7 +94,7 @@ When troubleshooting it's important to note the `protocol` and the `url` keys fo
 
 If the computer at ``172.16.10.31`` is firewalled and not allowing connections to port ``8123``, you will not be able to see data.  You will need to allow incoming connections to that port.  Likewise, if your component is running at the computer at ``172.16.10.31`` and you are trying to read data from ``127.0.0.1``, you will not see any data.  You will need to change the IP to match the computer where your component is running.
 
-Additionally, the UI can only read data from ``pub`` protocol.
+Additionally, the UI can only read data from ports configured with the ``pub`` protocol.
 
 * **MacOS - nvm command not found**: If, after installing nvm, the command ``nvm install`` fails with the message, ``command not found``, check the ``~/.bash_profile`` file to ensure that it contains a command for loading nvm. The .bash_profile file should contain the following lines:
 
