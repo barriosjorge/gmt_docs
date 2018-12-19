@@ -34,7 +34,6 @@ The User Interface needs to be configured to connect to the correct control comp
 
 .. image:: navigator_images/Navigator_HDK_noconnection.png
   :align: center
-  :scale: 70 %
   :alt: Navigator application - No connection to HDK components
 
 Edit the appropriate config files in the ``src/etc/conf`` folder to point to the correct IP address for input and output ports. For example,
@@ -47,6 +46,23 @@ Edit the appropriate config files in the ``src/etc/conf`` folder to point to the
 See the Troubleshooting section below for more help with connection issues.
 
 Restart the Navigator application for changes to take affect.
+
+Guide
+^^^^^
+
+.. image:: navigator_images/Navigator_slices.png
+  :align: center
+  :alt: Navigator application regions
+
+The navigator application contains four regions.
+
+1. **Header** The header contains timezone information, as well as a moon cycle representation.
+2. **Navigation** This area contains the navigation tree.  The tree is a representation of your model and is built from information found in your local bundles.
+3. **Context** Items selected in the tree will display here.  Currently, it will display a representation of your model's input/output ports and state variables.  
+4. **Developer tools** This area is reserved for developer tools.  The `Toggle Console` button will show the developer console.
+
+.. note::
+    The **Context** area will optimistically render your model.  Not all model data can be currently rendered. Some items like `properties` and detailed port views are currently not supported. 
 
 Launching Custom panels
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -61,9 +77,8 @@ The ``--panel`` flag specifies an exported panel in some vis package.  The ``--p
 
 The engineering app reserves port ``9199``.  Custom panel launches of the application need to specify a different port for each instance.
 
-UI Guide
-^^^^^^^^
-
+.. note::
+    When running a custom panel, only the **Header** and **Context** regions will be shown.  The panel content is rendered in the **Context** region.
 
 Troubleshooting
 ^^^^^^^^^^^^^^^
