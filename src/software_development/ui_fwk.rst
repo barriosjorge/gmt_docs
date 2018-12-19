@@ -75,6 +75,8 @@ If the computer at ``172.16.10.31`` is firewalled and not allowing connections t
 
 Additionally, the UI can only read data from ``pub`` protocol.
 
+If you make changes to the config file, you will need to restart the command line app; you can do this by pressing ``CTRL + C``.
+
 * **MacOS - nvm command not found**: If, after installing nvm, the command ``nvm install`` fails with the message, ``command not found``, check the ``~/.bash_profile`` file to ensure that it contains a command for loading nvm. The .bash_profile file should contain the following lines:
 
   .. code-block:: bash
