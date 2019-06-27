@@ -115,7 +115,7 @@ The following RPM packages should be installed by an Administrative user for use
 
   .. code-block:: bash
 
-    $ sudo dnf install -y autoconf automake cmake elfutils gcc gdb libtool
+    $ sudo dnf install -y autoconf automake cmake elfutils gcc gdb libtool make
     $ sudo dnf install -y cpp cscope ctags gc gcc-c++ gcc-gdb-plugin glibc-devel
     $ sudo dnf install -y glibc-headers kernel-headers libstdc++-devel
     $ sudo dnf install -y flex git libcurl-devel
@@ -130,10 +130,11 @@ The following RPM packages should be installed by an Administrative user for use
 Node Installation
 .................
 
-1. Download and install **Node version 8**
+1. Download and install **Node version 10**
 
   .. code-block:: bash
 
+    $ curl -sL https://rpm.nodesource.com/setup_10.x | sudo bash -
     $ sudo dnf install -y nodejs
 
 2. Install necessary node packages:
