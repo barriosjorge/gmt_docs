@@ -353,7 +353,42 @@ The following section shows the the help of the query command  and the available
 
 ``--topic=<topic_name>``
 
-   filters service data frames matching the topic
+   filters the service data frames in which the ``src`` field includes the topic
+
+   .. code-block:: bash
+
+      λ tele_client listen --topic=alarm_server
+
+      # -> will display the telemetry events that have the alarm_server as source
+
+      λ tele_client listen --topic=alarm_server/s/op_state/value
+
+      # -> will display the telemetry events corresponding to the op_state state variable of the
+      #    alarm server
+
+      λ tele_client listen --topic=alarm_server/s
+
+      # -> will display the telemetry events corresponding to all the state variables of the
+      #    alarm server
+
+
+   .. tip::
+      The core services use the following convention to identify the source of events:
+      <instance name>/<feature abbr>/<feature name>/<feature attribute>, where:
+
+      - instance name: Name of the component instance
+      - feature abbr:  Abbreviation that identifies the component feature. The following values are possible:
+
+        - i: inputs
+        - o: outputs
+        - s: state variables
+        - p: properties
+        - f: faults
+        - a: alarms
+
+      - feature name: The name of the specific feature (e.g. op_state state_variable)
+      - feature attribute: The attribute of the feature (e.g. value)
+
 
 ``--client_config=<name>``
 
