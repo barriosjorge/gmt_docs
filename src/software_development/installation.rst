@@ -509,7 +509,7 @@ The SDK should be installed in a **Global GMT Software Location**, defined by th
   .. code-block:: bash
 
     module.exports =
-        ocs_local_bundle:   {sOcope: "local",  desc: "GMT iSample and HDK bundle"}
+        ocs_local_bundle:   {scope: "local",  desc: "GMT iSample and HDK bundle"}
 
   Edit **ocs_local_bundle.coffee** to include the isample and HDK modules, or other modules that you are working on
 
