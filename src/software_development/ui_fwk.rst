@@ -12,6 +12,21 @@ The UI Framework introduces a set of libraries and a windowed application that p
 * Library of re-usable UI components that can be shared across the project
 * An Engineering App that provides an interface to the OCS
 
+Installation
+------------
+
+Download the UI library files
+
+* http://52.52.46.32/srv/gmt/releases/navigator/ocs_navigator_lib_1.6.0.zip
+
+Move the contents of the zip to ``$GMT_LOCAL/lib/js``
+
+Download the Mac App
+
+* http://52.52.46.32/srv/gmt/releases/navigator/mac/ocs_navigator_app_1.6.0.zip
+
+You can unzip the app anywhere on your MacOS file system.  Double click on the icon to run.
+
 Engineering App
 ---------------
 
