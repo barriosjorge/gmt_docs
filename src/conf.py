@@ -263,6 +263,7 @@ latex_documents = [
   ('software_development/hdk_example',  'swc_hdk_example.tex', u'HDK example', u'Software and Controls Group', 'manual'),
   ('software_development/test_guidelines',  'swc_test_guidelines.tex', u'OCS Test Guidelines', u'Software and Controls Group', 'manual'),
   ('software_development/ui_fwk',  'swc_ui_fwk_guidelines.tex', u'UI Framework Guidelines', u'Software and Controls Group', 'manual'),
+  ('software_development/grs_guide',  'swc_grs_documentation.tex', u'grs documentation', u'Software and Controls Group', 'manual'),
 
   #('swc_sys_stds',               'swc_sys_stds.tex',    u'GMT Software and Controls Standards',                   u'Jose M. Filgueira', 'manual'),
   # ('swc_sys_doc',                'swc_sys_doc.tex',      u'GMT Software and Controls Documentation',               u'Jose M. Filgueira', 'manual'),
