@@ -41,7 +41,7 @@ Configuration
 
 The User Interface needs to be configured to connect to the correct control components to receive data. Without proper configuration, the application may look like this:
 
-.. image:: navigator_images/Navigator_HDK_noconnection.png
+.. image:: navigator_images/Navigator_HDK_first_open.png
   :align: center
   :alt: Navigator application - No connection to HDK components
 
@@ -59,7 +59,7 @@ Restart the Navigator application for changes to take affect.
 User Guide
 ----------
 
-.. image:: navigator_images/Navigator_slices.png
+.. image:: navigator_images/Navigator_HDK_connected.png
   :align: center
   :alt: Navigator application regions
 
