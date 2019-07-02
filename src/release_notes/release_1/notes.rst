@@ -114,6 +114,7 @@ Contents of release 1.6.0
 - Known Issues:
 
   - Generating test skeletons with "gds gen -t test" does not currently work
+  - The UI Framework has not been updated to work with the new Core Frameworks yet. This updated functionality will be included in a 1.6.1 update, released in the next 2 months, along with more examples on creating User Interface panels.
 
 
 Contents of release 1.5.0
