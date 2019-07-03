@@ -302,61 +302,7 @@ where ``[enp3s0]`` should be set to the interface to use for PTP.
 
     $ sudo systemctl enable ptp4l
 
-
-Operations Workstation Configuration
-------------------------------------
-
-The OCS User Interface needs to be run on a system with sufficient graphical rendering capability. At the moment, the Real-time kernel used for device control systems running EtherCAT does not contain the graphics modules necessary to support the user interface. It is recommended to run the user interface in a Mac, connected to the DCS via the network. Future releases will include support for Linux workstations. 
-
-Operating System
-................
-
-Apple Mac systems have the operating system already installed. The User Interface has been tested on the following versions of MacOS:
-
-    - MacOS High Sierra
-    - MacOS Mojave
-
-Packages
-........
-
-There are very few external packages that are not already installed in MacOS. The application Homebrew can be used to install these:
-
-1. Install Homebrew
-
-  .. code-block:: bash
-
-    $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-  More information can be found on the Homebrew website: <https://brew.sh/>
-
-2. Install common utilities
-
-  .. code-block:: bash
-
-    $ brew install wget
-
-
-Python Installation
-...................
-
-1. Check whether Python3 is installed
-
-  .. code-block:: bash
-
-    $ python3 --version
-
-2. Install Python3, if not already installed
-
-  .. code-block:: bash
-
-    $ brew install python3
-
-Node Installation
-.................
-
-1. Install Node
-
-Follow the instructions here https://nodesource.com/blog/installing-nodejs-tutorial-mac-os-x/
+.. _sdk_install:
 
 Software Development Kit (SDK)
 ------------------------------
@@ -436,12 +382,6 @@ The SDK should be installed in a **Global GMT Software Location**, defined by th
 
   The correct folders will be created in the $GMT_LOCAL directory for use when compiling and running modules.  
 
-  Create a **local javascript library folder** in order to create built bundles for your model files.  This folder is also used to install upgraded version of the library.
-
-  .. code-block:: bash
-
-    $ mkdir -p $GMT_LOCAL/lib/js
-
 9. Create a **modules** directory in $GMT_LOCAL
 
   .. code-block:: bash
@@ -463,7 +403,7 @@ The SDK should be installed in a **Global GMT Software Location**, defined by th
 
   Alternatively, use ``git clone https://github.com/GMTO/ocs_hdk_dcs`` to clone from the central repository.
 
-11. Create the **bundles.coffee** and **ocs_local_bundle.coffee** files, defining the local modules under development 
+10. Create the **bundles.coffee** and **ocs_local_bundle.coffee** files, defining the local modules under development
 
   These files may be copied from $GMT_GLOBAL and then edited to reflect the developer's configuration.
 
@@ -491,7 +431,91 @@ The SDK should be installed in a **Global GMT Software Location**, defined by th
          isample_dcs: { active: true, test: false, developer: 'gmto', domain: 'idcs' }
          hdk_dcs:     { active: true, test: false, developer: 'gmto', domain: 'idcs' }
 
-12. Systems that run the User Interface require compiled model files to be used by the Navigator application.
+11. Build all model files from modules in your ocs_local_bundles definition using webpack. For example:
+
+  .. code-block:: bash
+
+    $ cd $GMT_LOCAL/modules/ocs_hdk_dcs/model
+    $ webpack
+    $ cd $GMT_LOCAL/modules/ocs_isample_dcs/model
+    $ webpack
+
+
+
+Operations Workstation Configuration (optional, MacOS only)
+-----------------------------------------------------------
+
+The OCS User Interface needs to be run on a system with sufficient graphical rendering capability. At the moment, the Real-time kernel used for device control systems running EtherCAT does not contain the graphics modules necessary to support the user interface. It is recommended to run the user interface in a Mac, connected to the DCS via the network. Future releases will include support for Linux workstations.
+
+Operating System
+................
+
+Apple Mac systems have the operating system already installed. The User Interface has been tested on the following versions of MacOS:
+
+    - MacOS High Sierra
+    - MacOS Mojave
+
+Packages
+........
+
+There are very few external packages that are not already installed in MacOS. The application Homebrew can be used to install these:
+
+1. Install Homebrew
+
+  .. code-block:: bash
+
+    $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+  More information can be found on the Homebrew website: <https://brew.sh/>
+
+2. Install common utilities
+
+  .. code-block:: bash
+
+    $ brew install wget
+
+
+Python Installation
+...................
+
+1. Check whether Python3 is installed
+
+  .. code-block:: bash
+
+    $ python3 --version
+
+2. Install Python3, if not already installed
+
+  .. code-block:: bash
+
+    $ brew install python3
+
+Node Installation
+.................
+
+1. Install Node
+
+Follow the instructions here https://nodesource.com/blog/installing-nodejs-tutorial-mac-os-x/
+
+SDK Installation
+................
+
+1. Follow steps on section :ref:`sdk_install` for installing the SDK.
+
+2. Create a **local javascript library folder** in order to create built bundles for your model files.
+This folder is also used to install upgraded version of the library.
+
+  .. code-block:: bash
+
+    $ mkdir -p $GMT_LOCAL/lib/js
+
+3. Copy UI JavaScript lib files to $GMT_LOCAL/lib/js/
+
+  .. code-block:: bash
+
+    $ cp ocs_ui_fwk_elements.js ocs_ui_fwk_widgets.js ocs_ui_fwk.js $GMT_LOCAL/lib/js/
+
+4. Systems that run the User Interface require compiled model files to be used by the Navigator application.
 
   Build all model files from modules in your ocs_local_bundles definition using webpack. For example:
 
