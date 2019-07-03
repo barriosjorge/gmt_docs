@@ -56,8 +56,8 @@ Install the Operating System using these instructions:
 
      dev_environment/fedora_server
 
-    .. warning::
-      If you plan to develop real-time components, the Linux kernel requires the root partition to be an **ext4** file system. Please ensure that this is configured correctly in the disk partitioning settings.
+.. warning::
+  If you plan to develop real-time components, the Linux kernel requires the root partition to be an **ext4** file system. Please ensure that this is configured correctly in the disk partitioning settings.
 
 
 
@@ -223,8 +223,8 @@ EtherCAT is a high-speed fieldbus communication system used for real-time contro
 
     $ sudo dnf install -y --nogpgcheck kernel-3.14.73-rt78.x86_64 ethercat-devel
 
-    .. warning::
-      This Linux kernel requires the root partition to be an **ext4** file system. Otherwise, your machine will not boot.
+.. warning::
+  This Linux kernel requires the root partition to be an **ext4** file system. Otherwise, your machine will not boot.
 
 
 2. Select the Ethernet interface to be used for EtherCAT communication (e.g. enp4s0) and edit the corresponding configuration file (e.g. ``/etc/sysconfig/network-scripts/ifcfg-enp4s0``) to set the following options:
