@@ -22,7 +22,7 @@ For device control systems, the following operating systems are supported:
 For user interfaces, the following operating systems are supported:
     - MacOS
 
-Future versions of the SDK could include support for CentOS, RHEL or Scientific Linux. Fedora has a very short release and support cycle (6 months and 18 months respectively), which is not ideal for a platform that requires significant stability over long periods of time.
+Future versions of the SDK will only support CentOS and MacOS (only for the UI framework). Fedora has a very short release and support cycle (6 months and 18 months respectively), which is not ideal for a platform that requires significant stability over long periods of time.
 
 Server Configuration
 --------------------
@@ -120,7 +120,7 @@ The following RPM packages should be installed by an Administrative user for use
 Node Installation
 .................
 
-1. Download and install **Node version 10**
+1. Download and install **Node version 10**:
 
   .. code-block:: bash
 
@@ -197,7 +197,7 @@ EtherCAT is a high-speed fieldbus communication system used for real-time contro
     MASTER0_DEVICE="<mac_address_1>"
     MASTER0_BACKUP="<mac_address_2>"  # optional line
 
-  where ``<mac_address_1>`` and ``<mac_address_2>`` are the two hardware addresses associated with the Ethercat network interface communicating with the Ethercat ring (redundant topology). If you you prefer using a linear topology (non redundant), comment or remove the second line (MASTER0_BACKUP="<mac_address_2>"). 
+  where ``<mac_address_1>`` and ``<mac_address_2>`` are the two hardware addresses associated with the Ethercat network interface communicating with the Ethercat ring (redundant topology). If you you prefer using a linear topology (non redundant), comment or remove the second line (``MASTER0_BACKUP="<mac_address_2>"``).
 
 5. Edit ``/usr/lib/systemd/system/ethercat.service`` and uncomment the following line:
 
@@ -315,7 +315,7 @@ The SDK should be installed in a **Global GMT Software Location**, defined by th
 
   .. code-block:: bash
 
-    $ sudo wget http://52.52.46.32/srv/gmt/releases/sdk/linux/gmt-sdk-1.6.0.tar.gz
+    $ wget http://52.52.46.32/srv/gmt/releases/sdk/linux/gmt-sdk-1.6.0.tar.gz
 
 2. Extract the TAR file in the /opt directory, into a new folder for the latest release:
 
@@ -388,20 +388,6 @@ The SDK should be installed in a **Global GMT Software Location**, defined by th
 
     $ cd $GMT_LOCAL
     $ mkdir modules
-
-10. Clone the HDK and isample modules
-
-  This step is relevant for any module that the developer will be working on. It is recommended to fork the central repository in GitHub and cloning your personal fork, instead of working with the GMTO repositories. Any modifications should be submitted through a Pull Request, to be approved and merged after peer review.
-
-  .. code-block:: bash
-
-    $ cd $GMT_LOCAL/modules
-    $ git clone https://github.com/<username>/ocs_hdk_dcs
-    $ git clone https://github.com/<username>/ocs_isample_dcs
-
-  Where <username> is your GitHub username, assuming you've forked from the GMTO repository. 
-
-  Alternatively, use ``git clone https://github.com/GMTO/ocs_hdk_dcs`` to clone from the central repository.
 
 10. Create the **bundles.coffee** and **ocs_local_bundle.coffee** files, defining the local modules under development
 
