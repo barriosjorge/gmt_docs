@@ -88,20 +88,6 @@ To add the GMT repositories:
     gpgcheck=0
     enabled=1
 
-Advanced System Configuration (optional)
-........................................
-
-In a distributed computing environment, used by multiple developers, it is very convenient to use a centralized LDAP server for User Authentication and automatically mount /home directories from a network drive. The LDAP and NFS server configuration is network-dependent. The following instructions can be used as guidelines when configuring individual development machines to make use these services, if available.
-
-  .. note::
-
-    This configuration is currently optional. The alternative is to add users manually and manage permissions locally on each development machine.
-
-  .. toctree::
-     :maxdepth: 1
-
-     dev_environment/ldap_configuration
-     dev_environment/nfs_configuration
 
 Package List
 ............
