@@ -161,42 +161,6 @@ MongoDB Configuration
 
     $ sudo systemctl status -l mongod
 
-Infiniband Configuration (optional)
-...................................
-
-Infiniband is a low-latency networking communications protocol that requires specialized hardware. The following configuration steps should be used as a guide when configuring Infiniband communications.
-
-1. Install the neccessary packages
-
-  .. code-block:: bash
-
-    $ sudo dnf install -y infiniband-diags opensm libmlx4
-
-2. Edit ``/etc/rdma/mlx4.conf`` and add the following line:
-
-  .. code-block:: bash
-
-    01:00.0 auto auto
-
-3. Find the interface used for Infiniband and edit the corresponding configuration file (for example ``/etc/sysconfig/network-scripts/ifcfg-ib0``) to set the following options:
-
-  .. code-block:: bash
-
-    DEVICE=ib0
-    ONBOOT=yes
-    TYPE=Infiniband
-    BOOTPROTO=none
-    IPADDR=<ib_ip_address>
-    NETMASK=<ib_netmask>
-
-  where ``<ib_ip_address>`` is the static IP Address associated with the Infiniband network interface and ``<ib_netmask>`` is the netmask used for the infiniband subnet.
-
-4. Enable Infiniband Services
-
-  .. code-block:: bash
-
-    $ sudo systemctl enable opensm
-    $ sudo systemctl enable rdma
 
 Ethercat Configuration
 ......................
