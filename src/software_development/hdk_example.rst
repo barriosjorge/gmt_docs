@@ -193,15 +193,6 @@ Code generation
 The hdk_dcs repository already has the source code of the HDK, so it is not
 necessary to generate it.
 
-.. warning::
-    If the source code is generated again using *gds*, all the source files
-    will be overwritten, including the step function implementations. By default,
-    *gds* will preserve the step function files by
-    copying the the previous version of the ```<component>_step.cpp``` files to
-    ```<component>_step.cpp.preserve```. If compilation fails, check the file differences
-    between the repository files and the generated files for manual changes that may have
-    to be reapplied.
-
 If the source code needs to be generated
 again (for example, if some feature to the components must be added), then
 it can be done using the standard procedure:
