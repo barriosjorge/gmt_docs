@@ -205,6 +205,20 @@ it can be done using the standard procedure:
 
 After re-generating code from the model, all manual changes will need to be re-applied.
 
+
+Compiling Configuration Files
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Configuration files should be compiled for the C++ controllers. This can be done with:
+
+.. code:: bash
+
+    $ gds install  # Copies the configuration file to $GMT_LOCAL/etc/conf/
+    $ grs compile -i hdk_hw1_adapter
+    $ grs compile -i hdk_main_ctrl
+    $ grs compile --input $GMT_LOCAL/etc/conf/hdk_dcs/hdk_hw1_adapter_ethercat_default_conf.coffee --output $GMT_LOCAL/etc/conf/hdk_dcs/hdk_hw1_adapter_ethercat_default_conf.cfg
+
+
 HDK Main Controller Behavior
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
