@@ -4,3 +4,4 @@
 *.swp
 /js/
 /node_modules/
+.idea/
