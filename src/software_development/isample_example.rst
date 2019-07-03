@@ -262,26 +262,32 @@ positional input and immediately sets the position value to the new goal, if pos
 
    .. code-block:: cpp
 
-    void IsampleFilterWheelCtrl::step() {
-        if(setup_ok) {                     // this will be executed only if port setup has been received
-            if (is_step_rate(1000)) {
-                if (position.goal != position.value) {
-                    // check range
-                    if (position.goal >= position.max) {
-                        log_warning("Position is at or exceeding maximum value: " + std::to_string(position.max));
-                        // prevent further movement
-                        position.value = position.max;
-                    } else if (position.goal <= position.min) {
-                        log_warning("Position is at or exceeding minimum value: " + std::to_string(position.min));
-                        // prevent further movement
-                        position.value = position.min;
-                    } else {
-                        // achieve target position immediately
-                        position.value = position.goal;
-                    }
-                    // report value
-                    log_info(position.name + " = " + std::to_string(position.value));
+    void IsampleFilterWheelCtrl::step()
+    {
+        if (is_step_rate(1000))
+        {
+            if (position.goal != position.value)
+            {
+                // check range
+                if (position.goal >= position.max)
+                {
+                    log_warning("Position is at or exceeding maximum value: " + std::to_string(position.max));
+                    // prevent further movement
+                    position.value = position.max;
                 }
+                else if (position.goal <= position.min)
+                {
+                    log_warning("Position is at or exceeding minimum value: " + std::to_string(position.min));
+                    // prevent further movement
+                    position.value = position.min;
+                }
+                else
+                {
+                    // achieve target position immediately
+                    position.value = position.goal;
+                }
+                // report value
+                log_info(position.name + " = " + std::to_string(position.value));
             }
         }
     }
@@ -318,7 +324,7 @@ the application.
 
 To install the configuration files, execute the following commands:
 
-.. code-block::bash
+.. code-block:: bash
 
    $ gds install isample_dcs
    $ grs compile -i isample_cryo_external_temp_ctrl
@@ -328,6 +334,7 @@ To install the configuration files, execute the following commands:
    $ grs compile -i isample_fw1_ctrl
    $ grs compile -i isample_fw2_ctrl
    $ grs compile -i isample_hw1_adapter
+
 
 Running the Example
 -------------------
