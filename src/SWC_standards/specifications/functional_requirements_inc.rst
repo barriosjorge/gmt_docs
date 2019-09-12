@@ -123,6 +123,8 @@ Definition of state variables and relationship with goals and sequencing
 
 .. figure:: _static/state_variable_relationships.png
 
+.. _step_std:
+
 .. figure:: _static/reactive_close_control_loop.png
 
    Reactive Close Control Loop
