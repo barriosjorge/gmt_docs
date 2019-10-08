@@ -1,3 +1,5 @@
+.. _sdk_1_6_migration_guide:
+
 Migration guide to SDK 1.6
 ==========================
 
@@ -25,7 +27,9 @@ proceed is to simply re-generate it, and then merge to the new code
 the step function and the class attributes that were added by the user.
 
 In this document, the steps to
-migrate the pre-existing code will be explained.
+migrate the pre-existing code will be explained. The instructions given here
+will refer to a Component named ```MyComponent``` and a module named
+```ocs_my_dcs``` as an example.
 
 Update the model files
 ----------------------
@@ -71,14 +75,27 @@ of each port.
 
 As an example, this is an excerpt from the HDK HwAdapter model:
 
-.. code-block:: javascript
-    :emphasize-lines: 2, 5
+.. code-block:: coffeescript
 
     input_ports:
       operator_leds:    { type: 'hdk_hmi_leds',    protocol: 'pull', blocking_mode: 'sync', owner: true, max_rate: 1000, desc: 'Human Machine Interface (HMI) digital outputs' }
 
     output_ports:
       operator_buttons: { type: 'hdk_hmi_buttons', protocol: 'push', blocking_mode: 'sync', owner: false, max_rate: 1000, desc: 'Human Machine Interface (HMI) digital inputs' }
+
+Update the connectors
+~~~~~~~~~~~~~~~~~~~~~
+
+In the new SDK, the connectors that are defined in the model must have the following format (extracted from `ocs_isample_dcs/model/isample_ctrl_pkg/isample_ctrl_pkg.coffee`):
+
+.. code-block:: coffeescript
+
+    connectors:
+            # Connectors from hardware adapter
+            c9001: { id: 9001, from: { element: "isample_hw1_adapter",  port: "cryo_internal_temp"}, to: { element: "isample_cryo_internal_temp_ctrl", port: "temperatures"},        max_latency: 0.5, nom_rate: 100, on_fault: "", conversion: "", bus: "" }
+            c9002: { id: 9002, from: { element: "isample_hw1_adapter",  port: "cryo_external_temp"}, to: { element: "isample_cryo_external_temp_ctrl", port: "temperatures"},        max_latency: 0.5, nom_rate: 100, on_fault: "", conversion: "", bus: "" }
+
+As can be seen in the previous example, the previous vector of connectors must be transformed to a dictionary, where the key is a unique identifier for the connector.
 
 Recompile model files
 ~~~~~~~~~~~~~~~~~~~~~
@@ -87,21 +104,55 @@ Finally, we must apply the previous changes by recompiling the model files:
 
 .. code-block:: bash
 
-    $ cd $GMT_LOCAL/modules/<module_name>/model
+    $ cd $GMT_LOCAL/modules/ocs_my_dcs/model
     $ webpack
 
 Update the source files
-----------------------
-    
-First, we rename the ``src/cpp`` directory:
+-----------------------
 
-.. code-block:: bash
+1. **Rename the ``src/cpp`` directory**:
 
-    $ cd $GMT_LOCAL/modules/<module_name>/src
-    $ mv cpp cpp.refactor
+    .. code-block:: bash
 
-Now, we generate back the C++ code from the model:
+        $ cd $GMT_LOCAL/modules/ocs_my_dcs/src
+        $ mv cpp cpp.refactor
 
-.. code-block:: bash
 
-    $ gds gen <module_name>
+#. **Generate back the C++ code from the model**:
+
+    .. code-block:: bash
+
+        $ gds gen ocs_my_dcs
+
+    The ``src/cpp`` directory will be created back, and it will contain the skeletons
+    for the components defined in the model files. We will have two classes per
+    each Component: one declared in the file `MyComponentBase.h``, with the component features
+    defined in the model (State Variables, Inputs, Outputs, ...), and another one declared
+    in the file ``MyComponent.h``, which is where the developer must add the application
+    specific code.
+
+#. **Add the step function**. The derived class, contained in the file
+    ``MyComponent.h`` is the one that now implements the ``step`` function.
+    The contents of the old step function, that are in the ``my_component_step.cpp``
+    file under the appropriate subdirectory of ``src/cpp.refactor`` must be copied
+    to the ``MyComponent::step()`` function in ``MyComponent.cpp``.
+
+#. **Add the user declarations to the derived class**. Any member variable or
+    method that were added by the developer in the component class, must be
+    copied to the derived class, under ``MyComponent.h`` and ``MyComponent.cpp``.
+
+#. **Async handlers**. If there are any ``async`` Data I/Os, then add the handlers
+    in the ``MyComponent::setup()`` method.
+
+#. **Recompile the code**:
+
+    .. code-block:: bash
+
+        $ cd src/cpp
+        $ make clean
+        $ make
+
+Reinstall configurations
+-----------------------
+
+The configuration files must be reinstalled, as described in :ref:`Installing the configuration <compil_config>`.
