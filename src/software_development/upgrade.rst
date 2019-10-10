@@ -43,10 +43,10 @@ the version currently in use reflected by the $GMT_GLOBAL environment variable.
     $ gmt_env
 
 To create the user working development environment, please
-follow the instructions on the :ref:`<installation>` page. If
+follow the instructions on the :ref:`installation <installation>` page. If
 the user working development environment (i.e., $GMT_LOCAL) has already
 been created and contains modules with code generated using the previous
-version of the SDK, please follow the instructions on the :ref:`<sdk_1_6_migration_guide>`
+version of the SDK, please follow the instructions on the :ref:`SDK 1.6 migration guide <sdk_1_6_migration_guide>`
 page in order to migrate the code and the structure of the modules to the
 new formats.
 
