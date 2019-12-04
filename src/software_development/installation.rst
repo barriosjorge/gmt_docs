@@ -112,13 +112,21 @@ The following RPM packages should be installed by an Administrative user for use
 Node Installation
 .................
 
-1. Install **Node version 10**:
+1. Install Python 2 and set is a default interpreter. It is necessary for the node package manager.
+
+  .. code-block:: bash
+
+    $ sudo dnf install -y python2
+    $ sudo alternatives --set python /usr/bin/python2
+
+
+2. Install **Node version 10**:
 
   .. code-block:: bash
 
     $ sudo dnf module install -y nodejs:10
 
-2. Install necessary node packages:
+3. Install necessary node packages:
 
   .. code-block:: bash
 
