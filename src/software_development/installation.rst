@@ -101,7 +101,7 @@ The following RPM packages should be installed by an Administrative user for use
     $ sudo dnf install -y cpp cscope ctags gc gcc-c++ gcc-gdb-plugin glibc-devel
     $ sudo dnf install -y glibc-headers kernel-headers libstdc++-devel
     $ sudo dnf install -y flex git libcurl-devel
-    $ sudo dnf install -y python3-sphinx python3-sphinx_rtd_theme
+    $ sudo dnf install -y python3
 
 3. Install OCS Dependencies
 
