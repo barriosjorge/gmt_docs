@@ -3,7 +3,7 @@
     "major": 1,
     "minor": 7,
   },
-  "yum_release": "8",
+  "yum_release": "28",
   "yum_repo": "stable",
   "git_commit": "HEAD"
 }
