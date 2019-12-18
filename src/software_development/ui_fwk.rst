@@ -64,7 +64,7 @@ This will give you the base parameters to load the local environment. The ``elem
 
 .. note::
     
-    The bundles you define need to have corresponding webpacke'd model files in ``$GMT_LOCAL/lib/js``.  You will need to copy these files on your own.
+    The bundles you define need to have corresponding webpack model files in ``$GMT_LOCAL/lib/js``.  You will need to copy these files on your own.
 
 After you've done this, download the Mac App
 
@@ -95,6 +95,7 @@ From the navigation menu you can visually explore your model, inspect or send da
   :align: center
   :alt: Navigator with inspect.
 
+You can drag models and inputs/outputs/properties/state vars into tabs.  You can create new tabs by double-clicking the empty tab area.  You can drag and re-order tabs.  Elements dragged into the tabs can also be re-ordered by dragging the title bar and resized by dragging the bottom right corner.
 
 Launching Custom Panels
 -----------------------
@@ -104,11 +105,11 @@ From the model navigation menu, select the ``Vis package`` you want to run and t
 Troubleshooting Guide
 ---------------------
 
-The engineering app loads the local bundles defined in ``$GMT_LOCAL/etc/bundles`` and the webpacke'd model files in ``$GMT_LOCAL/lib/js``.  If you enable bundles, but no corresponding model lib file exists, the UI might end up an incosistent or 'blank' state.
+The engineering app loads the local bundles defined in ``$GMT_LOCAL/etc/bundles`` and the webpack model files in ``$GMT_LOCAL/lib/js``.  If you enable bundles, but no corresponding model lib file exists, the UI might end up an incosistent or 'blank' state.
 
-* **No navigation tree**: the navigation tree is rendered off the local bundles in ``$GMT_LOCAL\etc\bundles``.  The bundles described there need to have been built with webpack.
-* **Incositent Navigation tree**: Navigator persists your menu state, so when you change your bundles you need to manually reset the persistence.  Press ``CMD+,`` and press `Reset application state` button.  
-* **Blank screen**: If the UI starts with a blank screen, it's likely there's an incosistent configuration.  Open the Developer console and check the error message.
+* **No navigation tree**: the navigation tree is rendered from the local bundles enabled in ``$GMT_LOCAL\etc\bundles``.  The bundles defined there need to exist in your ``$GMT_LOCAL/lib/js`` folder.  You can create these by running ``webpack`` on your model.
+* **Incositent Navigation tree**: If you don't see a newly added (or still see a deleted element in the tree) it's because Navigator persists your menu state, so when you make changes to your bundles or edit your model files you need to manually clear the application cache.  Press ``CMD+,`` to see the Navigator preferences.  Find the `Reset application state` button and press it.  If this works, your menu will have been rebuilt and should be consistent again.
+* **Blank screen**: If the UI starts with a blank screen, it's likely there's an incosistent configuration, for example, you defined a bundle, but there is no webpack version of the model in ``$GMT_LOCAL/lib/js``.  Open the Developer console and check the error message.
 
 In some cases the cached data might have caused an error.  There are three possible ways to fix this in order of severity:
 
@@ -125,6 +126,7 @@ If that also fails, try deleting the cache directly from your disk
     rm -fr ~/.config/Electron 
     rm -fr ~/.config/ocs_navigator
 
+If this does not fix your problem, it's possible that your bundle and your modules are inconsistent.  Check that what you define in ``$GMT_LOCAL/etc/bundles`` has a corresponding webpack file in ``$GMT_LOCAL/lib/js``.
 
 * **Unresponsive UI**: in some case if the UI becomes unresponsive, press ``CMD+R`` to refresh.  If that fails to solve the problem, restart the CLI app.
 * **No data**: Ensure that the ports used by the controllers to publish data are accessible through the firewall. The following command should be used on the Device Control Computer to open the applicable range of ports (8122 - 8124):
