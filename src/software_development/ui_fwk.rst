@@ -36,13 +36,13 @@ In the ``<ocs_local>`` directory, you'll need to create this folder structure an
 
 .. code-block:: bash
 
-    ├── etc
-    │   ├── bundles
-    │   │   ├── bundles.coffee
-    │   │   └── ocs_local_bundle.coffee
-    │   └── conf
-    ├── lib
-    └── modules
+    |-- etc
+    |   |-- bundles
+    |   |   |-- bundles.coffee
+    |   |   |-- ocs_local_bundle.coffee
+    |   |-- conf
+    |-- lib
+    |-- modules
 
 The ``bundles.coffee`` should have
 
