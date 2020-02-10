@@ -1,6 +1,6 @@
 This repository contains the Software and Controls documentation as source files and generated content.
 
-The .rst files used to generate documentation are stored on the `master` branch. The generated HTML and PDF files are stored on the `gh-pages` branch and hosted at https://gmto.github.io/gmt_docs/html/.
+The .rst files used to generate documentation are stored on the `master` branch. The generated HTML and PDF files are stored on the `gh-pages` branch and hosted at https://gmto.github.io/gmt_docs/.
 
 Software & Controls Documentation
 =================================
