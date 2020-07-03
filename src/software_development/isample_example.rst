@@ -348,14 +348,7 @@ To install the configuration files, execute the following commands:
 .. code-block:: bash
 
    $ gds install isample_dcs
-   $ grs compile -i isample_cryo_external_temp_ctrl
-   $ grs compile -i isample_cryo_internal_temp_ctrl
-   $ grs compile -i isample_ctrl_super
-   $ grs compile -i isample_focus1_ctrl
-   $ grs compile -i isample_fw1_ctrl
-   $ grs compile -i isample_fw2_ctrl
-   $ grs compile -i isample_hw1_adapter
-
+   $ grs compile isample_dcs
 
 Running the Example
 -------------------
