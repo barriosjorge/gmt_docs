@@ -90,14 +90,14 @@ Contents of release 1.8.0
     - Support definition of domains with different data rates 
     - Fixed PDO mapping
 
-  - Control Framework updated to sync with Node.js Core Framework:
+  - Control Framework updated to sync with Node.js Core Framework
 
   - Updated Persistence Framework:
 
     - Updated mongodb driver
     - Added database connection monitoring
 
-  - Test Framework updated to sync with Node.js Core Framework:
+  - Test Framework updated to sync with Node.js Core Framework
 
   - UI Framework implementation:
 
