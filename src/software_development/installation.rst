@@ -6,26 +6,27 @@ Installing the SDK
 Development Platform
 --------------------
 
-The development platform is no longer distributed as a standalone ISO file. Instead, the following guide is provided to assist with hardware, operating system and third-party software configuration required for running the OCS SDK. Some key areas, such as disk partitioning, user authentication and NFS mounting of home directories, depend on individual factors at each partner institution and should therefore be considered examples only.
+The development platform is no longer distributed as a standalone ISO file. Instead, the following guide is provided to assist with hardware, operating system and third-party software configuration required for running the OCS SDK. Some key areas, such as disk partitioning, user authentication and NFS mounting of home directories, depending on individual factors at each partner institution and should, therefore, be considered examples only.
 
 Benefits of this approach, versus distributing the complete ISO, include the ability to support different network, hardware and software platforms used for software development by different partner institutions, as well as allowing for separate upgrade schedules for the Development Platform and Software Development Kit without affecting ongoing subsystem software development.
 
 .. note::
 
-   At GMTO, these instructions are formalized using Kickstart files and installed via the network using tools such as Cobbler. The GMTO DevOps team can provide assistance in setting up a similar system for development at partner institutions, if required.
+   At GMTO, these instructions are formalized using Kickstart files and installed via the network using tools such as Cobbler. The GMTO DevOps team can provide assistance in setting up a similar system for development at partner institutions if required.
 
-The Observatory Control System (OCS) is designed to be a distributed system with device control components running on real-time computers, connected to common services and user interface components via the control network. 
+The Observatory Control System (OCS) is designed to be a distributed system with device control components running on real-time computers, connected to common services and user interface components via the control network.
 
 For device control systems, the following operating systems are supported:
     - CentOS 8
 
 For user interfaces, the following operating systems are supported:
     - MacOS
+    - CentOS 8
 
 Server Configuration
 --------------------
 
-Servers are used for developing, running and testing device control software and core services. When real-time communication with hardware is required, the real-time kernel should be installed and configured. The following guidelines for creating a server should be tailored according to its intended purpose. 
+Servers are used for developing, running and testing device control software and core services. When real-time communication with hardware is required, the real-time kernel should be installed and configured. The following guidelines for creating a server should be tailored according to its intended purpose.
 
 Required Hardware
 .................
@@ -43,12 +44,12 @@ Typical GMT OCS development machine specs:
   * 120 - 250 GB Hard drive
 
 
-.. _Operating System:
+.. _Operating system:
 Operating System
 ................
 
-1. Install the Centos 8 Operating System. A minimal server installation is sufficient for the use of the GMT SDK.
-   Change the partitions filesystem to ext4 if using the realtime kernel.
+1. Install the Centos 8 Operating System. A `minimal` server installation is sufficient for the use of the GMT SDK.
+   Change the filesystem of the partitions to ext4 if using the real-time kernel.
 
 .. warning::
   If you plan to develop real-time components, the Linux kernel requires the root partition to be an **ext4** file system. Please ensure that this is configured correctly in the disk partitioning settings.
@@ -74,7 +75,7 @@ Operating System
     setenforce 0
 
 .. warning::
-  Make sure your server is protected by an external firewall
+  Make sure an external firewall protects your server
 
 
 Repository Configuration
@@ -108,7 +109,7 @@ To add the GMT repositories:
 Package List
 ............
 
-The following RPM packages should be installed by an Administrative user for use in the development environment:
+An Administrative user should install the following RPM packages for use in the development environment:
 
 1. Install Common OS Utilities
 
@@ -196,10 +197,10 @@ MongoDB Configuration
     $ sudo systemctl status -l mongod
 
 
-Ethercat Configuration
+EtherCAT Configuration
 ......................
 
-EtherCAT is a high-speed fieldbus communication system used for real-time control. The following configuration steps should be used as a guide when configuring EtherCAT communications.
+EtherCAT is a high-speed Fieldbus communication system used for real-time control. The following configuration steps should be used as a guide when configuring EtherCAT communications.
 
 1. Install the real-time kernel and relevant packages
 
@@ -231,7 +232,7 @@ EtherCAT is a high-speed fieldbus communication system used for real-time contro
     MASTER0_DEVICE="<mac_address_1>"
     MASTER0_BACKUP="<mac_address_2>"  # optional line
 
-  where ``<mac_address_1>`` and ``<mac_address_2>`` are the two hardware addresses associated with the Ethercat network interface communicating with the Ethercat ring (redundant topology). If you you prefer using a linear topology (non redundant), comment or remove the second line (``MASTER0_BACKUP="<mac_address_2>"``).
+  Where ``<mac_address_1>`` and ``<mac_address_2>`` are the two hardware addresses associated with the Ethercat network interface communicating with the Ethercat ring (redundant topology). If you prefer using a linear topology (non-redundant), comment or remove the second line (``MASTER0_BACKUP="<mac_address_2>"``).
 
 5. Edit ``/usr/lib/systemd/system/ethercat.service`` and uncomment the following line:
 
@@ -259,8 +260,8 @@ EtherCAT is a high-speed fieldbus communication system used for real-time contro
 
   .. code-block:: bash
 
-    $ sudo groupadd -f -g 2001 realtime
-    $ sudo usermod --groups realtime gmto
+    $ sudo groupadd -f -g 2001 real-time
+    $ sudo usermod --groups real-time gmto
 
 8. Test the Ethercat configuration
 
@@ -269,7 +270,7 @@ EtherCAT is a high-speed fieldbus communication system used for real-time contro
     $ ethercat master
     $ ethercat slaves
 
-If the "ethercat master" command does not produce the correct output, ensure that you're currently running the real-time kernel. If the "ethercat slaves" command produces no output, check that the ethernet cable is connected to the correct port as configured above.
+If the ``ethercat master`` command does not produce the correct output, ensure that you're currently running the real-time kernel. If the ``ethercat slaves`` command produces no output, check that the ethernet cable is connected to the correct port as configured above.
 
 
 Network Time Protocol Configuration
@@ -330,7 +331,7 @@ The SDK should be installed in a **Global GMT Software Location**, defined by th
 
     $ mkdir <local_working_dir>
 
-  where ``<local_working_dir>`` is in the current users' home directory, for example ~/work. The GMT software modules developed by the user are created in this folder.
+  where ``<local_working_dir>`` is in the current users' home directory, for example, ~/work. The GMT software modules developed by the user are created in this folder.
 
 5. Add the following lines to your .bash_profile (or .kshrc or .bashrc depending on your preferred shell)
 
@@ -372,7 +373,7 @@ The SDK should be installed in a **Global GMT Software Location**, defined by th
     $ cd $GMT_LOCAL
     $ gds init
 
-  The correct folders will be created in the $GMT_LOCAL directory for use when compiling and running modules.  
+  The correct folders will be created in the $GMT_LOCAL directory for use when compiling and running modules.
 
 9. Create a **modules** directory in $GMT_LOCAL
 
@@ -398,7 +399,7 @@ The SDK should be installed in a **Global GMT Software Location**, defined by th
     module.exports =
         ocs_local_bundle:   {scope: "local",  desc: "GMT iSample and HDK bundle"}
 
-  Edit **ocs_local_bundle.coffee** to include the isample and HDK modules, or other modules that you are working on
+  Edit **ocs_local_bundle.coffee** to include the ISample and HDK modules, or other modules that you are working on
 
   .. code-block:: bash
 
