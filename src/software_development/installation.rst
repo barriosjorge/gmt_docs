@@ -43,14 +43,38 @@ Typical GMT OCS development machine specs:
   * 120 - 250 GB Hard drive
 
 
+.. _Operating System:
 Operating System
 ................
 
-Install the Centos 8 Operating System. Change the partitions filesystem to ext4 if using the realtime kernel.
+1. Install the Centos 8 Operating System. A minimal server installation is sufficient for the use of the GMT SDK.
+   Change the partitions filesystem to ext4 if using the realtime kernel.
 
 .. warning::
   If you plan to develop real-time components, the Linux kernel requires the root partition to be an **ext4** file system. Please ensure that this is configured correctly in the disk partitioning settings.
 
+.. warning::
+  Due to a `bug <https://bugzilla.redhat.com/show_bug.cgi?id=1812120>`_, openssh-server should temporarily not be
+  upgraded to any version greater than 8.0p1-3.el8. To fix the openssh-server version, run this command right after the
+  Operating System installation:
+
+
+  .. code-block:: bash
+    $ sudo echo "exclude=openssh* libssh*" >> /etc/dnf/dnf.conf
+
+2. Disable firewall
+
+  .. code-block:: bash
+    systemctl disable firewalld
+    systemctl stop firewalld
+
+3. Disable SELinux
+  .. code-block:: bash
+    sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
+    setenforce 0
+
+.. warning::
+  Make sure your server is protected by an external firewall
 
 
 Repository Configuration
@@ -120,11 +144,11 @@ Node Installation
     $ sudo alternatives --set python /usr/bin/python2
 
 
-2. Install **Node version 10**:
+2. Install **Node version 12**:
 
   .. code-block:: bash
 
-    $ sudo dnf module install -y nodejs:10
+    $ sudo dnf module install -y nodejs:12
 
 3. Install necessary node packages:
 
@@ -158,20 +182,14 @@ MongoDB Configuration
 
     $ sudo mkdir -p /data/db
 
-4. Configure the firewall
-
-  .. code-block:: bash
-
-    $ sudo firewall-offline-cmd --direct --add-rule ipv4 filter INPUT 0 -p tcp --dport 27017 -j ACCEPT
-
-5. Enable the MongoDB service
+4. Enable the MongoDB service
 
   .. code-block:: bash
 
     $ sudo systemctl enable mongod
     $ sudo systemctl start mongod
 
-6. Check that the MongoDB service is up
+5. Check that the MongoDB service is up
 
   .. code-block:: bash
 
@@ -190,7 +208,7 @@ EtherCAT is a high-speed fieldbus communication system used for real-time contro
     $ sudo dnf install -y --nogpgcheck kernel-3.14.73-rt78.x86_64 ethercat-devel
 
 .. warning::
-  This Linux kernel requires the root partition to be an **ext4** file system. Otherwise, your machine will not boot.
+  Before installing the RT kernel, check restrictions on :ref:`Operating System` warnings.
 
 
 2. Select the Ethernet interface to be used for EtherCAT communication (e.g. enp4s0) and edit the corresponding configuration file (e.g. ``/etc/sysconfig/network-scripts/ifcfg-enp4s0``) to set the following options:
@@ -200,7 +218,7 @@ EtherCAT is a high-speed fieldbus communication system used for real-time contro
     BOOTPROTO=none
     ONBOOT=no
 
-3. Check the Hardware Address of the selected EtherCAT network interface
+3. Check the Hardware Address (MAC) of the selected EtherCAT network interface
 
   .. code-block:: bash
 
@@ -271,54 +289,12 @@ For general network timekeeping, use NTP, unless Precision Time Protocol is requ
 
     $ sudo systemctl enable chronyd
 
-
-Precision Time Protocol Configuration (optional)
-................................................
-
-1. Install the necessary packages:
+3. Check date/time servers
 
   .. code-block:: bash
 
-    $ sudo dnf install -y linuxptp
+    $ sudo chronyc sources
 
-2. Edit ``/etc/ptp4l.conf`` and add the following options:
-
-  .. code-block:: bash
-
-    [global]
-    slaveOnly       1
-    verbose         1
-    time_stamping   software
-    summary_interval 6
-    [enp3s0]
-
-where ``[enp3s0]`` should be set to the interface to use for PTP.
-
-3. Edit ``/etc/sysconfig/phc2sys`` and add the following options:
-
-  .. code-block:: bash
-
-    OPTIONS="-a -r -u 60"
-
-4. Edit ``/etc/sysconfig/ptp4l`` and add the following options:
-
-  .. code-block:: bash
-
-    OPTIONS="-f /etc/ptp4l.conf -i enp3s0"
-
-5. Configure access through the firewall
-
-  .. code-block:: bash
-
-    $ sudo firewall-offline-cmd --direct --add-rule ipv4 filter INPUT 0 -p udp --dport 319:320 -j ACCEPT
-
-6. Enable the ptp service
-
-  .. code-block:: bash
-
-    $ sudo systemctl enable ptp4l
-
-.. _sdk_install:
 
 Software Development Kit (SDK)
 ------------------------------
@@ -337,16 +313,16 @@ The SDK should be installed in a **Global GMT Software Location**, defined by th
 
   .. code-block:: bash
 
-    $ sudo mkdir /opt/gmt_release_1.7.0
-    $ sudo tar -xzvf <gmt-tar.gz> -C /opt/gmt_release_1.7.0
+    $ sudo mkdir /opt/gmt_release_1.8.0
+    $ sudo tar -xzvf gmt-sdk.tar.gz -C /opt/gmt_release_1.8.0
 
-  where <gmt-tar.gz> is the file downloaded in step 1.
+  where gmt-sdk.tar.gz is the file downloaded in step 1.
 
 3. Create a symbolic link from the **Global GMT Software Location** to the latest release:
 
   .. code-block:: bash
 
-    $ sudo ln -sfn gmt_release_1.7.0 /opt/gmt
+    $ sudo ln -sfn /opt/gmt_release_1.8.0 /opt/gmt
 
 4. Create a **Local Working Directory**
 
