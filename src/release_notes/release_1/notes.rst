@@ -15,7 +15,7 @@ Contents of release 1.8.0
   - Updated to Node 12.16.1
   - Updated the following node modules to newer versions:
 
-    - coffeescript 2.5
+    - coffeescript 2.5.1
     - mongodb 4.2
     - nanomsg 4.1.0
     - zeromq 5.2.0
@@ -24,28 +24,38 @@ Contents of release 1.8.0
 
   - New Data I/O and Connector definitions implemented on Node.js and C++
   - Update ICD model and docgen templates for generating ICD documents
+  - Add generation of automated interface tests
 
   - Code Generation updates on Node.js:
  
+    - Update code generation for the new Data I/O and connector model definitions
     - Add code generation for StateMachine and StructType data types
     - Add code generation for Enums (#178)
     - Fixed issue where code generation created duplicate “require” statements (#177)
-  
+    - Fixed issue in code generation where components were included in an application that did not match the target language (#175)
+
   - Code Generation updates on C++:
 
+    - Update code generation for the new Data I/O and connector definitions
     - Update code generation for Faults and Alarms
     - Updated code generation of HW Adapter to allow having data objects that are primitive types or array elements instead of structs when the "field" parameter of a data object in the data_object_map collection is left empty (#169)
     - Fixed issue in C++ code generation of default values for arrays of state machines (#156)
-    - Fixed issue in C++ code generation of port numbers in configuration files (#157)
     - Fixed issue in C++ code generation of path values for data types (#163)
     - Fixed issue in C++ code generation of default values for data types defined in the IO Framework (#164)
-    - Fixed issue in C++ code generation of state variable ports in configuration files (#165)
     - Fixed issue in C++ code generation where the dimensions of a 2D array was reversed (#167)
     - Removed GMT namespace from I/O Framework state machines (#172)
     - Fixed issue where enums in C++ were not properly initialized (#176)
+
+  - Configuration files:
+
+    - Updated generation of configuration files for new Data I/O and connector definitions
+    - Fixed issue in generation of port numbers in configuration files (#157)
+    - Fixed issue in generation of state variable ports in configuration files (#165)
+    - Fixed issue in generation of large default values in configuration files (#168)
  
   - Improved error handling in ‘grs compile’ when the URI has not been specified properly in the model (#143)
-  - Fixed Package application to no longer include components that do not specify coffee as the target language (#175)
+  - Update ‘grs compile’ to compile all the configuration files of a module
+  - Added check option in ‘grs compile’ to check the consistency of the compiled files
 
 - Core Frameworks
 
@@ -54,10 +64,10 @@ Contents of release 1.8.0
     - New implementation of Data I/O and Connector strategy
     - Added timeout option to grs get, set and inspect commands
     - Added monitoring of computing resources, such as CPU and memory
-    - Major CPU and memory performance optimizations
+    - CPU and memory performance optimizations
     - Updated model definition and implementation of Enum data types
     - Updated control_mode_sv state machine implementation
-    - Fixed OpStateFSM, AlarmFSM and FaultFSM model representation to match current implementation
+    - Updated OpStateFSM, AlarmFSM and FaultFSM model representation to match current implementation
     - Added performance metrics for Component Behaviors (step execution average, jitter, etc)
     - Added Query API to service adapters
 
@@ -71,6 +81,7 @@ Contents of release 1.8.0
     - Updated Component Service Access (container) handling of alarm, fault and configuration events
 
   - Added Node.js implementation of OPC-UA Adapter with client and server implementation examples 
+  - Added new database command to the `grs` tool to query and update the Core Services databases
 
   - EtherCAT Hardware Adapter updates:
 
@@ -81,7 +92,10 @@ Contents of release 1.8.0
 
   - Control Framework updated to sync with Node.js Core Framework:
 
-  - Persistence Framework updated to sync with Node.js Core Framework:
+  - Updated Persistence Framework:
+
+    - Updated mongodb driver
+    - Added database connection monitoring
 
   - Test Framework updated to sync with Node.js Core Framework:
 
@@ -95,33 +109,17 @@ Contents of release 1.8.0
 
 - Core Services
 
-  - [Example] Refactored all core services to sync with Node.js Core Framework
-  - [Example] Update options to the core services command line tools (See updated documentation) 
-
-- Navigator Application
-
-  - Updated Look & Feel
+    - Add support for Query API to Core Service Servers
 
 - Implementation examples
 
   - The HDK example has been updated to sync with the new Core Frameworks
-
-    - [Example] Configurations are read from file and the command line
-    - [Example] Changes in class layout (each Component has a Base with autogenerated code and a derived class with user-added code)
-
   - The ISample example has been updated to sync with the new Core Frameworks
-
-    - [Example] Model files have been cleaned up
-    - [Example] Removed unsupported components from the Model
 
 - Documentation: Software Development
 
-  - Updated ``Installing the SDK`` and ``Upgrade`` pages to ...
+  - Minor updates to the ``Installing the SDK`` and ``Upgrade`` pages
   - Replaced the online version of the Software and Controls Standards with a download link for the released version of Rev.A
-  - [TODO] Updated page ``Model specification guide document``, to reflect v1.8 changes to the MetaModel.
-  - [TODO] Updated ``Model-language mapping`` to reflect changes to the Model Definition File mapping to Coffeescript and C++ source code
-  - [TODO] Updated ``ISample Example`` and ``HDK example`` pages to reflect recent changes ...
-  - [TODO] Updated ``UI Framework`` page to ...
 
 - Known Issues:
 
