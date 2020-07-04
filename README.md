@@ -42,7 +42,7 @@ In order to contribute to online documentation, follow these instructions:
     make clean
     make html
     ```
-    This will generate an `html` folder containing the .html files and related resources. To view the pages, open a web browser and go to `file:///<path>/<to>/<repositories>/gmt_docs/html/index.html`.
+    This will generate an `html` folder containing the .html files and related resources. To view the pages, open a web browser and go to `file:///<path>/<to>/<repositories>/gmt_docs_build/html/index.html`.
 
 5. Commit changes to the local repository and push to the remote fork
     ```
@@ -169,12 +169,12 @@ The following packages and libraries are required to generate HTML and/or PDF fi
 * Run 
     ```
     npm install
-    sudo -H python -m pip install sphinx
-    sudo -H python -m pip install sphinx-autobuild
-    sudo -H python -m pip install sphinx_rtd_theme
-    sudo -H python -m pip install sphinxcontrib-blockdiag
-    sudo -H python -m pip install sphinxcontrib-websupport
-    sudo -H python -m pip install vulcanize
+    sudo -H python3 -m pip install sphinx
+    sudo -H python3 -m pip install sphinx-autobuild
+    sudo -H python3 -m pip install sphinx_rtd_theme
+    sudo -H python3 -m pip install sphinxcontrib-blockdiag
+    sudo -H python3 -m pip install sphinxcontrib-websupport
+    sudo -H python3 -m pip install vulcanize
     ```
     
 ### Linux
