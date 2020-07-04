@@ -74,8 +74,8 @@ Contents of release 1.8.0
   - Updated C++ implementation of Core Framework:
 
     - New implementation of Data I/O and Connector strategy, updated to match Node.js Core Framework
-    - Added Fault Management and propagation
-    - Added Alarm Management and propagation
+    - Added Fault Management
+    - Added Alarm Management
     - Component distributed asynchronous communication
     - Updated op_state_sv state machine implementation
     - Updated Component Service Access (container) handling of alarm, fault and configuration events
