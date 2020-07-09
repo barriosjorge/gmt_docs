@@ -354,7 +354,7 @@ The SDK should be installed in a **Global GMT Software Location**, defined by th
   .. code-block:: bash
 
     $ cd $GMT_GLOBAL
-    $ npm install
+    $ sudo npm install
 
     $ cd $GMT_LOCAL
     $ cp $GMT_GLOBAL/package.json ./
