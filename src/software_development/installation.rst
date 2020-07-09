@@ -260,8 +260,8 @@ EtherCAT is a high-speed Fieldbus communication system used for real-time contro
 
   .. code-block:: bash
 
-    $ sudo groupadd -f -g 2001 real-time
-    $ sudo usermod --groups real-time gmto
+    $ sudo groupadd -f -g 2001 realtime
+    $ sudo usermod --groups realtime gmto
 
 8. Test the Ethercat configuration
 
@@ -359,12 +359,6 @@ The SDK should be installed in a **Global GMT Software Location**, defined by th
     $ cd $GMT_LOCAL
     $ cp $GMT_GLOBAL/package.json ./
     $ npm install
-
-  Install global node modules for `Webpack` and `Coffeescript`.
-
-  .. code-block:: bash
-
-    $ sudo npm install -g coffeescript webpack webpack-cli coffee-loader
 
 8. Initialize the Development Environment:
 
