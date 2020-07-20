@@ -99,10 +99,11 @@ The features of a the *Classifier* metaclass are:
    Model inheritance doesn't extend all the features of a model element, only features whose
    kind is *containment* are extended. In the case of a *Component* those features are:
 
-      - input_ports
-      - output_ports
+      - inputs
+      - outputs
       - state_vars
       - properties
+      - faults
       - alarms
 
 ``abstract``
@@ -170,7 +171,7 @@ Module metaclass structure
 The following diagram shows the metaclasses relevant to the definition of a *DCS* module:
 A *DCS* is an aggregate of *Packages*, which are an aggregate of *Components*
 
-.. figure:: _static/dcs_bdd.png
+.. figure:: _static/dcs_decomposition.png
 
    DCS Model Elements
 
@@ -270,7 +271,7 @@ a *Subsystem* has the features of an *Aggregate* and a *PBE* (Product Breakdown 
    The *Packages* owned by the *Subsystem* (from *Aggregate*)
 
 ``connectors``
-   This attribute is a containment of :ref:`*DataConnectors* <data_connector_def>` which define the connection
+   This attribute is a containment of :ref:`DataConnectors <data_connector_def>` which define the connection
    between *Components* of different *Module* packages.
 
 ``instances``
@@ -292,14 +293,32 @@ a *Subsystem* has the features of an *Aggregate* and a *PBE* (Product Breakdown 
 
 **DataConnector Features**
 
-In addition to the features of a :ref:`*Classifier* <classifier_def>` a *DataConnector* has the
+In addition to the features of a :ref:`Classifier <classifier_def>` a *DataConnector* has the
 following features:
 
-``from``
-   This attribute is a reference to the *Component* port acting as source of the connector
+``url``
+   The address that the endpoints use to connect to the DataIO. The value of the url
+   must conform to the following syntax: <transport>:<address>. The possible values
+   of <transport> and <address> are:
 
-``to``
-   This attribute is a reference to the *Component* port acting as a sink of the connector
+   ============  ===========================  ==========================================================
+   Transport     Address                      Description
+   ============  ===========================  ==========================================================
+   tcp           tcp://<host>:<port>          TCP transport. e.g. tcp://127.0.0.1:4040
+   ipc           ipc:///<ipc endpoint>        Interprocess communication. e.g. ipc:///tmp/test_port.ipc
+   inproc        inproc://<inproc endppoint>  Intraprocess communication. e.g. inproc://test_port
+   ============  ===========================  ==========================================================
+
+``blocking_mode``
+   The ``blocking_mode`` is an attribute that defines the temporal behavior of the *DataIO*.
+   The possible values are:
+
+   ======  ================================================================
+   Value   Description
+   ======  ================================================================
+   async   Data is processed by the *DataIO* as soon as it's available
+   sync    Data is processed by the *DataIO* synchronously at the nominal rate of the *Connector*
+   ======  ================================================================
 
 ``max_latency``
    The maximun latency in microseconds that is permisible once the connection is established.
@@ -308,6 +327,52 @@ following features:
    The nominal rate of the connection (with must be lower than the maximum rate of the connected ports).
    If the ``nom_rate`` is 0 it's behavior is considered episodic.
 
+``units``
+   This attribute is a reference to the *Component* port acting as source of the connector
+
+``endpoints``
+   This attribute is a containment of elements of metaclass *DataEndPoint*. *DataEndPoints* are the possible
+   sources or destinations of the *DataConnector*.
+
+.. note::
+
+    In the current implementation only two conjugate endpoints are supported in all the SDK framework platforms.
+
+.. _data_endpoint_def:
+
+**DataEndPoint Features**
+
+A *DataEndPoint* has the following features:
+
+``name``
+   This attribute is a reference to the *Component* port acting as source of the connector
+
+``role``
+   The communication pattern that the *DataIO* must implement. The possible
+   values are:
+
+   ==============  ============================================
+   Protocol Value  Description
+   ==============  ============================================
+    PUSH           Emitter side in a data stream pipeline
+    PULL           Receiver side in a data stream pipeline
+    PUB            Publishes messages to a set of interested subscribers
+    SUB            Receives messages from a registered publisher
+    REQ            Emitter of a blocking request
+    RPL            Replies to received requests
+   ==============  ============================================
+
+``element``
+   This attribute is a reference to the instance of a *Component* port that is source or destination of the *DataConnector*
+
+``path``
+   ``path`` is an String attribute that defines which feature in the corresponding endpoint
+   *Component* is source of destination of the *DataConnector* The feature is specified by defining its path in
+   the following way: ``<feature_set>/<feature_name>/<feature_attribute>``, where:
+
+       - ``feature_set``: the category of the component feature, eg.: state_vars, inputs
+       - ``feature_name``: the name of the feature, e.g: op_state
+       - ``feature_atrribute``: the name of the attribute of the feature e.g: value, goal, desc
 
 See the next fragment of code for an example of Module specification
 
@@ -334,23 +399,26 @@ See the next fragment of code for an example of Module specification
 
          connectors:
 
-            c1:
-                id:          8101
-                from:        { element: "isample_ctrl_super", port: "heartbeat_out"}
-                to:          { element: "isample_dcs_super", port: "heartbeat_in"}
-                max_latency: 0.5
-                nom_rate:    100
-                on_fault:    ""
-                conversion:  ""
+            cryo_external_temp:
+                name:            'cryo_external_temp'
+                blocking_mode:   'sync'
+                url:             'sdp://'
+                max_latency:     0.5
+                nom_rate:        1
+                owner:           'isample_hw1_adapter'
+                endpoints:       [{ role: 'push', element: "isample_hw1_adapter",             path: "outputs/cryo_external_temp/value"}
+                                  { role: 'pull', element: "isample_cryo_external_temp_ctrl", path: "inputs/temperatures/value"}]
 
-            c2:
-                id:          8101
-                from:        { element: "isample_vis_super",  port: "heartbeat_out"}
-                to:          { element: "isample_dcs_super", port: "heartbeat_in"}
-                max_latency: 0.5
-                nom_rate:    100
-                on_fault:    ""
-                conversion:  ""
+            operator_buttons:
+                name:            'operator_buttons'
+                blocking_mode:   'sync'
+                url:             'tcp://127.0.0.1:8422'  #as an example, here we use a TCP/IP dedicated port
+                max_latency:     0.5
+                nom_rate:        100
+                owner:           'isample_hw1_adapter'
+                endpoints:       [{ role: 'push', element: "isample_hw1_adapter", path: "outputs/operator_buttons/value"}
+                                  { role: 'pull', element: "isample_focus1_ctrl", path: "inputs/hmi_inputs/value"}]
+
 
             ...
 
@@ -396,38 +464,7 @@ Module Types File
 
 The Module Types File defines the *DataTypes* that are defined as part of the module.
 The name of the Module Types File must conform to the syntax: *<module_name>_types.coffee*.
-
-.. figure:: _static/data_types.png
-
-   DataTypes structure
-
-The following section shows an excerpt of a Module Types File
-
-   .. code-block:: coffeescript
-
-      StructType "isample_hmi_buttons",
-         desc: "digital inputs corresponding to pressed buttons"
-         elements:   # Change name
-            red_push_button:   { desc: "RED Push Button",       type: "bool",     units: "" }
-            green_push_button: { desc: "GREEN Push Button",     type: "bool",     units: "" }
-            emergency_button:  { desc: "Emergency Button",      type: "bool",     units: "" }
-
-      StructType "isample_temp_measurements",
-         desc: "temperature measurements",
-         elements:
-            temp_sensor1:      { desc: "temperature sensor #1", type: "uint16_t", units: "celsius" }
-            temp_sensor2:      { desc: "temperature sensor #2", type: "uint16_t", units: "celsius" }
-            press_sensor1:     { desc: "pressure sensor    #1", type: "uint16_t", units: "bar" }
-
-      StructType "isample_motor_status",
-         desc: "status of motor device"
-         elements:
-            ready:             { desc: "Axis Ready",            type: "bool",     units: "" }
-            enabled:           { desc: "Axis Enabled",          type: "bool",     units: "" }
-            warning:           { desc: "Axis Warning",          type: "bool",     units: "" }
-            error:             { desc: "Axis Error",            type: "bool",     units: "" }
-            moving_positive:   { desc: "Axis Moving +",         type: "bool",     units: "" }
-            moving_negative:   { desc: "Axis Moving -",         type: "bool",     units: "" }
+Check the section :ref:`data types <data_type_spec>` for a description of DataTypes.
 
 
 Module Documentation File
@@ -581,7 +618,7 @@ a *Package has the features of an *Aggregate* and a *PBE*. We will omit the defi
 of the *Package* *PBE* and *Aggregate* features as they are the same as the *Subsystem*.
 
 ``connectors``
-   List of :ref:`**DataConnector** <data_connector_def>` between *Components* belonging to the package. (from *Aggregate*)
+   List of :ref:`DataConnector <data_connector_def>` between *Components* belonging to the package.
 
 Component Specification
 -----------------------
@@ -632,7 +669,7 @@ Component Features
 
 The following diagrams shows the basic structure of a *Component* and it's building blocks.
 
-.. figure:: _static/base_component.png
+.. figure:: _static/data_io.png
   :align: center
   :scale: 60%
 
@@ -642,223 +679,20 @@ The *Component* metaclass extends *SCI* (Software Configuration Item), which als
 *Classifier* and *PBE*. Therefore, in addition to the features of a *Classifier* and
 a *PBE*, a *Component* has the following features:
 
-.. _properties:
+      - inputs
+      - outputs
+      - state_vars
+      - properties
+      - faults
+      - alarms
 
-``properties``
-   The ``properties`` feature is a containment of *Property* that defines the data of
-   a *Component* that can be changed for each *Component* intance or that can be changed
-   at runtime. A *Property* extends the metaclass *ValueClassifier*. In addition of the
-   features of a *ValueClassifier* a *Property* has the following features:
-
-   ``storage``
-      See :ref:`storage <storage_def>` definition in the *DataPort* description
-
-   ``monitor``
-      This feature is an boolean attribute. When *true* the changes of the property value
-      will be recorded as part of the telemetry stream.
-
-.. _inputs:
-
-``input_ports``
-   The ``input_ports`` feature is a containment of *DataPort* that defines the data that must be
-   accepted by the *Component*. Each element of the ``input_ports`` containment has the features
-   of a *DataPort*.
-
-.. _outputs:
-
-``output_ports``
-   The ``output_ports`` feature is a containment of *DataPort* that defines the data that can be
-   produced by the *Component*. Each element of the ``output_ports`` containment has the features
-   of a *DataPort*.
-
-.. _state_vars:
-
-``state_vars``
-   The ``state_vars`` feature is a containment of *StateVariable*.
-   A state variable is one of the set of variables that are used to describe
-   the mathematical 'state' of a dynamical system. In the architecture of the OCS, State Variables provide
-   the basic concept to integrate State Analysis with Sequence Based Specification techniques.
-   As *StateVariable* extends *DataPort*, in addition to the :ref:`features of *DataPort* <dataport_def>`
-   an *StateVariable* has the following features:
-
-   ``goal``
-      This feature is an attribute which contains the value that the *StateVariable* must achieve.
-
-   ``sampling_rate``
-      This feature is an attribute that defines the rate at which the *StateVariable* must be sampled.
-
-   ``control_rate``
-      This feature is an attribute that defines the rate at which the controller that is responsible to
-      maintain the *StateVariable* has to update it's control law.
-
-   ``is_controllable``
-      This feature is a boolean attribute that defines if the *StateVariable* can be controlled. This used
-      to model physical phenomena that are part of the definition of the state of the system, but that not
-      be affected by the control action (e.g. wind speed). Non Controllable *StateVariable* are used
-      to implement behavior that is dependent on their state by setting goals monitors on their value
-      (e.g. close observing shutter if wind is higher than 25 m/s)
-
-   ``sampling_deadband``
-      This feature is an attribute that defines the sampling deadband of the *StateVariable*
-
-   ``control_deadband``
-      This feature is an attribute that defines the control deadband of the *StateVariable*
-
-.. _faults:
-
-``faults``
-   The ``faults`` feature is a containment of *Fault*. The main purpuse of a *Fault* is to
-   detect and if possible handle non-nominal operating conditions. Faults are organized
-   in a simplified Fault Tree similar to the ones used Fault Tree Analysis (FTA).
-   In addition to the features of *StateVariable*, *Fault* has the following features:
-
-   ``kind``
-      The ``kind`` feature is a *String* attribute with the following possible values:
-
-      ==============  =========================================================================
-      Node Kind       Description
-      ==============  =========================================================================
-      primary         Primary faults detect the occurence of a fault condition
-      secondary       Represent a transfer from another fault tree
-      or              OR gate. The fault occurs if any of the children faults occurs
-      and             AND gate. The fault occurs if all of the children faults occur
-      xor             The fault occurs if only one of the children faults occurs
-      count           The fault occurs if at least *count* number of the children faults occurs
-      ==============  =========================================================================
-
-   ``parent``
-      The ``parent`` feature is an attribute that contains the name of the parent
-      fault in the fault tree. If the fault is the root of the fault tree the value
-      shall be the empty string. Root nodes can be used to connect with other fault trees
-      secondary (transfer in) nodes.
-
-   ``level``
-      The ``level`` of severity of the *fault*. Severity levels are TBD
-
-   ``rate``
-      The ``rate`` feature is an attribute that defines the frecuency at which the
-      alarm condition is evaluated.
-
-   ``threshold``
-      The ``threshold`` feature is an attribute that defines the number of cycles
-      in which the alarm condition occurs before the *alarm* becomes active.
-
-   ``count``
-      The ``count`` feature is an attribute that defines the number of children
-      alarms when the *alarm* is of ``kind`` ``count``.
-
-.. _alarms:
-
-``alarms``
-   The ``alarms`` feature is a containment of *Alarm*. Alarms can be grouped and
-   organized in a similar way to Fault Trees. The purpose of an *Alarm* is the identification
-   and notification of operating conditions that require operator attention.
-   In addition to the features of *StateVariable*, *Alarm* has the following features:
-
-   ``level``
-      The ``level`` feature is an attribute that defines the severity of the alarm.
-      Severity levels are TBD
-
-   ``rate``
-      The ``rate`` feature is an attribute that defines the frecuency at which the
-      alarm condition is evaluated.
-
-   ``threshold``
-      The ``threshold`` feature is an attribute that defines the number of cycles
-      in which the fault condition occurs before the fault becomes active.
-
-   ``kind``
-      The ``kind`` feature is a *String* attribute with the following possible values:
-
-      ==============  =========================================================================
-      Node Kind       Description
-      ==============  =========================================================================
-      primary         Must evaluate to
-      secondary       Represent a transfer from another fault tree
-      or              OR gate. The fault occurs if any of the children faults occurs
-      and             AND gate. The fault occurs if all of the children faults occur
-      xor             The fault occurs if only one of the children faults occurs
-      count           The fault occurs if at least *count* number of the children faults occurs
-      ==============  =========================================================================
-
-
-``version``
-   From SCI
-
-.. _dataport_def:
-
-*DataPort* Features
-...................
-
-``max_rate``
-   The maximum update rate in Hz that the port must support
-
-``protocol``
-   The communication pattern that the *DataPort* must implement. The possible
-   values are:
-
-   ==============  ============================================
-   Protocol Value  Description
-   ==============  ============================================
-    PUSH           Emitter side in a data stream pipeline
-    PULL           Receiver side in a data stream pipeline
-    PUB            Publishes messages to a set of interested subscribers
-    SUB            Receives messages from a registered publisher
-    REQ            Emitter of a blocking request
-    RPL            Replies to received requests
-   ==============  ============================================
-
-``url``
-   The address of the endpoint to connect to the DataPort. The value of the url
-   must conform to the following syntax: <transport>:<address>. The possible values
-   of <transport> and <address> are:
-
-   ============  ===========================  ==========================================================
-   Transport     Address                      Description
-   ============  ===========================  ==========================================================
-   tcp           tcp://<host>:<port>          TCP transport. e.g. tcp://127.0.0.1:4040
-   ipc           ipc:///<ipc endpoint>        Interprocess communication. e.g. ipc:///tmp/test_port.ipc
-   inproc        inproc://<inproc endppoint>  Intraprocess communication. e.g. inproc://test_port
-   ============  ===========================  ==========================================================
-
-
-``buffered``
-   The ``buffered`` feature is an integer attribute that defines the size of the buffer in case
-   the *DataPort* stream must be buffered. When size is 0 the data will not be buffered.
-
-.. _storage_def:
-
-``storage``
-   The ``storage`` feature is an integer attribute that defines the decimation factor
-
-   ======  ===================================
-   Value   Description
-   ======  ===================================
-   0       No data is stored
-   1       All data is stored
-   > 1     The data is decimated by the factor
-   ======  ===================================
-
-``retrys``
-   The maximum number of retries in case of communication problems
-
-``blocking_mode``
-   The ``blocking_mode`` is an attribute that defines the temporal behavior of the *DataPort*.
-   The possible values are:
-
-   ======  ================================================================
-   Value   Description
-   ======  ================================================================
-   async   Data is processed by the *DataPort* as soon as it's available
-   sync    Data is processed by the *DataPort* synchronously at the nominal rate of the *Connector*
-   ======  ================================================================
 
 .. _value_classifier_def:
 
 *ValueClassifier* Features
 ..........................
 
-A *ValueClassifier* is a *Classifier* to which a value can be assigned. A *ValueClassifier* declaration
+Each one of the *Component* features is a *ValueClassifier*. A *ValueClassifier* is a *Classifier* to which a value can be assigned. A *ValueClassifier* declaration
 has the following features.
 
 ``type``
@@ -881,6 +715,384 @@ has the following features.
 
 ``value``
    The actual value assigned to the *ValueClassifier*
+
+*Component* *ValueClassifiers* can be of two types, *DataIO* an *Properties*
+
+.. _dataio_def:
+
+*DataIO* Features
+...................
+
+``max_rate``
+   The maximum update rate in Hz that the port must support
+
+.. _storage_def:
+
+``storage``
+   The ``storage`` feature is an integer attribute that defines the decimation factor
+
+   ======  ===================================
+   Value   Description
+   ======  ===================================
+   0       No data is stored
+   1       All data is stored
+   > 1     The data is decimated by the factor
+   ======  ===================================
+
+``sampling_rate``
+   This feature is an attribute that defines the rate at which the *StateVariable* must be sampled.
+
+``sampling_deadband``
+   This feature is an attribute that defines the sampling deadband of the *StateVariable*
+
+*Property* Features
+...................
+
+.. _properties:
+
+The ``properties`` feature is a containment of *Property* that defines the data of
+a *Component* that can be changed for each *Component* intance or that can be changed
+at runtime. A *Property* extends the metaclass *ValueClassifier*. In addition of the
+features of a *ValueClassifier* a *Property* has the following features:
+
+``storage``
+    See :ref:`storage <storage_def>` definition in the *DataIO* description
+
+*Input* and *Outputs* Features
+..............................
+
+.. _inputs:
+
+``inputs``
+   The ``inputs`` feature is a containment of *DataIO* that defines the data that must be
+   accepted by the *Component*. Each element of the ``inputs`` containment has the features
+   of a *DataIO*.
+
+.. _outputs:
+
+``outputs``
+   The ``outputs`` feature is a containment of *DataIO* that defines the data that can be
+   produced by the *Component*. Each element of the ``outputs`` containment has the features
+   of a *DataIO*.
+
+*StateVariable* Features
+........................
+
+.. _state_vars:
+
+The ``state_vars`` feature is a containment of *StateVariable*.
+A state variable is one of the set of variables that are used to describe
+the mathematical 'state' of a dynamical system. In the architecture of the OCS, State Variables provide
+the basic concept to integrate State Analysis with Sequence Based Specification techniques.
+As *StateVariable* extends *DataIO*, in addition to the :ref:`features of DataIO <dataio_def>`
+an *StateVariable* has the following features:
+
+``goal``
+    This feature is an attribute which contains the value that the *StateVariable* must achieve.
+
+``control_rate``
+    This feature is an attribute that defines the rate at which the controller that is responsible to
+    maintain the *StateVariable* has to update it's control law.
+
+``is_controllable``
+    This feature is a boolean attribute that defines if the *StateVariable* can be controlled. This used
+    to model physical phenomena that are part of the definition of the state of the system, but that not
+    be affected by the control action (e.g. wind speed). Non Controllable *StateVariable* are used
+    to implement behavior that is dependent on their state by setting goals monitors on their value
+    (e.g. close observing shutter if wind is higher than 25 m/s)
+
+``control_deadband``
+    This feature is an attribute that defines the control deadband of the *StateVariable*
+
+*Faults* Features
+.................
+
+.. _faults:
+
+The ``faults`` feature is a containment of *Fault*. The main purpuse of a *Fault* is to
+detect and if possible handle non-nominal operating conditions. Faults are organized
+in a simplified Fault Tree similar to the ones used Fault Tree Analysis (FTA).
+In addition to the features of *StateVariable*, *Fault* has the following features:
+
+``kind``
+    The ``kind`` feature is a *String* attribute with the following possible values:
+
+    ==============  =========================================================================
+    Node Kind       Description
+    ==============  =========================================================================
+    primary         Primary faults detect the occurence of a fault condition
+    secondary       Represent a transfer from another fault tree
+    or              OR gate. The fault occurs if any of the children faults occurs
+    and             AND gate. The fault occurs if all of the children faults occur
+    xor             The fault occurs if only one of the children faults occurs
+    count           The fault occurs if at least *count* number of the children faults occurs
+    ==============  =========================================================================
+
+``parent``
+    The ``parent`` feature is an attribute that contains the name of the parent
+    fault in the fault tree. If the fault is the root of the fault tree the value
+    shall be the empty string. Root nodes can be used to connect with other fault trees
+    secondary (transfer in) nodes.
+
+``level``
+    The ``level`` of severity of the *fault*. Severity levels are TBD
+
+``rate``
+    The ``rate`` feature is an attribute that defines the frecuency at which the
+    fault condition is evaluated.
+
+``threshold``
+    The ``threshold`` feature is an attribute that defines the number of cycles
+    in which the fault condition occurs before the *fault* becomes active.
+
+``count``
+    The ``count`` feature is an attribute that defines the number of children
+    fault when the *fault* is of ``kind`` ``count``.
+
+The possible values of a *fault* are defined with the FaultFSM state machine as shown
+in the followint figure:
+
+.. figure:: _static/FaultFSM.png
+    :align: center
+    :scale: 60%
+
+Fault state machine diagram
+
+The possible states of the Fault state machine are:
+
+``ACTIVE``
+    The *fault* is in ``ACTIVE`` state when the fault condition is true.
+
+``NOT_ACTIVE``
+    The *fault* is in ``NOT_ACTIVE`` state when the fault condition is false.
+
+``RECOVERING``
+    The *fault* is in ``RECOVERING`` state when a recovery action is defined for the fault
+    and the *Component* is executing such action. The outcome of the recovery action can be that
+    either the fault is addressed an the new *fault* state is ``NOT_ACTIVE`` or the fault recovery
+    action fails and the new *fault* state is ``ACTIVE``.
+
+``DISABLED``
+    The *fault* is in ``DISABLED`` state when a goal of the *fault* state variable is set to ``DISABLED``
+    in ``DISABLED`` state the *fault* condition is not evaluated.
+
+.. note::
+
+    The details of how to define a fault evaluation function to test for the occurrence of a fault
+    condition or how to define a recovery action are part of the implementation. The mapping to the
+    different platforms provides a description for each case.
+
+*Alarm* Features
+.................
+
+.. _alarms:
+
+The ``alarms`` feature is a containment of *Alarm*. Alarms can be grouped and
+organized in a similar way to Fault Trees. The purpose of an *Alarm* is the identification
+and notification of operating conditions that require operator attention.
+In addition to the features of *StateVariable*, *Alarm* has the following features:
+
+``level``
+    The ``level`` feature is an attribute that defines the severity of the alarm.
+    Severity levels are TBD
+
+``rate``
+    The ``rate`` feature is an attribute that defines the frecuency at which the
+    alarm condition is evaluated.
+
+``threshold``
+    The ``threshold`` feature is an attribute that defines the number of cycles
+    in which the alarm condition occurs before the alarm becomes active.
+
+``kind``
+    The ``kind`` feature is a *String* attribute with the following possible values:
+
+    ==============  =========================================================================
+    Node Kind       Description
+    ==============  =========================================================================
+    primary         Must evaluate to
+    secondary       Represent a transfer from another alarm tree
+    or              OR gate. The alarm occurs if any of the children alarm occurs
+    and             AND gate. The alarm occurs if all of the children alarm occur
+    xor             The alarm occurs if only one of the children alarm occurs
+    count           The alarm occurs if at least *count* number of the children alarm occurs
+    ==============  =========================================================================
+
+``shelving_timeout``
+    The ``shelving_timeout`` feature is a *Integer* attribute. If the *alarm* is disabled by the operator
+    the shelving will finish after the duration of the ``shelving_timeout`` is elapsed. The units are nanoseconds
+
+``auto_ack``
+    The ``auto_ack`` feature is a *Boolan* attribute. When *true* the alarm will be acknowledged automatically.
+
+
+The possible values of an *alarm* are defined with the FaultFSM state machine as shown
+in the following figure:
+
+.. figure:: _static/AlarmFSM.png
+    :align: center
+    :scale: 60%
+
+    Alarm state machine diagram
+
+
+The possible values of an *alarm* are:
+
+
+``NORM``
+    The *alarm* is in ``NORM`` state when the alarm condition is not true.
+
+``UNACK``
+    The *alarm* is in ``UNACK`` state when the alarm condition is false.
+
+``ACKED``
+    The *alarm* is in ``ACKED`` state when it has been acknowledged by the operator.
+
+``RTNUN``
+    The *alarm* is in ``RTNUN`` state when the alarm condition stops been active before
+    is acknowledged by the operator.
+
+``SHLVD``
+    The *alarm* is in ``SHLVD`` state when a goal of the *alarm* state variable is set to ``SHLVD``
+    by the operator.
+
+``DSUPR``
+    The *alarm* is in ``DSUPR`` state when a goal of the *alarm* state variable is set to ``DSUPR``
+    by the operator.
+
+``OUTOO``
+    The *alarm* is in ``OUTOO`` state when a goal of the *alarm* state variable is set to ``OUTOO``
+    by the operator.
+
+*Port* Features
+...............
+
+.. _ports:
+
+The ``ports`` feature is a containment of *Ports*.
+
+``buffered``
+    The ``buffered`` feature is an integer attribute that defines the size of the buffer in case
+    the *DataIO* stream must be buffered. When size is 0 the data will not be buffered.
+
+``retrys``
+    The maximum number of retries in case of communication problems
+
+
+.. _data_type_spec:
+
+DataType specification
+.......................
+
+It is possible to define simple and complex hetereogeneous types by using the *DataType*, *StructType* and *Enum* metaclases.
+
+.. figure:: _static/data_types.png
+
+    DataType structure
+
+
+``ValueType``
+    A ValueType is used to express a value of a DataType attribute. For example when defining the default value of a feature
+    of the type *DataType*
+    The syntax used is an expression in the host language of the model DSL (i.e. coffeescript):
+    The expression can be one of the following:
+    - A number to express the value of a scalar attribute
+    - An string
+    - An array e.g. [1,2,4] to express the value of an array, where each element of the array can be other *ValueType*
+    - An Object literal e.g. {one: 1, two: "dos"} to express the value of a *StructType*. The value of the attribute
+      of each objet literal can be other *ValueType*
+
+``DataType``
+    The metaclass ``DataType`` allows the definition of the types that can be used in the specification of
+    other model elements. For example, the *type* feature of a *Property* is *DataType*
+
+    ``size``
+        The ``size`` feature is an attribute that defines the size of the *DataType* in bytes.
+
+    ``default``
+        The ``default`` feature is an attribute that defines the default value of the *DataType* when initialized.
+
+``StructType``
+    The metaclass ``StructType`` is a specialization of *DataType* that contain other *DataType*. ``StructType`` have the
+    following features:
+
+    ``elements``
+        The ``elements`` feature is a containment of *DataType*. Each element can be of different type
+        including other *DataType* or *StructType*. This allow the creation of complex types.
+
+``Enum``
+    The metaclass ``Enum`` is a *DataType* that contain a list of literals. The ``Enum`` metaclass has the following features:
+
+    ``literals``
+        The ``literals`` feature is a containment of *Literals*. Each *Literal* is defined by a name and a description.
+
+
+The following section shows an excerpt of a Module Types File
+
+   .. code-block:: coffeescript
+
+      DataType "uint16",
+        size:    2
+        default: 0
+        desc:    "Two bytes unsigned integer   (0 to 65535)"
+
+      StructType "isample_hmi_buttons",
+         desc: "digital inputs corresponding to pressed buttons"
+         elements:   # Change name
+            red_push_button:   { desc: "RED Push Button",       type: "bool",     units: "" }
+            green_push_button: { desc: "GREEN Push Button",     type: "bool",     units: "" }
+            emergency_button:  { desc: "Emergency Button",      type: "bool",     units: "" }
+
+      StructType "isample_temp_measurements",
+         desc: "temperature measurements",
+         elements:
+            temp_sensor1:      { desc: "temperature sensor #1", type: "uint16_t", units: "celsius" }
+            temp_sensor2:      { desc: "temperature sensor #2", type: "uint16_t", units: "celsius" }
+            press_sensor1:     { desc: "pressure sensor    #1", type: "uint16_t", units: "bar" }
+
+      StructType "isample_motor_status",
+         desc: "status of motor device"
+         elements:
+            ready:             { desc: "Axis Ready",            type: "bool",     units: "" }
+            enabled:           { desc: "Axis Enabled",          type: "bool",     units: "" }
+            warning:           { desc: "Axis Warning",          type: "bool",     units: "" }
+            error:             { desc: "Axis Error",            type: "bool",     units: "" }
+            moving_positive:   { desc: "Axis Moving +",         type: "bool",     units: "" }
+            moving_negative:   { desc: "Axis Moving -",         type: "bool",     units: "" }
+
+
+Behaviors specification
+.......................
+
+In order to specify the behavior of a model element the model provides the metaclasses *Behavior* and *StateMachine*
+
+``Behavior``
+    The ``Behavior`` metaclass is a ``Classifier`` that captures the behavioral characteristics of a model element. The detailed specification
+    is implementation dependant and the modeling DCS doesn't include an action language that would allow a formal
+    specification, instead a textual description is required. In addition to the *desc* feature of a ``Classifier`` is
+    possible to use other ``Classifier`` features like *files* or *notes* to attach diagrams that complement the
+    informal description of the ``Behavior``
+
+.. _state_machine:
+
+``StateMachine``
+    The ``StateMachine`` metaclass is a ``Behavior`` that represents a Meally or Moore state machine.
+    In addition to the features of a ``Classifier`` and a ``Behavior``, the ``StateMachine`` metaclass
+    has the following features:
+
+    ``states``
+        The ``states`` feature is an containment attribute that defines the possible states of the ``StateMachine``
+
+``State``
+    The ``State`` metaclass represents an state of a Meally or Moore state machine.
+    In addition to the features of a ``Classifier``, the ``State`` metaclass has the following features:
+
+    ``is_initial``
+        The ``is_initial`` feature is a Boolean attribute that indicates that the current state is the initial state.
+
+    ``pre``
+        The ``pre`` feature is an array of strings that identifies from which state the current state can be reached. If
+        the current state can be reached from any other state the value can be '*', e.g. pre: ['*']
 
 
 Appendix A - Model DataType Listing
