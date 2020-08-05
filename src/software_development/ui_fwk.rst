@@ -10,9 +10,14 @@ Navigator can run on MacOS or a Linux Desktop environment.  macOS Mojave, Catali
 Installation
 ------------
 
-To install Navigator you will need to donwload the packaged app and set up your local environment.
+To install Navigator you will need to donwload the packaged app and set up your local environment.  Downloads are available for macOS and centOS.
 
-To download for macOS click here @TODO.  To download for CentOS Desktop click here @TODO.
+.. code-block:: bash
+
+    wget http://52.52.46.32/srv/gmt/releases/navigator/centos8/ocs_navigator.AppImage
+    wget http://52.52.46.32/srv/gmt/releases/navigator/macos/ocs_navigator.app
+
+This is a packaged binary app that you can run after you have set up your environment.
 
 Setting up your enviornment
 ###########################
