@@ -107,6 +107,8 @@ Contents of release 1.8.1
 
     - Updated examples to use “op_state_value” instead of “ops_state_value” to be consistent with the version 1.8 of the core frameworks
 
+  - Updated :ref:`ui_fwk` documentation
+
 Contents of release 1.8.0
 -------------------------
 
