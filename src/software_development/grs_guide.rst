@@ -594,7 +594,7 @@ The ``db`` allows to interact with a Component that implements the ServerProxy A
 
     - ``update``: Updates the record(s) defined by the --expr option with the update expresion. The --update and --expr options follow the MongoDB syntax
 
-    - ``delete``: Deletes the record(s) defined by the --expre option.
+    - ``delete``: Deletes the record(s) defined by the --expr option.
 
 ``--instance``
    the name of the remote component instance.
@@ -628,7 +628,7 @@ The ``db`` allows to interact with a Component that implements the ServerProxy A
 ``--limit, -l``
    the maximum number of records returned by the database query operation
 
-The following examples shows different db commands
+The following examples show different db commands
 
   .. code-block:: bash
 
