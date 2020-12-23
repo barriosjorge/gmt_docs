@@ -61,16 +61,20 @@ Operating System
 
 
   .. code-block:: bash
-    $ sudo echo "exclude=openssh* libssh*" >> /etc/dnf/dnf.conf
+
+    sudo echo "exclude=openssh* libssh*" >> /etc/dnf/dnf.conf
 
 2. Disable firewall
 
   .. code-block:: bash
+
     systemctl disable firewalld
     systemctl stop firewalld
 
 3. Disable SELinux
+
   .. code-block:: bash
+
     sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
     setenforce 0
 
@@ -115,47 +119,38 @@ An Administrative user should install the following RPM packages for use in the 
 
   .. code-block:: bash
 
-    $ sudo dnf install -y xorg-x11-xauth urw-fonts wget net-tools pciutils
-    $ sudo dnf install -y strace bash-completion sed
+    sudo dnf install -y xorg-x11-xauth urw-fonts wget net-tools pciutils
+    sudo dnf install -y strace bash-completion sed
 
 2. Install Development Tools
 
   .. code-block:: bash
 
-    $ sudo dnf install -y autoconf automake cmake elfutils gcc gdb libtool make
-    $ sudo dnf install -y cpp cscope ctags gc gcc-c++ gcc-gdb-plugin glibc-devel
-    $ sudo dnf install -y glibc-headers kernel-headers libstdc++-devel
-    $ sudo dnf install -y flex git libcurl-devel
-    $ sudo dnf install -y python3
+    sudo dnf install -y autoconf automake cmake elfutils gcc gdb libtool make
+    sudo dnf install -y cpp cscope ctags gc gcc-c++ gcc-gdb-plugin glibc-devel
+    sudo dnf install -y glibc-headers kernel-headers libstdc++-devel
+    sudo dnf install -y flex git libcurl-devel
 
 3. Install OCS Dependencies
 
   .. code-block:: bash
 
-    $ sudo dnf install -y rdma librdmacm-devel boost-devel
+    sudo dnf install -y rdma librdmacm-devel boost-devel
 
 Node Installation
 .................
 
-1. Install Python 2 and set is a default interpreter. It is necessary for the node package manager.
+1. Install **Node version 12**:
 
   .. code-block:: bash
 
-    $ sudo dnf install -y python2
-    $ sudo alternatives --set python /usr/bin/python2
+    sudo dnf module install -y nodejs:12
 
-
-2. Install **Node version 12**:
+2. Install necessary node packages:
 
   .. code-block:: bash
 
-    $ sudo dnf module install -y nodejs:12
-
-3. Install necessary node packages:
-
-  .. code-block:: bash
-
-    $ sudo npm install -g coffeescript webpack webpack-cli raw-loader
+    sudo npm install -g coffeescript webpack webpack-cli raw-loader
 
 MongoDB Configuration
 .....................
@@ -175,26 +170,26 @@ MongoDB Configuration
 
   .. code-block:: bash
 
-    $ sudo dnf -y install mongodb-org
+    sudo dnf -y install mongodb-org
 
 3. Create the database files directory
 
   .. code-block:: bash
 
-    $ sudo mkdir -p /data/db
+    sudo mkdir -p /data/db
 
 4. Enable the MongoDB service
 
   .. code-block:: bash
 
-    $ sudo systemctl enable mongod
-    $ sudo systemctl start mongod
+    sudo systemctl enable mongod
+    sudo systemctl start mongod
 
 5. Check that the MongoDB service is up
 
   .. code-block:: bash
 
-    $ sudo systemctl status -l mongod
+    sudo systemctl status -l mongod
 
 
 EtherCAT Configuration
@@ -206,7 +201,7 @@ EtherCAT is a high-speed Fieldbus communication system used for real-time contro
 
   .. code-block:: bash
 
-    $ sudo dnf install -y --nogpgcheck kernel-3.14.73-rt78.x86_64 ethercat-devel
+    sudo dnf install -y --nogpgcheck kernel-3.14.73-rt78.x86_64 ethercat-devel
 
 .. warning::
   Before installing the RT kernel, check restrictions on :ref:`Operating System` warnings.
@@ -223,7 +218,7 @@ EtherCAT is a high-speed Fieldbus communication system used for real-time contro
 
   .. code-block:: bash
 
-    $ ifconfig
+    ifconfig
 
 4. Edit ``/etc/ethercat.conf`` and set the following configuration options:
 
@@ -246,8 +241,8 @@ EtherCAT is a high-speed Fieldbus communication system used for real-time contro
 
   .. code-block:: bash
 
-    $ sudo systemctl enable ethercat
-    $ sudo systemctl start ethercat
+    sudo systemctl enable ethercat
+    sudo systemctl start ethercat
 
 8. Edit ``/etc/security/limits.d/99-realtime.conf`` and add the following options:
 
@@ -260,15 +255,15 @@ EtherCAT is a high-speed Fieldbus communication system used for real-time contro
 
   .. code-block:: bash
 
-    $ sudo groupadd -f -g 2001 real-time
-    $ sudo usermod --groups real-time gmto
+    sudo groupadd -f -g 2001 real-time
+    sudo usermod --groups real-time gmto
 
 8. Test the Ethercat configuration
 
   .. code-block:: bash
 
-    $ ethercat master
-    $ ethercat slaves
+    ethercat master
+    ethercat slaves
 
 If the ``ethercat master`` command does not produce the correct output, ensure that you're currently running the real-time kernel. If the ``ethercat slaves`` command produces no output, check that the ethernet cable is connected to the correct port as configured above.
 
@@ -282,19 +277,19 @@ For general network timekeeping, use NTP, unless Precision Time Protocol is requ
 
   .. code-block:: bash
 
-    $ sudo dnf install -y chrony
+    sudo dnf install -y chrony
 
 2. Enable the NTP Service
 
   .. code-block:: bash
 
-    $ sudo systemctl enable chronyd
+    sudo systemctl enable chronyd
 
 3. Check date/time servers
 
   .. code-block:: bash
 
-    $ sudo chronyc sources
+    sudo chronyc sources
 
 
 Software Development Kit (SDK)
@@ -308,14 +303,14 @@ The SDK should be installed in a **Global GMT Software Location**, defined by th
 
   .. code-block:: bash
 
-    $ wget http://52.52.46.32/srv/gmt/releases/sdk/linux/gmt-sdk.tar.gz
+    wget http://52.52.46.32/srv/gmt/releases/sdk/linux/gmt-sdk.tar.gz
 
 2. Extract the TAR file in the /opt directory, into a new folder for the latest release:
 
   .. code-block:: bash
 
-    $ sudo mkdir /opt/gmt_release_1.8.0
-    $ sudo tar -xzvf gmt-sdk.tar.gz -C /opt/gmt_release_1.8.0
+    sudo mkdir /opt/gmt_release_1.8.0
+    sudo tar -xzvf gmt-sdk.tar.gz -C /opt/gmt_release_1.8.0
 
   where gmt-sdk.tar.gz is the file downloaded in step 1.
 
@@ -323,13 +318,13 @@ The SDK should be installed in a **Global GMT Software Location**, defined by th
 
   .. code-block:: bash
 
-    $ sudo ln -sfn /opt/gmt_release_1.8.0 /opt/gmt
+    sudo ln -sfn /opt/gmt_release_1.8.0 /opt/gmt
 
 4. Create a **Local Working Directory**
 
   .. code-block:: bash
 
-    $ mkdir <local_working_dir>
+    mkdir <local_working_dir>
 
   where ``<local_working_dir>`` is in the current users' home directory, for example, ~/work. The GMT software modules developed by the user are created in this folder.
 
@@ -337,9 +332,9 @@ The SDK should be installed in a **Global GMT Software Location**, defined by th
 
   .. code-block:: bash
 
-    $ export GMT_GLOBAL=/opt/gmt
-    $ export GMT_LOCAL=<local_working_dir>
-    $ source $GMT_GLOBAL/bin/gmt_env.sh
+    export GMT_GLOBAL=/opt/gmt
+    export GMT_LOCAL=<local_working_dir>
+    source $GMT_GLOBAL/bin/gmt_env.sh
 
   This will ensure that the environment variables are correctly configured when opening a new terminal. Please log out and back in for the changes to take effect. To configure the environment for the current shell, run the commands manually.
 
@@ -347,31 +342,31 @@ The SDK should be installed in a **Global GMT Software Location**, defined by th
 
   .. code-block:: bash
 
-    $ gmt_env
+    gmt_env
 
 7. Install Node Modules
 
   .. code-block:: bash
 
-    $ cd $GMT_GLOBAL
-    $ npm install
+    cd $GMT_GLOBAL
+    npm install
 
-    $ cd $GMT_LOCAL
-    $ cp $GMT_GLOBAL/package.json ./
-    $ npm install
+    cd $GMT_LOCAL
+    cp $GMT_GLOBAL/package.json ./
+    npm install
 
   Install global node modules for `Webpack` and `Coffeescript`.
 
   .. code-block:: bash
 
-    $ sudo npm install -g coffeescript webpack webpack-cli coffee-loader
+    sudo npm install -g coffeescript webpack webpack-cli coffee-loader
 
 8. Initialize the Development Environment:
 
   .. code-block:: bash
 
-    $ cd $GMT_LOCAL
-    $ gds init
+    cd $GMT_LOCAL
+    gds init
 
   The correct folders will be created in the $GMT_LOCAL directory for use when compiling and running modules.
 
@@ -379,8 +374,8 @@ The SDK should be installed in a **Global GMT Software Location**, defined by th
 
   .. code-block:: bash
 
-    $ cd $GMT_LOCAL
-    $ mkdir modules
+    cd $GMT_LOCAL
+    mkdir modules
 
 10. Create the **bundles.coffee** and **ocs_local_bundle.coffee** files, defining the local modules under development
 
@@ -388,9 +383,9 @@ The SDK should be installed in a **Global GMT Software Location**, defined by th
 
   .. code-block:: bash
 
-    $ mkdir $GMT_LOCAL/etc/bundles
-    $ cp $GMT_GLOBAL/etc/bundles/bundles.coffee $GMT_LOCAL/etc/bundles/
-    $ cp $GMT_GLOBAL/etc/bundles/ocs_local_bundle.coffee $GMT_LOCAL/etc/bundles/
+    mkdir $GMT_LOCAL/etc/bundles
+    cp $GMT_GLOBAL/etc/bundles/bundles.coffee $GMT_LOCAL/etc/bundles/
+    cp $GMT_GLOBAL/etc/bundles/ocs_local_bundle.coffee $GMT_LOCAL/etc/bundles/
 
   Edit **bundles.coffee** to point to the ocs_local_bundle.coffee file
 
@@ -414,8 +409,31 @@ The SDK should be installed in a **Global GMT Software Location**, defined by th
 
   .. code-block:: bash
 
-    $ cd $GMT_LOCAL/modules/ocs_hdk_dcs/model
-    $ webpack
-    $ cd $GMT_LOCAL/modules/ocs_isample_dcs/model
-    $ webpack
+    cd $GMT_LOCAL/modules/ocs_hdk_dcs/model
+    webpack
+    cd $GMT_LOCAL/modules/ocs_isample_dcs/model
+    webpack
 
+12. Python frameworks installation: Install Miniconda (or Anaconda)
+
+  .. code-block:: bash
+    wget -q https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+    bash Miniconda3-latest-Linux-x86_64.sh -b -p $HOME/miniconda
+    eval "$($HOME/miniconda/bin/conda shell.bash hook)"' >> /home/gmto/.bashrc
+
+13. Create a conda environment (optional)
+
+  .. code-block:: bash
+    conda create -y -n gmt python=3
+    conda activate gmt
+
+14. Install dependencies
+
+  .. code-block:: bash
+    conda install -y conda-build msgpack-python=0.6.1
+    pip install -U cson
+
+15. Link frameworks dir to Anaconda's paths
+
+  .. code-block:: bash
+    conda develop "$GMT_GLOBAL/lib/py/"
