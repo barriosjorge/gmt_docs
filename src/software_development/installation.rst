@@ -10,10 +10,6 @@ The development platform is no longer distributed as a standalone ISO file. Inst
 
 Benefits of this approach, versus distributing the complete ISO, include the ability to support different network, hardware and software platforms used for software development by different partner institutions, as well as allowing for separate upgrade schedules for the Development Platform and Software Development Kit without affecting ongoing subsystem software development.
 
-.. note::
-
-   At GMTO, these instructions are formalized using Kickstart files and installed via the network using tools such as Cobbler. The GMTO DevOps team can provide assistance in setting up a similar system for development at partner institutions if required.
-
 The Observatory Control System (OCS) is designed to be a distributed system with device control components running on real-time computers, connected to common services and user interface components via the control network.
 
 For device control systems, the following operating systems are supported:
@@ -152,6 +148,13 @@ Node Installation
 
     sudo npm install -g coffeescript webpack webpack-cli raw-loader
 
+.. note::
+
+   If you encounter problems installing nodejs 12, you probably have the node module v10 activated.
+   To change it to v12, run:
+   `sudo dnf remove -y nodejs && sudo dnf module reset -y nodejs && sudo dnf module enable -y nodejs:12`
+
+
 MongoDB Configuration
 .....................
 
@@ -255,8 +258,8 @@ EtherCAT is a high-speed Fieldbus communication system used for real-time contro
 
   .. code-block:: bash
 
-    sudo groupadd -f -g 2001 real-time
-    sudo usermod --groups real-time gmto
+    $ sudo groupadd -f -g 2001 realtime
+    $ sudo usermod --groups realtime gmto
 
 8. Test the Ethercat configuration
 
