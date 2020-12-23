@@ -57,6 +57,7 @@ the version currently in use reflected by the $GMT_GLOBAL environment variable.
    (see :ref:`installation <installation>` page for more info)
 
   .. code-block:: bash
+
     $ sudo echo "exclude=openssh* libssh*" >> /etc/dnf/dnf.conf
 
 

@@ -420,6 +420,7 @@ The SDK should be installed in a **Global GMT Software Location**, defined by th
 12. Python frameworks installation: Install Miniconda (or Anaconda)
 
   .. code-block:: bash
+
     wget -q https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
     bash Miniconda3-latest-Linux-x86_64.sh -b -p $HOME/miniconda
     eval "$($HOME/miniconda/bin/conda shell.bash hook)"' >> /home/gmto/.bashrc
@@ -427,16 +428,19 @@ The SDK should be installed in a **Global GMT Software Location**, defined by th
 13. Create a conda environment (optional)
 
   .. code-block:: bash
+
     conda create -y -n gmt python=3
     conda activate gmt
 
 14. Install dependencies
 
   .. code-block:: bash
+
     conda install -y conda-build msgpack-python=0.6.1
     pip install -U cson
 
 15. Link frameworks dir to Anaconda's paths
 
   .. code-block:: bash
+
     conda develop "$GMT_GLOBAL/lib/py/"
