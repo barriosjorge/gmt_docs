@@ -23,13 +23,9 @@ Contents of release 1.9.0
       - Dynamic behavior
       - Reusable behaviors
       - OpState behavior
-      - Alarm behavior
-      - Fault behavior
     - Implemented Python Component Service Access (Container), including
       - Log events
       - Telemetry
-      - Alarms
-      - Faults
       - Local logging
 
   - Updated IO Framework
