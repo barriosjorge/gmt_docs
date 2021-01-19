@@ -57,9 +57,7 @@ Contents of release 1.9.0
       - visualization packages can be run as standalone apps using Navigator as the launcher
       - single source of modules in GMT_LOCAL/node_modules
       - visualization packages can register data with Navigator context
-
-- Navigator Application
-
+      
   - React library implementation
 
     - provides a simple and systematic way to retrieve and display connector data
@@ -69,6 +67,23 @@ Contents of release 1.9.0
 
     - unified look and feel through CSS styling
     - updated widgets for buttons and data structures
+
+- Navigator Application
+    
+    - Stability and performance improvements
+    
+    - Updated tab system
+      
+      - drag & drop support
+      - tab groups
+      - complex layouts
+      - faster tab switching/rendering
+    
+    - Create new inspect instances by pasting comands grs inspect commands
+    
+    - Load standalone vis packages
+    
+    - Develop vis packages with live-reload
 
 - Documentation: Software Development
 
