@@ -27,6 +27,7 @@ Contents of release 1.9.0
       - Log events
       - Telemetry
       - Local logging
+    - Fixed minor issues in the service data ports
 
   - Updated IO Framework
 
