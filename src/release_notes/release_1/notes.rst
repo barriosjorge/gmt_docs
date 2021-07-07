@@ -44,9 +44,6 @@ Contents of release 1.10.0
     - Improved error logging
     - Fixed issue with multi-dimensional array parsing
 
-- Known Issues
-
-  None
 
 Contents of release 1.9.0
 -------------------------
