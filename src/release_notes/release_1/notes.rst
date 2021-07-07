@@ -17,7 +17,7 @@ Contents of release 1.10.0
   - Updated Development Framework
 
     - Fixed issue #212: Type ‘float’ is now mapped to ‘double’ in C++, per modeling guidelines
-    - o	Removed stale zeromq dependency
+    - Removed stale zeromq dependency
 
   - Updated C/C++ IO Framework
 
