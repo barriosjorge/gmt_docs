@@ -41,7 +41,7 @@ node('gmt-jenkins-doc') {
         dir('workspace') {
             dir('gmt_model') {
               echo "Checking out gmt_model"
-              git credentialsId: 'bc9ee133-98fd-43e3-a094-30ce521a3fca', url: 'https://github.com/GMTO/gmt_model.git'
+              git credentialsId: 'ba42dec3-2708-4d14-b970-915222d3737b', url: 'https://github.com/GMTO/gmt_model.git'
     
               echo "Building Model..."
               sh '''
@@ -63,7 +63,7 @@ node('gmt-jenkins-doc') {
                        extensions: [[$class: 'RelativeTargetDirectory',
                                       relativeTargetDir: 'html']],
                        submoduleCfg: [],
-                       userRemoteConfigs: [[credentialsId: 'bc9ee133-98fd-43e3-a094-30ce521a3fca',
+                       userRemoteConfigs: [[credentialsId: 'ba42dec3-2708-4d14-b970-915222d3737b',
                                             url: 'https://github.com/GMTO/gmt_docs.git']]])
           }
           echo "Checking out gmt_docs for source files"
@@ -84,7 +84,7 @@ node('gmt-jenkins-doc') {
           dir('workspace/gmt_docs_build/html') {
             def commit_msg = "Jenkins build $JOB_NAME $pkgversion-$buildnr ($BUILD_NUMBER)"
             withEnv(["MSG=$commit_msg"]) {
-              withCredentials([usernamePassword(credentialsId: 'bc9ee133-98fd-43e3-a094-30ce521a3fca', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+              withCredentials([usernamePassword(credentialsId: 'ba42dec3-2708-4d14-b970-915222d3737b', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                 sh '''
                   git remote set-url origin git@github.com:GMTO/gmt_docs.git
                   git checkout gh-pages
