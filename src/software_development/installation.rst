@@ -136,11 +136,11 @@ An Administrative user should install the following RPM packages for use in the 
 Node Installation
 .................
 
-1. Install **Node version 12**:
+1. Install **Node version 16**:
 
   .. code-block:: bash
 
-    sudo dnf module install -y nodejs:12
+    sudo dnf module install -y nodejs:16
 
 2. Install necessary node packages:
 
@@ -150,9 +150,9 @@ Node Installation
 
 .. note::
 
-   If you encounter problems installing nodejs 12, you probably have the node module v10 activated.
-   To change it to v12, run:
-   `sudo dnf remove -y nodejs && sudo dnf module reset -y nodejs && sudo dnf module enable -y nodejs:12`
+   If you encounter problems installing nodejs, you probably have an older node version activated.
+   To change it, run:
+   `sudo dnf remove -y nodejs && sudo dnf module reset -y nodejs && sudo dnf module enable -y nodejs:16`
 
 
 MongoDB Configuration
