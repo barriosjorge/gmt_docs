@@ -3,7 +3,7 @@
 Release 1
 =========
 
-Contents of release 1.12.0
+Contents of release 1.13.0
 --------------------------
 
 - Core Frameworks
@@ -11,7 +11,7 @@ Contents of release 1.12.0
   - Updated C/C++ Core Framework
 
     - DataIOs now are part of collection fields. For example, to access the property `acl` now, one should use `properties->acl->value`. Same thing for inputs, outputs, state_vars, alarms, etc...
-    - Added all the reamining core adapters to the C++ frameworks: conf, data, job, etc...
+    - Added all the remaining core adapters to the C++ frameworks: conf, data, job, etc...
     - Added HealthSupervisingBehavior
     - Changed telemetry field from `data` to `value` to be consistent with other services
 
