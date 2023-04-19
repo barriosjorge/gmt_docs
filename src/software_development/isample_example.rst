@@ -31,8 +31,7 @@ On the development machine, clone the repository in the development folder:
   $ cd $GMT_LOCAL/modules
   $ git clone git@github.com:GMTO/ocs_isample_dcs.git
 
-where the ``-d option`` defines the git repository owner. The output from the command
-will be:
+The output from the command will be:
 
 .. code-block:: bash
 
@@ -272,28 +271,28 @@ positional input and immediately sets the position value to the new goal, if pos
     {
         if (is_step_rate(1000))
         {
-            if (position.goal != position.value)
+            if (state_vars->position.goal != state_vars->position.value)
             {
                 // check range
-                if (position.goal >= position.max)
+                if (state_vars->position.goal >= state_vars->position.max)
                 {
-                    log_warning("Position is at or exceeding maximum value: " + std::to_string(position.max));
+                    log_warning("Position is at or exceeding maximum value: " + std::to_string(state_vars->position.max));
                     // prevent further movement
-                    position.value = position.max;
+                    state_vars->position.value = state_vars->position.max;
                 }
-                else if (position.goal <= position.min)
+                else if (state_vars->position.goal <= state_vars->position.min)
                 {
-                    log_warning("Position is at or exceeding minimum value: " + std::to_string(position.min));
+                    log_warning("Position is at or exceeding minimum value: " + std::to_string(state_vars->position.min));
                     // prevent further movement
-                    position.value = position.min;
+                    state_vars->position.value = state_vars->position.min;
                 }
                 else
                 {
                     // achieve target position immediately
-                    position.value = position.goal;
+                    state_vars->position.value = state_vars->position.goal;
                 }
                 // report value
-                log_info(position.name + " = " + std::to_string(position.value));
+                log_info(state_vars->position.name + " = " + std::to_string(state_vars->position.value));
             }
         }
     }
