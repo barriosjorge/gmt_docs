@@ -3,6 +3,44 @@
 Release 1
 =========
 
+Contents of release 1.14.0
+--------------------------
+
+- Core Frameworks
+
+  - Updated Node.js Core Framework
+
+    - Step Groups
+    - Sampling Policies
+    - Added option to sort query results
+    - Minor bug fixes
+
+  - Updated C/C++ Core Framework
+
+    - Step Groups
+
+      - generic_step changed to run_step, and now accepts a group parameter
+      - group added to behaviors, which will not execute if the group passed as the _apply parameter is not the behavior group
+      - group added to connectors
+      - added the Dispatcher class, which can be used to orchestrate the execution of components
+      - added scan_mode property in Component
+
+    - Added ability to lock a ValueClassifier, or set a State Variable to not be controllable, preventing external updates
+    - Updated Alarm and Fault Event fields, synchronized with Node.js implementation (#281, #288) 
+    - Fixed gmt_issues #201: Alarm acknowledgement
+
+  - Updated Python Core Framework
+
+    - Server Proxy and Data Adapters
+    - Fixed issues with Sampling behavior (#284)
+    - Fixed gmt_issues #248: Component class init default properties (#287)
+
+  - Updated C/C++ IO Framework
+
+    - EtherCAT SDO/PDO handling optimization
+    - Minor bug fixes
+
+
 Contents of release 1.13.0
 --------------------------
 

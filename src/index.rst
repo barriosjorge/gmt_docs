@@ -6,7 +6,7 @@ GMT Software and Controls Home
 
 .. note::
 
-  :ref:`Release 1.13.0 <release_1>` is out!
+  :ref:`Release 1.14.0 <release_1>` is out!
 
 Welcome to the GMT Software and Controls documentation site.
 Here you will find the latest :ref:`release notes <release_1>` for the
@@ -35,8 +35,8 @@ Contact
 | **Email**: swc_support@gmto.org
 |
 | GMTO Corporation (Pasadena)
-| 465 N. Halstead Street, Suite 250
-| Pasadena, CA 91107
+| 300 N. Lake Avenue, 14th Floor
+| Pasadena, CA 91101
 | Tel: +1-626-204-0500
 |
 | GMTO Corporation (Chile)
