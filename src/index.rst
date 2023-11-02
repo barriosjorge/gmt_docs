@@ -35,9 +35,10 @@ Contact
 | **Email**: swc_support@gmto.org
 |
 | GMTO Corporation (Pasadena)
-| 465 N. Halstead Street, Suite 250
-| Pasadena, CA 91107
+| 300 North Lake Avenue, 14th Floor
+| Pasadena, CA 91101
 | Tel: +1-626-204-0500
+| Tel: +1-626-510-6645
 |
 | GMTO Corporation (Chile)
 | Av. Presidente Riesco 5335, Suite 501

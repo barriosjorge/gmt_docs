@@ -57,7 +57,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'GMT Software And Controls'
-copyright = u'2022, contributors'
+copyright = u'2023, contributors'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
