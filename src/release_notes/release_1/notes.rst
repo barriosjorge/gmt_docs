@@ -11,8 +11,26 @@ Contents of release 1.14.0
   - Updated Node.js Core Framework
 
     - Step Groups
+
+      - The step function of the Component class supports a new 'group' parameter. When used, only the Component Behaviors and the Feature Behaviors matching that group will be executed.
+      - Behaviors have a new 'group' attribute. Their 'apply' function is only executed if the 'group' argument matches the specified Behavior group.
+      - Connectors have a new 'group' attribute. The group is propagated to the associated EndPoints Behaviors, so communication between components can also be orchestrated.
+      - CoreContainer can now invoke the step function of its Components. This allows the orchestration of the behaviors from different Components using the group attribute.
+      - The new 'scan_mode' property allows to specify whether a Component triggers its own step or is triggered externally as part of a step group.
+
     - Sampling Policies
-    - Added option to sort query results
+
+      - Added a new 'sampling_policies' property with a set of predefined default sampling policies (silent, standby, norm, debug).
+      - Added a new 'sampling_mode' property that can be used to set the sampling policies for all Component DataIOs.
+
+    - Query sorting
+
+      - Core Services now support a 'sort' expression when invoking a query
+      - Updated 'gas db' command to support sorting arguments
+
+    - Added new unit tests using node:test
+    - Added new parameter depth to 'grs inspect' to display large, nested structures
+    - 'grs inspect' can now show the status of Component behaviors, proxies and handlers
     - Minor bug fixes
 
   - Updated C/C++ Core Framework
@@ -28,6 +46,7 @@ Contents of release 1.14.0
     - Added ability to lock a ValueClassifier, or set a State Variable to not be controllable, preventing external updates
     - Updated Alarm and Fault Event fields, synchronized with Node.js implementation (#281, #288) 
     - Fixed gmt_issues #201: Alarm acknowledgement
+    - Fixed gmt_issues #237: The component execution will no longer be affected by setting a priority on a non-rt kernel
 
   - Updated Python Core Framework
 
