@@ -80,7 +80,8 @@ node('gmt-jenkins-doc') {
     
       stage('Upload') {
         if (BRANCH_NAME.contains("master")) {
-          echo "Updating gh-pages branch"
+          echo "Temporarily skipping upload to GitHub"
+          /*    echo "Updating gh-pages branch"
           dir('workspace/gmt_docs_build/html') {
             def commit_msg = "Jenkins build $JOB_NAME $pkgversion-$buildnr ($BUILD_NUMBER)"
             withEnv(["MSG=$commit_msg"]) {
@@ -95,9 +96,9 @@ node('gmt-jenkins-doc') {
                 '''
               }
             }
-          }
-        }
-      }
+          } */
+        } 
+      } 
   } catch (e) {
     // If there was an exception thrown, the build failed
     currentBuild.result = 'FAILED'
