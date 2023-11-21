@@ -18,7 +18,7 @@ In order to access private repositories on Github, an account with access permis
    If a 404 error is shown when entering the ISample webpage, please contact us to solve the permission issues.
 
    https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh
-2. Configure your GitHub account to access using a ssh a token:
+2. Configure your GitHub account to access using a token:
    https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token
 
 Clone the isample_dcs repository
@@ -353,6 +353,8 @@ Start the ISample Control Package application in the background.
 
 The application is running in the background and will not provide any console output.
 All output will be directed to the logging service after the components have been successfully set up.
+
+.. note:: If the error `mlockall failed: cannot allocate memory` and/or `Application will be executed without RT memory locking support` appears, that means your running the app under a non-realtime kernel. Check your installation.
 
 Log Service
 ~~~~~~~~~~~

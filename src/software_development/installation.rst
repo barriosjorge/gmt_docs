@@ -136,7 +136,11 @@ An Administrative user should install the following RPM packages for use in the 
 Node Installation
 .................
 
-1. Install **Node version 18**:
+1. Install **Node version 20**:
+
+  .. code-block:: bash
+
+    sudo curl -sL https://rpm.nodesource.com/setup_20.x | bash -
 
   .. code-block:: bash
 
@@ -152,22 +156,22 @@ Node Installation
 
    If you encounter problems installing nodejs, you probably have an older node version activated.
    To change it, run:
-   `sudo dnf remove -y nodejs && sudo dnf module reset -y nodejs && sudo dnf module enable -y nodejs:18`
+   `sudo dnf remove -y nodejs && sudo dnf module reset -y nodejs && sudo dnf module enable -y nodejs:20`
 
 
 MongoDB Configuration
 .....................
 
-1. Add the file ``/etc/yum.repos.d/mongodb-org-4.repo`` with the following content:
+1. Add the file ``/etc/yum.repos.d/mongodb-org-5.repo`` with the following content:
 
   .. code-block:: bash
 
-     [mongodb-org-4]
+     [mongodb-org-5]
      name=MongoDB Repository
-     baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.2/x86_64/
+     baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/5.0/x86_64/
      gpgcheck=1
      enabled=1
-     gpgkey=https://www.mongodb.org/static/pgp/server-4.2.asc
+     gpgkey=https://www.mongodb.org/static/pgp/server-5.0.asc
 
 2. Install the necessary packages:
 
@@ -436,7 +440,7 @@ The SDK should be installed in a **Global GMT Software Location**, defined by th
 
   .. code-block:: bash
 
-    conda install -y conda-build msgpack-python=0.6.1
+    conda install -y conda-build msgpack-python
     pip install -U cson
 
 15. Link frameworks dir to Anaconda's paths
