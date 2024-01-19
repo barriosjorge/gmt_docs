@@ -33,9 +33,7 @@ extensions = [
     'sphinx.ext.coverage',
     'sphinx.ext.mathjax',
     'sphinx.ext.ifconfig',
-#    'sphinxcontrib.blockdiag',
-#    'sphinxcontrib.gnuplot',
-#    'sphinxcontrib.googlechart'
+    'sphinx_copybutton',
 ]
 
 blockdiag_fontpath = '/Library/Fonts/Tahoma.ttf'
@@ -57,7 +55,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'GMT Software And Controls'
-copyright = u'2023, contributors'
+copyright = u'2024, contributors'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -111,11 +109,8 @@ pygments_style = 'sphinx'
 # on_rtd is whether we are on readthedocs.org, this line of code grabbed from docs.readthedocs.org
 on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
 
-if not on_rtd:  # only import and set the theme if we're building docs locally
-  import sphinx_rtd_theme
-  html_theme = 'sphinx_rtd_theme'
-  html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
-  html_style = 'css/additional_style.css'
+# html_theme = 'sphinx_rtd_theme'
+html_theme = 'furo'
 
 # otherwise, readthedocs.org uses their theme by default, so no need to specify it
 
@@ -153,12 +148,6 @@ html_favicon = '_static/favicon.ico'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
-
-html_context = {
-    'css_files': [
-        '_static/theme_overrides.css',  # override wide tables in RTD theme
-        ],
-     }
 
 # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied
@@ -220,24 +209,24 @@ latex_elements = {
   'babel':        '\\usepackage[english]{babel}',
   'pointsize':    '9pt',
   'preamble': '\n%Added from template'
-              '\n\setcounter{tocdepth}{2}'
-              '\n\setcounter{secnumdepth}{3}'
-              '\n\usepackage{fancyheadings}'
-              '\n\usepackage{tocloft}'
-              '\n\setlength{\cftfignumwidth}{2em}'
-              '\n\setlength{\cfttabnumwidth}{3em}'
-              '\n\\fancypagestyle{wholedocument}{\\fancyhead{}\\fancyfoot{}\\renewcommand{\headrulewidth}{0.4pt}'
+              '\n\\setcounter{tocdepth}{2}'
+              '\n\\setcounter{secnumdepth}{3}'
+              '\n\\usepackage{fancyheadings}'
+              '\n\\usepackage{tocloft}'
+              '\n\\setlength{\\cftfignumwidth}{2em}'
+              '\n\\setlength{\\cfttabnumwidth}{3em}'
+              '\n\\fancypagestyle{wholedocument}{\\fancyhead{}\\fancyfoot{}\\renewcommand{\\headrulewidth}{0.4pt}'
               '\n\\renewcommand{\\footrulewidth}{0.4pt}'
-              '\n\\fancyhead[R]{\color{black} \\bfseries  \\fontfamily{phv}}'
-              '\n\\fancyfoot[L]{\color{black} \\bfseries  \small {\\rightmark}}'
-              '\n\\fancyfoot[R]{\color{black} {\\bfseries \\thepage}}}'
-              '\n\\renewcommand{\chaptermark}[1]{\markboth{\\thechapter.\#1}{}}'
-              '\n\\renewcommand{\sectionmark}[1]{\markright{\\thesection.\ #1}{}}'
+              '\n\\fancyhead[R]{\\color{black} \\bfseries  \\fontfamily{phv}}'
+              '\n\\fancyfoot[L]{\\color{black} \\bfseries  \\small {\\rightmark}}'
+              '\n\\fancyfoot[R]{\\color{black} {\\bfseries \\thepage}}}'
+              '\n\\renewcommand{\\chaptermark}[1]{\\markboth{\\thechapter.\\#1}{}}'
+              '\n\\renewcommand{\\sectionmark}[1]{\\markright{\\thesection.\\#1}{}}'
               '\n\\renewcommand{\\thepage}{\\roman{page}}'
-              '\n\pagestyle{wholedocument}'
-              '\n\clearpage'
-              '\n\setcounter{page}{1}'
-              '\n\pagenumbering{arabic}'
+              '\n\\pagestyle{wholedocument}'
+              '\n\\clearpage'
+              '\n\\setcounter{page}{1}'
+              '\n\\pagenumbering{arabic}'
               '\n%Added from template'
 
 # The paper size ('letterpaper' or 'a4paper').
