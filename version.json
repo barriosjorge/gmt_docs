@@ -1,9 +1,0 @@
-{
-  "version": {
-    "major": 1,
-    "minor": 14,
-  },
-  "yum_release": "28",
-  "yum_repo": "stable",
-  "git_commit": "HEAD"
-}
