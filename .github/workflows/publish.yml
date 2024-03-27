@@ -1,0 +1,26 @@
+name: Deploy documentation to Pages
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  pages:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+    - name: checkout
+      uses: actions/checkout@v4
+      with:
+        token: ${{secrets.GH_PAT}}
+    - id: deployment
+      uses: sphinx-notes/pages@v3
+      with:
+        checkout: false
+        documentation_path: src
+        requirements_path: ./requirements.txt
