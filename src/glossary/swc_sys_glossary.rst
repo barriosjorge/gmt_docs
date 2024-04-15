@@ -571,10 +571,10 @@ Combinations of two (digrams), three (trigrams) or four (tetragrams) letters use
       - M2 Edge Sensors
     * - *ngws*
       - Natural Guide Star Wavefront Sensor
-    * - *oiws*
+    * - *oiwfs*
       - On Instrument Wavefront Sensor
     * - *hpfs*
-      - High Performace File System
+      - High Performance File System
     * - *tele*
       - Telemetry
     * - *mount*
