@@ -124,6 +124,34 @@ with some additional configuration required in the EtherCAT hardware adapter. An
 Hardware Development Kit (HDK) DCS example configuration
 `example <https://github.com/wschoenell/ocs_hdk_dcs/tree/soe/src/etc/conf/hdk_soe_ctrl_pkg/hdk_soe_ecat_hw_adapter>`_.
 
+SoE configuration
+^^^^^^^^^^^^^^^^^
+
+The SoE can be configured in the EtherCAT hardware adapter configuration file on the
+`serial_over_ethercat_cfg <https://github.com/GMTO/ocs_hdk_dcs/blob/4bb1cdfa5e64b72c59a3849633da392c5ec2147c/src/etc/conf/hdk_soe_ctrl_pkg/hdk_soe_ecat_hw_adapter/hdk_soe_ecat_hw_adapter_default_conf.coffee#L5-L22>`_
+property.
+
+
+The configurable parameters are:
+
+- `pty_filename`: The pseudo terminal device file name. When the SoE is enabled, the EtherCAT hardware adapter creates a
+  pseudo terminal device symbolic link in the DCS. The symbolic link points to the actual pseudo terminal device file.
+
+- `baud_rate`: The baud rate of the device connected to the serial port in the EL6002 terminal.
+
+- `rtscts`: The RTS/CTS flow control. The possible values are `true` or `false`.
+
+- `dataframe`: The data frame of the device connected to the serial port in the EL6002 terminal. The possible values are
+  `_7E1`, `_7O1`, `_8N1`, `_8E1`, `_8O1`, `_7N2`, `_7E2`, `_7O2`, `_8N2`, `_8E2`, `_8O2`. Note that the dataframe configuration
+  must start with an underscore `_` followed by the number of data bits, the parity bit, and the number of stop bits due to the
+  CoffeeScript syntax.
+
+also, the fieldbus configuration has to be updated for the plant configuration in the following way:
+
+- `model file <https://github.com/GMTO/ocs_hdk_dcs/blob/4bb1cdfa5e64b72c59a3849633da392c5ec2147c/model/hdk_soe_ctrl_pkg/hdk_soe_ecat_hw_adapter.coffee#L3>`_
+
+- `fieldbus configuration file <https://github.com/GMTO/ocs_hdk_dcs/blob/4bb1cdfa5e64b72c59a3849633da392c5ec2147c/src/etc/conf/hdk_soe_ctrl_pkg/hdk_soe_ecat_hw_adapter/hdk_soe_ecat_hw_adapter_fieldbus_conf.coffee#L3>`_
+
 Transfer rates
 ^^^^^^^^^^^^^^
 (extracted from EL6002 documentation)
