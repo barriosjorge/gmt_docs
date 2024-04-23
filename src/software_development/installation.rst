@@ -47,8 +47,11 @@ A `minimal` server installation is sufficient for the use of the GMT SDK.
   Make sure an external firewall protects your server
 
 
-Real-Time Kernel
-................
+Real-Time Kernel (Optional)
+...........................
+
+The real-time kernel is required for real-time tasks, such as EtherCAT communication.
+The following steps should be taken to install the real-time kernel:
 
 1. Install the Real-Time Kernel
 
@@ -63,10 +66,11 @@ Real-Time Kernel
     sudo usermod -a -G realtime gmto
 
 
-Package List
-............
+Development Tools Package List (Recommended)
+............................................
 
-An Administrative user should install at least the following RPM packages for use in the development environment:
+A development environment requires a set of tools to build and test software. The following list of packages are
+recommended for installation:
 
 1. Install Development Tools
 
@@ -74,19 +78,13 @@ An Administrative user should install at least the following RPM packages for us
 
     sudo dnf install -y git make cmake ninja-build gcc gcc-c++ gdb clang llvm-toolset lldb elfutils autoconf automake libtool
 
-2. Install OCS Dependencies
-
-  .. code-block:: bash
-
-    sudo dnf install -y rdma librdmacm-devel boost-devel
-
-3. Install Some Testing Tools
+2. Install Some Testing Tools
 
   .. code-block:: bash
 
     sudo dnf install -y realtime-tests stress-ng perf valgrind
 
-4. Install Other Development Tools
+3. Install Other Development Tools
 
   .. code-block:: bash
 
@@ -112,19 +110,19 @@ Node Installation
     sudo npm install -g coffeescript webpack webpack-cli raw-loader
 
 
-MongoDB Configuration
-.....................
+MongoDB Configuration (for the core services)
+.............................................
 
 1. Add the file ``/etc/yum.repos.d/mongodb-org-6.repo`` with the following content:
 
   .. code-block:: bash
 
-     [mongodb-org-6.0]
+     [mongodb-org-7.0]
      name=MongoDB Repository
-     baseurl=https://repo.mongodb.org/yum/redhat/8/mongodb-org/6.0/x86_64/
+     baseurl=https://repo.mongodb.org/yum/redhat/8/mongodb-org/7.0/x86_64/
      gpgcheck=1
      enabled=1
-     gpgkey=https://www.mongodb.org/static/pgp/server-6.0.asc
+     gpgkey=https://www.mongodb.org/static/pgp/server-7.0.asc
 
 2. Install the necessary packages:
 
@@ -152,6 +150,8 @@ EtherCAT Configuration (Optional)
 EtherCAT is a high-speed Fieldbus communication system used for real-time control. The following configuration steps
 should be used as a guide when configuring EtherCAT communications.
 
+A real-time kernel is required for EtherCAT communication. The real-time kernel installation steps are provided above.
+
 For the installation example below, we use the following network interfaces:
 
   * enp4s0 - EtherCAT Master (Primary)
@@ -174,14 +174,14 @@ For the installation example below, we use the following network interfaces:
 
 3. Reboot into the RT Kernel, if you're not in it already.
 
-4. Enable the Ethercat service
+4. Enable the EtherCAT service
 
   .. code-block:: bash
 
     sudo systemctl enable ethercat
     sudo systemctl start ethercat
 
-8. Test the Ethercat configuration (once the EtherCAT slaves are connected):
+8. Test the EtherCAT configuration (once the EtherCAT slaves are connected):
 
   .. code-block:: bash
 
