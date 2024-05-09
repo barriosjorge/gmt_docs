@@ -6,59 +6,28 @@ Installing the SDK
 Development Platform
 --------------------
 
-The development platform is no longer distributed as a standalone ISO file. Instead, the following guide is provided to assist with hardware, operating system and third-party software configuration required for running the OCS SDK. Some key areas, such as disk partitioning, user authentication and NFS mounting of home directories, depending on individual factors at each partner institution and should, therefore, be considered examples only.
-
-Benefits of this approach, versus distributing the complete ISO, include the ability to support different network, hardware and software platforms used for software development by different partner institutions, as well as allowing for separate upgrade schedules for the Development Platform and Software Development Kit without affecting ongoing subsystem software development.
 
 The Observatory Control System (OCS) is designed to be a distributed system with device control components running on real-time computers, connected to common services and user interface components via the control network.
 
 For device control systems, the following operating systems are supported:
-    - CentOS 8
+    - `Alma Linux 9 <https://almalinux.org/>`_
 
-For user interfaces, the following operating systems are supported:
-    - MacOS
-    - CentOS 8
+The following guide is provided to assist with hardware, operating system and third-party software configuration required for running the OCS SDK.
 
 Server Configuration
 --------------------
 
-Servers are used for developing, running and testing device control software and core services. When real-time communication with hardware is required, the real-time kernel should be installed and configured. The following guidelines for creating a server should be tailored according to its intended purpose.
-
-Required Hardware
-.................
-
-Minimum hardware requirements for development machines:
-
-  * Intel Pentium 4 or higher, 2 GHz CPU
-  * 1 GB Memory
-  * 20 GB Hard drive
-
-Typical GMT OCS development machine specs:
-
-  * Intel Xeon E3 or higher, 3.2 GHz CPU
-  * 4 - 8 GB Memory
-  * 120 - 250 GB Hard drive
-
+Servers are used for developing, running and testing device control software and core services. When real-time communication
+with hardware is required, the real-time kernel should be installed and configured. The following guidelines for creating
+a server should be tailored according to its intended purpose.
 
 .. _Operating system:
 Operating System
 ................
 
-1. Install the Centos 8 Operating System. A `minimal` server installation is sufficient for the use of the GMT SDK.
-   Change the filesystem of the partitions to ext4 if using the real-time kernel.
+1. Install the `Alma Linux <https://almalinux.org/>`_ Operating System.
+A `minimal` server installation is sufficient for the use of the GMT SDK.
 
-.. warning::
-  If you plan to develop real-time components, the Linux kernel requires the root partition to be an **ext4** file system. Please ensure that this is configured correctly in the disk partitioning settings.
-
-.. warning::
-  Due to a `bug <https://bugzilla.redhat.com/show_bug.cgi?id=1812120>`_, openssh-server should temporarily not be
-  upgraded to any version greater than 8.0p1-3.el8. To fix the openssh-server version, run this command right after the
-  Operating System installation:
-
-
-  .. code-block:: bash
-
-    sudo echo "exclude=openssh* libssh*" >> /etc/dnf/dnf.conf
 
 2. Disable firewall
 
@@ -78,60 +47,48 @@ Operating System
   Make sure an external firewall protects your server
 
 
-Repository Configuration
-........................
+Real-Time Kernel (Optional)
+...........................
 
-Some required RPMs are built by GMTO and need to be downloaded from the GMTO Yum Repository, currently hosted on Amazon Web Services.
+The real-time kernel is required for real-time tasks, such as EtherCAT communication.
+The following steps should be taken to install the real-time kernel:
 
-To add the GMT repositories:
-
-1. Add the file ``/etc/yum.repos.d/gmt.repo`` with the following content:
-
-  .. code-block:: bash
-
-    [gmt]
-    name=GMT $releasever - $basearch
-    baseurl=http://52.52.46.32/srv/gmt/yum/stable/$releasever/
-    gpgcheck=0
-    enabled=1
-
-2. Add the file ``/etc/yum.repos.d/gmt-updates.repo`` with the following content:
+1. Install the Real-Time Kernel
 
   .. code-block:: bash
 
-    [gmt-updates]
-    name=GMT $releasever - $basearch - Updates
-    baseurl=http://52.52.46.32/srv/gmt/yum/updates/$releasever/
-    gpgcheck=0
-    enabled=1
+    KERNEL_RT_VERSION="5.14.0-362.13.1.el9_3" && dnf install -y kernel-rt-${KERNEL_RT_VERSION} kernel-rt-devel-${KERNEL_RT_VERSION}
 
-
-Package List
-............
-
-An Administrative user should install the following RPM packages for use in the development environment:
-
-1. Install Common OS Utilities
+2. Add users to the **realtime** group, to allow access to the real-time kernel, for example:
 
   .. code-block:: bash
 
-    sudo dnf install -y xorg-x11-xauth urw-fonts wget net-tools pciutils
-    sudo dnf install -y strace bash-completion sed
+    sudo usermod -a -G realtime gmto
 
-2. Install Development Tools
 
-  .. code-block:: bash
+Development Tools Package List (Recommended)
+............................................
 
-    sudo dnf install -y autoconf automake cmake elfutils gcc gdb libtool make
-    sudo dnf install -y cpp cscope ctags gc gcc-c++ gcc-gdb-plugin glibc-devel
-    sudo dnf install -y glibc-headers kernel-headers libstdc++-devel
-    sudo dnf install -y flex git libcurl-devel
+A development environment requires a set of tools to build and test software. The following list of packages are
+recommended for installation:
 
-3. Install OCS Dependencies
+1. Install Development Tools
 
   .. code-block:: bash
 
-    sudo dnf install -y rdma librdmacm-devel boost-devel
+    sudo dnf install -y git make cmake ninja-build gcc gcc-c++ gdb clang llvm-toolset lldb elfutils autoconf automake libtool
+
+2. Install Some Testing Tools
+
+  .. code-block:: bash
+
+    sudo dnf install -y realtime-tests stress-ng perf valgrind
+
+3. Install Other Development Tools
+
+  .. code-block:: bash
+
+    sudo dnf install -y vim tmux screen tig htop rsync wget net-tools pciutils hwloc strace ltrace lsof
 
 Node Installation
 .................
@@ -152,26 +109,20 @@ Node Installation
 
     sudo npm install -g coffeescript webpack webpack-cli raw-loader
 
-.. note::
 
-   If you encounter problems installing nodejs, you probably have an older node version activated.
-   To change it, run:
-   `sudo dnf remove -y nodejs && sudo dnf module reset -y nodejs && sudo dnf module enable -y nodejs:20`
+MongoDB Configuration (for the core services)
+.............................................
 
-
-MongoDB Configuration
-.....................
-
-1. Add the file ``/etc/yum.repos.d/mongodb-org-5.repo`` with the following content:
+1. Add the file ``/etc/yum.repos.d/mongodb-org-6.repo`` with the following content:
 
   .. code-block:: bash
 
-     [mongodb-org-5]
+     [mongodb-org-7.0]
      name=MongoDB Repository
-     baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/5.0/x86_64/
+     baseurl=https://repo.mongodb.org/yum/redhat/8/mongodb-org/7.0/x86_64/
      gpgcheck=1
      enabled=1
-     gpgkey=https://www.mongodb.org/static/pgp/server-5.0.asc
+     gpgkey=https://www.mongodb.org/static/pgp/server-7.0.asc
 
 2. Install the necessary packages:
 
@@ -179,120 +130,73 @@ MongoDB Configuration
 
     sudo dnf -y install mongodb-org
 
-3. Create the database files directory
-
-  .. code-block:: bash
-
-    sudo mkdir -p /data/db
-
-4. Enable the MongoDB service
+3. Enable the MongoDB service
 
   .. code-block:: bash
 
     sudo systemctl enable mongod
     sudo systemctl start mongod
 
-5. Check that the MongoDB service is up
+4. Check that the MongoDB service is up
 
   .. code-block:: bash
 
     sudo systemctl status -l mongod
 
 
-EtherCAT Configuration
-......................
+EtherCAT Configuration (Optional)
+.................................
 
-EtherCAT is a high-speed Fieldbus communication system used for real-time control. The following configuration steps should be used as a guide when configuring EtherCAT communications.
+EtherCAT is a high-speed Fieldbus communication system used for real-time control. The following configuration steps
+should be used as a guide when configuring EtherCAT communications.
 
-1. Install the real-time kernel and relevant packages
+A real-time kernel is required for EtherCAT communication. The real-time kernel installation steps are provided above.
 
-  .. code-block:: bash
+For the installation example below, we use the following network interfaces:
 
-    sudo dnf install -y --nogpgcheck kernel-3.14.73-rt78.x86_64 ethercat-devel
+  * enp4s0 - EtherCAT Master (Primary)
+  * enp5s0 - EtherCAT Master (Backup - Optional, used for redundant topology)
 
-.. warning::
-  Before installing the RT kernel, check restrictions on :ref:`Operating System` warnings.
-
-
-2. Select the Ethernet interface to be used for EtherCAT communication (e.g. enp4s0) and edit the corresponding configuration file (e.g. ``/etc/sysconfig/network-scripts/ifcfg-enp4s0``) to set the following options:
+1. Disable the network manager for it:
 
   .. code-block:: bash
 
-    BOOTPROTO=none
-    ONBOOT=no
+    nmcli connection delete id enp4s0
+    nmcli connection reload
 
-3. Check the Hardware Address (MAC) of the selected EtherCAT network interface
 
-  .. code-block:: bash
-
-    ifconfig
-
-4. Edit ``/etc/ethercat.conf`` and set the following configuration options:
+2. Edit ``/etc/ethercat.conf`` and set the following configuration options:
 
   .. code-block:: bash
 
-    MASTER0_DEVICE="<mac_address_1>"
-    MASTER0_BACKUP="<mac_address_2>"  # optional line
+    MASTER0_DEVICE="enp4s0"
+    MASTER0_BACKUP="enp5s0"  # optional, for redundant topology
 
-  Where ``<mac_address_1>`` and ``<mac_address_2>`` are the two hardware addresses associated with the Ethercat network interface communicating with the Ethercat ring (redundant topology). If you prefer using a linear topology (non-redundant), comment or remove the second line (``MASTER0_BACKUP="<mac_address_2>"``).
+3. Reboot into the RT Kernel, if you're not in it already.
 
-5. Edit ``/usr/lib/systemd/system/ethercat.service`` and uncomment the following line:
-
-  .. code-block:: bash
-
-    Before=network.service
-
-6. Reboot into the RT Kernel, if you're not in it already.
-
-7. Enable the Ethercat service
+4. Enable the EtherCAT service
 
   .. code-block:: bash
 
     sudo systemctl enable ethercat
     sudo systemctl start ethercat
 
-8. Edit ``/etc/security/limits.d/99-realtime.conf`` and add the following options:
-
-  .. code-block:: bash
-
-    @realtime - rtprio 99
-    @realtime - memlock unlimited
-
-9. Add a new group and add the "gmto" user to it.
-
-  .. code-block:: bash
-
-    $ sudo groupadd -f -g 2001 realtime
-    $ sudo usermod --groups realtime gmto
-
-8. Test the Ethercat configuration
+8. Test the EtherCAT configuration (once the EtherCAT slaves are connected):
 
   .. code-block:: bash
 
     ethercat master
     ethercat slaves
 
-If the ``ethercat master`` command does not produce the correct output, ensure that you're currently running the real-time kernel. If the ``ethercat slaves`` command produces no output, check that the ethernet cable is connected to the correct port as configured above.
+If the ``ethercat master`` command does not produce the correct output, ensure that you're currently running the real-time kernel.
+If the ``ethercat slaves`` command produces no output, check that the ethernet cable is connected to the correct port as configured above.
 
 
 Network Time Protocol Configuration
 ...................................
 
-For general network timekeeping, use NTP, unless Precision Time Protocol is required.
-
-1. Install the necessary packages:
-
-  .. code-block:: bash
-
-    sudo dnf install -y chrony
-
-2. Enable the NTP Service
-
-  .. code-block:: bash
-
-    sudo systemctl enable chronyd
-
-3. Check date/time servers
+For general network timekeeping, NTP client software should be installed and configured to synchronize the system clock
+with a reliable time source. To check if the system is synchronized with the NTP server, use the ``chronyc sources`` command.
 
   .. code-block:: bash
 
@@ -304,7 +208,11 @@ Software Development Kit (SDK)
 
 The Software Development Kit is distributed as a TAR file and can be downloaded from the GMTO release server.
 
-The SDK should be installed in a **Global GMT Software Location**, defined by the GMT_GLOBAL environment variable (default value: /opt/gmt). A **Local Working Directory**, defined by the GMT_LOCAL variable, is used as a unique workspace for individual developers. The local working directory typically resides underneath the /home/<username> directory.
+The SDK should be installed in a **Global GMT Software Location**, defined by the GMT_GLOBAL environment variable
+(default value: /opt/gmt).
+
+A **Local Working Directory**, defined by the GMT_LOCAL variable, is used as a unique workspace for individual developers.
+The local working directory typically resides underneath the /home/<username> directory.
 
 1. Download the latest SDK distribution:
 
@@ -312,12 +220,12 @@ The SDK should be installed in a **Global GMT Software Location**, defined by th
 
     wget http://52.52.46.32/srv/gmt/releases/sdk/linux/gmt-sdk.tar.gz
 
-2. Extract the TAR file in the /opt directory, into a new folder for the latest release:
+2. Extract the TAR file in the /opt directory, into a new folder for the latest release (substitute <releasever> with the actual release version):
 
   .. code-block:: bash
 
-    sudo mkdir /opt/gmt_release_1.10.0
-    sudo tar -xzvf gmt-sdk.tar.gz -C /opt/gmt_release_1.10.0
+    sudo mkdir /opt/gmt_release_<releasever>
+    sudo tar -xzvf gmt-sdk.tar.gz -C /opt/gmt_release_<releasever>
 
   where gmt-sdk.tar.gz is the file downloaded in step 1.
 
@@ -333,7 +241,8 @@ The SDK should be installed in a **Global GMT Software Location**, defined by th
 
     mkdir <local_working_dir>
 
-  where ``<local_working_dir>`` is in the current users' home directory, for example, ~/work. The GMT software modules developed by the user are created in this folder.
+  where ``<local_working_dir>`` is in the current users' home directory, for example, ~/work.
+The GMT software modules developed by the user are created in this folder.
 
 5. Add the following lines to your .bash_profile (or .kshrc or .bashrc depending on your preferred shell)
 
@@ -343,7 +252,9 @@ The SDK should be installed in a **Global GMT Software Location**, defined by th
     export GMT_LOCAL=<local_working_dir>
     source $GMT_GLOBAL/bin/gmt_env.sh
 
-  This will ensure that the environment variables are correctly configured when opening a new terminal. Please log out and back in for the changes to take effect. To configure the environment for the current shell, run the commands manually.
+  This will ensure that the environment variables are correctly configured when opening a new terminal.
+Please log out and back in for the changes to take effect.
+To configure the environment for the current shell, run the commands manually.
 
 6. Check the values of the environment variables:
 
@@ -401,7 +312,7 @@ The SDK should be installed in a **Global GMT Software Location**, defined by th
     module.exports =
         ocs_local_bundle:   {scope: "local",  desc: "GMT iSample and HDK bundle"}
 
-  Edit **ocs_local_bundle.coffee** to include the ISample and HDK modules, or other modules that you are working on
+  Edit **ocs_local_bundle.coffee** to include the ISample and HDK modules, or other modules that you are working on, for example:
 
   .. code-block:: bash
 
