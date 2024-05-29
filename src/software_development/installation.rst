@@ -43,6 +43,14 @@ A `minimal` server installation is sufficient for the use of the GMT SDK.
     sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
     setenforce 0
 
+4. Reboot and check settings
+
+.. code-block:: bash
+
+    systemctl status firewalld
+    getenforce
+    sestatus
+
 .. warning::
   Make sure an external firewall protects your server
 
@@ -51,13 +59,15 @@ Real-Time Kernel (Optional)
 ...........................
 
 The real-time kernel is required for real-time tasks, such as EtherCAT communication.
+If needed set up your BIOS for low latency, this will depend on the hardware that you are using.
 The following steps should be taken to install the real-time kernel:
 
 1. Install the Real-Time Kernel
 
   .. code-block:: bash
 
-    KERNEL_RT_VERSION="5.14.0-362.13.1.el9_3" && dnf install -y kernel-rt-${KERNEL_RT_VERSION} kernel-rt-devel-${KERNEL_RT_VERSION}
+    sudo dnf config-manager --set-enabled rt
+    sudo dnf install -y kernel-rt kernel-rt-devel
 
 2. Add users to the **realtime** group, to allow access to the real-time kernel, for example:
 
@@ -76,7 +86,8 @@ recommended for installation:
 
   .. code-block:: bash
 
-    sudo dnf install -y git make cmake ninja-build gcc gcc-c++ gdb clang llvm-toolset lldb elfutils autoconf automake libtool
+    sudo dnf install -y git make cmake gcc gcc-c++ gdb clang llvm-toolset lldb elfutils autoconf automake libtool
+    sudo dnf install -y ninja-build --enablerepo=crb
 
 2. Install Some Testing Tools
 
@@ -88,7 +99,7 @@ recommended for installation:
 
   .. code-block:: bash
 
-    sudo dnf install -y vim tmux screen tig htop rsync wget net-tools pciutils hwloc strace ltrace lsof
+    sudo dnf install -y vim tmux wget rsync wget net-tools pciutils hwloc strace ltrace lsof
 
 Node Installation
 .................
@@ -97,7 +108,7 @@ Node Installation
 
   .. code-block:: bash
 
-    sudo curl -sL https://rpm.nodesource.com/setup_20.x | bash -
+    sudo dnf module enable nodejs:20 -y
 
   .. code-block:: bash
 
@@ -113,7 +124,7 @@ Node Installation
 MongoDB Configuration (for the core services)
 .............................................
 
-1. Add the file ``/etc/yum.repos.d/mongodb-org-6.repo`` with the following content:
+1. Add the file ``/etc/yum.repos.d/mongodb-org-7.repo`` with the following content:
 
   .. code-block:: bash
 
@@ -233,7 +244,7 @@ The local working directory typically resides underneath the /home/<username> di
 
   .. code-block:: bash
 
-    sudo ln -sfn /opt/gmt_release_1.10.0 /opt/gmt
+    sudo ln -sfn /opt/gmt_release_<releasever> /opt/gmt
 
 4. Create a **Local Working Directory**
 
@@ -253,7 +264,7 @@ The GMT software modules developed by the user are created in this folder.
     source $GMT_GLOBAL/bin/gmt_env.sh
 
   This will ensure that the environment variables are correctly configured when opening a new terminal.
-Please log out and back in for the changes to take effect.
+**Please log out and back in for the changes to take effect.**
 To configure the environment for the current shell, run the commands manually.
 
 6. Check the values of the environment variables:
@@ -322,6 +333,7 @@ To configure the environment for the current shell, run the commands manually.
      elements:
          isample_dcs: { active: true, test: false, developer: 'gmto', domain: 'idcs' }
          hdk_dcs:     { active: true, test: false, developer: 'gmto', domain: 'idcs' }
+         hcat_dcs:     { active: true, test: false, developer: 'gmto', domain: 'tdcs' }
 
 11. Build all model files from modules in your ocs_local_bundles definition using webpack. For example:
 
